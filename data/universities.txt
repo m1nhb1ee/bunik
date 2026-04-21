@@ -1,0 +1,87 @@
+Học viện An ninh nhân dân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-an-ninh-nhan-dan-ANH.html
+Học viện Báo chí và Tuyên truyền|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-bao-chi-va-tuyen-truyen-HBT.html
+Học viện Biên phòng|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-bien-phong-BPH.html
+Học viện Cảnh sát nhân dân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-canh-sat-nhan-dan-CSH.html
+Học viện Chính sách và Phát triển|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-chinh-sach-va-phat-trien-HCP.html
+HV Công nghệ Bưu chính Viễn thông|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-cong-nghe-buu-chinh-vien-thong-phia-bac-BVH.html
+Học viện Hậu cần|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-hau-can-HEH.html
+Học viện Khoa học Quân sự|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-khoa-hoc-quan-su-NQH.html
+Học viện Kỹ thuật Mật mã|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ky-thuat-mat-ma-KMA.html
+Học viện Kỹ thuật Quân sự|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ky-thuat-quan-su-KQH.html
+Học viện Ngân hàng|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ngan-hang-NHH.html
+Học viện Ngoại giao|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ngoai-giao-HQT.html
+Học viện Nông nghiệp Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-nong-nghiep-viet-nam-HVN.html
+HV Phòng không - Không quân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-phong-khong-khong-quan-PKH.html
+Học viện Phụ nữ Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-phu-nu-viet-nam-HPN.html
+Học viện Quản lý Giáo dục|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-quan-ly-giao-duc-HVQ.html
+Học viện Quân y|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-quan-y-he-quan-su-phia-bac-YQH.html
+Học viện Tài chính|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-tai-chinh-HTC.html
+HV Thanh thiếu niên Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-thanh-thieu-nien-viet-nam-HTN.html
+Học viện Tòa án|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-toa-an-HTA.html
+ĐH Công nghệ – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi-QHI.html
+ĐH Giáo dục – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-giao-duc-dai-hoc-quoc-gia-ha-noi-QHS.html
+ĐH Khoa học Tự nhiên – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-ha-noi-QHT.html
+ĐH KHXH & Nhân văn – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dai-hoc-quoc-gia-ha-noi-QHX.html
+ĐH Kinh tế – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-te-dai-hoc-quoc-gia-ha-noi-QHE.html
+ĐH Luật – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-luat-dai-hoc-quoc-gia-ha-noi-QHL.html
+ĐH Ngoại ngữ – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-ngoai-ngu-dai-hoc-quoc-gia-ha-noi-QHF.html
+ĐH Y Dược – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/truong-dai-hoc-y-duoc-dai-hoc-quoc-gia-ha-noi-QHY.html
+Trường Quốc tế – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/khoa-quoc-te-dai-hoc-quoc-gia-ha-noi-QHQ.html
+ĐH Bách khoa Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-bach-khoa-ha-noi-BKA.html
+ĐH Kinh tế Quốc dân|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-te-quoc-dan-KHA.html
+ĐH Ngoại thương|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-ngoai-thuong-co-so-phia-bac-NTH.html
+ĐH Thương mại|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thuong-mai-TMU.html
+ĐH Giao thông Vận tải|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-giao-thong-van-tai-ha-noi-GHA.html
+ĐH Công nghiệp Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghiep-ha-noi-DCN.html
+ĐH Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-ha-noi-NHF.html
+ĐH Xây dựng Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-xay-dung-XDA.html
+ĐH Luật Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-luat-ha-noi-LPH.html
+ĐH Y Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-y-ha-noi-YHB.html
+ĐH Dược Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-duoc-ha-noi-DKH.html
+ĐH Điện lực|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-dien-luc-DDL.html
+ĐH Mỏ - Địa chất|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-mo-dia-chat-MDA.html
+ĐH Thủy lợi|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thuy-loi-co-so-1-TLA.html
+ĐH Công nghệ GTVT|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-giao-thong-van-tai-GTA.html
+ĐH Mở Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-mo-ha-noi-MHN.html
+ĐH Sư phạm Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-su-pham-ha-noi-SPH.html
+ĐH Kiến trúc Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kien-truc-ha-noi-KTA.html
+ĐH Văn hóa Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-van-hoa-ha-noi-VHH.html
+ĐH Tài nguyên & Môi trường|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-tai-nguyen-va-moi-truong-ha-noi-DMT.html
+ĐH Nội vụ|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-noi-vu-ha-noi-DNV.html
+ĐH Công đoàn|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-doan-LDA.html
+ĐH Lao động Xã hội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-lao-dong-xa-hoi-co-so-ha-noi-DLX.html
+ĐH Phenikaa|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-phenikaa-PKA.html
+ĐH Thăng Long|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thang-long-DTL.html
+ĐH FPT Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-fpt-ha-noi-FPT.html
+ĐH Kinh tế Kỹ thuật Công nghiệp|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-te-ky-thuat-cong-nghiep-DKK.html
+ĐH Kiểm sát Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kiem-sat-ha-noi-DKS.html
+ĐH Thủ đô Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thu-do-ha-noi-HNM.html
+ĐH Y tế Công cộng|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-y-te-cong-cong-YTC.html
+ĐH Kinh doanh & Công nghệ|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-doanh-va-cong-nghe-ha-noi-DQK.html
+ĐH Công nghiệp Việt Hung|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghiep-viet-hung-VHD.html
+ĐH Công nghiệp Dệt may HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghiep-det-may-ha-noi-CCM.html
+ĐH Công nghệ Đông Á|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-dong-a-DDA.html
+ĐH Thành Đô|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thanh-do-TDD.html
+Trường Sĩ quan Lục quân 1|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-luc-quan-1-dai-hoc-tran-quoc-tuan-LAH.html
+ĐH Phòng cháy chữa cháy|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-phong-chay-chua-chay-he-dan-su-phia-bac-PCH.html
+HV Âm Nhạc Quốc Gia|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-am-nhac-quoc-gia-viet-nam-NVH.html
+HV Chính Trị Công An Nhân Dân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-chinh-tri-cong-an-nhan-dan-HCA.html
+HV Dân Tộc|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-dan-toc-HVD.html
+Trường Sĩ quan Lục quân 2|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-luc-quan-2-dai-hoc-nguyen-hue-LBH.html
+Trường Sĩ quan Phòng Hoá|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-phong-hoa-HGH.html
+Trường Sĩ quan Đặc Công|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-dac-cong-DCH.html
+ĐH CMC|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cmc-CMC.html
+ĐH Hoà Bình|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-hoa-binh-ETU.html
+ĐH Khoa Học và Công Nghệ Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-khoa-hoc-va-cong-nghe-ha-noi-KCN.html
+ĐH Lâm Nghiệp|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-lam-nghiep-LNH.html
+ĐH Lao Động Xã Hội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-lao-dong-xa-hoi-co-so-ha-noi-DLX.html
+ĐH Mỹ thuật Công nghiệp|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-my-thuat-cong-nghiep-MTC.html
+ĐH Mỹ thuật Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-my-thuat-viet-nam-MTH.html
+ĐH Nguyễn Trãi|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-nguyen-trai-NTU.html
+ĐH Phương Đông|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-phuong-dong-DPD.html
+ĐH Sân khấu Điện ảnh HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-san-khau-dien-anh-ha-noi-SKD.html
+ĐH Sư Phạm Nghệ Thuật Trung Ương|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-su-pham-nghe-thuat-trung-uong-GNT.html
+ĐH Sư Phạm Thể Dục Thể Thao HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-su-pham-the-duc-the-thao-ha-noi-TDH.html
+ĐH Tài Chính Ngân Hàng HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-tai-chinh-ngan-hang-ha-noi-FBU.html
+ĐH Đông Đô|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-dong-do-DDU.html
+ĐH Công nghệ và Quản lí hữu nghị|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-va-quan-ly-huu-nghi-DCQ.html
