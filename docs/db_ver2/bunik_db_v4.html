@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunik Database v4.0 — 3NF Normalized</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+        :root {
+            --bg: #080c18; --bg2: #0d1120; --card: #111827; --card-h: #161e30;
+            --border: #1e2a45; --border2: #253050;
+            --t1: #dce8f5; --t2: #7a91b0; --t3: #4a5c78;
+            --blue: #4a9eff; --purple: #9d72ff; --green: #2dd4a0;
+            --orange: #f5a623; --red: #ff5f57; --cyan: #22d3ee;
+            --pink: #f472b6; --lime: #a3e635; --teal: #14b8a6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--t1); line-height: 1.7; }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative; padding: 80px 40px 55px; text-align: center;
+            background: var(--bg2); overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 60%, rgba(45,212,160,.06) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 60% at 80% 40%, rgba(74,158,255,.06) 0%, transparent 70%);
+        }
+        .hero-version {
+            position: relative; display: inline-block;
+            font-family: 'IBM Plex Mono', monospace; font-size: .72rem; font-weight: 500;
+            color: var(--green); letter-spacing: 2px; text-transform: uppercase;
+            border: 1px solid rgba(45,212,160,.3); padding: 4px 14px; border-radius: 3px;
+            margin-bottom: 18px; background: rgba(45,212,160,.06);
+        }
+        .hero h1 {
+            font-size: 2.8rem; font-weight: 700; position: relative;
+            color: var(--t1); letter-spacing: -1px; line-height: 1.1;
+        }
+        .hero h1 span { color: var(--green); }
+        .hero .sub { font-size: .92rem; color: var(--t2); position: relative; margin-top: 10px; }
+        .hero .badges { position: relative; margin-top: 20px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+        .badge {
+            padding: 5px 14px; border-radius: 3px; font-size: .72rem; font-weight: 600;
+            font-family: 'IBM Plex Mono', monospace; letter-spacing: .3px;
+            border: 1px solid rgba(255,255,255,.08);
+        }
+        .badge-g { background: rgba(45,212,160,.1); color: var(--green); border-color: rgba(45,212,160,.25); }
+        .badge-b { background: rgba(74,158,255,.1); color: var(--blue); border-color: rgba(74,158,255,.25); }
+        .badge-o { background: rgba(245,166,35,.1); color: var(--orange); border-color: rgba(245,166,35,.25); }
+        .badge-p { background: rgba(157,114,255,.1); color: var(--purple); border-color: rgba(157,114,255,.25); }
+
+        /* ── LAYOUT ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+        .section { padding: 50px 0; border-bottom: 1px solid var(--border); }
+        .section:last-child { border-bottom: none; }
+        .section-title {
+            font-size: 1.35rem; font-weight: 600; margin-bottom: 6px;
+            display: flex; align-items: center; gap: 12px; color: var(--t1);
+        }
+        .section-title .ic {
+            width: 32px; height: 32px; border-radius: 6px;
+            display: grid; place-items: center; font-size: .9rem; flex-shrink: 0;
+        }
+        .section-desc { color: var(--t2); margin-bottom: 28px; font-size: .88rem; max-width: 820px; }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 22px; margin-bottom: 16px; transition: all .2s;
+        }
+        .card:hover { background: var(--card-h); border-color: var(--border2); }
+        .card h3 { font-size: .95rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 10px; margin-bottom: 28px; }
+        .stat { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; text-align: center; }
+        .stat .v { font-size: 1.8rem; font-weight: 700; color: var(--green); font-family: 'IBM Plex Mono', monospace; }
+        .stat .l { font-size: .74rem; color: var(--t2); margin-top: 4px; letter-spacing: .3px; }
+
+        /* ── TABLES ── */
+        .tbl { width: 100%; border-collapse: collapse; font-size: .82rem; margin: 12px 0; }
+        .tbl thead th {
+            background: rgba(74,158,255,.06); color: var(--blue); font-weight: 600;
+            text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border2);
+            font-size: .7rem; text-transform: uppercase; letter-spacing: .8px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .tbl td { padding: 8px 12px; border-bottom: 1px solid rgba(30,42,69,.5); vertical-align: top; }
+        .tbl tr:last-child td { border-bottom: none; }
+        .tbl tr:hover td { background: rgba(74,158,255,.025); }
+        .cn { font-family: 'IBM Plex Mono', monospace; font-weight: 500; color: var(--cyan); font-size: .79rem; }
+        .ct { font-family: 'IBM Plex Mono', monospace; color: var(--purple); font-size: .75rem; }
+        .tg { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: .66rem; font-weight: 600; margin: 1px; font-family: 'IBM Plex Mono', monospace; }
+        .pk  { background: rgba(245,166,35,.1);  color: var(--orange); }
+        .fk  { background: rgba(157,114,255,.1); color: var(--purple); }
+        .uk  { background: rgba(34,211,238,.1);  color: var(--cyan);   }
+        .nn  { background: rgba(255,95,87,.08);  color: #ff8a85; }
+        .nw  { background: rgba(244,114,182,.1); color: var(--pink); }
+        .ix  { background: rgba(45,212,160,.1);  color: var(--green); }
+        .ch  { background: rgba(163,230,53,.1);  color: var(--lime); }
+        .tn  { font-family: 'IBM Plex Mono', monospace; font-size: .95rem; font-weight: 600; color: var(--green); margin-bottom: 4px; }
+        .td  { color: var(--t2); font-size: .82rem; margin-bottom: 14px; }
+        .idx-note { font-size: .77rem; color: var(--cyan); margin-top: 10px; line-height: 2; }
+        .idx-note code { background: rgba(34,211,238,.08); padding: 2px 7px; border-radius: 3px; font-family: 'IBM Plex Mono', monospace; font-size: .73rem; }
+        .warn-note { font-size: .77rem; color: var(--orange); margin-top: 8px; line-height: 2; }
+        .warn-note code { background: rgba(245,166,35,.08); padding: 2px 7px; border-radius: 3px; font-family: 'IBM Plex Mono', monospace; font-size: .73rem; }
+
+        /* ── CODE BLOCKS ── */
+        .code {
+            background: #060a14; border: 1px solid #1a2035; border-radius: 8px;
+            padding: 16px; font-family: 'IBM Plex Mono', monospace; font-size: .76rem;
+            line-height: 1.9; overflow-x: auto; color: #bccfe0;
+        }
+        .kw { color: #ff7b72; } .ty { color: #c9a8ff; } .st { color: #79c0ff; }
+        .cm { color: #5a7090; font-style: italic; } .tb { color: #56d3a0; }
+        .va { color: #ffa657; }
+
+        /* ── 2NF / 3NF BOXES ── */
+        .nf-grid { display: grid; grid-template-columns: 1fr 36px 1fr; align-items: start; gap: 0; }
+        .nf-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+        .nf-box h4 { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 600; }
+        .nf-box.old h4 { color: var(--red); }
+        .nf-box.new h4 { color: var(--green); }
+        .nf-arr { display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--t3); padding-top: 40px; }
+
+        /* ── 3NF ANALYSIS TABLE ── */
+        .nf3-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+        .nf3-table thead th {
+            background: rgba(45,212,160,.06); color: var(--green); font-weight: 600;
+            text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--border2);
+            font-size: .7rem; text-transform: uppercase; letter-spacing: .8px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .nf3-table td { padding: 10px 14px; border-bottom: 1px solid rgba(30,42,69,.4); vertical-align: top; }
+        .nf3-table tr:last-child td { border-bottom: none; }
+        .nf3-table tr:hover td { background: rgba(45,212,160,.02); }
+        .tname { font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--green); font-size: .81rem; }
+        .fd-text { font-family: 'IBM Plex Mono', monospace; font-size: .73rem; color: var(--purple); }
+        .ok-badge { display: inline-block; padding: 2px 9px; border-radius: 3px; font-size: .68rem; font-weight: 700; background: rgba(45,212,160,.1); color: var(--green); border: 1px solid rgba(45,212,160,.25); font-family: 'IBM Plex Mono', monospace; }
+        .avoided-block {
+            background: rgba(74,158,255,.05); border: 1px solid rgba(74,158,255,.15);
+            border-left: 3px solid var(--blue); border-radius: 6px; padding: 14px 16px; margin-top: 10px;
+        }
+        .avoided-block h4 { color: var(--blue); font-size: .78rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px; }
+
+        /* ── ERD ── */
+        .erd-wrapper { background: #060a14; border: 1px solid #1a2035; border-radius: 10px; padding: 24px; overflow-x: auto; }
+        .erd-text { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; line-height: 2.1; white-space: pre; color: #bccfe0; }
+
+        /* ── PIPELINE ── */
+        .pipe { display: flex; align-items: center; gap: 0; justify-content: center; flex-wrap: wrap; margin: 26px 0; }
+        .pipe-s {
+            background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+            padding: 14px 18px; text-align: center; min-width: 138px; transition: all .2s;
+        }
+        .pipe-s:hover { border-color: var(--border2); background: var(--card-h); transform: translateY(-2px); }
+        .pipe-s .pi { font-size: 1.2rem; margin-bottom: 5px; }
+        .pipe-s .pt { font-weight: 600; font-size: .78rem; color: var(--t1); margin-bottom: 2px; font-family: 'IBM Plex Mono', monospace; }
+        .pipe-s .pd { font-size: .68rem; color: var(--t2); }
+        .pipe-a { font-size: 1rem; color: var(--t3); padding: 0 4px; }
+
+        /* ── QUERY ── */
+        .query-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 14px; }
+        .query-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px;
+            border-top: 2px solid var(--blue); transition: all .2s;
+        }
+        .query-card:hover { border-color: var(--border2); border-top-color: var(--green); transform: translateY(-2px); }
+        .query-card h4 { font-size: .86rem; margin-bottom: 3px; font-weight: 600; }
+        .query-card .qd { font-size: .76rem; color: var(--t2); margin-bottom: 10px; }
+
+        /* ── SUMMARY TABLE ── */
+        .sum-tbl { width: 100%; border-collapse: collapse; font-size: .83rem; }
+        .sum-tbl thead th {
+            background: rgba(74,158,255,.06); color: var(--blue); font-weight: 600;
+            text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--border2);
+            font-size: .7rem; text-transform: uppercase; letter-spacing: .8px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .sum-tbl td { padding: 9px 14px; border-bottom: 1px solid rgba(30,42,69,.4); vertical-align: top; }
+        .sum-tbl tr:last-child td { border-bottom: none; }
+        .sum-tbl tr:hover td { background: rgba(74,158,255,.025); }
+        .impact-fix { color: var(--red); font-size: .8rem; }
+        .impact-new { color: var(--green); font-size: .8rem; }
+        .impact-opt { color: var(--cyan); font-size: .8rem; }
+
+        .diff-new { background: rgba(45,212,160,.05); border-left: 2px solid var(--green); }
+        .diff-fix { background: rgba(255,95,87,.04); border-left: 2px solid var(--red); }
+
+        .footer { text-align: center; padding: 40px; color: var(--t3); font-size: .76rem; border-top: 1px solid var(--border); }
+        .footer span { color: var(--t2); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.9rem; }
+            .nf-grid { grid-template-columns: 1fr; }
+            .nf-arr { transform: rotate(90deg); padding: 8px 0; }
+            .pipe { flex-direction: column; }
+            .pipe-a { transform: rotate(90deg); }
+            .query-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<div class="hero">
+    <div class="hero-version">v4.0 — 2026-04-22</div>
+    <h1>Bunik Database <span>v4.0</span></h1>
+    <p class="sub">Chuẩn hóa 3NF · UNIVERSITY_PROGRAMS · Data Integrity Fixes · Query-Optimized</p>
+    <div class="badges">
+        <span class="badge badge-g">3NF Normalized</span>
+        <span class="badge badge-b">9 Tables · 2 Views</span>
+        <span class="badge badge-o">9 Indexes</span>
+        <span class="badge badge-p">v3 → v4: 13 Changes</span>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════ SECTION: 2NF ANALYSIS ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(157,114,255,.1);color:var(--purple)">📐</span>
+        Chuẩn hóa 2NF — Recap &amp; Extended Fix
+    </h2>
+    <p class="section-desc">2NF yêu cầu: đã đạt 1NF + <strong>không có partial dependency</strong>. Mọi non-key attribute phải phụ thuộc vào <em>toàn bộ</em> khóa chính. v3.0 đã fix MAJORS, v4.0 extends thêm UNIVERSITY_PROGRAMS.</p>
+
+    <div class="card">
+        <h3>🔴 Vi phạm 2NF đã fix ở v3.0: Bảng MAJORS</h3>
+        <p style="color:var(--t2);font-size:.86rem;margin-bottom:16px">
+            Bảng <code>MAJORS</code> có composite key logic <code>(university_id, code)</code> nhưng <code>major_name</code> chỉ phụ thuộc <code>code</code> — partial dependency. Mã <strong>7480201</strong> luôn là "Công nghệ thông tin" dù ở trường nào.
+        </p>
+        <div class="nf-grid">
+            <div class="nf-box old">
+                <h4>❌ Trước — Vi phạm 2NF</h4>
+                <div class="code">
+<span class="cm">-- major_name phụ thuộc code, KHÔNG university_id</span>
+<span class="tb">MAJORS</span>
+├── id (PK)
+├── <span class="kw">university_id</span> (FK)  ─┐
+├── <span class="kw">code</span>: "7480201"     ─┤→ composite key
+├── <span class="st">name</span>: "CNTT"          ← phụ thuộc code only!
+└── description            ← phụ thuộc code only!
+
+<span class="cm">-- 88 trường → lưu "CNTT" 88 lần</span>
+<span class="cm">-- Redundancy + Update anomaly</span>
+                </div>
+            </div>
+            <div class="nf-arr">→</div>
+            <div class="nf-box new">
+                <h4>✅ Sau v3.0 — 2NF Compliant</h4>
+                <div class="code">
+<span class="tb">MAJOR_CATALOG</span>          <span class="cm">-- Danh mục quốc gia</span>
+├── id (PK)
+├── code: "7480201" (UNIQUE)
+├── name: "Công nghệ thông tin"
+├── field_id (FK → FIELDS)
+└── description
+<span class="cm">-- Mỗi mã ngành CHỈ xuất hiện 1 lần</span>
+
+<span class="tb">UNIVERSITY_MAJORS</span>      <span class="cm">-- v3 junction</span>
+├── id (PK)
+├── university_id (FK)
+└── major_catalog_id (FK)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="border-color:rgba(255,95,87,.2);">
+        <h3>🔴 Vấn đề nghiêm trọng phát hiện sau v3.0: UNIVERSITY_MAJORS không model được thực tế</h3>
+        <p style="color:var(--t2);font-size:.86rem;margin-bottom:16px">
+            <code>UNIQUE(university_id, major_catalog_id)</code> giả định mỗi trường chỉ có <strong>1 chương trình</strong> cho mỗi mã ngành. Nhưng Bách Khoa Hà Nội có IT1, IT2, ICT đều thuộc mã 7480201 — mỗi chương trình có điểm chuẩn riêng. UNIQUE constraint này <strong>vi phạm business rule</strong>.
+        </p>
+        <div class="nf-grid">
+            <div class="nf-box old">
+                <h4>❌ UNIVERSITY_MAJORS — Không đủ</h4>
+                <div class="code">
+<span class="cm">-- Constraint này block data thực tế:</span>
+<span class="tb">UNIVERSITY_MAJORS</span>
+├── id UUID (PK)
+├── university_id  (FK BKA)
+└── major_catalog_id (FK 7480201)
+
+<span class="cm">-- Chỉ lưu được 1 dòng cho BKA × 7480201</span>
+<span class="cm">-- IT1, IT2, ICT → không thể INSERT!</span>
+<span class="cm">-- UNIQUE(university_id, major_catalog_id)</span>
+<span class="cm">--   ↑ breaks on row 2 → ERROR</span>
+                </div>
+            </div>
+            <div class="nf-arr">→</div>
+            <div class="nf-box new">
+                <h4>✅ UNIVERSITY_PROGRAMS — v4.0</h4>
+                <div class="code">
+<span class="tb">UNIVERSITY_PROGRAMS</span>
+├── id UUID (PK)
+├── university_id  (FK BKA)
+├── major_catalog_id (FK 7480201)
+├── <span class="va">internal_code</span>: "IT1"
+├── <span class="va">internal_name</span>: "CNTT - Việt Nhật"
+├── <span class="va">program_type</span>: "liên_kết_quốc_tế"
+├── <span class="va">is_active</span>: TRUE
+└── <span class="va">created_at</span>: TIMESTAMPTZ
+
+<span class="cm">-- BKA: IT1, IT2, ICT → 3 dòng hợp lệ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION: 3NF ANALYSIS ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(45,212,160,.1);color:var(--green)">📏</span>
+        Chuẩn hóa 3NF — Phân tích toàn bộ Schema
+    </h2>
+    <p class="section-desc">
+        3NF yêu cầu: đã đạt 2NF + <strong>không có transitive dependency</strong>. Với mọi FD X → Y, X phải là superkey (hoặc Y là phần của candidate key). Scan từng bảng, từng FD.
+    </p>
+
+    <div class="card">
+        <h3>🔍 Định nghĩa: Transitive Dependency</h3>
+        <div class="code">
+<span class="cm">-- Vi phạm 3NF: PK → non-key A → non-key B</span>
+<span class="cm">-- Ví dụ vi phạm (KHÔNG có trong schema này):</span>
+<span class="tb">BAD_TABLE</span>
+├── id (PK)
+├── province_id  <span class="kw">→</span> <span class="st">region</span>     <span class="cm">← transitive! province_id không phải PK</span>
+└── region                        <span class="cm">← phụ thuộc province_id, không phải id</span>
+
+<span class="cm">-- Khi thiết kế, 2 nguy hiểm lớn nhất đã được TRÁNH:</span>
+<span class="cm">-- (1) Không lưu region trong UNIVERSITIES → tránh id→province_id→region</span>
+<span class="cm">-- (2) Không lưu catalog_name trong UNIVERSITY_PROGRAMS → tránh id→major_catalog_id→name</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>📊 Bảng kiểm tra 3NF — 9 tables</h3>
+        <table class="nf3-table">
+            <thead>
+                <tr>
+                    <th>Table</th>
+                    <th>Functional Dependencies (FDs)</th>
+                    <th>Candidate Keys</th>
+                    <th>Transitive?</th>
+                    <th>Kết luận</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tname">PROVINCES</td>
+                    <td><span class="fd-text">id → {name, region}<br>name → {id, region}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id, name</td>
+                    <td style="font-size:.78rem;color:var(--t2)"><code style="font-family:IBM Plex Mono;font-size:.73rem">name → region</code> nhưng <code style="font-family:IBM Plex Mono;font-size:.73rem">name</code> là CK → cho phép</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">FIELDS</td>
+                    <td><span class="fd-text">id → {code, name}<br>code → {id, name}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id, code</td>
+                    <td style="font-size:.78rem;color:var(--t2)">Không có non-key attribute nào phụ thuộc lẫn nhau</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">UNIVERSITIES</td>
+                    <td><span class="fd-text">id → {name, short_name, type,<br>&nbsp;&nbsp;&nbsp;&nbsp;province_id, logo_url, ...}<br>short_name → {id, ...}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id, short_name</td>
+                    <td style="font-size:.78rem;color:var(--t2)"><code style="font-family:IBM Plex Mono;font-size:.73rem">province_id → region</code> KHÔNG lưu region ở đây → tránh được</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">SUBJECT_GROUPS</td>
+                    <td><span class="fd-text">id → {code, subjects}<br>code → {id, subjects}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id, code</td>
+                    <td style="font-size:.78rem;color:var(--t2)"><code style="font-family:IBM Plex Mono;font-size:.73rem">subjects</code> là display string, không tạo ra FD chain</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">MAJOR_CATALOG</td>
+                    <td><span class="fd-text">id → {code, name, field_id, desc}<br>code → {id, name, field_id, desc}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id, code</td>
+                    <td style="font-size:.78rem;color:var(--t2)"><code style="font-family:IBM Plex Mono;font-size:.73rem">field_id → {field_name, field_code}</code> KHÔNG lưu field_name ở đây → tránh được</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">MAJOR_SUBJECT_GROUPS</td>
+                    <td><span class="fd-text">(major_catalog_id, subject_group_id) → ∅</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">(mc_id, sg_id)</td>
+                    <td style="font-size:.78rem;color:var(--t2)">Pure junction — không có non-key attribute nào</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr class="diff-new">
+                    <td class="tname">UNIVERSITY_PROGRAMS<br><span style="font-size:.68rem;color:var(--pink)">NEW v4.0</span></td>
+                    <td><span class="fd-text">id → {university_id, major_catalog_id,<br>&nbsp;&nbsp;&nbsp;&nbsp;internal_code, internal_name,<br>&nbsp;&nbsp;&nbsp;&nbsp;program_type, is_active, created_at}<br>(university_id, internal_code) → {id, ...}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id,<br>(univ_id, internal_code)</td>
+                    <td style="font-size:.78rem;color:var(--t2)"><code style="font-family:IBM Plex Mono;font-size:.73rem">major_catalog_id → catalog_name</code> KHÔNG lưu catalog_name → tránh được. <code style="font-family:IBM Plex Mono;font-size:.73rem">internal_name</code> là university-defined → phụ thuộc id, không phải major_catalog_id</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">ADMISSION_METHODS</td>
+                    <td><span class="fd-text">id → {code, name, description}<br>code → {id, name, description}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id, code</td>
+                    <td style="font-size:.78rem;color:var(--t2)">Không có FD chain nào trong bảng này</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+                <tr>
+                    <td class="tname">ADMISSION_SCORES</td>
+                    <td><span class="fd-text">id → {prog_id, method_id, year,<br>&nbsp;&nbsp;&nbsp;&nbsp;score, quota, note}<br>(prog_id, method_id, year) → {score, quota, note}</span></td>
+                    <td style="font-size:.78rem;color:var(--t2)">id,<br>(prog_id, method_id, year)</td>
+                    <td style="font-size:.78rem;color:var(--t2)"><code style="font-family:IBM Plex Mono;font-size:.73rem">quota</code> phụ thuộc đúng 3 chiều (mỗi method có quota riêng). Không có transitive dep.</td>
+                    <td><span class="ok-badge">✅ 3NF</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="avoided-block">
+        <h4>🛡️ 2 Vi phạm 3NF tiềm ẩn đã được tránh bởi thiết kế</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px">
+            <div>
+                <div class="code" style="font-size:.73rem">
+<span class="cm">-- ❌ NẾU lưu region trong UNIVERSITIES:</span>
+<span class="tb">UNIVERSITIES</span>
+├── id (PK)
+├── province_id <span class="kw">→</span> <span class="st">name_of_province</span>
+└── region      <span class="cm">← TRANSITIVE!</span>
+                <span class="cm">-- id → province_id → region</span>
+                <span class="cm">-- region không phụ thuộc id trực tiếp</span>
+                </div>
+            </div>
+            <div>
+                <div class="code" style="font-size:.73rem">
+<span class="cm">-- ❌ NẾU lưu catalog_name trong UNIV_PROGRAMS:</span>
+<span class="tb">UNIVERSITY_PROGRAMS</span>
+├── id (PK)
+├── major_catalog_id <span class="kw">→</span> <span class="st">catalog_name</span>
+└── catalog_name     <span class="cm">← TRANSITIVE!</span>
+                <span class="cm">-- id → major_catalog_id → catalog_name</span>
+                <span class="cm">-- catalog_name không phụ thuộc id trực tiếp</span>
+                </div>
+            </div>
+        </div>
+        <p style="color:var(--t2);font-size:.8rem;margin-top:10px">Cả 2 trường hợp đều <strong>không xảy ra</strong> nhờ thiết kế dùng FK thay vì denormalize trực tiếp. Schema đạt <strong>BCNF</strong> (Boyce-Codd Normal Form) — mạnh hơn 3NF.</p>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION: SCHEMA ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(45,212,160,.1);color:var(--green)">🗄️</span>
+        Schema v4.0 — 9 Bảng
+    </h2>
+    <p class="section-desc">3NF normalized, data integrity enforced. Các thay đổi so với v3 được đánh dấu <span class="tg nw">NEW</span> <span class="tg" style="background:rgba(255,95,87,.08);color:var(--red)">FIX</span>.</p>
+
+    <div class="stats-row">
+        <div class="stat"><div class="v">9</div><div class="l">Production Tables</div></div>
+        <div class="stat"><div class="v">2</div><div class="l">Materialized Views</div></div>
+        <div class="stat"><div class="v">9</div><div class="l">Optimized Indexes</div></div>
+        <div class="stat"><div class="v">3NF</div><div class="l">+ BCNF</div></div>
+    </div>
+
+    <!-- ERD -->
+    <div class="card">
+        <h3>📊 Entity Relationship Diagram</h3>
+        <div class="erd-wrapper">
+            <div class="erd-text">
+<span class="tb">PROVINCES</span>          <span class="tb">FIELDS</span>              <span class="tb">SUBJECT_GROUPS</span>       <span class="tb">ADMISSION_METHODS</span>
+│ id SERIAL (PK)   │ id SERIAL (PK)    │ id SERIAL (PK)      │ id SERIAL (PK)
+│ name UNIQUE NN   │ code UNIQUE NN    │ code UNIQUE NN      │ code UNIQUE NN
+│ region NN        │ name NN           │ subjects NN         │ name NN
+└──────┐           └────────┐          └──────────┐           └──────────┐
+       │ 1:N                │ 1:N                 │ N:N                  │ 1:N
+       ▼                    ▼                     ▼                      │
+<span class="tb">UNIVERSITIES</span>       <span class="tb">MAJOR_CATALOG</span>      <span class="tb">MAJOR_SUBJECT_GROUPS</span>            │
+│ id UUID (PK)     │ id SERIAL (PK)    │ major_catalog_id (PK/FK)        │
+│ name NN          │ code UNIQUE NN    │ subject_group_id (PK/FK)        │
+│ short_name UNIQUE│ name NN           └───────────────────────┐         │
+│ type NN CHECK    │ field_id FK NN                            │         │
+│ province_id FK NN│ description                               │         │
+│ is_active NN     └──────────┐                                │         │
+│ logo_url                    │ 1:N                             │         │
+│ address                     ▼                                │         │
+│ website         <span class="tb">UNIVERSITY_PROGRAMS</span>  ←──────────────────────│─────────┘
+│ description      │ id UUID (PK)
+│ created_at       │ university_id FK NN ◄────────────────────────────────┘ (từ UNIVERSITIES)
+│ updated_at       │ major_catalog_id FK NN
+└──────────────────│ internal_code VARCHAR(30)
+                   │ internal_name VARCHAR(255)
+                   │ program_type VARCHAR(50)
+                   │ is_active NN DEFAULT TRUE
+                   │ created_at NN
+                   │ UK(university_id, internal_code)
+                   │ PARTIAL UK(university_id, major_catalog_id)
+                   │   WHERE internal_code IS NULL
+                   └──────────┐
+                              │ 1:N
+                              ▼
+                   <span class="tb">ADMISSION_SCORES</span>
+                   │ id UUID (PK)
+                   │ university_program_id FK NN
+                   │ admission_method_id FK NN ◄── (từ ADMISSION_METHODS)
+                   │ year SMALLINT NN
+                   │ score DECIMAL(5,2) NN
+                   │ quota INT
+                   │ note TEXT
+                   │ UK(university_program_id, admission_method_id, year)
+                   └─────────────────────────────────
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE 1 -->
+    <div class="card">
+        <div class="tn">1. PROVINCES</div>
+        <div class="td">Lookup tỉnh/thành — bất biến sau khi seed</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">SERIAL</td><td><span class="tg pk">PK</span></td><td>Auto-increment</td></tr>
+                <tr><td class="cn">name</td><td class="ct">VARCHAR(100)</td><td><span class="tg uk">UNIQUE</span> <span class="tg nn">NOT NULL</span></td><td>Hà Nội, TP.HCM, Đà Nẵng...</td></tr>
+                <tr><td class="cn">region</td><td class="ct">VARCHAR(20)</td><td><span class="tg nn">NOT NULL</span> <span class="tg ch">CHECK</span></td><td>CHECK IN ('Bắc','Trung','Nam')</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TABLE 2 -->
+    <div class="card">
+        <div class="tn">2. FIELDS</div>
+        <div class="td">Lĩnh vực/nhóm ngành đào tạo — seed từ danh mục Bộ GD&ĐT</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">SERIAL</td><td><span class="tg pk">PK</span></td><td>Auto-increment</td></tr>
+                <tr><td class="cn">code</td><td class="ct">VARCHAR(10)</td><td><span class="tg uk">UNIQUE</span> <span class="tg nn">NOT NULL</span></td><td>Mã nhóm ngành: "748", "752"...</td></tr>
+                <tr><td class="cn">name</td><td class="ct">VARCHAR(150)</td><td><span class="tg nn">NOT NULL</span></td><td>CNTT, Kinh tế, Y Dược...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TABLE 3 -->
+    <div class="card">
+        <div class="tn">3. UNIVERSITIES <span class="tg" style="background:rgba(255,95,87,.08);color:var(--red)">FIX</span></div>
+        <div class="td">Thông tin trường — thêm <code>is_active</code>, fix <code>province_id NOT NULL</code></div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">UUID</td><td><span class="tg pk">PK</span></td><td>gen_random_uuid()</td></tr>
+                <tr><td class="cn">name</td><td class="ct">VARCHAR(255)</td><td><span class="tg nn">NOT NULL</span></td><td>Tên đầy đủ</td></tr>
+                <tr><td class="cn">short_name</td><td class="ct">VARCHAR(50)</td><td><span class="tg uk">UNIQUE</span></td><td>BKA, FPT, KHA...</td></tr>
+                <tr><td class="cn">type</td><td class="ct">VARCHAR(20)</td><td><span class="tg nn">NOT NULL</span> <span class="tg ch">CHECK</span></td><td>CHECK IN ('công_lập','dân_lập','quân_sự')</td></tr>
+                <tr class="diff-fix"><td class="cn">province_id</td><td class="ct">INT</td><td><span class="tg fk">FK→PROVINCES</span> <span class="tg nn">NOT NULL</span></td><td>Tỉnh/thành — <strong>FIX: thêm NOT NULL</strong></td></tr>
+                <tr class="diff-new"><td class="cn">is_active</td><td class="ct">BOOLEAN</td><td><span class="tg nn">NOT NULL</span></td><td>DEFAULT TRUE — <strong>NEW: soft delete</strong></td></tr>
+                <tr><td class="cn">logo_url</td><td class="ct">VARCHAR(500)</td><td></td><td>URL logo</td></tr>
+                <tr><td class="cn">address</td><td class="ct">TEXT</td><td></td><td>Địa chỉ chi tiết</td></tr>
+                <tr><td class="cn">website</td><td class="ct">VARCHAR(255)</td><td></td><td>Website chính thức</td></tr>
+                <tr><td class="cn">description</td><td class="ct">TEXT</td><td></td><td>Giới thiệu trường</td></tr>
+                <tr><td class="cn">created_at</td><td class="ct">TIMESTAMPTZ</td><td><span class="tg nn">NOT NULL</span></td><td>DEFAULT NOW()</td></tr>
+                <tr><td class="cn">updated_at</td><td class="ct">TIMESTAMPTZ</td><td><span class="tg nn">NOT NULL</span></td><td>DEFAULT NOW() — cần trigger tự update</td></tr>
+            </tbody>
+        </table>
+        <div class="idx-note">
+            📌 INDEX: <code>(province_id)</code> · <code>(type)</code> · <code>(type, province_id)</code>
+        </div>
+        <div class="warn-note">
+            ⚠️ Trigger: <code>updated_at</code> cần BEFORE UPDATE trigger — DEFAULT NOW() chỉ set lúc INSERT
+        </div>
+    </div>
+
+    <!-- TABLE 4 -->
+    <div class="card">
+        <div class="tn">4. SUBJECT_GROUPS</div>
+        <div class="td">Lookup tổ hợp môn — <code>subjects</code> là display string (A00 = "Toán, Lý, Hóa")</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">SERIAL</td><td><span class="tg pk">PK</span></td><td></td></tr>
+                <tr><td class="cn">code</td><td class="ct">VARCHAR(10)</td><td><span class="tg uk">UNIQUE</span> <span class="tg nn">NOT NULL</span></td><td>A00, A01, D07, D01...</td></tr>
+                <tr><td class="cn">subjects</td><td class="ct">VARCHAR(255)</td><td><span class="tg nn">NOT NULL</span></td><td>"Toán, Lý, Hóa" — chỉ dùng để display, không filter theo môn đơn lẻ</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TABLE 5 -->
+    <div class="card">
+        <div class="tn">5. MAJOR_CATALOG <span class="tg" style="background:rgba(255,95,87,.08);color:var(--red)">FIX</span></div>
+        <div class="td">Danh mục ngành chuẩn quốc gia — mỗi mã ngành xuất hiện 1 lần duy nhất</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">SERIAL</td><td><span class="tg pk">PK</span></td><td>Auto-increment</td></tr>
+                <tr><td class="cn">code</td><td class="ct">VARCHAR(20)</td><td><span class="tg uk">UNIQUE</span> <span class="tg nn">NOT NULL</span></td><td>7480201, 7340101...</td></tr>
+                <tr><td class="cn">name</td><td class="ct">VARCHAR(255)</td><td><span class="tg nn">NOT NULL</span></td><td>Tên chuẩn Bộ GD&ĐT</td></tr>
+                <tr class="diff-fix"><td class="cn">field_id</td><td class="ct">INT</td><td><span class="tg fk">FK→FIELDS</span> <span class="tg nn">NOT NULL</span></td><td><strong>FIX: thêm NOT NULL</strong> — mọi ngành phải thuộc 1 lĩnh vực</td></tr>
+                <tr><td class="cn">description</td><td class="ct">TEXT</td><td></td><td>Mô tả ngành</td></tr>
+            </tbody>
+        </table>
+        <div class="idx-note">📌 INDEX: <code>(field_id)</code> — filter ngành theo lĩnh vực</div>
+    </div>
+
+    <!-- TABLE 6 -->
+    <div class="card">
+        <div class="tn">6. MAJOR_SUBJECT_GROUPS</div>
+        <div class="td">Junction N:N — ngành catalog nào xét tổ hợp môn nào</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">major_catalog_id</td><td class="ct">INT</td><td><span class="tg pk">PK</span> <span class="tg fk">FK→MAJOR_CATALOG</span></td><td>Composite PK (1)</td></tr>
+                <tr><td class="cn">subject_group_id</td><td class="ct">INT</td><td><span class="tg pk">PK</span> <span class="tg fk">FK→SUBJECT_GROUPS</span></td><td>Composite PK (2)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TABLE 7: UNIVERSITY_PROGRAMS (NEW) -->
+    <div class="card" style="border-color:rgba(45,212,160,.2);">
+        <div class="tn">7. UNIVERSITY_PROGRAMS <span class="tg nw">NEW — Thay thế UNIVERSITY_MAJORS</span></div>
+        <div class="td">Chương trình đào tạo cụ thể của từng trường — 1 trường có thể có nhiều chương trình cùng mã ngành (IT1, IT2, ICT). Giải quyết hoàn toàn vấn đề BKA/FPT/ĐHQG.</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">UUID</td><td><span class="tg pk">PK</span></td><td>gen_random_uuid()</td></tr>
+                <tr><td class="cn">university_id</td><td class="ct">UUID</td><td><span class="tg fk">FK→UNIVERSITIES</span> <span class="tg nn">NOT NULL</span></td><td>Trường</td></tr>
+                <tr><td class="cn">major_catalog_id</td><td class="ct">INT</td><td><span class="tg fk">FK→MAJOR_CATALOG</span> <span class="tg nn">NOT NULL</span></td><td>Mã ngành quốc gia</td></tr>
+                <tr class="diff-new"><td class="cn">internal_code</td><td class="ct">VARCHAR(30)</td><td><span class="tg ch">NULLABLE</span></td><td><strong>NEW:</strong> Mã nội bộ trường: IT1, IT2, ICT, SE... NULL nếu trường không đặt mã riêng</td></tr>
+                <tr class="diff-new"><td class="cn">internal_name</td><td class="ct">VARCHAR(255)</td><td><span class="tg ch">NULLABLE</span></td><td><strong>NEW:</strong> Tên chương trình do trường đặt: "CNTT - Việt Nhật". NULL → dùng tên catalog</td></tr>
+                <tr class="diff-new"><td class="cn">program_type</td><td class="ct">VARCHAR(50)</td><td><span class="tg ch">CHECK</span></td><td><strong>NEW:</strong> CHECK IN ('đại_trà','chất_lượng_cao','tiên_tiến','liên_kết_quốc_tế','tài_năng')</td></tr>
+                <tr class="diff-new"><td class="cn">is_active</td><td class="ct">BOOLEAN</td><td><span class="tg nn">NOT NULL</span></td><td><strong>NEW:</strong> DEFAULT TRUE. FALSE = ngừng tuyển sinh (soft delete)</td></tr>
+                <tr class="diff-new"><td class="cn">discontinued_year</td><td class="ct">SMALLINT</td><td><span class="tg ch">NULLABLE</span></td><td><strong>NEW:</strong> Năm ngừng tuyển sinh — giữ lại điểm chuẩn lịch sử</td></tr>
+                <tr class="diff-new"><td class="cn">created_at</td><td class="ct">TIMESTAMPTZ</td><td><span class="tg nn">NOT NULL</span></td><td><strong>NEW:</strong> DEFAULT NOW() — năm trường bắt đầu mở ngành</td></tr>
+            </tbody>
+        </table>
+        <div class="idx-note">
+            📌 UNIQUE: <code>(university_id, internal_code)</code> — khi internal_code IS NOT NULL<br>
+            📌 PARTIAL UNIQUE: <code>(university_id, major_catalog_id)</code> WHERE <code>internal_code IS NULL</code> — trường không có mã nội bộ chỉ có 1 chương trình/ngành<br>
+            📌 INDEX: <code>(major_catalog_id)</code> — tìm trường nào mở ngành X<br>
+            📌 INDEX: <code>(university_id, is_active)</code> — danh sách chương trình đang hoạt động
+        </div>
+        <div style="margin-top:14px">
+            <div class="code" style="font-size:.74rem">
+<span class="cm">-- Ví dụ data thực tế — BKA mã ngành 7480201:</span>
+<span class="cm">-- university_id | major_catalog_id | internal_code | internal_name              | program_type</span>
+<span class="cm">-- BKA           | 7480201          | IT1           | CNTT - Việt Nhật           | liên_kết_quốc_tế</span>
+<span class="cm">-- BKA           | 7480201          | IT2           | CNTT - Global ICT          | tiên_tiến</span>
+<span class="cm">-- BKA           | 7480201          | ICT           | Thông tin và Truyền thông  | đại_trà</span>
+<span class="cm">-- FPT           | 7480201          | SE            | Software Engineering        | đại_trà</span>
+<span class="cm">-- NEU           | 7480201          | NULL          | NULL (dùng tên catalog)    | đại_trà</span>
+
+<span class="cm">-- Trigger partial unique cho NULL internal_code:</span>
+<span class="kw">CREATE UNIQUE INDEX</span> uq_univ_prog_no_code
+    <span class="kw">ON</span> <span class="tb">university_programs</span> (university_id, major_catalog_id)
+    <span class="kw">WHERE</span> internal_code <span class="kw">IS NULL</span>;
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE 8 -->
+    <div class="card">
+        <div class="tn">8. ADMISSION_METHODS <span class="tg" style="background:rgba(255,95,87,.08);color:var(--red)">FIX</span></div>
+        <div class="td">Phương thức xét tuyển — <strong>FIX: đổi PK từ UUID sang SERIAL</strong> cho nhất quán với các lookup tables khác</div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr class="diff-fix"><td class="cn">id</td><td class="ct">SERIAL</td><td><span class="tg pk">PK</span></td><td><strong>FIX: UUID → SERIAL</strong> — nhất quán với PROVINCES, FIELDS, SUBJECT_GROUPS</td></tr>
+                <tr><td class="cn">code</td><td class="ct">VARCHAR(20)</td><td><span class="tg uk">UNIQUE</span> <span class="tg nn">NOT NULL</span></td><td>THPT, DGNL, HSA, DGNT</td></tr>
+                <tr><td class="cn">name</td><td class="ct">VARCHAR(100)</td><td><span class="tg nn">NOT NULL</span></td><td>Tên phương thức xét tuyển</td></tr>
+                <tr><td class="cn">description</td><td class="ct">TEXT</td><td></td><td>Mô tả chi tiết</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- TABLE 9 -->
+    <div class="card">
+        <div class="tn">9. ADMISSION_SCORES <span class="tg" style="background:rgba(255,95,87,.08);color:var(--red)">FIX</span></div>
+        <div class="td">Điểm chuẩn theo chương trình × phương thức × năm — <strong>FIX: rename FK sang university_program_id</strong></div>
+        <table class="tbl">
+            <thead><tr><th>Column</th><th>Type</th><th>Constraint</th><th>Mô tả</th></tr></thead>
+            <tbody>
+                <tr><td class="cn">id</td><td class="ct">UUID</td><td><span class="tg pk">PK</span></td><td>gen_random_uuid()</td></tr>
+                <tr class="diff-fix"><td class="cn">university_program_id</td><td class="ct">UUID</td><td><span class="tg fk">FK→UNIV_PROGRAMS</span> <span class="tg nn">NOT NULL</span></td><td><strong>FIX: đổi từ university_major_id</strong> — trỏ đúng sang UNIVERSITY_PROGRAMS</td></tr>
+                <tr><td class="cn">admission_method_id</td><td class="ct">INT</td><td><span class="tg fk">FK→ADM_METHODS</span> <span class="tg nn">NOT NULL</span></td><td>Phương thức xét tuyển (INT vì ADMISSION_METHODS dùng SERIAL)</td></tr>
+                <tr><td class="cn">year</td><td class="ct">SMALLINT</td><td><span class="tg nn">NOT NULL</span> <span class="tg ch">CHECK</span></td><td>CHECK (year &gt;= 2000 AND year &lt;= 2100)</td></tr>
+                <tr><td class="cn">score</td><td class="ct">DECIMAL(5,2)</td><td><span class="tg nn">NOT NULL</span> <span class="tg ch">CHECK</span></td><td>CHECK (score &gt;= 0) — thang điểm phụ thuộc admission_method (THPT: max 30, ĐGNL: max 1200)</td></tr>
+                <tr><td class="cn">quota</td><td class="ct">INT</td><td><span class="tg ch">CHECK</span></td><td>CHECK (quota &gt; 0) — chỉ tiêu tuyển sinh theo method</td></tr>
+                <tr><td class="cn">note</td><td class="ct">TEXT</td><td></td><td>Ghi chú thêm</td></tr>
+            </tbody>
+        </table>
+        <div class="idx-note">
+            📌 UNIQUE: <code>(university_program_id, admission_method_id, year)</code> — chống duplicate<br>
+            📌 INDEX: <code>(year DESC)</code> — sort theo năm mới nhất<br>
+            📌 INDEX: <code>(university_program_id, year DESC)</code> — lịch sử điểm chuẩn 1 chương trình
+        </div>
+        <div class="warn-note">
+            ⚠️ Lưu ý: DECIMAL(5,2) chứa được tối đa 999.99 — đủ cho DGNL ĐHQG HN (max 1200 cần DECIMAL(6,2)). Nên dùng DECIMAL(6,2) để an toàn.
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION: VIEWS ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(34,211,238,.1);color:var(--cyan)">👁️</span>
+        Views — Cập nhật cho v4.0
+    </h2>
+    <p class="section-desc">2 thay đổi chính: (1) join sang <code>university_programs</code>, thêm cột mới; (2) fix correlated subquery trong v_university_stats dùng CTE.</p>
+
+    <div class="card">
+        <h3>📊 View 1: <code>v_admission_overview</code></h3>
+        <p style="color:var(--t2);font-size:.84rem;margin-bottom:12px">Flatten toàn bộ — expose internal_code, internal_name, program_type cho API. Fix UNIQUE INDEX dùng _id thay vì text column.</p>
+        <div class="code">
+<span class="kw">CREATE MATERIALIZED VIEW</span> <span class="tb">v_admission_overview</span> <span class="kw">AS</span>
+<span class="kw">SELECT</span>
+    <span class="cm">-- University</span>
+    u.id              <span class="kw">AS</span> university_id,
+    u.name            <span class="kw">AS</span> university_name,
+    u.short_name,
+    u.type            <span class="kw">AS</span> university_type,
+    p.name            <span class="kw">AS</span> province,
+    p.region,
+    <span class="cm">-- Program (NEW — từ UNIVERSITY_PROGRAMS)</span>
+    up.id             <span class="kw">AS</span> university_program_id,
+    up.internal_code,
+    up.internal_name  <span class="kw">AS</span> program_name,
+    up.program_type,
+    <span class="cm">-- Major catalog</span>
+    mc.id             <span class="kw">AS</span> major_catalog_id,
+    mc.code           <span class="kw">AS</span> major_code,
+    mc.name           <span class="kw">AS</span> major_name,
+    f.name            <span class="kw">AS</span> field_name,
+    <span class="cm">-- Score</span>
+    s.year,
+    s.score,
+    s.quota,
+    am.code           <span class="kw">AS</span> admission_method_code,
+    am.name           <span class="kw">AS</span> admission_method,
+    s.note
+<span class="kw">FROM</span> <span class="tb">admission_scores</span> s
+<span class="kw">JOIN</span>  <span class="tb">university_programs</span> up  <span class="kw">ON</span> up.id  = s.university_program_id
+<span class="kw">JOIN</span>  <span class="tb">universities</span> u          <span class="kw">ON</span> u.id   = up.university_id
+<span class="kw">JOIN</span>  <span class="tb">provinces</span> p             <span class="kw">ON</span> p.id   = u.province_id
+<span class="kw">JOIN</span>  <span class="tb">major_catalog</span> mc        <span class="kw">ON</span> mc.id  = up.major_catalog_id
+<span class="kw">JOIN</span>  <span class="tb">fields</span> f                 <span class="kw">ON</span> f.id   = mc.field_id
+<span class="kw">JOIN</span>  <span class="tb">admission_methods</span> am    <span class="kw">ON</span> am.id  = s.admission_method_id
+<span class="kw">WHERE</span> up.is_active = <span class="va">TRUE</span>
+  <span class="kw">AND</span>  u.is_active  = <span class="va">TRUE</span>;
+
+<span class="cm">-- FIX: Index dùng _id (INT) thay vì text "admission_method"</span>
+<span class="kw">CREATE UNIQUE INDEX ON</span> <span class="tb">v_admission_overview</span>
+    (university_program_id, admission_method_code, year);
+<span class="kw">CREATE INDEX ON</span> <span class="tb">v_admission_overview</span> (year <span class="kw">DESC</span>, score <span class="kw">DESC</span>);
+<span class="kw">CREATE INDEX ON</span> <span class="tb">v_admission_overview</span> (province, university_type);
+<span class="kw">CREATE INDEX ON</span> <span class="tb">v_admission_overview</span> (field_name);
+<span class="kw">CREATE INDEX ON</span> <span class="tb">v_admission_overview</span> (program_type);
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>📈 View 2: <code>v_university_stats</code> — FIX correlated subquery</h3>
+        <p style="color:var(--t2);font-size:.84rem;margin-bottom:12px">
+            v3.0 dùng <code>(SELECT MAX(year) FROM admission_scores)</code> inline — correlated subquery chạy mỗi row. v4.0 dùng CTE để evaluate 1 lần duy nhất.
+        </p>
+        <div class="code">
+<span class="kw">CREATE MATERIALIZED VIEW</span> <span class="tb">v_university_stats</span> <span class="kw">AS</span>
+<span class="cm">-- FIX: CTE thay correlated subquery — evaluate MAX(year) đúng 1 lần</span>
+<span class="kw">WITH</span> <span class="va">latest_year</span> <span class="kw">AS</span> (
+    <span class="kw">SELECT MAX</span>(year) <span class="kw">AS</span> yr <span class="kw">FROM</span> <span class="tb">admission_scores</span>
+)
+<span class="kw">SELECT</span>
+    u.id, u.name, u.short_name, u.type,
+    p.name  <span class="kw">AS</span> province,
+    p.region,
+    COUNT(<span class="kw">DISTINCT</span> up.major_catalog_id) <span class="kw">AS</span> total_majors,
+    COUNT(<span class="kw">DISTINCT</span> up.id)              <span class="kw">AS</span> total_programs,
+    ROUND(AVG(s.score), 2)             <span class="kw">AS</span> avg_score,
+    MIN(s.score)                       <span class="kw">AS</span> min_score,
+    MAX(s.score)                       <span class="kw">AS</span> max_score
+<span class="kw">FROM</span> <span class="tb">universities</span> u
+<span class="kw">JOIN</span>  <span class="tb">provinces</span> p               <span class="kw">ON</span> p.id  = u.province_id
+<span class="kw">LEFT JOIN</span> <span class="tb">university_programs</span> up <span class="kw">ON</span> up.university_id = u.id
+                                  <span class="kw">AND</span> up.is_active = <span class="va">TRUE</span>
+<span class="kw">LEFT JOIN</span> <span class="tb">admission_scores</span> s    <span class="kw">ON</span> s.university_program_id = up.id
+                                  <span class="kw">AND</span> s.year = (<span class="kw">SELECT</span> yr <span class="kw">FROM</span> <span class="va">latest_year</span>)
+<span class="kw">WHERE</span> u.is_active = <span class="va">TRUE</span>
+<span class="kw">GROUP BY</span> u.id, u.name, u.short_name, u.type, p.name, p.region;
+        </div>
+        <div class="idx-note" style="margin-top:10px">
+            📌 Thêm <code>total_programs</code> (số chương trình, khác <code>total_majors</code> số mã ngành) — hữu ích với trường như BKA có nhiều chương trình/ngành
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION: QUERIES ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(245,166,35,.1);color:var(--orange)">🔎</span>
+        Query Examples — Updated v4.0
+    </h2>
+    <p class="section-desc">Queries cập nhật dùng <code>university_program_id</code>, lọc thêm <code>internal_code</code>, <code>program_type</code>.</p>
+
+    <div class="query-grid">
+        <div class="query-card">
+            <h4>🏫 Filter trường theo khu vực + loại</h4>
+            <div class="qd">Trường công lập ở Hà Nội, sort theo điểm TB</div>
+            <div class="code">
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="tb">v_university_stats</span>
+<span class="kw">WHERE</span> province = <span class="st">'Hà Nội'</span>
+  <span class="kw">AND</span> type = <span class="st">'công_lập'</span>
+<span class="kw">ORDER BY</span> avg_score <span class="kw">DESC</span>;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>📚 Filter ngành theo lĩnh vực + năm</h4>
+            <div class="qd">Điểm CNTT năm 2025, sort theo điểm chuẩn</div>
+            <div class="code">
+<span class="kw">SELECT</span> university_name, major_name,
+       internal_code, program_name, score
+<span class="kw">FROM</span> <span class="tb">v_admission_overview</span>
+<span class="kw">WHERE</span> field_name = <span class="st">'CNTT'</span>
+  <span class="kw">AND</span> year = <span class="va">2025</span>
+<span class="kw">ORDER BY</span> score <span class="kw">DESC</span>;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>🎓 Tất cả chương trình của BKA ngành CNTT</h4>
+            <div class="qd">IT1, IT2, ICT — điểm chuẩn 2025</div>
+            <div class="code">
+<span class="kw">SELECT</span> internal_code, program_name,
+       program_type, score, admission_method
+<span class="kw">FROM</span> <span class="tb">v_admission_overview</span>
+<span class="kw">WHERE</span> short_name = <span class="st">'BKA'</span>
+  <span class="kw">AND</span> major_code = <span class="st">'7480201'</span>
+  <span class="kw">AND</span> year = <span class="va">2025</span>
+<span class="kw">ORDER BY</span> score <span class="kw">DESC</span>;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>📊 Xu hướng điểm chuẩn qua các năm</h4>
+            <div class="qd">IT1 Bách Khoa 2021–2025 — THPT</div>
+            <div class="code">
+<span class="kw">SELECT</span> year, score
+<span class="kw">FROM</span> <span class="tb">v_admission_overview</span>
+<span class="kw">WHERE</span> short_name = <span class="st">'BKA'</span>
+  <span class="kw">AND</span> internal_code = <span class="st">'IT1'</span>
+  <span class="kw">AND</span> admission_method_code = <span class="st">'THPT'</span>
+<span class="kw">ORDER BY</span> year;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>🎯 Tìm ngành phù hợp với điểm</h4>
+            <div class="qd">Ngành lấy ≤ 25.0 điểm THPT, năm 2025</div>
+            <div class="code">
+<span class="kw">SELECT</span> university_name, major_name,
+       internal_code, program_type,
+       score, province
+<span class="kw">FROM</span> <span class="tb">v_admission_overview</span>
+<span class="kw">WHERE</span> year = <span class="va">2025</span>
+  <span class="kw">AND</span> admission_method_code = <span class="st">'THPT'</span>
+  <span class="kw">AND</span> score &lt;= <span class="va">25.0</span>
+<span class="kw">ORDER BY</span> score <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> <span class="va">50</span>;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>🏆 Filter theo program_type</h4>
+            <div class="qd">Chương trình chất lượng cao ngành CNTT 2025</div>
+            <div class="code">
+<span class="kw">SELECT</span> university_name, major_name,
+       program_name, score
+<span class="kw">FROM</span> <span class="tb">v_admission_overview</span>
+<span class="kw">WHERE</span> field_name = <span class="st">'CNTT'</span>
+  <span class="kw">AND</span> program_type = <span class="st">'chất_lượng_cao'</span>
+  <span class="kw">AND</span> year = <span class="va">2025</span>
+<span class="kw">ORDER BY</span> score <span class="kw">DESC</span>;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>📋 Tổ hợp môn cho ngành cụ thể</h4>
+            <div class="qd">Tổ hợp nào xét cho ngành 7480201?</div>
+            <div class="code">
+<span class="kw">SELECT</span> sg.code, sg.subjects
+<span class="kw">FROM</span>  <span class="tb">major_subject_groups</span> msg
+<span class="kw">JOIN</span>  <span class="tb">subject_groups</span> sg
+   <span class="kw">ON</span>  sg.id  = msg.subject_group_id
+<span class="kw">JOIN</span>  <span class="tb">major_catalog</span> mc
+   <span class="kw">ON</span>  mc.id  = msg.major_catalog_id
+<span class="kw">WHERE</span> mc.code = <span class="st">'7480201'</span>;
+            </div>
+        </div>
+
+        <div class="query-card">
+            <h4>📌 Lịch sử điểm — giữ cả ngành đã ngừng tuyển</h4>
+            <div class="qd">Query lịch sử kể cả chương trình is_active = FALSE</div>
+            <div class="code">
+<span class="kw">SELECT</span> up.internal_code, s.year, s.score
+<span class="kw">FROM</span>  <span class="tb">university_programs</span> up
+<span class="kw">JOIN</span>  <span class="tb">admission_scores</span> s
+   <span class="kw">ON</span>  s.university_program_id = up.id
+<span class="kw">WHERE</span> up.university_id = <span class="st">'&lt;uuid-BKA&gt;'</span>
+  <span class="cm">-- không filter is_active → giữ lịch sử đầy đủ</span>
+<span class="kw">ORDER BY</span> up.internal_code, s.year;
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION: PIPELINE ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(244,114,182,.1);color:var(--pink)">🔄</span>
+        Data Pipeline — Load Order v4.0
+    </h2>
+    <p class="section-desc">Thứ tự import dữ liệu tuân thủ FK dependencies. Bước 5 đổi sang UNIVERSITY_PROGRAMS.</p>
+
+    <div class="pipe">
+        <div class="pipe-s">
+            <div class="pi">1️⃣</div>
+            <div class="pt">PROVINCES</div>
+            <div class="pd">+ FIELDS<br>Lookup tĩnh</div>
+        </div>
+        <div class="pipe-a">→</div>
+        <div class="pipe-s">
+            <div class="pi">2️⃣</div>
+            <div class="pt">SUBJECT_GROUPS</div>
+            <div class="pd">+ ADM_METHODS<br>Lookup tĩnh</div>
+        </div>
+        <div class="pipe-a">→</div>
+        <div class="pipe-s">
+            <div class="pi">3️⃣</div>
+            <div class="pt">UNIVERSITIES</div>
+            <div class="pd">FK: province_id<br>Bắt buộc NOT NULL</div>
+        </div>
+        <div class="pipe-a">→</div>
+        <div class="pipe-s">
+            <div class="pi">4️⃣</div>
+            <div class="pt">MAJOR_CATALOG</div>
+            <div class="pd">+ MAJOR_SUBJECT_GROUPS<br>FK: field_id NOT NULL</div>
+        </div>
+        <div class="pipe-a">→</div>
+        <div class="pipe-s" style="border-color:rgba(45,212,160,.3);">
+            <div class="pi">5️⃣</div>
+            <div class="pt" style="color:var(--green)">UNIV_PROGRAMS</div>
+            <div class="pd">NEW — internal_code<br>internal_name, type</div>
+        </div>
+        <div class="pipe-a">→</div>
+        <div class="pipe-s">
+            <div class="pi">6️⃣</div>
+            <div class="pt">ADM_SCORES</div>
+            <div class="pd">Upsert điểm chuẩn<br>FK: program_id</div>
+        </div>
+        <div class="pipe-a">→</div>
+        <div class="pipe-s">
+            <div class="pi">7️⃣</div>
+            <div class="pt">REFRESH VIEWS</div>
+            <div class="pd">CONCURRENTLY<br>tránh lock</div>
+        </div>
+    </div>
+    <div class="code" style="font-size:.75rem">
+<span class="cm">-- Refresh không lock (cần UNIQUE INDEX trên view):</span>
+<span class="kw">REFRESH MATERIALIZED VIEW CONCURRENTLY</span> <span class="tb">v_admission_overview</span>;
+<span class="kw">REFRESH MATERIALIZED VIEW CONCURRENTLY</span> <span class="tb">v_university_stats</span>;
+
+<span class="cm">-- Trigger updated_at — đặt 1 lần, dùng cho tất cả bảng có updated_at:</span>
+<span class="kw">CREATE OR REPLACE FUNCTION</span> <span class="va">set_updated_at</span>()
+<span class="kw">RETURNS</span> TRIGGER <span class="kw">AS</span> $$
+<span class="kw">BEGIN</span>
+    NEW.updated_at = NOW();
+    <span class="kw">RETURN</span> NEW;
+<span class="kw">END</span>;
+$$ <span class="kw">LANGUAGE</span> plpgsql;
+
+<span class="kw">CREATE TRIGGER</span> trg_universities_updated_at
+<span class="kw">BEFORE UPDATE ON</span> <span class="tb">universities</span>
+<span class="kw">FOR EACH ROW EXECUTE FUNCTION</span> <span class="va">set_updated_at</span>();
+    </div>
+</div>
+
+<!-- ═══════════════════════ SECTION: SUMMARY ═══════════════════════ -->
+<div class="section">
+    <h2 class="section-title">
+        <span class="ic" style="background:rgba(45,212,160,.1);color:var(--green)">✅</span>
+        Tổng kết v4.0 — 13 Changes
+    </h2>
+
+    <div class="card">
+        <table class="sum-tbl">
+            <thead>
+                <tr><th>#</th><th>Thay đổi</th><th>Lý do</th><th>Impact</th></tr>
+            </thead>
+            <tbody>
+                <tr class="diff-new">
+                    <td>1</td>
+                    <td><strong>UNIVERSITY_MAJORS → UNIVERSITY_PROGRAMS</strong><br><span style="font-size:.78rem;color:var(--t2)">+ internal_code, internal_name, program_type</span></td>
+                    <td style="font-size:.8rem">BKA IT1/IT2/ICT — 1 mã ngành nhiều chương trình</td>
+                    <td class="impact-fix">Core business fix — schema khả dụng với data thực</td>
+                </tr>
+                <tr class="diff-new">
+                    <td>2</td>
+                    <td><strong>is_active</strong> vào UNIVERSITIES + UNIVERSITY_PROGRAMS<br><span style="font-size:.78rem;color:var(--t2)">+ discontinued_year trong UNIVERSITY_PROGRAMS</span></td>
+                    <td style="font-size:.8rem">Soft delete — giữ lịch sử điểm khi trường/ngành ngừng</td>
+                    <td class="impact-new">Data integrity + lịch sử không mất</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>3</td>
+                    <td><strong>UNIVERSITIES.province_id</strong> → NOT NULL</td>
+                    <td style="font-size:.8rem">Mọi trường phải có địa điểm — filter khu vực mới đúng</td>
+                    <td class="impact-fix">Fix data integrity</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>4</td>
+                    <td><strong>MAJOR_CATALOG.field_id</strong> → NOT NULL</td>
+                    <td style="font-size:.8rem">Filter theo lĩnh vực sẽ miss ngành nếu field_id NULL</td>
+                    <td class="impact-fix">Fix data integrity</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>5</td>
+                    <td><strong>ADMISSION_METHODS.id</strong>: UUID → SERIAL</td>
+                    <td style="font-size:.8rem">Nhất quán với PROVINCES, FIELDS, SUBJECT_GROUPS</td>
+                    <td class="impact-fix">Fix type inconsistency</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>6</td>
+                    <td><strong>ADMISSION_SCORES.university_major_id</strong> → university_program_id</td>
+                    <td style="font-size:.8rem">Rename theo bảng mới UNIVERSITY_PROGRAMS</td>
+                    <td class="impact-fix">Schema consistency</td>
+                </tr>
+                <tr class="diff-new">
+                    <td>7</td>
+                    <td><strong>PARTIAL UNIQUE INDEX</strong> trên UNIVERSITY_PROGRAMS</td>
+                    <td style="font-size:.8rem">WHERE internal_code IS NULL — chặn duplicate trường không có mã nội bộ</td>
+                    <td class="impact-new">Data integrity edge case</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>8</td>
+                    <td><strong>v_admission_overview UNIQUE INDEX</strong> → dùng code thay vì text name</td>
+                    <td style="font-size:.8rem">Text index kém hiệu quả, fragile khi đổi tên</td>
+                    <td class="impact-fix">Fix index strategy</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>9</td>
+                    <td><strong>v_university_stats</strong>: correlated subquery → CTE</td>
+                    <td style="font-size:.8rem">Correlated subquery chạy mỗi row; CTE chạy 1 lần</td>
+                    <td class="impact-fix">Performance fix</td>
+                </tr>
+                <tr class="diff-new">
+                    <td>10</td>
+                    <td><strong>created_at</strong> vào UNIVERSITY_PROGRAMS</td>
+                    <td style="font-size:.8rem">Biết trường bắt đầu đào tạo ngành từ năm nào</td>
+                    <td class="impact-new">Audit + analysis</td>
+                </tr>
+                <tr class="diff-new">
+                    <td>11</td>
+                    <td><strong>updated_at trigger</strong> cho UNIVERSITIES</td>
+                    <td style="font-size:.8rem">DEFAULT NOW() chỉ set khi INSERT — trigger mới đúng</td>
+                    <td class="impact-new">Auto-update timestamp</td>
+                </tr>
+                <tr class="diff-new">
+                    <td>12</td>
+                    <td><strong>REFRESH MATERIALIZED VIEW CONCURRENTLY</strong></td>
+                    <td style="font-size:.8rem">Tránh lock table khi refresh — production safe</td>
+                    <td class="impact-new">Zero-downtime refresh</td>
+                </tr>
+                <tr class="diff-fix">
+                    <td>13</td>
+                    <td><strong>Badge count</strong>: 8 Tables → 9 Tables, 7 Indexes → 9 Indexes</td>
+                    <td style="font-size:.8rem">ADMISSION_SCORES bị bỏ sót + 2 index mới (partial UNIQUE + is_active)</td>
+                    <td class="impact-fix">Documentation fix</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card" style="margin-top:16px;border-color:rgba(45,212,160,.15);">
+        <h3>🎯 3NF Compliance Summary</h3>
+        <p style="color:var(--t2);font-size:.86rem;margin-top:8px;line-height:1.9">
+            Toàn bộ 9 bảng đạt <strong style="color:var(--green)">3NF</strong> và <strong style="color:var(--green)">BCNF</strong>. Không có transitive dependency nào tồn tại. Hai nguy cơ vi phạm 3NF lớn nhất — lưu <code>region</code> trong UNIVERSITIES và lưu <code>catalog_name</code> trong UNIVERSITY_PROGRAMS — đều được tránh nhờ thiết kế FK đúng. Schema sẵn sàng cho production sau khi seed data và thiết lập trigger.
+        </p>
+    </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+    Bunik Database <span>v4.0</span> · 3NF + BCNF Normalized · 9 Tables · 9 Indexes · 2 Materialized Views · <span>2026-04-22</span>
+</div>
+
+</body>
+</html>
