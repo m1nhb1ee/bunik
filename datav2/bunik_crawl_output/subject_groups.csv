@@ -1,0 +1,187 @@
+﻿code,subjects
+A00,"Toán, Lý, Hóa"
+A01,"Toán, Lý, Tiếng Anh"
+A02,"Toán, Lý, Sinh"
+A03,Tổ hợp A03
+A04,"Toán, Lý, Lịch sử"
+A05,"Toán, Hóa, Lịch sử"
+A06,"Toán, Lý, Địa lý"
+A07,Tổ hợp A07
+A08,"Toán, Lịch sử, Giáo dục công dân"
+A09,"Toán, Địa lý, Tiếng Anh"
+A10,"Toán, Lý, Giáo dục công dân"
+A11,Tổ hợp A11
+A12,Tổ hợp A12
+A13,Tổ hợp A13
+A14,Tổ hợp A14
+A15,Tổ hợp A15
+A16,"Toán, Khoa học tự nhiên, Ngữ văn"
+A17,Tổ hợp A17
+A18,Tổ hợp A18
+A19,Tổ hợp A19
+B00,"Toán, Hóa, Sinh"
+B01,"Toán, Sinh, Tiếng Anh"
+B02,"Toán, Sinh, Địa lý"
+B03,"Toán, Sinh, Lịch sử"
+B04,"Toán, Hóa, Địa lý"
+B05,Tổ hợp B05
+B08,"Toán, Sinh, Giáo dục công dân"
+C00,"Văn, Sử, Địa"
+C01,"Văn, Toán, Lý"
+C02,"Văn, Toán, Hóa"
+C03,"Văn, Toán, Sử"
+C04,"Văn, Toán, Địa"
+C05,"Văn, Lý, Hóa"
+C06,"Văn, Lý, Địa"
+C07,"Văn, Hóa, Địa"
+C08,"Văn, Hóa, Sinh"
+C09,"Văn, Lý, Sử"
+C10,"Toán, Sử, Địa"
+C11,Tổ hợp C11
+C12,Tổ hợp C12
+C13,Tổ hợp C13
+C14,"Văn, Toán, Giáo dục công dân"
+C15,"Văn, Toán, Tiếng Anh"
+C16,"Văn, Lý, Tiếng Anh"
+C19,"Văn, Sử, Tiếng Anh"
+C20,"Văn, Địa, Tiếng Anh"
+D00,Tổ hợp D00
+D01,"Văn, Toán, Tiếng Anh"
+D02,Tổ hợp D02
+D03,Tổ hợp D03
+D04,Tổ hợp D04
+D05,Tổ hợp D05
+D06,Tổ hợp D06
+D07,"Toán, Hóa, Tiếng Anh"
+D08,"Toán, Sinh, Tiếng Anh"
+D09,"Toán, Lịch sử, Tiếng Anh"
+D10,"Toán, Địa lý, Tiếng Anh"
+D11,Tổ hợp D11
+D12,Tổ hợp D12
+D13,Tổ hợp D13
+D14,"Văn, Sử, Tiếng Anh"
+D15,"Văn, Địa, Tiếng Anh"
+D16,Tổ hợp D16
+D20,Tổ hợp D20
+D21,Tổ hợp D21
+D22,Tổ hợp D22
+D23,Tổ hợp D23
+D24,Tổ hợp D24
+D25,Tổ hợp D25
+D26,Tổ hợp D26
+D27,Tổ hợp D27
+D28,Tổ hợp D28
+D29,Tổ hợp D29
+D30,Tổ hợp D30
+D31,Tổ hợp D31
+D32,Tổ hợp D32
+D33,Tổ hợp D33
+D34,Tổ hợp D34
+D35,Tổ hợp D35
+D40,Tổ hợp D40
+D41,Tổ hợp D41
+D42,Tổ hợp D42
+D43,Tổ hợp D43
+D44,Tổ hợp D44
+D45,Tổ hợp D45
+D55,Tổ hợp D55
+D61,Tổ hợp D61
+D62,Tổ hợp D62
+D63,Tổ hợp D63
+D64,Tổ hợp D64
+D65,Tổ hợp D65
+D66,"Văn, Toán, Tiếng Nhật"
+D68,Tổ hợp D68
+D69,Tổ hợp D69
+D70,Tổ hợp D70
+D71,Tổ hợp D71
+D72,Tổ hợp D72
+D78,Tổ hợp D78
+D82,Tổ hợp D82
+D84,Tổ hợp D84
+D89,Tổ hợp D89
+D90,"Toán, Khoa học tự nhiên, Tiếng Anh"
+D91,Tổ hợp D91
+D96,Tổ hợp D96
+D97,Tổ hợp D97
+D98,Tổ hợp D98
+H00,Tổ hợp H00
+H01,Tổ hợp H01
+H02,Tổ hợp H02
+H04,Tổ hợp H04
+H06,Tổ hợp H06
+H07,Tổ hợp H07
+H08,Tổ hợp H08
+H09,Tổ hợp H09
+K00,Tổ hợp K00
+M00,Tổ hợp M00
+M01,Tổ hợp M01
+M02,Tổ hợp M02
+N00,Tổ hợp N00
+N01,Tổ hợp N01
+N02,Tổ hợp N02
+N05,Tổ hợp N05
+Q00,Tổ hợp Q00
+R00,Tổ hợp R00
+R22,Tổ hợp R22
+R23,Tổ hợp R23
+R25,Tổ hợp R25
+R26,Tổ hợp R26
+R27,Tổ hợp R27
+S00,Tổ hợp S00
+T00,Tổ hợp T00
+T01,Tổ hợp T01
+T02,Tổ hợp T02
+T05,Tổ hợp T05
+T08,Tổ hợp T08
+T09,Tổ hợp T09
+T10,Tổ hợp T10
+T11,Tổ hợp T11
+T49,Tổ hợp T49
+V00,Tổ hợp V00
+V01,Tổ hợp V01
+V02,Tổ hợp V02
+V03,Tổ hợp V03
+V05,Tổ hợp V05
+V06,Tổ hợp V06
+V10,Tổ hợp V10
+X01,Tổ hợp X01
+X02,Tổ hợp X02
+X03,Tổ hợp X03
+X04,Tổ hợp X04
+X05,Tổ hợp X05
+X06,Tổ hợp X06
+X07,Tổ hợp X07
+X08,Tổ hợp X08
+X09,Tổ hợp X09
+X10,Tổ hợp X10
+X11,Tổ hợp X11
+X12,Tổ hợp X12
+X13,Tổ hợp X13
+X14,Tổ hợp X14
+X15,Tổ hợp X15
+X16,Tổ hợp X16
+X17,Tổ hợp X17
+X18,Tổ hợp X18
+X21,Tổ hợp X21
+X22,Tổ hợp X22
+X23,Tổ hợp X23
+X24,Tổ hợp X24
+X25,Tổ hợp X25
+X26,Tổ hợp X26
+X27,Tổ hợp X27
+X28,Tổ hợp X28
+X37,Tổ hợp X37
+X53,Tổ hợp X53
+X56,Tổ hợp X56
+X57,Tổ hợp X57
+X58,Tổ hợp X58
+X62,Tổ hợp X62
+X70,Tổ hợp X70
+X71,Tổ hợp X71
+X74,Tổ hợp X74
+X78,Tổ hợp X78
+X79,Tổ hợp X79
+X80,Tổ hợp X80
+X90,Tổ hợp X90
+Y09,Tổ hợp Y09

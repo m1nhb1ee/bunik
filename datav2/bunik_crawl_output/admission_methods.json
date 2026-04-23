@@ -1,0 +1,42 @@
+[
+  {
+    "code": "THPT",
+    "name": "Kết quả thi THPT Quốc gia",
+    "description": "Xét theo điểm thi THPT quốc gia, thang 30 điểm"
+  },
+  {
+    "code": "HSA",
+    "name": "Xét học bạ THPT",
+    "description": "Xét theo điểm học bạ THPT"
+  },
+  {
+    "code": "DGNL_HN",
+    "name": "Đánh giá năng lực ĐHQG Hà Nội",
+    "description": "Bài thi ĐGNL do ĐHQG Hà Nội tổ chức, thang 150 điểm"
+  },
+  {
+    "code": "DGNL_HCM",
+    "name": "Đánh giá năng lực ĐHQG TP.HCM",
+    "description": "Bài thi ĐGNL do ĐHQG TP.HCM tổ chức, thang 1200 điểm"
+  },
+  {
+    "code": "DGTD",
+    "name": "Đánh giá tư duy (ĐHBK Hà Nội)",
+    "description": "Bài thi tư duy do ĐH Bách khoa Hà Nội tổ chức"
+  },
+  {
+    "code": "KH",
+    "name": "Xét tuyển kết hợp",
+    "description": "Kết hợp nhiều tiêu chí: THPT + học bạ + chứng chỉ ngoại ngữ..."
+  },
+  {
+    "code": "XTT",
+    "name": "Xét tuyển thẳng",
+    "description": "Xét thẳng theo quy định ưu tiên của Bộ GD&ĐT"
+  },
+  {
+    "code": "OTHER",
+    "name": "Phương thức khác",
+    "description": "Phương thức xét tuyển đặc thù của từng trường"
+  }
+]
