@@ -1,0 +1,8108 @@
+[
+  {
+    "code": "7480201",
+    "name": "Ngành Công nghệ thông tin (Thí sinh Nam)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7860100",
+    "name": "Ngành Nghiệp vụ an ninh (Thí sinh Nam, vùng 1)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860114",
+    "name": "Ngành An ninh mạng và phòng chống tội phạm công nghệ cao (Thí sinh Nam, miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201_Nam",
+    "name": "Ngành Công nghệ thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7720101_Nam",
+    "name": "Ngành Y khoa (gửi đào tạo tại Học viện Quân y)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101_Nu",
+    "name": "Ngành Y khoa (gửi đào tạo tại Học viện Quân y)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7860100_Nam_1",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nam_2",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nam_3",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nam_8",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nu_1",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nu_2",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nu_3",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860100_Nu_8",
+    "name": "Ngành Nghiệp vụ an ninh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860114_Nam_B",
+    "name": "Ngành An ninh mạng và phòng chống tội phạm công nghệ cao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860114_Nam_N",
+    "name": "Ngành An ninh mạng và phòng chống tội phạm công nghệ cao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860114_Nu_B",
+    "name": "Ngành An ninh mạng và phòng chống tội phạm công nghệ cao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860114_Nu_N",
+    "name": "Ngành An ninh mạng và phòng chống tội phạm công nghệ cao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480202",
+    "name": "An toàn thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7720101",
+    "name": "Y khoa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7380101",
+    "name": "Luật (Thí sinh miền Bắc)",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7860214",
+    "name": "Biên phòng (Quân khu 4)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7380101_B",
+    "name": "Ngành Luật",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7380101_N",
+    "name": "Ngành Luật",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7860214_A01_4",
+    "name": "Biên phòng (Quân khu 4)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_A01_5",
+    "name": "Biên phòng (Quân khu 5)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_A01_7",
+    "name": "Biên phòng (Quân khu 7)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_A01_9",
+    "name": "Biên phòng (Quân khu 9)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_B_A01",
+    "name": "Biên phòng (Thí sinh miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_B_C00",
+    "name": "Biên phòng (Thí sinh miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_C00_4",
+    "name": "Biên phòng (Quân khu 4)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_C00_5",
+    "name": "Biên phòng (Quân khu 5)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_C00_7",
+    "name": "Biên phòng (Quân khu 7)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860214_C00_9",
+    "name": "Biên phòng (Quân khu 9)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "527",
+    "name": "Kinh tế, chuyên ngành Quản lý kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "530",
+    "name": "Chính trị học, chuyên ngành Công tác tư tưởng - văn hóa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "531",
+    "name": "Chính trị học, chuyên ngành Chính trị phát triển",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "533",
+    "name": "Chính trị học, chuyên ngành Tư tưởng Hồ Chí Minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "538",
+    "name": "Chính trị học, chuyên ngành Truyền thông chính sách",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "602",
+    "name": "Báo chí, chuyên ngành Báo in",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "603",
+    "name": "Báo chí, chuyên ngành Ảnh báo chí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "604",
+    "name": "Báo chí, chuyên ngành Báo phát thanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "605",
+    "name": "Báo chí, chuyên ngành Báo truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "606",
+    "name": "Báo chí, chuyên ngành Quay phim truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "607",
+    "name": "Báo chí, chuyên ngành Báo mạng điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "610",
+    "name": "Quan hệ quốc tế, chuyên ngành Thông tin đối ngoại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "611",
+    "name": "Quan hệ quốc tế, chuyên ngành Quan hệ chính trị và Truyền thông quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "614",
+    "name": "Quan hệ quốc tế, chuyên ngành Quan hệ quốc tế và Truyền thông toàn cầu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "615",
+    "name": "Quan hệ công chúng, chuyên ngành Quan hệ công chúng chuyên nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "616",
+    "name": "Quan hệ công chúng, chuyên ngành Truyền thông marketing",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7220201",
+    "name": "Ngôn ngữ Anh",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229001",
+    "name": "Triết học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229008",
+    "name": "Chủ nghĩa xã hội khoa học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229010",
+    "name": "Lịch sử",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7310102",
+    "name": "Kinh tế chính trị",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310202",
+    "name": "Xây dựng Đảng và chính quyền nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310205",
+    "name": "Quản lý nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310301",
+    "name": "Xã hội học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320104",
+    "name": "Truyền thông đa phương tiện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320105",
+    "name": "Truyền thông đại chúng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320107",
+    "name": "Truyền thông quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320110",
+    "name": "Quảng cáo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340403",
+    "name": "Quản lý công",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7760101",
+    "name": "Công tác xã hội",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "801",
+    "name": "Xuất bản, chuyên ngành Biên tập xuất bản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "802",
+    "name": "Xuất bản, chuyên ngành Xuất bản điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "532",
+    "name": "Quản lý nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "528",
+    "name": "Kinh tế, chuyên ngành Kinh tế và Quản lý (chất lượng cao)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "529",
+    "name": "Kinh tế, chuyên ngành Kinh tế và Quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "535",
+    "name": "Chính trị học. chuyên ngành Văn hóa phát triền",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "536",
+    "name": "Chính trị học, chuyên ngành Chính sách công",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "537",
+    "name": "Quản lý nhả nưóc, chuyên ngành Quản lý hành chính nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "608",
+    "name": "Báo chí, chuyên ngành Báo truyền hình (chất lượng cao)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "609",
+    "name": "Báo chí, chuyên ngành Báo mạng điện tử (chất lượng cao)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310101",
+    "name": "Ngành Kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310105",
+    "name": "Ngành Kinh tế phát triển",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310106",
+    "name": "Ngành Kinh tế quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310106_1",
+    "name": "Ngành Kinh tế quốc tế (Chuyên ngành Kinh tế đối ngoại chất lượng cao giảng dạy bằng Tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310106_2",
+    "name": "Ngành Kinh tế quốc tế (Chuyên ngành Kinh doanh toàn cầu)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310109",
+    "name": "Ngành Kinh tế số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310206",
+    "name": "Ngành Quản lý nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340101",
+    "name": "Ngành Quản trị kinh doanh",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340101_1",
+    "name": "Ngành Quản trị kinh doanh (Chuyên ngành Quản trị kinh doanh chất lượng cao giảng dạy bằng Tiếng Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115_2",
+    "name": "Ngành Marketing",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201_1",
+    "name": "Ngành Tài chính - Ngân hàng (Chuyên ngành Tài chính chất lượng cao giảng dạy bằng Tiếng Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201_2",
+    "name": "Ngành Tài chính - Ngân hàng",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301",
+    "name": "Ngành Kế toán",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7380107",
+    "name": "Ngành Luật Kinh tế",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7340201",
+    "name": "Tài chính - Ngân hàng",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7310106_CLC",
+    "name": "Chương trình Kinh tế đối ngoại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340201_CLC",
+    "name": "Chương trình Tài chính",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7860218",
+    "name": "Hậu cần quân sự (Thí sinh Nam miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nam_B_A00",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nam_B_A01",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nam_N_A00",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nam_N_A01",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nu_B_A00",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nu_B_A01",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nu_N_A00",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860218_Nu_N_A01",
+    "name": "Ngành Hậu cần Quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201KMA",
+    "name": "Công nghệ thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480202KMA",
+    "name": "An toàn thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480202KMP",
+    "name": "An toàn thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7520207",
+    "name": "Kỹ thuật điện tử - viễn thông",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7220202",
+    "name": "Ngôn ngữ Nga (Thí sinh Nam)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220204",
+    "name": "Ngôn ngữ Trung Quốc (Thí sinh Nam)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7860231",
+    "name": "Trinh sát kỹ thuật (Thí sinh Nam, miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QS",
+    "name": "Kỹ sư quân sự (miền Bắc, thí sinh Nam)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860220_Nam_B",
+    "name": "Đào tạo kỹ sư quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860220_Nam_N",
+    "name": "Đào tạo kỹ sư quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860220_Nu_B",
+    "name": "Đào tạo kỹ sư quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860220_Nu_N",
+    "name": "Đào tạo kỹ sư quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860220",
+    "name": "Đào tạo kỹ sư quân sự",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320101",
+    "name": "Báo chí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320104_CLC",
+    "name": "Truyền thông đa phương tiện - Chương trình đào tạo chất lượng cao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7329001",
+    "name": "Công nghệ đa phương tiện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7329001_GAM",
+    "name": "Thiết kế và phát triển Game (ngành Công nghệ đa phương tiện)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340101_LOG",
+    "name": "Logistics và quản trị chuỗi cung ứng (ngành Quản trị kinh doanh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115",
+    "name": "Marketing",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115_CLC",
+    "name": "Marketing (chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115_QHC",
+    "name": "Quan hệ công chúng (ngành Marketing)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340122",
+    "name": "Thương mại điện tử",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340205",
+    "name": "Công nghệ tài chính (Fintech)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301_CLC",
+    "name": "Kế toán chất lượng cao (chuẩn quốc tế ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7480101",
+    "name": "Khoa học máy tính (định hướng Khoa học dữ liệu)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480102",
+    "name": "Kỹ thuật dữ liệu (ngành Mạng máy tính và truyền thông dữ liệu)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480107",
+    "name": "Trí tuệ nhân tạo",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201_CLC",
+    "name": "Công nghệ thông tin - Chương trình chất lượng cao",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201_UDU",
+    "name": "Công nghệ thông tin (Cử nhân định hướng ứng dụng)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201_VNH",
+    "name": "Công nghệ thông tin Việt - Nhật",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480202_CLC",
+    "name": "An toàn thông tin - Chất lượng cao",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510301",
+    "name": "Công nghệ Kỹ thuật Điện, điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510301_MBD",
+    "name": "Công nghệ vi mạch bán dẫn (ngành Công nghệ Kỹ thuật Điện, điện tử)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520207_AIoT",
+    "name": "Trí tuệ nhân tạo vạn vật (AIoT) (ngành Kỹ thuật Điện tử viễn thông)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520216",
+    "name": "Kỹ thuật Điều khiển và tự động hóa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7480201 _CLC",
+    "name": "Công nghệ thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201 _UDU",
+    "name": "Công nghệ thông tin (định hướng ứng dụng)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7329001_LK",
+    "name": "Công nghệ đa phương tiện (Liên kết với Đại học Canberra, Australia)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340205_LK",
+    "name": "Công nghệ tài chính (Liên kết với Đại học Huddersfield, Vương quốc Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7480201_LK",
+    "name": "Công nghệ thông tin (Liên kết với Đại học La Trobe, Australia)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "HQT01",
+    "name": "Quan hệ quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT02",
+    "name": "Ngôn ngữ Anh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT03",
+    "name": "Kinh tế quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT04",
+    "name": "Luật quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT05",
+    "name": "Truyền thông quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT06",
+    "name": "Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT07",
+    "name": "Luật thương mại quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT08-01",
+    "name": "Hàn Quốc học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT08-02",
+    "name": "Hoa Kỳ học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT08-03",
+    "name": "Nhật Bản học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HQT08-04",
+    "name": "Trung Quốc học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ACT01",
+    "name": "Chất lượng cao Kế toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ACT02",
+    "name": "Kế toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ACT03",
+    "name": "Kế toán Sunderland, Anh (Cấp song bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ACT04",
+    "name": "Kiểm toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK01",
+    "name": "Chất lượng cao Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK02",
+    "name": "Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK03",
+    "name": "Ngân hàng số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK04",
+    "name": "Tài chính – Ngân hàng Sunderland, Anh (Cấp song bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK05",
+    "name": "Ngân hàng và Tài chính quốc tế Coventry  (Cấp song bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK06",
+    "name": "Chất lượng cao Ngân hàng và Tài chính quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANK07",
+    "name": "Chất lượng cao Ngân hàng trung ương và Chính sách công",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS01",
+    "name": "Chất lượng cao Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS02",
+    "name": "Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS03",
+    "name": "Quản trị du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS04",
+    "name": "Quản trị kinh doanh CityU, Hoa Kỳ (Cấp song bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS05",
+    "name": "Marketing số (ĐH Coventry, Anh cấp bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS06",
+    "name": "Chất lượng cao Marketing số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BUS07",
+    "name": "Marketing",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DS01",
+    "name": "Khoa học dữ liệu trong kinh tế và kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ECON01",
+    "name": "Kinh tế đầu tư",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ECON02",
+    "name": "Chất lượng cao Kinh tế đầu tư",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIN01",
+    "name": "Chất lượng cao Tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIN02",
+    "name": "Tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIN03",
+    "name": "Công nghệ tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIN04",
+    "name": "Chất lượng cao Hoạch định và tư vấn tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FL01",
+    "name": "Ngôn ngữ Anh Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FL02",
+    "name": "Chất lượng cao Ngôn ngữ Anh Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IB01",
+    "name": "Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IB02",
+    "name": "Logistics và quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IB03",
+    "name": "Kinh doanh quốc tế Coventry (Cấp song bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IB04",
+    "name": "Chất lượng cao Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IB05",
+    "name": "Chất lượng cao Thương mại điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT01",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "LAW01",
+    "name": "Luật kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MIS01",
+    "name": "Hệ thống thông tin quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MIS02",
+    "name": "Chất lượng cao Hệ thống thông tin quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "LAW02",
+    "name": "Luật kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANKK02",
+    "name": "Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BANKK03",
+    "name": "Ngân hàng số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN01",
+    "name": "Thú y",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN02",
+    "name": "Chăn nuôi thú y - Thủy sản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN03",
+    "name": "Nông nghiệp và Cảnh quan",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN04",
+    "name": "Công nghệ kỹ thuật ô tô và Cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN05",
+    "name": "Kỹ thuật cơ khí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN06",
+    "name": "Kỹ thuật điện, Điện tử và Tự động hóa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN07",
+    "name": "Logistics và Quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN08",
+    "name": "Kế toán, Quản trị kinh doanh và Thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN09",
+    "name": "Công nghệ sinh học và Công nghệ dược liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN10",
+    "name": "Công nghệ thực phẩm và Chế biến",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN11",
+    "name": "Kinh tế và Quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN12",
+    "name": "Xã hội học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN13",
+    "name": "Luật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN14",
+    "name": "Công nghệ thông tin và Kỹ thuật số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN15",
+    "name": "Quản lý đất đai, Bất động sản và Môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN16",
+    "name": "Khoa học Môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN17",
+    "name": "Ngôn ngữ Anh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN18",
+    "name": "Sư phạm Công nghệ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HVN19",
+    "name": "Du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520120",
+    "name": "Ngành Kỹ thuật Hàng không (Thí sinh miền Bắc)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7860226",
+    "name": "Ngành Chỉ huy Tham mưu Phòng không, Không quân và Tác chiến điện tử (Thí sinh miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860226_B",
+    "name": "Chỉ huy Tham mưu Phòng không, Không quân và Tác chiến điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860226_N",
+    "name": "Chỉ huy Tham mưu Phòng không, Không quân và Tác chiến điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310399",
+    "name": "Giới và phát triển",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310401",
+    "name": "Tâm lý học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103",
+    "name": "Quản trị dịch vụ du lịch và lữ hành",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340101TA",
+    "name": "Quản trị kinh doanh (chương trình đào tạo bằng tiếng Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340101 LC",
+    "name": "Quản trị kinh doanh (hệ Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340101CLC",
+    "name": "Quản trị kinh doanh (hệ Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340101LK",
+    "name": "Quản trị kinh doanh (hệ Liên kết Quốc tế chuyên ngành Kinh doanh và Thương mại quốc tế)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7760101PH",
+    "name": "Công tác xã hội",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7810103PH",
+    "name": "Giới và Phát triển",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340102",
+    "name": "Quản trị kinh doanh",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7420201",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320108",
+    "name": "Quan hệ Công chúng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7760102",
+    "name": "Công tác Thanh thiếu niên",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720201",
+    "name": "Dược học (Thí sinh Nam, miền Bắc)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101_Nam_B",
+    "name": "Bác sĩ đa khoa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101_Nam_N",
+    "name": "Bác sĩ đa khoa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101_Nu_B",
+    "name": "Bác sĩ đa khoa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101_Nu_N",
+    "name": "Bác sĩ đa khoa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720110_Nam_B",
+    "name": "Y học dự phòng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720110_Nam_N",
+    "name": "Y học dự phòng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720201_Nam_B",
+    "name": "Dược học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720201_Nam_N",
+    "name": "Dược học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720201_Nu_B",
+    "name": "Dược học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720201_Nu_N",
+    "name": "Dược học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720110",
+    "name": "Y học dự phòng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7310104",
+    "name": "Kinh tế đầu tư",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310104QT12.01",
+    "name": "Kinh tế đầu tư (Theo định hướng ACCA)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310108",
+    "name": "Toán tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340101QT03.01",
+    "name": "Quản trị doanh nghiệp (Theo định hướng ICAEW CFAB)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115QT11.02",
+    "name": "Digital Marketing (Theo định hướng ICDL)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340116",
+    "name": "Thẩm định giá và kinh doanh bất động sản",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340116QT09.01",
+    "name": "Thẩm định giá và kinh doanh bất động sản (Theo định hướng ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340120QT15.01",
+    "name": "Kinh doanh quốc tế (Theo định hướng ICAEW CFAB)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "73402011",
+    "name": "Tài chính - Ngân hàng 1 (CN Thuế;  Hải quan và Nghiệp vụ ngoại thương;  Tài chính quốc tế",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "73402012",
+    "name": "Tài chính - Ngân hàng 2 (CN Tài chính doanh nghiệp; Phân tích tài chính)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "73402013",
+    "name": "Tài chính - Ngân hàng 3 (CN Ngân hàng;  Đầu tư tài chính)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201QT01.01",
+    "name": "Thuế và Quản trị thuế (Theo định hướng ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201QT01.06",
+    "name": "Hải quan và Logistics (Theo định hướng FIATA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201QT01.09",
+    "name": "Phân tích tài chính (Theo định hướng ICAEW CFAB)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201QT01.11",
+    "name": "Tài chính doanh nghiệp (Theo định hướng ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201QT01.15",
+    "name": "Ngân hàng (Theo định hướng ICAEW CFAB)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201QT01.19",
+    "name": "Đầu tư tài chính (Theo định hướng ICAEW CFAB)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340204",
+    "name": "Tài chính bảo hiểm",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301QT02.01",
+    "name": "Kế toán doanh nghiệp (Theo định hướng ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301QT02.02",
+    "name": "Kế toán quản trị và Kiểm soát quản lý (Theo định hướng CMA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301QT02.03",
+    "name": "Kế toán công (Theo định hướng ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340302",
+    "name": "Kiểm toán",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340302QT10.01",
+    "name": "Kiểm toán (Theo định hướng ICAEW CFAB)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340405",
+    "name": "Tin học tài chính kế toán",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7460108",
+    "name": "Khoa học dữ liệu trong tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340115QT11.02PH",
+    "name": "Digital Marketing (theo định hướng ICDL)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301QT02.01PH",
+    "name": "Kế toán doanh nghiệp (theo định hướng ACCA)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340302QT10.01PH",
+    "name": "Kiểm toán (theo định hướng ICAEW)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201C06",
+    "name": "Hải quan và Logistics (Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201C09",
+    "name": "Phân tích tài chính (Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201C11",
+    "name": "Tài chính doanh nghiệp (Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301C21",
+    "name": "Kế toán doanh nghiệp (Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301C22",
+    "name": "Kiểm toán (Chất lượng cao)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7140101",
+    "name": "Giáo dục học (GD trẻ rối loạn phát triển)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140114",
+    "name": "Quản lý giáo dục",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7310403",
+    "name": "Tâm lý học giáo dục",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340406",
+    "name": "Quản trị văn phòng",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "Sư phạm Ngữ văn",
+    "name": "QHS06",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Lịch sử",
+    "name": "QHS07",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Lịch sử - Địa lý",
+    "name": "QHS08",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Giáo dục Mầm non",
+    "name": "QHS09",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Giáo dục Tiểu học",
+    "name": "QHS10",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Khoa học giáo dục và khác",
+    "name": "QHS11",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Toán học",
+    "name": "QHS01",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Vật lí",
+    "name": "QHS02",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Hoá học",
+    "name": "QHS03",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Sinh học",
+    "name": "QHS04",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "Sư phạm Khoa học Tự nhiên",
+    "name": "QHS05",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GD1",
+    "name": "Sư phạm Toán và Khoa học Tự nhiên",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GD2",
+    "name": "Sư phạm Ngữ văn, Lịch sử, Lịch sử và Địa lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GD3",
+    "name": "Khoa học Giáo dục và Khác",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GD4",
+    "name": "Giáo dục tiểu học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GD5",
+    "name": "Giáo dục mầm non",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN1",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN10",
+    "name": "Công nghệ nông nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN11",
+    "name": "Kỹ thuật điều khiển và tự động hóa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN12",
+    "name": "Trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN13",
+    "name": "Kỹ thuật năng lượng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN14",
+    "name": "Hệ thống thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN15",
+    "name": "Mạng máy tính và truyền thông dữ liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN17",
+    "name": "Kỹ thuật Robot",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN18",
+    "name": "Thiết kế công nghiệp và Đồ họa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN19",
+    "name": "Công nghệ vật liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN2",
+    "name": "Kỹ thuật máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN20",
+    "name": "Khoa học dữ liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN21",
+    "name": "Công nghệ sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN3",
+    "name": "Vật lý kỹ thuật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN4",
+    "name": "Cơ kỹ thuật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN5",
+    "name": "Công nghệ kỹ thuật xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN6",
+    "name": "Công nghệ kỹ thuật cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN7",
+    "name": "Công nghệ hàng không vũ trụ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN8",
+    "name": "Khoa học máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN9",
+    "name": "Công nghệ kỹ thuật điện tử - Viễn thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CN16",
+    "name": "Công nghệ thông tin định hướng thị trường Nhật Bản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "734010101",
+    "name": "Ngành Quản trị kinh doanh",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "QHX01",
+    "name": "Báo chí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX02",
+    "name": "Chính trị học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX03",
+    "name": "Công tác xã hội",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX04",
+    "name": "Điện ảnh và nghệ thuật đại chúng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX05",
+    "name": "Đông Nam Á học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX06",
+    "name": "Đông phương học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX07",
+    "name": "Hán Nôm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX08",
+    "name": "Hàn Quốc học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX09",
+    "name": "Khoa học quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX10",
+    "name": "Lịch sử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX11",
+    "name": "Lưu trữ học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX12",
+    "name": "Ngôn ngữ học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX13",
+    "name": "Nhân học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX14",
+    "name": "Nhật Bản học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX15",
+    "name": "Quan hệ công chúng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX16",
+    "name": "Quản lý thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX17",
+    "name": "Quản trị dịch vụ du lịch và lữ hành",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX18",
+    "name": "Quản trị khách sạn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX19",
+    "name": "Quản trị văn phòng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX20",
+    "name": "Quốc tế học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX21",
+    "name": "Tâm lý học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX22",
+    "name": "Thông tin - Thư viện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX23",
+    "name": "Tôn giáo học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX24",
+    "name": "Triết học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX25",
+    "name": "Văn hóa học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX26",
+    "name": "Văn học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX27",
+    "name": "Việt Nam học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHX28",
+    "name": "Xã hội học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7380101CLC",
+    "name": "Luật CLC",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7380109",
+    "name": "Luật Thương mại quốc tế",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7380110",
+    "name": "Luật Kinh doanh",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "QHT01",
+    "name": "Toán học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT02",
+    "name": "Toán tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT03",
+    "name": "Vật lý học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT04",
+    "name": "Khoa học vật liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT05",
+    "name": "Công nghệ kỹ thuật hạt nhân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT06",
+    "name": "Hoá học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT07",
+    "name": "Công nghệ kỹ thuật hoá học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT08",
+    "name": "Sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT09",
+    "name": "Công nghệ sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT10",
+    "name": "Địa lý tự nhiên",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT12",
+    "name": "Quản lý đất đai",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT13",
+    "name": "Khoa học môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT15",
+    "name": "Công nghệ kỹ thuật môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT16",
+    "name": "Khí tượng và khí hậu học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT17",
+    "name": "Hải dương học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT18",
+    "name": "Địa chất học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT20",
+    "name": "Quản lý tài nguyên và môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT43",
+    "name": "Hoá dược",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT81",
+    "name": "Sinh dược học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT82",
+    "name": "Môi trường, sức khỏe và an toàn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT91",
+    "name": "Khoa học thông tin địa không gian",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT92",
+    "name": "Tài nguyên và môi trường nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT93",
+    "name": "Khoa học dữ liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT94",
+    "name": "Kỹ thuật điện tử và tin học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT95",
+    "name": "Quản lý phát triển đô thị và bất động sản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT96",
+    "name": "Khoa học và công nghệ thực phẩm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT98",
+    "name": "Khoa học máy tính và thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT99",
+    "name": "Công nghệ Bán dẫn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHT97",
+    "name": "Công nghệ quan trắc và giám sát tài nguyên môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ01",
+    "name": "Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ02",
+    "name": "Kế toán, Phân tích và Kiểm toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ03",
+    "name": "Hệ thống thông tin quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ04",
+    "name": "Tin học và Kỹ thuật máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ05",
+    "name": "Phân tích dữ liệu kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ06",
+    "name": "Marketing (song bằng do ĐHQGHN và Đại học HELP, Malaysia cùng cấp bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ07",
+    "name": "Quản lý (song bằng do ĐHQGHN và Đại học Keuka, Hoa Kỳ cùng cấp bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ08",
+    "name": "Tự động hóa và Tin học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ09",
+    "name": "Ngôn ngữ Anh (chuyên sâu Kinh doanh – Công nghệ thông tin)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ10",
+    "name": "Công nghệ thông tin ứng dụng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ11",
+    "name": "Công nghệ tài chính và Kinh doanh số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ12",
+    "name": "Kỹ thuật hệ thống công nghiệp và Logistics",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ13",
+    "name": "Kinh doanh số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QHQ14",
+    "name": "Truyền thông số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340108",
+    "name": "Quản lí (song bằng VNU-Keuka)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340120",
+    "name": "Kinh doanh quốc tế",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340125",
+    "name": "Phân tích dữ liệu kinh doanh",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340303",
+    "name": "Kế toán, Phân tích và Kiểm toán",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7480111",
+    "name": "Tin học và Kỹ thuật máy tính",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480209",
+    "name": "Công nghệ tài chính và kinh doanh số",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480210",
+    "name": "Công nghệ thông tin ứng dụng",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510306",
+    "name": "Tự động hóa và Tin học (Kỹ sư)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520139",
+    "name": "Kỹ thuật hệ thống công nghiệp và Logistics",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7140231",
+    "name": "Sư phạm tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140234",
+    "name": "Sư phạm tiếng Trung",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140236",
+    "name": "Sư phạm tiếng Nhật",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140237",
+    "name": "Sư phạm tiếng Hàn Quốc",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7220101",
+    "name": "Tiếng Việt và Văn hóa Việt Nam",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220203",
+    "name": "Ngôn ngữ Pháp",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220205",
+    "name": "Ngôn ngữ Đức",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220209",
+    "name": "Ngôn ngữ Nhật",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220210",
+    "name": "Ngôn ngữ Hàn Quốc",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220211",
+    "name": "Ngôn ngữ Ả Rập",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220212QTD",
+    "name": "Văn hóa và truyền thông xuyên quốc gia",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7903124",
+    "name": "Kinh tế - Tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7140235",
+    "name": "Sư phạm tiếng Đức",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7720301",
+    "name": "Điều dưỡng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720501",
+    "name": "Răng hàm mặt",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720601",
+    "name": "Kĩ thuật xét nghiệm y học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720602",
+    "name": "Kĩ thuật hình ảnh y học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "BF-E12",
+    "name": "Kỹ thuật Thực phẩm (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BF-E19",
+    "name": "Kỹ thuật sinh học (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BF1",
+    "name": "Kỹ thuật Sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BF2",
+    "name": "Kỹ thuật Thực phẩm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CH-E11",
+    "name": "Kỹ thuật Hóa dược (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CH1",
+    "name": "Kỹ thuật Hoá học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CH2",
+    "name": "Hoá học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ED2",
+    "name": "Công nghệ giáo dục",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ED3",
+    "name": "Quản lý giáo dục",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EE-E18",
+    "name": "Hệ thống điện và năng lượng tái tạo (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EE-E8",
+    "name": "Kỹ thuật Điều khiển - Tự động hoá (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EE-EP",
+    "name": "Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EE1",
+    "name": "Kỹ thuật Điện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EE2",
+    "name": "Kỹ thuật Điều khiển - Tự động hoá",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM-E13",
+    "name": "Phân tích kinh doanh (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM-E14",
+    "name": "Logistics và Quản lý chuỗi cung ứng (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM1",
+    "name": "Quản lý năng lượng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM2",
+    "name": "Quản lý công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM3",
+    "name": "Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM4",
+    "name": "Kế toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EM5",
+    "name": "Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET-E16",
+    "name": "Truyền thông số và Kỹ thuật đa phương tiện (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET-E4",
+    "name": "Kỹ thuật Điện tử - Viễn thông (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET-E5",
+    "name": "Kỹ thuật Y sinh (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET-E9",
+    "name": "Hệ thống nhúng thông minh và IoT (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET-LUH",
+    "name": "Điện tử - Viễn thông - hợp tác với ĐH Leibniz Hannover (Đức)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET1",
+    "name": "Kỹ thuật Điện tử - Viễn thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET2",
+    "name": "Kỹ thuật Y sinh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EV1",
+    "name": "Kỹ thuật Môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EV2",
+    "name": "Quản lý Tài nguyên và Môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FL1",
+    "name": "Tiếng Anh KHKT và Công nghệ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FL2",
+    "name": "Tiếng Anh chuyên nghiệp quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FL3",
+    "name": "Tiếng Trung KHKT và Công nghệ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HE1",
+    "name": "Kỹ thuật Nhiệt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-E10",
+    "name": "Khoa học dữ liệu và Trí tuệ nhân tạo (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-E15",
+    "name": "An toàn không gian số - Cyber Security (CT Tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-E6",
+    "name": "Công nghệ thông tin (Việt - Nhật)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-E7",
+    "name": "Công nghệ thông tin (Global ICT)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-EP",
+    "name": "Công nghệ thông tin (Việt - Pháp)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT1",
+    "name": "CNTT: Khoa học Máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT2",
+    "name": "CNTT: Kỹ thuật Máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ME-E1",
+    "name": "Kỹ thuật Cơ điện tử (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ME-GU",
+    "name": "Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ME-LUH",
+    "name": "Cơ điện tử - hợp tác với ĐH Leibniz Hannover (Đức)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ME-NUT",
+    "name": "Cơ điện tử - hợp tác với ĐH Công nghệ Nagaoka (Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ME1",
+    "name": "Kỹ thuật Cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ME2",
+    "name": "Kỹ thuật Cơ khí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MI1",
+    "name": "Toán - Tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MI2",
+    "name": "Hệ thống thông tin quản lý",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MS-E3",
+    "name": "Khoa học và kỹ thuật vật liệu (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MS1",
+    "name": "Kỹ thuật Vật liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MS2",
+    "name": "Kỹ thuật Vi điện tử và Công nghệ nano",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MS3",
+    "name": "Công nghệ vật liệu Polyme và Compozit",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MS5",
+    "name": "Kỹ thuật in",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "PH1",
+    "name": "Vật lý kỹ thuật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "PH2",
+    "name": "Kỹ thuật hạt nhân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "PH3",
+    "name": "Vật lý Y khoa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TE-E2",
+    "name": "Kỹ thuật Ô tô (CT tiên tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TE-EP",
+    "name": "Cơ khí hàng không (Chương trình Việt - Pháp PFIEV)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TE1",
+    "name": "Kỹ thuật Ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TE2",
+    "name": "Kỹ thuật Cơ khí động lực",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TE3",
+    "name": "Kỹ thuật Hàng không",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TROY-BA",
+    "name": "Quản trị kinh doanh - hợp tác với ĐH Troy (Hoa Kỳ)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TROY-IT",
+    "name": "Khoa học máy tính - hợp tác với ĐH Troy (Hoa Kỳ)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TX1",
+    "name": "Công nghệ Dệt - May",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CH3",
+    "name": "Kỹ thuật In",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQH1.1",
+    "name": "CT TC Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQH2.1",
+    "name": "CT CLC Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQH2.2",
+    "name": "CT ĐHNNQT Logistics và Quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQH2.3",
+    "name": "CT ĐHNNQT Kinh doanh quốc tế theo mô hình tiên tiến Nhật Bản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQH2.4",
+    "name": "CT ĐHNNQT Kinh doanh số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQH4.1",
+    "name": "CT TT i-Hons hợp tác với Đại học Queensland về Kinh doanh quốc tế và Phân tích dữ liệu kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KHMH2 .1",
+    "name": "Chương trình Khoa học máy tính và dữ liệu trong kinh tế và kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTCH2.1",
+    "name": "CT ĐHPTQT Kinh tế chính trị quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTEH1.1",
+    "name": "CT TC Kinh tế đối ngoại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTEH2.1",
+    "name": "CT CLC Kinh tế đối ngoại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTEH4.1",
+    "name": "CT TT Kinh tế đối ngoại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTKH1.1",
+    "name": "CT TC Kế toán - Kiếm toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTKH2.1",
+    "name": "CT ĐHNNQT ĐHNNQT Kế toán - Kiểm toán theo định hướng ACCA",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTQH.1",
+    "name": "CT TC Kinh tế quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTQH2.1",
+    "name": "CT CLC Kinh tế quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "LAWH1.1",
+    "name": "CT TC Luật thương mại quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "LAWH2.1",
+    "name": "CT ĐHNNQT Luật Kinh doanh quốc tế theo mô hình thực hành nghề nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MKTH2.1",
+    "name": "CT ĐHNNQT Marketing số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNAH1.1",
+    "name": "CT TC Tiếng Anh thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNAH2.1",
+    "name": "CT CLC Tiếng Anh thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNNH1.1",
+    "name": "CT TC Tiếng Nhật thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNNH2.1",
+    "name": "CT CLC Tiếng Nhật thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNPH1.1",
+    "name": "CT Tích hợp tiếng Pháp thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNTH1.1",
+    "name": "CT TC Tiếng Trung Thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNTH2.1",
+    "name": "CT CLC Tiếng Trung thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QKSH2.1",
+    "name": "CT ĐHNNQT Quản trị khách sạn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QTKH1.1",
+    "name": "CT TC Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QTKH2.1",
+    "name": "CT CLC Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "QTKH4.1",
+    "name": "CT TT Quản tri kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TCHH1.1",
+    "name": "CT TC Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TCHH2.1",
+    "name": "CT CLC Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TCHH4.1",
+    "name": "CT TT Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KHMH2.1",
+    "name": "Chương trình ĐHNNQT Khoa học máy tính và dữ liệu trong kinh tế và kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTEH1.2",
+    "name": "Chương trình tiêu chuẩn Thương mại quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTKQ1.1",
+    "name": "Chương trình tiêu chuẩn Kế toán - Kiểm toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTQH1.1",
+    "name": "Chương trình tiêu chuẩn Kinh tế quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KTQH1.2",
+    "name": "Chương trình tiêu chuẩn Kinh tế và Phát triển quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NNPH2.1",
+    "name": "Chương trình CLC Tiếng Pháp thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH01-01",
+    "name": "Ngành Luật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH01-02",
+    "name": "Ngành Kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH02",
+    "name": "Ngành Quản trị kinh doanh Ngành Kinh doanh quốc tế Ngành quản trị khách sạn Ngành Marketing",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH03",
+    "name": "Ngành Kế toán Ngành Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH04",
+    "name": "Ngành Ngôn ngữ Anh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH05",
+    "name": "Ngành Ngôn ngữ Pháp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH06",
+    "name": "Ngành Ngôn ngữ Trung",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH07",
+    "name": "Ngành Ngôn ngữ Nhật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH09",
+    "name": "Ngành Kinh tế chính trị",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NTH10",
+    "name": "Ngành Khoa học máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TCHH1.2",
+    "name": "Chương trình tiêu chuẩn Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TCHH1.3",
+    "name": "Chương trình tiêu chuẩn Phân tích và đầu tư tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KDQQ1.1",
+    "name": "Chương trình tiêu chuẩn Kinh doanh quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM01",
+    "name": "Quản trị kinh doanh (Quản trị kinh doanh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM02",
+    "name": "Quản trị kinh doanh (Quản trị kinh doanh - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM03",
+    "name": "Quản trị kinh doanh (Khởi nghiệp và phát triển kinh doanh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM04",
+    "name": "Quản trị khách sạn (Quản trị khách sạn)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM05",
+    "name": "Quản trị khách sạn (Quản trị khách sạn - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM06",
+    "name": "Quản trị dịch vụ du lịch và lữ hành (Quản trị dịch vụ du lịch và lữ hành)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM07",
+    "name": "Marketing (Marketing Thương mại)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM08",
+    "name": "Marketing (Marketing thương mại - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM09",
+    "name": "Marketing (Marketing số)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM10",
+    "name": "Marketing (Quản trị Thương hiệu)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM11",
+    "name": "Marketing (Quản trị thương hiệu - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM12",
+    "name": "Kế toán (Kế toán doanh nghiệp)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM13",
+    "name": "Kế toán (Kế toán tích hợp chứng chỉ quốc tế ICAEW CFAB - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM14",
+    "name": "Kế toán (Kế toán công)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM15",
+    "name": "Kiểm toán (Kiểm toán)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM16",
+    "name": "Kiểm toán (Kiểm toán tích hợp chứng chỉ quốc tế ICAEW CFAB - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM17",
+    "name": "Logistics và Quản lý chuỗi cung ứng (Logistics và Quản lý chuỗi cung ứng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM18",
+    "name": "Logistics và Quản lý chuỗi cung ứng (Logistics và Xuất nhập khẩu - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM19",
+    "name": "Kinh doanh quốc tế (Thương mại quốc tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM20",
+    "name": "Kinh doanh quốc tế (Thương mại quốc tế - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM21",
+    "name": "Kinh tế quốc tế (Kinh tế quốc tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM22",
+    "name": "Kinh tế (Quản lý kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM23",
+    "name": "Kinh tế (Kinh tế và Quản lý đầu tư - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM24",
+    "name": "Tài chính - Ngân hàng (Tài chính - Ngân hàng thương mại)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM25",
+    "name": "Tài chính - Ngân hàng (Tài chính - Ngân hàng thương mại - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM26",
+    "name": "Tài chính - Ngân hàng (Tài chính công)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM27",
+    "name": "Tài chính - Ngân hàng (Công nghệ tài chính ngân hàng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM28",
+    "name": "Thương mại điện tử (Quản trị thương mại điện tử)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM29",
+    "name": "Thương mại điện tử (Thương mại điện tử - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM30",
+    "name": "Thương mại điện tử (Kinh doanh số)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM31",
+    "name": "Hệ thống thông tin quản lý (Quản trị Hệ thống thông tin)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM32",
+    "name": "Hệ thống thông tin quản lý (Quản trị Hệ thống thông tin - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM33",
+    "name": "Ngôn ngữ Anh (Tiếng Anh thương mại)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM34",
+    "name": "Luật kinh tế (Luật kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM35",
+    "name": "Luật kinh tế (Luật kinh doanh - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM36",
+    "name": "Luật kinh tế (Luật thương mại quốc tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM37",
+    "name": "Quản trị nhân lực (Quản trị nhân lực doanh nghiệp)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM38",
+    "name": "Quản trị nhân lực (Quản trị nhân lực doanh nghiệp - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM39",
+    "name": "Kinh tế số (Phân tích kinh doanh trong môi trường số)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM40",
+    "name": "Ngôn ngữ Trung Quốc (Tiếng Trung thương mại)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM41",
+    "name": "Ngôn ngữ Trung Quốc (Tiếng Trung thương mại - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM42",
+    "name": "Quản trị kinh doanh (Tiếng Pháp thương mại)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM43",
+    "name": "Quản trị kinh doanh (Quản trị kinh doanh) - Khởi nghiệp (Thành lập doanh nghiệp) - Chương trình đào tạo song bằng quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM44",
+    "name": "Marketing (Marketing thương mại) - Thương mại sản phẩm và dịch vụ (Bán hàng) - Chương trình đào tạo song bằng quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TM45",
+    "name": "Quản trị kinh doanh (Quàn trị kinh doanh - Chương trình đào tạo tiến tiến)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7220201 TT",
+    "name": "Ngôn ngữ Anh - CTTT",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220204 TT",
+    "name": "Ngôn ngữ Trung Quốc - CTTT",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220206",
+    "name": "Ngôn ngữ Tây Ban Nha",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220207",
+    "name": "Ngôn ngữ Bồ Đào Nha",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220208",
+    "name": "Ngôn ngữ Italia",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220208 TT",
+    "name": "Ngôn ngữ Italia - CTTT",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220210 TT",
+    "name": "Ngôn ngữ Hàn Quốc - CTTT",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7310111",
+    "name": "Nghiên cứu phát triển (dạy bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310601",
+    "name": "Quốc tế học (dạy bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320109",
+    "name": "Truyền thông doanh nghiệp (dạy bằng tiếng Pháp)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201 TT",
+    "name": "Công nghệ thông tin (dạy bằng tiếng Anh) - CTTT",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7810103 TT",
+    "name": "Quản trị dịch vụ du lịch và lữ hành (dạy bằng tiếng Anh) - CTTT",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7220204 CLC",
+    "name": "Ngôn ngữ Trung Quốc - Chất lượng cao",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220208 CLC",
+    "name": "Ngôn ngữ Italia - CLC",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7480201 CLC",
+    "name": "Công nghệ thông tin (dạy bằng tiếng Anh) - CLC",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7810103 CLC",
+    "name": "Quản trị dịch vụ du lịch và lữ hành (dạy bằng tiếng Anh)-CLC",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340101 QT",
+    "name": "Quản trị kinh doanh (Chương trình CLC Quản trị kinh doanh Việt-Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301 QT",
+    "name": "Kế toán (Chương trình CLC Kế toán tổng hợp Việt-Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7460112",
+    "name": "Toán ứng dụng (chuyên ngành toán tin ứng dụng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480106",
+    "name": "Kỹ thuật máy tính (theo hướng chuyên sâu vi mạch bán dẫn, bao gồm lớp kỹ sư tài năng)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201 QT",
+    "name": "Công nghệ thông tin (Chương trình CLC Công nghệ thông tin Việt-Anh)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510605",
+    "name": "Logistics và quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520103",
+    "name": "Kỹ thuật cơ khí (chuyên ngành: Công nghệ chế tạo cơ khí, Tự động hoá thiết kế cơ khí)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520103 QT",
+    "name": "Kỹ thuật cơ khí (Chương trình CLC Cơ khí ô tô Việt - Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520107",
+    "name": "Kỹ thuật robot (chuyên ngành Kỹ thuật robot và trí tuệ nhân tạo)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520114",
+    "name": "Kỹ thuật cơ điện tử",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520115",
+    "name": "Kỹ thuật nhiệt (chuyên ngành: Kỹ thuật nhiệt lạnh và điều hoà không khí)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520116",
+    "name": "Kỹ thuật cơ khí động lực (chuyên ngành: Kỹ thuật phương tiện đường sắt, Máy xây dựng, Kỹ thuật máy động lực)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520116 DS",
+    "name": "Kỹ thuật cơ khí động lực (chuyên ngành Kỹ thuật phương tiện đường sắt tốc độ cao)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520130",
+    "name": "Kỹ thuật ô tô (bao gồm lớp kỹ sư tài năng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520201",
+    "name": "Kỹ thuật điện (chuyên ngành: Trang bị điện trong công nghiệp và GTVT, Hệ thống điện trong giao thông và công nghiệp)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520201 DS",
+    "name": "Kỹ thuật điện (chuyên ngành Hệ thống điện đường sắt tốc độ cao, đường sắt đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520216 DS",
+    "name": "Kỹ thuật điều khiển và tự động hoá (chuyên ngành Điều khiển và thông tin tín hiệu đường sắt hiện đại)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520216-GTTM",
+    "name": "Kỹ thuật điều khiển và tự động hoá (chuyên ngành Hệ thống giao thông thông minh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520320",
+    "name": "Kỹ thuật môi trường",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580101",
+    "name": "Kiến trúc",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580106",
+    "name": "Quản lý đô thị và công trình",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201",
+    "name": "Kỹ thuật xây dựng (chuyên ngành: Xây dựng dân dụng và công nghiệp, Kết cấu xây dựng, Vật liệu và công nghệ xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201 QT",
+    "name": "Kỹ thuật xây dựng (Chương trình tiên tiến Kỹ thuật xây dựng công trình GT)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580202",
+    "name": "Kỹ thuật xây dựng công trình thủy",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205",
+    "name": "Kỹ thuật xây dựng công trình giao thông (chuyên ngành: Cầu đường bộ, Đường bộ và kỹ thuật giao thông, Cầu và kết cấu, ĐS/ ĐS đô thị, XD sân bay cảng hàng không, Công trình GT đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205 DS",
+    "name": "Kỹ thuật xây dựng công trình giao thông (chuyên ngành đường sắt tốc độ cao)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205 QT1",
+    "name": "Kỹ thuật xây dựng công trình giao thông (Chương trình CLC Cầu-Đường bộ Việt-Pháp)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205 QT2",
+    "name": "Kỹ thuật xây dựng công trình giao thông (Chương trình CLC Cầu-Đường bộ Việt-Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205 QT3",
+    "name": "Kỹ thuật xây dựng công trình giao thông (Chương trình CLC Công trình giao thông đô thị Việt-Nhật)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580210",
+    "name": "Kỹ thuật cơ sở hạ tầng (chuyên ngành: cơ sở hạ tầng kỹ thuật đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580215",
+    "name": "Kỹ thuật an toàn giao thông (Ngành tuyển sinh các năm trước: Công nghệ kỹ thuật giao thông - Chuyên ngành: Kỹ thuật an toàn giao thông)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580301",
+    "name": "Kinh tế xây dựng (chuyên ngành: Kinh tế và quản lý đầu tư xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580301 QT",
+    "name": "Kinh tế xây dựng (Chương trình CLC Kinh tế xây dựng công trình GT Việt-Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302",
+    "name": "Quản lý xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302 QT",
+    "name": "Quản lý xây dựng (Chương trình CLC Quản lý xây dựng Việt - Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7840101",
+    "name": "Khai thác vận tải (chuyên ngành: Vận tải - Thương mại quốc tế, Quy hoạch và quản lý GTVT đô thị, Vận tải - Kinh tế đường bộ và thành phố, Vận tải đường sắt)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7840101 DS",
+    "name": "Khai thác vận tải (chuyên ngành Khai thác và quản lý đường sắt tốc độ cao, Khai thác và quản lý đường sắt đô thị)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7840104",
+    "name": "Kinh tế vận tải (chuyên ngành: Kinh tế vận tải ô tô, Kinh tế vận tải hàng không, Kinh tế vận tải đường sắt, Kinh tế vận tải thuỷ bộ)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520218",
+    "name": "Kỹ thuật robot và trí tuệ nhân tạo",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520219",
+    "name": "Hệ thống giao thông thông minh",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205 QT",
+    "name": "Kỹ thuật xây dựng công trình giao thông (gồm các Chương trình chất lượng cao: Cầu • Đường bộ Việt • Pháp, Cầu - Đường bộ Việt - Anh, Công trình giao thông đô thị Việt -Nhật)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7340101QT",
+    "name": "Quản trị kinh doanh (Chương trình chất lượng cao Quản trị kinh doanh Việt - Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301QT",
+    "name": "Kế toán (Chương trình chất lượng cao Kế toán tổng hợp Việt - Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7480201QT",
+    "name": "Công nghệ thông tin (Chương trinh chất lượng cao Công nghệ thông tin Việt - Anh)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510104",
+    "name": "Công nghệ kỹ thuật giao thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520103QT",
+    "name": "Kỹ thuật cơ khi (Chương trình chất lượng cao Cơ khí ô tô Việt - Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201QT",
+    "name": "Kỹ thuật xây dựng (Chương trinh tiên tiến Kỹ thuật xây dựng công trình giao thông)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205QT",
+    "name": "Kỹ thuật xây dựng công trình giao thông (gồm các Chương trinh chất lượng cao: Cầu - Đường bộ Việt • Pháp, cầu - Đường bộ Việt - Anh. Công trinh giao thông đô thị Việt - Nhật)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580301QT",
+    "name": "Kinh tế xây dựng (Chương trình chất lượng cao Kinh tế xây dựng công trinh Giao thông Việt - Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302QT",
+    "name": "Quản lý xây dựng (Chương trình chất lượng cao Quản lý xây dựng Việt - Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7340101 LK",
+    "name": "Chương trình liên kết quốc tế Ngành Quản trị kinh doanh (Đại học EM Normandie -Cộng hoà Pháp cấp bằng, Học hoàn toàn bàng tiếng Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7580205 LK",
+    "name": "Chương trình liên kết quốc tế Công nghệ Cầu - Đường sắt tốc độ cao (Đại học Dongyang - Hàn Quốc cấp bằng, học bằng tiếng Anh và tiếng Hàn Quốc)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302 LK",
+    "name": "Chương trình liên kết quốc tế Ngành Quản lý xây dựng (Đại học Bedfordshire -Vương Quốc Anh cấp bằng, Học hoàn toàn bằng tiếng Anh)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7340110QT",
+    "name": "Quản trị kinh doanh (Chương trình chất lượng cao Quản trị kinh doanh Việt - Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7580302LK",
+    "name": "Chương trình liên kết quốc tế Ngành Quản lý xây dựng (Đại học Bedfordshire - nước Anh cấp bằng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7210404",
+    "name": "Thiết kế thời trang",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7220204LK",
+    "name": "Ngôn ngữ Trung Quốc (LK2+2 với ĐHKHKT Quảng Tây)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229020",
+    "name": "Ngôn ngữ học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7310612",
+    "name": "Trung Quốc học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "73401012",
+    "name": "Phân tích dữ liệu kinh doanh",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301TA",
+    "name": "Kế toán (CTĐT bằng tiếng Anh)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340404",
+    "name": "Quản trị nhân lực",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7480101TA",
+    "name": "Khoa học máy tính (CTĐT bằng tiếng Anh)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480103",
+    "name": "Kỹ thuật phần mềm",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480104",
+    "name": "Hệ thống thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480108",
+    "name": "Công nghệ kỹ thuật máy tính",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "74802012",
+    "name": "Công nghệ đa phương tiện",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "74802021",
+    "name": "An toàn thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510201",
+    "name": "Công nghệ kỹ thuật cơ khí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75102012",
+    "name": "Công nghệ kỹ thuật khuôn mẫu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75102013",
+    "name": "Thiết kế cơ khí và kiểu dáng công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510201TA",
+    "name": "Công nghệ kỹ thuật cơ khí (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510203",
+    "name": "Công nghệ kỹ thuật cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75102032",
+    "name": "Robot và trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75102033",
+    "name": "Công nghệ kỹ thuật cơ điện tử ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510205",
+    "name": "Công nghệ kỹ thuật ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510205TA",
+    "name": "Công nghệ kỹ thuật ô tô (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510206",
+    "name": "Công nghệ kỹ thuật nhiệt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510301TA",
+    "name": "Công nghệ kỹ thuật điện, điện tử (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510302",
+    "name": "Công nghệ kỹ thuật điện tử - viễn thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75103021",
+    "name": "Công nghệ kỹ thuật điện tử y sinh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510302TA",
+    "name": "Công nghệ kỹ thuật điện tử - viễn thông (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510303",
+    "name": "Công nghệ kỹ thuật điều khiển và tự động hóa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75103031",
+    "name": "Kỹ thuật sản xuất thông minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510401",
+    "name": "Công nghệ kỹ thuật hóa học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510406",
+    "name": "Công nghệ kỹ thuật môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "75190071",
+    "name": "Năng lượng tái tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520118",
+    "name": "Kỹ thuật hệ thống công nghiệp",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7540101",
+    "name": "Công nghệ thực phẩm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540203",
+    "name": "Công nghệ vật liệu dệt, may",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540204",
+    "name": "Công nghệ dệt, may",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7720203",
+    "name": "Hóa dược",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7810101",
+    "name": "Du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810101TA",
+    "name": "Du lịch (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103TA",
+    "name": "Quản trị dịch vụ du lịch và lữ hành (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810201",
+    "name": "Quản trị khách sạn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810201TA",
+    "name": "Quản trị khách sạn (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810202",
+    "name": "Quản trị nhà hàng và dịch vụ ăn uống",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810202TA",
+    "name": "Quản trị nhà hàng và dịch vụ ăn uống (CTĐT bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320113",
+    "name": "Công nghệ đa phương tiện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510204",
+    "name": "Công nghệ kỹ thuật cơ điện tử ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510209",
+    "name": "Robot và trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510213",
+    "name": "Thiết kế cơ khí và kiểu dáng công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7519003",
+    "name": "Công nghệ kỹ thuật khuôn mẫu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7519007",
+    "name": "Năng lượng tái tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310101_1",
+    "name": "Kinh tế học (ngành Kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310101_2",
+    "name": "Kinh tế và quản lý đô thị (ngành Kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310101_3",
+    "name": "Kinh tế và quản lý nguồn nhân lực (ngành Kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CLC2",
+    "name": "Kinh tế Đầu tư - CT CLC2",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CLC1",
+    "name": "Kinh tế phát triển - CT CLC1",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CLC3",
+    "name": "Kinh tế quốc tế - CT CLC3",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310107",
+    "name": "Thống kê kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TT1",
+    "name": "Quản trị kinh doanh - CT tiên tiến TT1",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TT2",
+    "name": "Quản trị Kinh doanh quốc tế - CT tiên tiến TT2",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340121",
+    "name": "Kinh doanh thương mại",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340401",
+    "name": "Khoa học quản lý",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340408",
+    "name": "Quan hệ lao động",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340409",
+    "name": "Quản lý dự án",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7620114",
+    "name": "Kinh doanh nông nghiệp",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7620115",
+    "name": "Kinh tế nông nghiệp",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7850101",
+    "name": "Quản lý tài nguyên và môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850102",
+    "name": "Kinh tế tài nguyên thiên nhiên",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850103",
+    "name": "Quản lý đất đai",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EBBA",
+    "name": "Quản trị kinh doanh (E-BBA)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP01",
+    "name": "Khởi nghiệp và phát triển kinh doanh (BBAE)/ngành QTKD",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP02",
+    "name": "Định phí Bảo hiểm & Quản trị rủi ro (Actuary)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP03",
+    "name": "Phân tích dữ liệu kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP04",
+    "name": "Kế toán tích hợp chứng chi quốc tế (JCAEW CFAB)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP05",
+    "name": "Kinh doanh số (E-BDB)/ngành QTKD",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP06",
+    "name": "Phân tích kinh doanh (BA)/ngành QTKD",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP07",
+    "name": "Quản trị điều hành thông minh (E-SOM) /ngành QTKD",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP08",
+    "name": "Quản trị chất lượng và Đổi mới (E-MQI)/ngành QTKD",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP09",
+    "name": "Công nghệ tài chính (BFT)/ngành TC-NH",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP10",
+    "name": "Tài chính và Đầu tư (BFI)/ngành TC-NH",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP11",
+    "name": "Quản trị khách sạn quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP12",
+    "name": "Kiểm toán tích hợp chứng chỉ quốc tế (ICAEW CFAB)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP13",
+    "name": "Kinh tế học tài chính (FE)/ngành Kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP14",
+    "name": "Logistics và Quản lý chuỗi cung ứng tích hợp chứng chi quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP15",
+    "name": "Khoa học dữ liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP16",
+    "name": "Trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP17",
+    "name": "Kỹ thuật phần mềm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EP18",
+    "name": "Quản trị giải trí và sự kiện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EPMP",
+    "name": "Quản lý công và Chính sách (E-PMP)/ngành Kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE1",
+    "name": "Quản trị khách sạn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE2",
+    "name": "Quản trị lữ hành",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE3",
+    "name": "Truyền thông Marketing",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE4",
+    "name": "Luật kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE5",
+    "name": "Quản trị kinh doanh thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE6",
+    "name": "Quản lý thị trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "POHE7",
+    "name": "Thẩm định giá",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "73101011",
+    "name": "Kinh tế học (ngành Kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "73101012",
+    "name": "Kinh tế và quản lý đô thị (ngành Kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "73101013",
+    "name": "Kinh tế và QL NNL (ngành Kinh tế)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7720101YHT",
+    "name": "Y khoa Phân hiệu Thanh Hóa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720115",
+    "name": "Y học cổ truyền",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720301YHT",
+    "name": "Điều dưỡng Phân hiệu Thanh Hóa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720302",
+    "name": "Hộ sinh",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720401",
+    "name": "Dinh dưỡng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720502",
+    "name": "Kỹ thuật phục hình răng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720601YHT",
+    "name": "Kỹ thuật xét nghiệm y học Phân hiệu Thanh Hóa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720603",
+    "name": "Kỹ thuật phục hồi chức năng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720603YHT",
+    "name": "Kỹ thuật phục hồi chức năng Phân hiệu Thanh Hóa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720699",
+    "name": "Khúc xạ nhãn khoa",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720701",
+    "name": "Y tế công cộng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101_AP",
+    "name": "Y khoa kết hợp chứng chỉ ngoại ngữ quốc tế",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720101YHT_AP",
+    "name": "Y khoa Phân hiệu Thanh hóa kết hợp chứng chỉ ngoại ngữ quốc tế",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720301_ AP",
+    "name": "Điều dưỡng chương trình tiên tiến kết hợp chứng chỉ ngoại ngữ quốc tế",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7720501_AP",
+    "name": "Răng Hàm mặt kết hợp chứng chỉ ngoại ngữ quốc tế",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7380101PH",
+    "name": "Luật (Đào tạo tại Phân hiệu Đắk Lắk)",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7460117",
+    "name": "Toán tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510102",
+    "name": "Công nghệ kỹ thuật công trình xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510402",
+    "name": "Công nghệ vật liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510403",
+    "name": "Công nghệ kỹ thuật năng lượng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510407",
+    "name": "Công nghệ kỹ thuật hạt nhân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510601",
+    "name": "Quản lý công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510602",
+    "name": "Quản lý năng lượng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7440112",
+    "name": "Hóa học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7210110",
+    "name": "Mỹ thuật đô thị",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "72104_NT",
+    "name": "CTĐT Nghệ thuật và thiết kế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480101_QT",
+    "name": "Khoa học Máy tính",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201_01",
+    "name": "Công nghệ thông tin/ Công nghệ đa phương tiện",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201_02",
+    "name": "Công nghệ thông tin/ An toàn thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510103",
+    "name": "Công nghệ kỹ thuật xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510105",
+    "name": "Công nghệ kỹ thuật vật liệu xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510605_01",
+    "name": "Logistics và Quản lý chuỗi cung ứng/ Logistics đô thị",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510605_02",
+    "name": "Logistics và Quản lý chuỗi cung ứng/ Logistics công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7520103_01",
+    "name": "Kỹ thuật cơ khí/ Máy xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520103_03",
+    "name": "Kỹ thuật cơ khí/ Kỹ thuật cơ điện",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520103_04",
+    "name": "Kỹ thuật cơ khí/ Kỹ thuật ô tô",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520309",
+    "name": "Kỹ thuật vật liệu",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580101_02",
+    "name": "Kiến trúc/Kiến trúc công nghệ",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580102",
+    "name": "Kiến trúc cảnh quan",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580103",
+    "name": "Kiến trúc nội thất",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580105",
+    "name": "Quy hoạch vùng và đô thị",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_01",
+    "name": "Kỹ thuật xây dựng/ Xây dựng Dân dụng và Công nghiệp",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_02",
+    "name": "Kỹ thuật xây dựng/ Hệ thống kỹ thuật trong công trình",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_03",
+    "name": "Kỹ thuật xây dựng/ Tin học xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_04",
+    "name": "Kỹ thuật xây dựng/ Kỹ thuật công trình thủy",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_05",
+    "name": "Kỹ thuật xây dựng/ Kỹ thuật công trình biển",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_CLC",
+    "name": "Kỹ thuật xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_QT",
+    "name": "Kỹ thuật xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205_01",
+    "name": "Kỹ thuật xây dựng công trình Giao thông/ Xây dựng Cầu đường",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580205_02",
+    "name": "Kỹ thuật xây dựng công trình giao thông/ Đường sắt tốc độ cao và đường sắt đô thị",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580213_01",
+    "name": "Kỹ thuật Cấp thoát nước/ Kỹ thuật nước - Môi trường nước",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302_01",
+    "name": "Quản lý xây dựng/ Kinh tế và quản lý đô thị",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302_02",
+    "name": "Quản lý xây dựng/ Kinh tế và quản lý bất động sản",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302_03",
+    "name": "Quản lý xây dựng/ Quản lý hạ tầng, đất đai đô thị",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302_04",
+    "name": "Quản lý xây dựng/ Kiểm toán đầu tư xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520101_01",
+    "name": "Kỹ thuật cơ khí/ Máy xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520101_03",
+    "name": "Kỹ thuật cơ khí/ Kỹ thuật cơ điện",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520101_04",
+    "name": "Kỹ thuật cơ khí/ Kỹ thuật ô tô",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580101_01",
+    "name": "Kiến trúc/ Kiến trúc công nghệ",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7440201",
+    "name": "Địa chất học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7440229",
+    "name": "Quản lý và phân tích dữ liệu khoa học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7480206",
+    "name": "Địa tin học",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7520121",
+    "name": "Kỹ thuật không gian",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520301",
+    "name": "Kỹ thuật hoá học",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520501",
+    "name": "Kỹ thuật địa chất",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520502",
+    "name": "Kỹ thuật địa vật lý",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520503",
+    "name": "Kỹ thuật trắc địa - bản đồ",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520505",
+    "name": "Đá quý Đá mỹ nghệ",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520601",
+    "name": "Kỹ thuật mỏ",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520604",
+    "name": "Kỹ thuật dầu khí",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520605",
+    "name": "Kỹ thuật khí thiên nhiên",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520606",
+    "name": "Công nghệ số trong thăm dò và khai thác tài nguyên thiên nhiên",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7520607",
+    "name": "Kỹ thuật tuyển khoáng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580109",
+    "name": "Quản lý phát triển đô thị và bất động sản",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580204",
+    "name": "Xây dựng công trình ngầm thành phố và Hệ thống tàu điện ngầm",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580211",
+    "name": "Địa kỹ thuật xây dựng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580212",
+    "name": "Kỹ thuật tài nguyên nước",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7810105",
+    "name": "Du lịch địa chất",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850196",
+    "name": "Quản lý tài nguyên khoáng sản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850202",
+    "name": "An toàn, Vệ sinh lao động",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA101",
+    "name": "Xây dựng và quản lý công trình thủy (Kỹ thuật xây dựng công trình thủy)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA102",
+    "name": "Kỹ thuật tài nguyên nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA103",
+    "name": "Tài nguyên nước và môi trường (Thủy văn học)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA104",
+    "name": "Kỹ thuật xây dựng dân dụng và công nghiệp (Kỹ thuật xây dựng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA105",
+    "name": "Kỹ thuật cơ khí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA106",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA107",
+    "name": "Kỹ thuật cấp thoát nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA109",
+    "name": "Kỹ thuật môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA110",
+    "name": "Xây dựng và quản lý hạ tầng đô thị (Kỹ thuật cơ sở hạ tầng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA111",
+    "name": "Công nghệ kỹ thuật xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA112",
+    "name": "Kỹ thuật điện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA113",
+    "name": "Kỹ thuật xây dựng công trình giao thông (gồm các chương trình: Công nghệ và kỹ thuật xây dựng cầu, đường; Công nghệ và kỹ thuật Đường sắt tốc độ cao và đường sắt đô thị)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA114",
+    "name": "Quản lý xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA116",
+    "name": "Hệ thống thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA117",
+    "name": "Kỹ thuật phần mềm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA118",
+    "name": "Kỹ thuật hóa học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA119",
+    "name": "Công nghệ sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA120",
+    "name": "Kỹ thuật cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA121",
+    "name": "Kỹ thuật điều khiển và tự động hóa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA122",
+    "name": "Công nghệ chế tạo máy (Công nghệ sản xuất tiên tiến, tự động hóa thiết kế cơ khí)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA123",
+    "name": "Kỹ thuật ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA124",
+    "name": "Kỹ thuật điện tử - viễn thông (gồm các chương trình: Kỹ thuật điện tử -viễn thông; Công nghệ bán dẫn và thiết kế vi mạch)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA126",
+    "name": "Trí tuệ nhân tạo và khoa học dữ liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA127",
+    "name": "An ninh mạng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA128",
+    "name": "Kỹ thuật Robot và Điều khiển thông minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA201",
+    "name": "Chương trình tiên tiến ngành Kỹ thuật xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA202",
+    "name": "Chương trình tiên tiến ngành Kỹ thuật tài nguyên nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA203",
+    "name": "Ngôn ngữ Anh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA204",
+    "name": "Ngôn ngữ Trung Quốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA301",
+    "name": "Luật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA302",
+    "name": "Luật kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA401",
+    "name": "Kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA402",
+    "name": "Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA403",
+    "name": "Kế toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA404",
+    "name": "Kinh tế xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA405",
+    "name": "Thương mại điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA406",
+    "name": "Quản trị dịch vụ du lịch và lữ hành",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA407",
+    "name": "Logistics và quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA408",
+    "name": "Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA409",
+    "name": "Kiểm toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA410",
+    "name": "Kinh tế số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA411",
+    "name": "Chương trình Kế toán tích hợp chứng chỉ quốc tể",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TLA412",
+    "name": "Chương trình Công nghệ tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7380108",
+    "name": "Luật quốc tế",
+    "field_code": "LUAT",
+    "description": null
+  },
+  {
+    "code": "7210403",
+    "name": "Thiết kế đồ họa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7580108",
+    "name": "Thiết kế nội thất",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7210402",
+    "name": "Thiết kế công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201_1",
+    "name": "Công nghệ đa phương tiện (Chuyên ngành của ngành Công nghệ thông tin)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201_2",
+    "name": "Công nghệ game (Chuyên ngành thuộc ngành Công nghệ thông tin)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7580201_1",
+    "name": "Xây dựng công trình ngầm dô thị (Chuyên ngành thuộc ngành Kỹ thuật xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201_2",
+    "name": "Quản lý dự án xây dựng (Chuyên ngành thuộc ngành Kỹ thuật xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580210_1",
+    "name": "Kỹ thuật môi trường đô thị (Chuyên ngành thuộc ngành Kỹ thuật cơ sở hạ tầng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580210_2",
+    "name": "Công nghệ cơ điện công trình (Chuyên ngành thuộc ngành Kỹ thuật cơ sở hạ tầng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580213",
+    "name": "Kỹ thuật cấp thoát nước",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302_1",
+    "name": "Quản lý bất động sản (Chuyên ngành thuộc ngành Quản lý xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302_2",
+    "name": "Quản lý vận tải và Logistics (Chuyên ngành thuộc ngành Quản lý xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7210105",
+    "name": "Điêu khắc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201-1",
+    "name": "Công nghệ thông tin (Chuyên ngành Công nghệ đa phương tiện)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "75801011",
+    "name": "Chương trình tiên tiến ngành Kiến trúc",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "75801051",
+    "name": "Quy hoạch vùng và đô thị (Chuyên ngành Thiết kế đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201-1",
+    "name": "Kỹ thuật xây dựng (Chuyên ngành Xây dựng công trình ngầm đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580201-2",
+    "name": "Kỹ thuật xây dựng (Chuyên ngành Quản lý dự án xây dựng)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "75802102",
+    "name": "Kỹ thuật cơ sở hạ tầng (Chuyên ngành Công nghệ cơ điện công trình)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580301_1",
+    "name": "Kinh tế Xây dựng (Chuyên ngành Kinh tế đầu tư)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302-1",
+    "name": "Quản lý xây dựng (Chuyên ngành Quản lý bất động sản)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302-2",
+    "name": "Quản lý xây dựng (Chuyên ngành Quản lý vận tải và Logistics)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580302-3",
+    "name": "Quản lý xây dựng (Chuyên ngành Kinh tề phát triển)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580210_l",
+    "name": "Kỳ thuật cơ sờ hạ tầng (Chuyên ngành Kỹ thuật môi trường đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580301-1",
+    "name": "Kinh tế Xây dựng (Chuyên ngành Kinh tế đầu tư)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7210105_1",
+    "name": "Mỹ thuật đô thị (Chuyên ngành thuộc ngành Điêu khắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210403_1",
+    "name": "Nghệ thuật số (Chuyên ngành thuộc Thiết kế đồ họa)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7580101_1",
+    "name": "Chương trình tiên tiến ngành Kiến trúc",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7580105_1",
+    "name": "Thiết kế đô thị (Chuyên ngành thuộc ngành Quy hoạch vùng và đô thị)",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7140201",
+    "name": "Giáo dục Mầm non",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140201K",
+    "name": "Giáo dục Mầm non - Sư phạm Tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140202",
+    "name": "Giáo dục Tiểu học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140202K",
+    "name": "Giáo dục Tiểu học - Sư phạm Tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140203",
+    "name": "Giáo dục đặc biệt",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140204",
+    "name": "Giáo dục công dân",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140205",
+    "name": "Giáo dục chính trị",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140206",
+    "name": "Giáo dục thể chất",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140208",
+    "name": "Giáo dục Quốc phòng và An ninh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140209",
+    "name": "Sư phạm Toán học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140209K",
+    "name": "Sư phạm Toán học (dạy Toán bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140210",
+    "name": "Sư phạm Tin học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140211",
+    "name": "Sư phạm Vật lí",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140211K",
+    "name": "Sư phạm Vật lí (dạy Toán bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140212",
+    "name": "Sư phạm Hoá học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140212K",
+    "name": "Sư phạm Hoá học (dạy Hóa học bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140213",
+    "name": "Sư phạm Sinh học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140217",
+    "name": "Sư phạm Ngữ văn",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140218",
+    "name": "Sư phạm Lịch sử",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140219",
+    "name": "Sư phạm Địa lí",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140221",
+    "name": "Sư phạm Âm nhạc",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140222",
+    "name": "Sư phạm Mỹ thuật",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140233",
+    "name": "Sư phạm Tiếng Pháp",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140246",
+    "name": "Sư phạm Công nghệ",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140247",
+    "name": "Sư phạm Khoa học tự nhiên",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140249",
+    "name": "Sư phạm Lịch sử - Địa lí",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7229030",
+    "name": "Văn học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7310201",
+    "name": "Chính trị học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310630",
+    "name": "Việt Nam học (Tuyển sinh người Việt Nam)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7420101",
+    "name": "Sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7440102",
+    "name": "Vật lí học (vật lí bán dẫn và kỹ thuật) (mới)",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7460101",
+    "name": "Toán học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7760103",
+    "name": "Hỗ trợ giáo dục người khuyết tật",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7140114C",
+    "name": "Quản lí giáo dục",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140114D",
+    "name": "Quản lí giáo dục",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140201A",
+    "name": "Giáo dục mầm non",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140201B",
+    "name": "GD mầm non - SP Tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140201C",
+    "name": "GD mầm non - SP Tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140202A",
+    "name": "Giáo dục Tiểu học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140202B",
+    "name": "GD Tiểu học - SP Tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140203C",
+    "name": "Giáo dục Đặc biệt",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140203D",
+    "name": "Giáo dục Đặc biệt",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140204B",
+    "name": "Giáo dục công dân",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140204C",
+    "name": "Giáo dục công dân",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140205B",
+    "name": "Giáo dục chính trị",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140205C",
+    "name": "Giáo dục chính trị",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140208C",
+    "name": "Giáo dục Quốc phòng và An ninh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140208D",
+    "name": "Giáo dục Quốc phòng và An ninh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140209A",
+    "name": "SP Toán",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140209B",
+    "name": "SP Toán (dạy Toán bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140209D",
+    "name": "SP Toán (dạy Toán bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140210A",
+    "name": "SP Tin học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140210B",
+    "name": "SP Tin học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140211A",
+    "name": "SP Vật lý",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140211B",
+    "name": "SP Vật lý",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140211C",
+    "name": "SP Vật lý (dạy Vật lý bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140211D",
+    "name": "SP Vật lý (dạy Vật lý bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140212A",
+    "name": "SP Hoá học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140212B",
+    "name": "SP Hoá học (dạy Hoá học bằng tiếng Anh)",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140212C",
+    "name": "SP Hoá học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140213B",
+    "name": "SP Sinh học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140213D",
+    "name": "SP Sinh học",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140217C",
+    "name": "SP Ngữ văn",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140217D",
+    "name": "SP Ngữ văn",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140218C",
+    "name": "SP Lịch sử",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140218D",
+    "name": "SP Lịch sử",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140219B",
+    "name": "SP Địa lý",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140219C",
+    "name": "SP Địa lý",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140221A",
+    "name": "Sư phạm Âm nhạc",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140221B",
+    "name": "Sư phạm Âm nhạc",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140222A",
+    "name": "Sư phạm Mỹ thuật",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140222B",
+    "name": "Sư phạm Mỹ thuật",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140231A",
+    "name": "SP Tiếng Anh",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140233C",
+    "name": "SP Tiếng Pháp",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140233D",
+    "name": "SP Tiếng Pháp",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140246A",
+    "name": "SP Công nghệ",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7140246C",
+    "name": "SP Công nghệ",
+    "field_code": "SU_PHAM",
+    "description": null
+  },
+  {
+    "code": "7220204A",
+    "name": "Ngôn ngữ Trung Quốc",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220204B",
+    "name": "Ngôn ngữ Trung Quốc",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229001B",
+    "name": "Triết học (Triết học Mác Lê-nin)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229001C",
+    "name": "Triết học (Triết học Mác Lê-nin)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229030C",
+    "name": "Văn học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229030D",
+    "name": "Văn học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7310201B",
+    "name": "Chính trị học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310201C",
+    "name": "Chính trị học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310401C",
+    "name": "Tâm lý học (Tâm lý học trường học)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310401D",
+    "name": "Tâm lý học (Tâm lý học trường học)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310403C",
+    "name": "Tâm lý học giáo dục",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310403D",
+    "name": "Tâm lý học giáo dục",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310630C",
+    "name": "Việt Nam học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310630D",
+    "name": "Việt Nam học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7420101B",
+    "name": "Sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7420101D",
+    "name": "Sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7440112A",
+    "name": "Hóa học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7440112B",
+    "name": "Hóa học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7460101A",
+    "name": "Toán học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7460101D",
+    "name": "Toán học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201A",
+    "name": "Công nghệ thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201B",
+    "name": "Công nghệ thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7760101C",
+    "name": "Công tác xã hội",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7760101D",
+    "name": "Công tác xã hội",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7760103C",
+    "name": "Hỗ trợ giáo dục người khuyết tật",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7760103D",
+    "name": "Hỗ trợ giáo dục người khuyết tật",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7810103C",
+    "name": "Quản trị dịch vụ du lịch và lữ hành",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103D",
+    "name": "Quản trị dịch vụ du lịch và lữ hành",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCAT2",
+    "name": "An toàn dữ liệu và an ninh mạng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCBC2",
+    "name": "Quản lý; khai thác và bảo trì đường cao tốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCBI2",
+    "name": "Mô hình thông tin công trình giao thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCD1",
+    "name": "CNKT Cầu đường bộ (học tại Vĩnh Phúc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCD2",
+    "name": "Công nghệ kỹ thuật xây dựng Cầu đường bộ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCDD2",
+    "name": "Công nghệ kỹ thuật xây dựng cầu đường bộ (hợp tác doanh nghiệp)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCDJ2",
+    "name": "Công nghệ kỹ thuật xây dựng Cầu đường bộ (tăng cường tiếng Nhật; định hướng làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCH2",
+    "name": "Hạ tầng giao thông đô thị thông minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCI2",
+    "name": "Thương mại quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCM2",
+    "name": "Công nghệ chế tạo máy",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCMJ2",
+    "name": "Công nghệ chế tạo máy (tăng cường tiếng Nhật; định hướng làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCN2",
+    "name": "Công nghệ kỹ thuật cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDD2",
+    "name": "CNKT công trình xây dựng dân dụng và công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDM2",
+    "name": "CNKT cơ khí đầu máy - toa xe và tàu điện Metro",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDT2",
+    "name": "Công nghệ kỹ thuật điện tử - viễn thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDTJ2",
+    "name": "Công nghệ kỹ thuật Điện tử - Viễn thông (tăng cường tiếng Nhật; định hướng làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCEN2",
+    "name": "Ngôn ngữ Anh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCFT2",
+    "name": "Công nghệ tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCHQ2",
+    "name": "Hải quan và Logistics",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCHS2",
+    "name": "Đường sắt tốc độ cao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCHSA2",
+    "name": "Đường sắt tốc độ cao (công nghệ Hàn Quốc; tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCHT2",
+    "name": "Hệ thống thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKB2",
+    "name": "Kinh tế và quản lý bất động sản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKN2",
+    "name": "Kiến trúc nội thất",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKQA2",
+    "name": "Kinh doanh quốc tế (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKS2",
+    "name": "Kinh doanh số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKT1",
+    "name": "Kế toán doanh nghiệp (học tại Vĩnh Phúc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKT2",
+    "name": "Kế toán doanh nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKX2",
+    "name": "Kinh tế xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLA2",
+    "name": "Luật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLD2",
+    "name": "Lữ hành và du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLDA2",
+    "name": "Lữ hành và du lịch (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLG2",
+    "name": "Logistics và quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLGA2",
+    "name": "Logistics và quản lý chuỗi cung ứng (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLGJ2",
+    "name": "Logistics và quản lý chuỗi cung ứng (tăng cường tiếng Nhật; định hướng làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLH2",
+    "name": "Logistics và hạ tầng giao thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCLHA2",
+    "name": "Hải quan và Logistics (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCMN2",
+    "name": "Công nghệ và quản lý môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCMT2",
+    "name": "CNKT cơ khí tàu thủy và công trình nổi",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCMX2",
+    "name": "Máy và thiết bị tự động hóa xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCOD2",
+    "name": "Cơ điện tử ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCODA2",
+    "name": "Cơ điện tử·ô tô (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCOG2",
+    "name": "Công nghệ ô tô và giao thông thông minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCOH2",
+    "name": "Công nghệ ô tô điện và ô tô hybrid",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCOT1",
+    "name": "Công nghệ kỹ thuật ô tô (học tại Vĩnh Phúc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCOT2",
+    "name": "Công nghệ kỹ thuật ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCQM2",
+    "name": "Quản trị Marketing",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCQMA2",
+    "name": "Quản trị Marketing (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCQT2",
+    "name": "Quản trị doanh nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCQX2",
+    "name": "Quản lý xây dựng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCQXD2",
+    "name": "Quản lý xây dựng (hợp tác doanh nghiệp)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCRT2",
+    "name": "Công nghệ kỹ thuật Robot và Trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTD2",
+    "name": "Thương mại điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTDA2",
+    "name": "Thương mại điện tử (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTG2",
+    "name": "Trí tuệ nhân tạo và giao thông thông minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTGA2",
+    "name": "Trí tuệ nhân tạo và giao thông thông minh (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTN2",
+    "name": "Tài chính doanh nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTQ2",
+    "name": "Thanh tra và quản lý công trình giao thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTT1",
+    "name": "Công nghệ thông tin (học tại Vĩnh Phúc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTT2",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTTA2",
+    "name": "Công nghệ thông tin (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCVL2",
+    "name": "Logistics và vận tải đa phương thức",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCVM2",
+    "name": "Công nghệ kỹ thuật vi mạch bán dẫn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCVS2",
+    "name": "Quản lý và điều hành vận tải đường sắt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCVV2",
+    "name": "Kỹ thuật vi điện tử và vật lý bán dẫn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCXQ2",
+    "name": "Xây dựng và quản lý hạ tầng đô thị",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADKLG2",
+    "name": "Logistics (Trường Đại học Tongmyong - Hàn Quốc cấp bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADKTT2",
+    "name": "Công nghệ thông tin (ĐH Công nghệ thông tin và quản lý Ba Lan- UITM cấp bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCBG2",
+    "name": "Quản lý, khai thác và bảo trì đường cao tốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCO2",
+    "name": "Công nghệ kỹ thuật cơ điện tử trên ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDT1",
+    "name": "Công nghệ kỹ thuật điện tử - viễn thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDX2",
+    "name": "CNKT công trình XD dân dụng và công nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCGO2",
+    "name": "Công nghệ kỹ thuật ô tô và giao thông thông minh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCH2",
+    "name": "Hải quan và Logistics",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCIT2",
+    "name": "Công nghệ thông tin (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKQ2",
+    "name": "Xây dựng và quản lý hạ tầng đô thị",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCKTI",
+    "name": "Kế toán doanh nghiệp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCOTI",
+    "name": "Công nghệ kỹ thuật Ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCSS2",
+    "name": "CNKT xây dựng Đường sắt - Metro",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCTTI",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADNCD2",
+    "name": "Công nghệ kỹ thuật xây dựng Cầu đường bộ (tăng cường tiếng Nhật, định hướng thực tập và làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADNDT2",
+    "name": "Công nghệ kỹ thuật Điện tử - Viễn thông (tăng cường tiếng Nhật, định hướng thực tập và làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADNLG2",
+    "name": "Logistics và quản lý chuỗi cung ứng (tăng cường tiếng Nhật, định hướng thực tập và làm việc tại Nhật Bản)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCK2",
+    "name": "Công nghệ kỹ thuật Cơ khí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCHL2",
+    "name": "Hải quan và Logistics",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADATT2",
+    "name": "Công nghệ thông tin (tăng cường tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCBM2",
+    "name": "Mô hình thông tin công trình (BIM) trong dự án HTGT",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCCS2",
+    "name": "CNKT xây dựng Đường sắt - Metro",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GTADCDS2",
+    "name": "Xây dựng Cầu – đường sắt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7440222",
+    "name": "Khí tượng và khí hậu học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7440224",
+    "name": "Thủy văn học",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7440298",
+    "name": "Biến đổi khí hậu và phát triển bền vững",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7520503PH",
+    "name": "Kỹ thuật trắc địa - bản đồ",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7540106",
+    "name": "Đảm bảo chất lượng và an toàn thực phẩm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850103PH",
+    "name": "Quản lý đất đai",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850198",
+    "name": "Quản lý tài nguyên nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850199",
+    "name": "Quản lý biển",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340301PH",
+    "name": "Kế toán",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7420203",
+    "name": "Sinh học ứng dụng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480201PH",
+    "name": "Công nghệ thông tin",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "75I0406PH",
+    "name": "Công nghệ kỹ thuật môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850101PH",
+    "name": "Quản lý tài nguyên và Môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510406PH",
+    "name": "Công nghệ kỹ thuật môi trường",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340207",
+    "name": "Bảo hiểm - Tài chính",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340101P",
+    "name": "Quản trị kinh doanh (chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7850201",
+    "name": "Bảo hộ lao động",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7229040A",
+    "name": "Nghiên cứu văn hóa",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229040B",
+    "name": "Văn hóa truyền thông",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229040C",
+    "name": "Văn hóa đối ngoại",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229042A",
+    "name": "Phát triển công nghiệp văn hóa",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229042B",
+    "name": "Quản lý di sản văn hóa",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229042C",
+    "name": "Tổ chức hoạt động nghệ thuật",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229042D",
+    "name": "Tổ chức sự kiện văn hóa",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7320201A",
+    "name": "Quản trị thư viện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320201B",
+    "name": "Thư viện và thiết bị trường học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320205",
+    "name": "Quản lý thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320305",
+    "name": "Bảo tàng học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7320402",
+    "name": "Kinh doanh xuất bản phẩm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810101A",
+    "name": "Văn hóa du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810101B",
+    "name": "Lữ hành, hướng dẫn du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810101C",
+    "name": "Hướng dẫn du lịch quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103A",
+    "name": "Quản trị kinh doanh du lịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103B",
+    "name": "Quản trị du lịch cộng đồng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7220112A",
+    "name": "Văn hoá các DTTS Việt Nam - Tổ chức và quản lý văn hóa vùng DTTS",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220112B",
+    "name": "Văn hoá các DTTS Việt Nam - Tổ chức và quản lý du lịch vùng DTTS",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7229042E",
+    "name": "Quản lý văn hoá -Tổ chức sự kiện văn hóa",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7320201",
+    "name": "Thông tin - Thư viện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "72202001",
+    "name": "Ngôn ngữ Anh",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220110",
+    "name": "Sáng tác văn học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7320106",
+    "name": "Công nghệ truyền thông",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480207",
+    "name": "Trí tuệ nhân tạo",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7210205",
+    "name": "Thanh nhạc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DKS-KS1",
+    "name": "Luật Kiểm Sát (GT: Nam, miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DKS-KS2",
+    "name": "Luật Kiểm Sát (GT: Nữ, miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DKS-KS3",
+    "name": "Luật Kiểm Sát (GT: Nam, miền Nam)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DKS-KS4",
+    "name": "Luật Kiểm Sát (GT: Nữ, miền Nam)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DKS-LKT",
+    "name": "Luật Kinh Tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DKS-LUAT",
+    "name": "Luật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7220201DKD",
+    "name": "Ngôn ngữ Anh (CS Nam Định)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7220201DKK",
+    "name": "Ngôn ngữ Anh (CS Hà Nội)",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7340101DKD",
+    "name": "Quản trị kinh doanh (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340101DKK",
+    "name": "Quản trị kinh doanh (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115DKD",
+    "name": "Marketing (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340115DKK",
+    "name": "Marketing (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340121DKD",
+    "name": "Kinh doanh thương mại (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340121DKK",
+    "name": "Kinh doanh thương mại (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201DKD",
+    "name": "Tài chính – Ngân hàng (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340201DKK",
+    "name": "Tài chính – Ngân hàng (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340204DKD",
+    "name": "Bảo hiểm (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340204DKK",
+    "name": "Bảo hiểm (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301DKD",
+    "name": "Kế toán (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340301DKK",
+    "name": "Kế toán (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340302DKD",
+    "name": "Kiểm toán (CS Nam Định)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7340302DKK",
+    "name": "Kiểm toán (CS Hà Nội)",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7460108DKD",
+    "name": "Khoa học dữ liệu (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7460108DKK",
+    "name": "Khoa học dữ liệu (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7480102DKD",
+    "name": "Mạng máy tính và truyền thông dữ liệu (CS Nam Định)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480102DKK",
+    "name": "Mạng máy tính và truyền thông dữ liệu (CS Hà Nội)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480108DKD",
+    "name": "Công nghệ kỹ thuật máy tính (CS Nam Định)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480108DKK",
+    "name": "Công nghệ kỹ thuật máy tính (CS Hà Nội)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201DKD",
+    "name": "Công nghệ thông tin (CS Nam Định)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7480201DKK",
+    "name": "Công nghệ thông tin (CS Hà Nội)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7510201DKD",
+    "name": "Công nghệ kỹ thuật cơ khí (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510201DKK",
+    "name": "Công nghệ kỹ thuật cơ khí (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510203DKD",
+    "name": "Công nghệ kỹ thuật cơ điện tử (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510203DKK",
+    "name": "Công nghệ kỹ thuật cơ điện tử (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510205DKD",
+    "name": "Công nghệ kỹ thuật ô tô (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510205DKK",
+    "name": "Công nghệ kỹ thuật ô tô (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510301DKD",
+    "name": "Công nghệ kỹ thuật điện, điện tử (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510301DKK",
+    "name": "Công nghệ kỹ thuật điện, điện tử (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510302DKD",
+    "name": "Công nghệ kỹ thuật điện tử - viễn thông (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510302DKK",
+    "name": "Công nghệ kỹ thuật điện tử - viễn thông (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510303DKD",
+    "name": "Công nghệ kỹ thuật điều khiển và tự động hóa (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510303DKK",
+    "name": "Công nghệ kỹ thuật điều khiển và tự động hóa (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510605DKD",
+    "name": "Logistics và Quản lý chuỗi cung ứng (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510605DKK",
+    "name": "Logistics và Quản lý chuỗi cung ứng (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540101DKD",
+    "name": "Công nghệ thực phẩm (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540101DKK",
+    "name": "Công nghệ thực phẩm (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540106DKD",
+    "name": "Đảm bảo chất lượng và an toàn thực phẩm (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540106DKK",
+    "name": "Đảm bảo chất lượng và an toàn thực phẩm (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540203DKD",
+    "name": "Công nghệ vật liệu dệt, may (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540203DKK",
+    "name": "Công nghệ vật liệu dệt, may (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540204DKD",
+    "name": "Công nghệ dệt, may (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540204DKK",
+    "name": "Công nghệ dệt, may (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103DKD",
+    "name": "Quản trị dịch vụ du lịch và lữ hành (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810103DKK",
+    "name": "Quản trị dịch vụ du lịch và lữ hành (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810201DKD",
+    "name": "Quản trị khách sạn (CS Nam Định)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810201DKK",
+    "name": "Quản trị khách sạn (CS Hà Nội)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540202DKD",
+    "name": "Công nghệ sợi, dệt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540202DKK",
+    "name": "Công nghệ sợi, dệt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BI01",
+    "name": "Công nghệ sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BMS",
+    "name": "Khoa học y sinh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CHE1",
+    "name": "Kỹ thuật hóa học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "DEN1",
+    "name": "Răng - Hàm - Mặt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EEE-AI",
+    "name": "Kỹ thuật điều khiển và tự động hóa (Robot và trí tuệ nhân tạo)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EEE1",
+    "name": "Kỹ thuật điều khiển và tự động hóa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EEE2",
+    "name": "Kỹ thuật y sinh (Điện tử y sinh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EEE3",
+    "name": "Kỹ thuật Điện tử - Viễn thông (Hệ thống nhúng thông minh và IoT)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EEE4",
+    "name": "Kỹ thuật Điện tử - Viễn thông (Thiết kế vi mạch bán dẫn)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "F0L1",
+    "name": "Luật kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "F0L2",
+    "name": "Luật kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "F0L3",
+    "name": "Luật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "F0L4",
+    "name": "Luật quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "F0L5",
+    "name": "Luật thương mại quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "F0S1",
+    "name": "Đông Phương học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE1",
+    "name": "Quản trị kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE2",
+    "name": "Kế toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE3",
+    "name": "Tài chính - Ngân hàng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE4",
+    "name": "Quản trị nhân lực",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE5",
+    "name": "Kiểm toán",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE6",
+    "name": "Kinh doanh quốc tế (Các học phần chuyên ngành học bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE7",
+    "name": "Logistics và Quản lý chuỗi cung ứng (Một số học phần chuyên ngành học bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE8",
+    "name": "Marketing (Một số học phần chuyên ngành học bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT1",
+    "name": "Kinh tế số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT2",
+    "name": "Quản trị kinh doanh (Kinh doanh số)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT3",
+    "name": "Thương mại điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT4",
+    "name": "Logistics và Quản lý chuỗi cung ứng (Logistics số)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT5",
+    "name": "Marketing (Công nghệ Marketing)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT6",
+    "name": "Truyền thông đa phương tiện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FIDT7",
+    "name": "Công nghệ tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FLC1",
+    "name": "Ngôn ngữ Trung Quốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FLE1",
+    "name": "Ngôn ngữ Anh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FLF1",
+    "name": "Ngôn ngữ Pháp",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FLJ1",
+    "name": "Ngôn ngữ Nhật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FLK1",
+    "name": "Ngôn ngữ Hàn Quốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FTME",
+    "name": "Y học cổ truyền",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FTS1",
+    "name": "Du lịch (Định hướng Quản trị du lịch)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FTS2",
+    "name": "Quản trị khách sạn",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FTS3",
+    "name": "Kinh doanh Du lịch số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FTS4",
+    "name": "Hướng dẫn Du lịch quốc tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "HM1",
+    "name": "Quản lý bệnh viện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT-TN",
+    "name": "Tài năng Khoa học máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT-VJ",
+    "name": "Công nghệ thông tin Việt Nhật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT1",
+    "name": "Công nghệ thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT2",
+    "name": "Kỹ thuật phần mềm (Một số học phần chuyên ngành học bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT3",
+    "name": "Khoa học máy tính (Trí tuệ nhân tạo và Khoa học dữ liệu)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT4",
+    "name": "An toàn thông tin (Một số học phần chuyên ngành học bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT5",
+    "name": "Trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MED1",
+    "name": "Y khoa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MEM1",
+    "name": "Kỹ thuật cơ điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MEM1-IMS",
+    "name": "Hệ thống Cơ điện tử thông minh (Các học phần chuyên ngành học bằng tiếng Anh)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MEM2",
+    "name": "Kỹ thuật cơ khí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MIW",
+    "name": "Hộ sinh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MSE-AI",
+    "name": "Vật liệu thông minh và trí tuệ nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MSE-IC",
+    "name": "Chip bán dẫn và Công nghệ đóng gói",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MSE1",
+    "name": "Vật liệu tiên tiến và Công nghệ nano",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MTT1",
+    "name": "Kỹ thuật xét nghiệm y học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "NUR1",
+    "name": "Điều dưỡng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "PHA1",
+    "name": "Dược học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "RET1",
+    "name": "Kỹ thuật phục hồi chức năng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "RTS1",
+    "name": "Kỹ thuật hình ảnh y học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "VEE1",
+    "name": "Kỹ thuật ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "VEE2",
+    "name": "Cơ điện tử ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "VEE3",
+    "name": "Kỹ thuật phần mềm ô tô",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FBE9",
+    "name": "Công nghệ tài chính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BIO1",
+    "name": "Công nghệ sinh học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FOS1",
+    "name": "Đông phương học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ICT-AI",
+    "name": "Trí tuệ nhân tạo và khoa học dữ liệu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "FSP1",
+    "name": "Vật lý tài năng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7229040",
+    "name": "Văn hóa học",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7310110",
+    "name": "Quản lý kinh tế",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540202",
+    "name": "Công nghệ Sợi Dệt",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7540209",
+    "name": "Công nghệ may",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860113",
+    "name": "Phòng cháy chữa cháy và cứu nạn, cứu hộ (Thí sinh Nam, miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860113_Nam_B",
+    "name": "Phòng cháy chữa cháy và cứu nạn, cứu hộ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860113_Nam_N",
+    "name": "Phòng cháy chữa cháy và cứu nạn, cứu hộ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860113_Nu_B",
+    "name": "Phòng cháy chữa cháy và cứu nạn, cứu hộ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860113_Nu_N",
+    "name": "Phòng cháy chữa cháy và cứu nạn, cứu hộ",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "TS2025",
+    "name": "Kinh tế giáo dục vùng dân tộc thiểu số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860201",
+    "name": "Chỉ huy Tham mưu Lục quân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860222",
+    "name": "Quân sự cơ sở - Quân khu 1",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310202_Nam_B",
+    "name": "Xây dựng Đảng và chính quyền nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310202_Nam_N",
+    "name": "Xây dựng Đảng và chính quyền nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310202_Nu_B",
+    "name": "Xây dựng Đảng và chính quyền nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7310202_Nu_N",
+    "name": "Xây dựng Đảng và chính quyền nhà nước",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7510202",
+    "name": "Công nghệ chế tạo máy",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860201_4",
+    "name": "Chỉ huy tham mưu Lục quân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860201_5",
+    "name": "Chỉ huy tham mưu Lục quân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860201_7",
+    "name": "Chỉ huy tham mưu Lục quân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860201_9",
+    "name": "Chỉ huy tham mưu Lục quân",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860229",
+    "name": "Ngành Chỉ huy Kỹ thuật hóa học (Thí sinh ở miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860229_B",
+    "name": "Ngành Chỉ huy Kỹ thuật hóa học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860229_N",
+    "name": "Ngành Chỉ huy Kỹ thuật hóa học",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "AI",
+    "name": "Trí tuệ Nhân tạo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "BA",
+    "name": "Quản trị Kinh doanh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CL",
+    "name": "Ngôn ngữ Trung Quốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "CS",
+    "name": "Khoa học Máy tính",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "EC",
+    "name": "Thương mại điện tử",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "ET",
+    "name": "Công nghệ Kỹ thuật Điện tử - Viễn thông (IC Design)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GA",
+    "name": "Đồ họa game",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "GD",
+    "name": "Thiết kế Đồ họa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT",
+    "name": "Công nghệ Thông tin",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "JL",
+    "name": "Tiếng Nhật thương mại",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "KL",
+    "name": "Ngôn ngữ Hàn Quốc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "LS",
+    "name": "Logistics và Quản lý chuỗi cung ứng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "MK",
+    "name": "Digital Marketing",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "SE",
+    "name": "Kỹ thuật Phần mềm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-VJ",
+    "name": "Công nghệ Thông tin Việt - Nhật (ngành Công nghệ Thông tin)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "IT-VK",
+    "name": "Công nghệ Thông tin Việt - Hàn (ngành Công nghệ Thông tin)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7860207",
+    "name": "Ngành Chỉ huy tham mưu Đặc công (Thí sinh Nam miền Bắc)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210103",
+    "name": "Hội họa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210107",
+    "name": "Gốm",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7420201-01",
+    "name": "Công nghệ sinh học - Phát triển thuốc (Song bằng)",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7440112-01",
+    "name": "Hóa học (Song bằng)",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7440122",
+    "name": "Khoa học vật liệu tiên tiến và Công nghệ Nano",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7440301",
+    "name": "Khoa học Môi trường Ứng dụng",
+    "field_code": "KHOA_HOC_TN",
+    "description": null
+  },
+  {
+    "code": "7480201-01",
+    "name": "Công nghệ thông tin - Truyền thông (Các trường đối tác Pháp cấp song bằng với USTH: Đại học Limoges, Đại học Sorbonne Paris Nord, Đại học Lille)",
+    "field_code": "CNTT",
+    "description": null
+  },
+  {
+    "code": "7520401",
+    "name": "Công nghệ vi mạch bán dẫn",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7549001",
+    "name": "Công nghệ chế biến lâm sản",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7620105",
+    "name": "Chăn nuôi",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7620110",
+    "name": "Khoa học cây trồng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7620205",
+    "name": "Lâm sinh",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7620210",
+    "name": "Lâm nghiệp",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7620211",
+    "name": "Quản lý tài nguyên rừng",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7640101",
+    "name": "Thú y",
+    "field_code": "KY_THUAT",
+    "description": null
+  },
+  {
+    "code": "7850104",
+    "name": "Du lịch sinh thái",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7850106",
+    "name": "Quản lý tài nguyên thiên nhiên",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210226B",
+    "name": "Diễn viên chèo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210226C",
+    "name": "Diễn viên rối",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210226E",
+    "name": "Nhạc công kịch hát dân tộc",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210227A",
+    "name": "Đạo diễn âm thanh, ánh sáng sân khấu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210227B",
+    "name": "Đạo diễn sự kiện lễ hội",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210233A",
+    "name": "Biên kịch điện ảnh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210233B",
+    "name": "Biên tập truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210234",
+    "name": "Diễn viên kịch, điện ảnh – truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210234A",
+    "name": "Diễn viên nhạc kịch",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210235A",
+    "name": "Đạo diễn điện ảnh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210235B",
+    "name": "Đạo diễn truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210235C",
+    "name": "Đạo diễn, sản xuất nội dung số",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210236A",
+    "name": "Quay phim điện ảnh",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210236B",
+    "name": "Quay phim truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210243",
+    "name": "Biên đạo múa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210243A",
+    "name": "Biên đạo múa đại chúng",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210244",
+    "name": "Huấn luyện múa",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210301A",
+    "name": "Nhiếp ảnh nghệ thuật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210301B",
+    "name": "Nhiếp ảnh báo chí",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210301C",
+    "name": "Nhiếp ảnh truyền thông đa phương tiện",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210302A",
+    "name": "Công nghệ dựng phim",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210302B",
+    "name": "Âm thanh điện ảnh – truyền hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210406A",
+    "name": "Thiết kế mỹ thuật sân khấu",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210406C",
+    "name": "Thiết kế mỹ thuật hoạt hình",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210406D",
+    "name": "Thiết kế trang phục nghệ thuật",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210406E",
+    "name": "Thiết kế đồ hoạ kỹ xảo",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7210406F",
+    "name": "Nghệ thuật hóa trang",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7229042",
+    "name": "Quản lý văn hóa",
+    "field_code": "NGON_NGU",
+    "description": null
+  },
+  {
+    "code": "7210208",
+    "name": "Piano",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7810302",
+    "name": "Huấn luyện thể thao",
+    "field_code": null,
+    "description": null
+  },
+  {
+    "code": "7340202",
+    "name": "Công nghệ Tài chính",
+    "field_code": "KINH_TE",
+    "description": null
+  },
+  {
+    "code": "7240301",
+    "name": "Kế toán",
+    "field_code": "Y_DUOC",
+    "description": null
+  }
+]
