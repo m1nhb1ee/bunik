@@ -74,3 +74,4 @@ class Migration(migrations.Migration):
             unique_together={('major_catalog', 'subject_group')},
         ),
     ]
+

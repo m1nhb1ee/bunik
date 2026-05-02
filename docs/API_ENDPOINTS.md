@@ -5,6 +5,43 @@
 http://localhost:8000/api/
 ```
 
+## Endpoint Update (Latest)
+
+This file contains legacy endpoint references. The backend has been updated with:
+
+1. Versioned API namespace:
+```
+/api/v1/*
+```
+Equivalent routes now exist for auth, resources, schema, and docs.
+
+2. New endpoint:
+```
+GET /api/programs/{id}/scores/
+GET /api/v1/programs/{id}/scores/
+```
+
+3. New endpoint:
+```
+POST /api/scores/bulk-upsert/
+POST /api/v1/scores/bulk-upsert/
+```
+
+4. Response contract update:
+- Errors now use standardized envelope:
+```json
+{
+  "code": "http_<status>",
+  "message": "...",
+  "details": {...},
+  "request_id": "..."
+}
+```
+
+5. Permission update:
+- Read methods are public.
+- Write methods require authenticated `is_staff=true` user.
+
 ---
 
 ## Authentication Endpoints

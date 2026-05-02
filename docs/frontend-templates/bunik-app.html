@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUNIK — University Admission Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+
+/* ═══════════════════════════════════════
+   RESET
+═══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+:root{
+  /* Paper */
+  --paper:#FAF9F4; --paper2:#F3F0E7; --paper3:#E8E3D8; --paper4:#DDD8CC;
+  /* Ink */
+  --ink:#38322C; --ink2:#5C564F; --ink3:#786F66; --ink4:#C4BDB4;
+  /* Accent palette */
+  --mint:#5BBF8E;   --mint-bg:#C8E8D8;   --mint-soft:#EBF7F1;
+  --blush:#C96868;  --blush-bg:#F5D4D0;  --blush-soft:#FEF1EF;
+  --lav:#7B5FC0;    --lav-bg:#DDD0F5;    --lav-soft:#F0ECFB;
+  --peach:#C48030;  --peach-bg:#F8D8B0;  --peach-soft:#FEF3E5;
+  --sky:#3E7AB8;    --sky-bg:#C8DFF5;    --sky-soft:#E6F1FC;
+  --lemon:#A89820;  --lemon-bg:#EDE490;  --lemon-soft:#FAF9E0;
+  /* Shadows */
+  --shadow-sm:0 2px 8px rgba(40,32,22,.1);
+  --shadow-md:0 4px 20px rgba(40,32,22,.13);
+  --shadow-lg:0 10px 48px rgba(40,32,22,.18),0 2px 8px rgba(40,32,22,.08);
+  /* Radius */
+  --r:8px;
+  /* Easing */
+  --ease:cubic-bezier(0.4,0,0.2,1);
+  --ease-out:cubic-bezier(0,0,0.2,1);
+  --spring:cubic-bezier(0.34,1.48,0.64,1);
+}
+
+/* ═══════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════ */
+@keyframes slideInUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(18px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes growBar{
+  from{width:0}
+  to{width:var(--bar-w,0%)}
+}
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+@keyframes shimmer{
+  0%,100%{opacity:.6}
+  50%{opacity:1}
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.015)}
+}
+
+/* ═══════════════════════════════════════
+   SKIP LINK (a11y)
+═══════════════════════════════════════ */
+.skip-link{
+  position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;
+}
+.skip-link:focus{
+  position:fixed;top:0;left:0;width:auto;height:auto;
+  padding:12px 24px;background:var(--lav);color:#fff;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;
+  outline:none;border-radius:0 0 8px 0;box-shadow:var(--shadow-md);
+}
+
+/* ═══════════════════════════════════════
+   INITIAL LOAD SCREEN
+═══════════════════════════════════════ */
+.initial-load{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:80vh;gap:18px;
+  font-family:'Caveat',cursive;font-size:1.15rem;color:var(--ink3);
+}
+.load-ring{
+  width:38px;height:38px;border-radius:50%;
+  border:3px solid var(--paper3);border-top-color:var(--lav);
+  animation:spin .75s linear infinite;
+}
+
+/* ═══════════════════════════════════════
+   BASE
+═══════════════════════════════════════ */
+body{
+  font-family:'Nunito',sans-serif;
+  background:#CEC9BF;
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Caveat',cursive;font-weight:700;line-height:1.15}
+code,kbd,.mono{font-family:'Courier Prime',monospace}
+
+/* ═══════════════════════════════════════
+   PAPER PATTERNS
+═══════════════════════════════════════ */
+.dot-paper{
+  background-color:var(--paper);
+  background-image:radial-gradient(circle,rgba(120,108,90,.18) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+.ruled-paper{
+  background-color:var(--paper);
+  background-image:linear-gradient(transparent 27px,rgba(120,108,90,.12) 27px);
+  background-size:100% 28px;
+}
+.graph-paper{
+  background-color:var(--paper2);
+  background-image:
+    linear-gradient(rgba(120,108,90,.09) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(120,108,90,.09) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+
+/* ═══════════════════════════════════════
+   WASHI TAPE PATTERNS
+═══════════════════════════════════════ */
+.washi-mint  {background:repeating-linear-gradient(45deg,rgba(91,191,142,.5),rgba(91,191,142,.5) 5px,rgba(150,215,185,.65) 5px,rgba(150,215,185,.65) 10px)}
+.washi-blush {background:repeating-linear-gradient(-45deg,rgba(201,104,104,.45),rgba(201,104,104,.45) 5px,rgba(240,158,155,.62) 5px,rgba(240,158,155,.62) 10px)}
+.washi-lav   {background:repeating-linear-gradient(45deg,rgba(123,95,192,.42),rgba(123,95,192,.42) 5px,rgba(180,155,235,.58) 5px,rgba(180,155,235,.58) 10px)}
+.washi-peach {background:repeating-linear-gradient(-45deg,rgba(196,128,48,.45),rgba(196,128,48,.45) 5px,rgba(240,188,125,.62) 5px,rgba(240,188,125,.62) 10px)}
+.washi-sky   {background:repeating-linear-gradient(45deg,rgba(62,122,184,.42),rgba(62,122,184,.42) 5px,rgba(128,182,232,.58) 5px,rgba(128,182,232,.58) 10px)}
+.washi-lemon {background:repeating-linear-gradient(-45deg,rgba(168,152,32,.42),rgba(168,152,32,.42) 5px,rgba(220,205,90,.58) 5px,rgba(220,205,90,.58) 10px)}
+
+/* ═══════════════════════════════════════
+   JOURNAL SHELL
+═══════════════════════════════════════ */
+#root{display:flex;justify-content:center;padding:28px 16px 56px}
+.journal{
+  width:100%;max-width:1160px;
+  background:var(--paper);
+  box-shadow:var(--shadow-lg),0 0 0 1px rgba(80,70,60,.06);
+  border-radius:2px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* ═══════════════════════════════════════
+   SPIRAL BINDING
+═══════════════════════════════════════ */
+.binding-tape{
+  background:linear-gradient(to bottom,#C8C0A8,#B4AC98,#A4A090);
+  border-bottom:3px solid #908880;
+  padding:6px 0 0;
+  display:flex;justify-content:center;
+}
+.spiral-rings{display:flex;gap:0;padding:0 16px}
+.ring{
+  width:22px;height:22px;border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,#E8E0CE,#C0B8A8,#A8A098);
+  border:2.5px solid #787068;
+  box-shadow:inset 0 1px 4px rgba(0,0,0,.18),0 2px 5px rgba(0,0,0,.12);
+  margin:0 5px;
+  transform:translateY(8px);
+  flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════
+   TAB NAVIGATION
+═══════════════════════════════════════ */
+.tab-nav{
+  display:flex;align-items:flex-end;gap:3px;
+  padding:0 32px;
+  background:var(--paper3);
+  border-bottom:2px solid var(--ink4);
+}
+.tab{
+  padding:9px 20px 8px;
+  font-family:'Caveat',cursive;font-size:1.02rem;font-weight:700;
+  color:var(--ink3);cursor:pointer;
+  border-radius:10px 10px 0 0;
+  border:1.5px solid rgba(100,90,76,.12);border-bottom:none;
+  background:var(--paper2);
+  transition:all .22s var(--ease);
+  position:relative;top:2px;
+  user-select:none;
+  display:flex;align-items:center;gap:6px;
+  white-space:nowrap;
+}
+.tab:hover{
+  color:var(--ink);background:rgba(250,249,244,.7);
+  transform:translateY(-1px);
+  box-shadow:0 -2px 8px rgba(50,40,28,.06);
+}
+.tab:active{transform:translateY(0)}
+.tab.active{
+  color:var(--ink);background:var(--paper);
+  border-color:rgba(100,90,76,.2);
+  top:2px;transform:translateY(0);
+  box-shadow:0 -3px 10px rgba(50,40,28,.07);
+}
+.tab.t-mint.active  {border-top:3.5px solid var(--mint)}
+.tab.t-blush.active {border-top:3.5px solid var(--blush)}
+.tab.t-lav.active   {border-top:3.5px solid var(--lav)}
+.tab.t-peach.active {border-top:3.5px solid var(--peach)}
+.tab.t-sky.active   {border-top:3.5px solid var(--sky)}
+.tab-icon{font-size:.85rem;line-height:1;flex-shrink:0}
+
+/* ═══════════════════════════════════════
+   PAGE STRIPE
+═══════════════════════════════════════ */
+.page-stripe{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 52px;border-bottom:1.5px solid var(--ink4);
+  background:var(--paper2);
+  font-family:'Courier Prime',monospace;font-size:.7rem;color:var(--ink3);
+  letter-spacing:.3px;
+}
+.pg-badge{
+  width:26px;height:26px;border-radius:50%;
+  border:1.5px solid var(--ink4);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:.65rem;color:var(--ink3);
+}
+
+/* ═══════════════════════════════════════
+   STAMPS
+═══════════════════════════════════════ */
+.stamp{
+  display:inline-block;
+  font-family:'Courier Prime',monospace;font-size:.62rem;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 10px;border-radius:3px;border:1.5px solid;
+  transform:rotate(-1.5deg);flex-shrink:0;
+}
+.stamp-mint  {border-color:var(--mint);  color:var(--mint);  background:var(--mint-soft)}
+.stamp-blush {border-color:var(--blush); color:var(--blush); background:var(--blush-soft)}
+.stamp-lav   {border-color:var(--lav);   color:var(--lav);   background:var(--lav-soft)}
+.stamp-peach {border-color:var(--peach); color:var(--peach); background:var(--peach-soft)}
+.stamp-sky   {border-color:var(--sky);   color:var(--sky);   background:var(--sky-soft)}
+.stamp-lemon {border-color:var(--lemon); color:var(--lemon); background:var(--lemon-soft)}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{padding:52px 52px 44px;position:relative;overflow:hidden}
+.hero-tape-corner{
+  position:absolute;top:-4px;right:56px;width:68px;height:42px;
+  border-radius:2px;transform:rotate(3deg);opacity:.82;
+}
+.year-pill{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
+.year-stamp-tag{
+  font-family:'Courier Prime',monospace;font-weight:700;font-size:.68rem;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--blush);padding:5px 14px;
+  border:2px solid var(--blush);border-radius:4px;
+  background:var(--blush-soft);transform:rotate(-1deg);
+  display:inline-block;
+}
+.hero h1{font-size:clamp(2.6rem,4.5vw,4rem);color:var(--ink);margin-bottom:12px}
+.hero h1 .hl{display:inline-block;position:relative}
+.hero h1 .hl::after{
+  content:'';position:absolute;bottom:2px;left:-3px;right:-3px;height:11px;
+  background:rgba(91,191,142,.35);border-radius:2px;z-index:-1;
+  transform:rotate(-.4deg);
+}
+.hero-sub{
+  font-size:.96rem;color:var(--ink2);max-width:560px;
+  margin-bottom:36px;line-height:1.8;
+}
+
+/* SEARCH */
+.search-field{max-width:640px;margin-bottom:26px}
+.search-label{
+  font-family:'Caveat',cursive;font-size:1.05rem;color:var(--ink3);
+  margin-bottom:7px;display:block;
+}
+.search-row{
+  display:flex;align-items:stretch;
+  border-bottom:2.5px solid var(--ink);padding-bottom:5px;
+  transition:border-color .2s var(--ease);
+}
+.search-row:focus-within{border-color:var(--lav)}
+.search-input{
+  flex:1;background:none;border:none;outline:none;
+  font-family:'Caveat',cursive;font-size:1.45rem;color:var(--ink);
+  caret-color:var(--lav);padding:0 4px;
+}
+.search-input::placeholder{color:var(--ink4)}
+.search-btn{
+  background:var(--ink);color:var(--paper);border:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.76rem;
+  padding:8px 22px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;
+  transition:all .22s var(--ease);white-space:nowrap;
+}
+.search-btn:hover{background:var(--lav);transform:translateY(-1px);box-shadow:0 4px 12px rgba(123,95,192,.3)}
+.search-btn:active{transform:translateY(0)}
+
+/* WASHI FILTERS */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:38px;align-items:center}
+.filter-label{font-family:'Caveat',cursive;font-size:.95rem;color:var(--ink3);margin-right:4px}
+.filter-strip{
+  font-family:'Caveat',cursive;font-size:.95rem;font-weight:700;
+  padding:6px 18px;border-radius:3px;cursor:pointer;
+  border:none;color:var(--ink);transition:all .2s var(--ease);
+  box-shadow:0 1px 4px rgba(0,0,0,.1);position:relative;
+}
+.filter-strip:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.14)}
+.filter-strip:active{transform:translateY(0)}
+.filter-strip.active{
+  outline:2.5px solid var(--ink);outline-offset:2px;
+  box-shadow:0 2px 6px rgba(0,0,0,.16);
+}
+
+/* STAT BOXES */
+.stat-boxes{display:flex;gap:14px;flex-wrap:wrap}
+.stat-box{
+  flex:1;min-width:140px;padding:16px 18px;
+  border:1.5px solid var(--ink4);border-radius:var(--r);
+  background:var(--paper);position:relative;
+  transition:all .25s var(--ease);
+}
+.stat-box:hover{
+  box-shadow:var(--shadow-sm);
+  transform:translateY(-2px);
+  border-color:var(--ink3);
+}
+.stat-box::before{
+  content:'';position:absolute;top:-1px;left:12px;right:12px;
+  height:4px;border-radius:2px;
+}
+.sb-mint::before  {background:var(--mint-bg)}
+.sb-blush::before {background:var(--blush-bg)}
+.sb-lav::before   {background:var(--lav-bg)}
+.sb-peach::before {background:var(--peach-bg)}
+.stat-icon{font-size:1.1rem;margin-bottom:7px;display:block}
+.stat-val{font-family:'Courier Prime',monospace;font-size:1.9rem;font-weight:700;color:var(--ink);line-height:1}
+.stat-lbl{font-size:.68rem;color:var(--ink3);margin-top:4px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+
+/* ═══════════════════════════════════════
+   WASHI DIVIDER
+═══════════════════════════════════════ */
+.washi-bar{display:flex;height:14px;overflow:hidden}
+.washi-bar>div{flex:1;transition:filter .3s}
+.washi-bar:hover>div{filter:brightness(1.05)}
+
+/* ═══════════════════════════════════════
+   RANKINGS SPREAD
+═══════════════════════════════════════ */
+.spread-grid{display:grid;grid-template-columns:1fr 380px;min-height:420px}
+.spread-left{padding:40px 40px 40px 52px;border-right:1.5px solid var(--ink4)}
+.spread-right{padding:36px 52px 40px 36px}
+.spread-heading{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.spread-heading h2{font-size:1.7rem;color:var(--ink)}
+
+/* BuJo list */
+.bj-list{list-style:none}
+.bj-row{
+  display:grid;grid-template-columns:20px 1fr auto;
+  align-items:center;gap:14px;
+  padding:11px 0;border-bottom:1px solid rgba(120,108,90,.12);
+  animation:slideInUp .4s var(--ease-out) calc(var(--i,0) * 55ms) both;
+  transition:background .18s;
+}
+.bj-row:last-child{border-bottom:none}
+.bj-row:hover{background:rgba(120,108,90,.04);border-radius:4px}
+.bj-dot{
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid var(--ink4);flex-shrink:0;
+  display:grid;place-items:center;
+  transition:all .2s var(--ease);
+}
+.bj-name{font-size:.9rem;font-weight:700;line-height:1.25}
+.bj-sub{font-size:.72rem;color:var(--ink3);margin-top:2px}
+.bj-chip{
+  padding:5px 12px;border:1.5px solid var(--ink4);border-radius:5px;
+  background:var(--paper2);text-align:center;flex-shrink:0;
+  transition:all .2s var(--ease);
+}
+.bj-row:hover .bj-chip{border-color:var(--ink3)}
+.bj-chip .bv{font-family:'Courier Prime',monospace;font-size:1rem;font-weight:700}
+.bj-chip .by{font-size:.58rem;color:var(--ink3)}
+.note-box{
+  margin-top:18px;padding:13px 15px;
+  background:var(--lemon-soft);border:1.5px dashed rgba(168,152,32,.4);
+  border-radius:6px;
+}
+.note-box p{font-family:'Caveat',cursive;font-size:.9rem;color:var(--ink2);line-height:1.55}
+
+/* Tracker */
+.tracker-label{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--ink2);margin-bottom:13px}
+.tracker-tbl{width:100%;border-collapse:collapse;font-size:.78rem}
+.tracker-tbl th{
+  padding:8px 4px;text-align:center;
+  font-family:'Courier Prime',monospace;font-size:.63rem;color:var(--ink3);
+  border-bottom:1.5px solid var(--ink4);font-weight:700;letter-spacing:.5px;
+}
+.tracker-tbl th:first-child{text-align:left;padding-left:0}
+.tracker-tbl td{padding:7px 4px;border-bottom:1px solid rgba(120,108,90,.09)}
+.tracker-tbl td:first-child{font-weight:600;font-size:.78rem;color:var(--ink2);padding-left:0;white-space:nowrap}
+.tc{
+  display:flex;align-items:center;justify-content:center;
+  width:54px;height:30px;border-radius:5px;margin:0 auto;
+  font-family:'Courier Prime',monospace;font-weight:700;font-size:.8rem;
+  color:var(--ink);border:1.5px solid transparent;
+  transition:transform .15s var(--ease);
+}
+.tc:hover{transform:scale(1.08)}
+.tc-sky   {background:var(--sky-bg);   border-color:rgba(62,122,184,.28)}
+.tc-lemon {background:var(--lemon-bg); border-color:rgba(168,152,32,.3)}
+.tc-mint  {background:var(--mint-bg);  border-color:rgba(91,191,142,.35)}
+.tc-blush {background:var(--blush-bg); border-color:rgba(201,104,104,.4);color:#6E2828;font-size:.88rem}
+.legend{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:.67rem;color:var(--ink3)}
+.leg-sw{width:12px;height:12px;border-radius:3px}
+
+/* ═══════════════════════════════════════
+   SCORE TREND
+═══════════════════════════════════════ */
+.trend{
+  font-family:'Courier Prime',monospace;font-size:.68rem;font-weight:700;
+  margin-left:5px;vertical-align:middle;
+}
+.trend-up   {color:#1F6840}
+.trend-down {color:#922828}
+.trend-flat {color:var(--ink4)}
+
+/* ═══════════════════════════════════════
+   STICKY NOTES
+═══════════════════════════════════════ */
+.stickies-section{padding:40px 52px;background:var(--paper2)}
+.stickies-hdr{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.stickies-hdr h2{font-size:1.7rem}
+.stickies-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+.sticky{
+  padding:22px 20px 18px;border-radius:2px;cursor:pointer;
+  box-shadow:3px 4px 16px rgba(50,40,28,.14),1px 1px 3px rgba(50,40,28,.07);
+  position:relative;
+  transition:transform .28s var(--spring),box-shadow .28s var(--ease);
+  will-change:transform;
+  animation:cardIn .45s var(--ease-out) calc(var(--i,0) * 75ms) both;
+}
+.sticky::before{
+  content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+  width:56px;height:18px;border-radius:2px;opacity:.88;
+}
+.sn-1{background:linear-gradient(165deg,#CBE8DA,#BDE0CE);transform:rotate(-1.6deg)}
+.sn-2{background:linear-gradient(165deg,#D5E8F8,#C8E0F4);transform:rotate(.8deg)}
+.sn-3{background:linear-gradient(165deg,#F2D8D5,#EBC8C4);transform:rotate(-.5deg)}
+.sn-4{background:linear-gradient(165deg,#DDD0F5,#D2C5EE);transform:rotate(1.3deg)}
+.sn-5{background:linear-gradient(165deg,#F8E2C4,#F2D8B5);transform:rotate(-.9deg)}
+.sn-6{background:linear-gradient(165deg,#F5F5D8,#EEECCA);transform:rotate(.6deg)}
+
+.sn-1::before{background:repeating-linear-gradient(45deg,rgba(91,191,142,.6),rgba(91,191,142,.6) 4px,rgba(148,218,185,.78) 4px,rgba(148,218,185,.78) 8px)}
+.sn-2::before{background:repeating-linear-gradient(45deg,rgba(62,122,184,.55),rgba(62,122,184,.55) 4px,rgba(128,180,228,.72) 4px,rgba(128,180,228,.72) 8px)}
+.sn-3::before{background:repeating-linear-gradient(-45deg,rgba(201,104,104,.58),rgba(201,104,104,.58) 4px,rgba(240,155,150,.75) 4px,rgba(240,155,150,.75) 8px)}
+.sn-4::before{background:repeating-linear-gradient(45deg,rgba(123,95,192,.52),rgba(123,95,192,.52) 4px,rgba(185,160,238,.68) 4px,rgba(185,160,238,.68) 8px)}
+.sn-5::before{background:repeating-linear-gradient(-45deg,rgba(196,128,48,.55),rgba(196,128,48,.55) 4px,rgba(240,190,130,.72) 4px,rgba(240,190,130,.72) 8px)}
+.sn-6::before{background:repeating-linear-gradient(-45deg,rgba(168,152,32,.5),rgba(168,152,32,.5) 4px,rgba(220,208,90,.66) 4px,rgba(220,208,90,.66) 8px)}
+
+.sticky:hover{
+  transform:rotate(0deg) translateY(-9px) scale(1.035) !important;
+  box-shadow:8px 18px 44px rgba(50,40,28,.22),2px 2px 8px rgba(50,40,28,.1);
+  z-index:2;
+}
+.sticky:focus-visible{
+  outline:3px solid var(--lav);outline-offset:3px;
+  transform:rotate(0deg) translateY(-4px) scale(1.02) !important;
+}
+.sn-top{display:flex;align-items:center;justify-content:space-between;margin:6px 0 13px}
+.sn-rank{font-family:'Caveat',cursive;font-size:.9rem;font-weight:700;color:var(--ink2)}
+.sn-type{
+  font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+  padding:2px 7px;border:1px solid rgba(80,70,60,.16);border-radius:3px;
+  background:rgba(255,255,255,.52);color:var(--ink2);
+}
+.sn-name{font-family:'Caveat',cursive;font-size:1.28rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:3px}
+.sn-abbr{font-family:'Courier Prime',monospace;font-size:.68rem;font-weight:700;color:var(--ink3);margin-bottom:11px}
+.sn-scores{display:flex;gap:5px;margin-bottom:11px}
+.sn-score{
+  flex:1;text-align:center;padding:5px 3px;border-radius:4px;
+  background:rgba(255,255,255,.5);border:1px solid rgba(80,70,60,.1);
+  transition:background .15s;
+}
+.sn-score .sy{font-family:'Courier Prime',monospace;font-size:.58rem;color:var(--ink3)}
+.sn-score .sp{font-family:'Courier Prime',monospace;font-size:.98rem;font-weight:700;color:var(--ink)}
+.sn-score.latest .sp{color:#1A5E38}
+.sn-tags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:11px}
+.sn-tag{
+  font-size:.6rem;padding:2px 7px;border-radius:10px;
+  background:rgba(255,255,255,.55);border:1px solid rgba(80,70,60,.1);
+  color:var(--ink2);font-weight:600;
+}
+.sn-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:9px;border-top:1px dashed rgba(80,70,60,.18);
+  font-size:.73rem;color:var(--ink3);
+}
+.sn-arrow{
+  width:24px;height:24px;border-radius:50%;
+  border:1.5px solid rgba(80,70,60,.24);
+  display:grid;place-items:center;font-size:.75rem;color:var(--ink2);
+  transition:all .2s var(--ease);
+}
+.sticky:hover .sn-arrow{background:var(--ink);color:var(--paper);border-color:var(--ink);transform:translateX(2px)}
+
+/* ═══════════════════════════════════════
+   FEATURES LOG
+═══════════════════════════════════════ */
+.log-section{padding:40px 52px;border-top:1.5px solid var(--ink4)}
+.log-hdr{margin-bottom:26px}
+.log-hdr h2{font-size:1.7rem;margin-bottom:4px}
+.log-hdr p{font-size:.84rem;color:var(--ink3);font-style:italic}
+.log-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.log-card{
+  padding:24px;border:1.5px solid var(--ink4);border-radius:var(--r);
+  background:var(--paper);transition:all .25s var(--ease);
+  position:relative;overflow:hidden;
+}
+.log-card:hover{
+  box-shadow:var(--shadow-sm);
+  border-color:var(--ink3);
+  transform:translateY(-2px);
+}
+.log-top-bar{position:absolute;top:0;left:10px;right:10px;height:4px;border-radius:0 0 4px 4px}
+.log-date{
+  font-family:'Courier Prime',monospace;font-size:.63rem;color:var(--ink3);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.log-date::before{content:'';width:16px;height:1px;background:var(--ink4);flex-shrink:0}
+.log-icon{font-size:1.9rem;margin-bottom:12px;display:block}
+.log-card h3{font-family:'Caveat',cursive;font-size:1.22rem;margin-bottom:8px}
+.log-card p{font-size:.82rem;color:var(--ink2);line-height:1.68}
+.log-check{
+  display:flex;align-items:center;gap:8px;
+  margin-top:14px;padding-top:12px;
+  border-top:1px dashed rgba(120,108,90,.18);
+  font-size:.73rem;color:var(--ink3);
+}
+.check-sq{
+  width:14px;height:14px;border:1.5px solid var(--ink4);
+  border-radius:2px;display:grid;place-items:center;flex-shrink:0;
+}
+.check-sq.on{border-color:var(--mint);background:var(--mint-soft)}
+.check-sq.on::after{content:'✓';font-size:.6rem;color:var(--mint);font-weight:800}
+
+/* ═══════════════════════════════════════
+   COMPARE TABLE (home preview)
+═══════════════════════════════════════ */
+.compare-section{padding:40px 52px;background:var(--paper2);border-top:1.5px solid var(--ink4)}
+.cmp-hdr{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.cmp-hdr h2{font-size:1.7rem}
+.cmp-note{font-size:.8rem;color:var(--ink3);font-style:italic;margin-bottom:22px}
+.cmp-wrap{border:1.5px solid var(--ink4);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.cmp-tbl{width:100%;border-collapse:collapse}
+.cmp-tbl thead th{
+  padding:11px 16px;text-align:left;
+  font-family:'Caveat',cursive;font-size:.9rem;font-weight:700;color:var(--ink2);
+  background:var(--paper2);border-bottom:1.5px solid var(--ink4);
+}
+.cmp-tbl thead th:not(:first-child){text-align:center}
+.cmp-tbl td{padding:13px 16px;border-bottom:1px solid rgba(120,108,90,.1);font-size:.84rem}
+.cmp-tbl tr:last-child td{border-bottom:none}
+.cmp-tbl tbody tr{transition:background .15s}
+.cmp-tbl tbody tr:hover td{background:var(--paper2)}
+.cmp-name{font-weight:700}
+.cmp-sub{font-size:.7rem;color:var(--ink3);font-style:italic;margin-top:1px}
+.cmp-pt{text-align:center;font-family:'Courier Prime',monospace;font-size:1rem;font-weight:700}
+.cmp-pt.hi{color:#1A5E38}
+.mp{
+  display:inline-block;font-size:.6rem;font-weight:700;
+  padding:2px 7px;border-radius:10px;margin:1px;border:1px solid;
+}
+.mp-thpt{background:var(--mint-soft);color:#1A5E38;border-color:rgba(91,191,142,.4)}
+.mp-hb  {background:var(--peach-soft);color:#6E3A10;border-color:rgba(196,128,48,.4)}
+.mp-dgnl{background:var(--lav-soft);color:#3A1878;border-color:rgba(123,95,192,.4)}
+
+/* ═══════════════════════════════════════
+   UNIVERSITIES VIEW
+═══════════════════════════════════════ */
+.uni-view{padding:40px 52px}
+.uni-search-bar{
+  display:flex;align-items:stretch;gap:0;margin-bottom:20px;
+  border:1.5px solid var(--ink4);border-radius:var(--r);overflow:hidden;
+  transition:border-color .2s var(--ease);
+  background:var(--paper);
+}
+.uni-search-bar:focus-within{border-color:var(--lav)}
+.uni-search-inner{
+  flex:1;background:none;border:none;outline:none;padding:10px 16px;
+  font-family:'Nunito',sans-serif;font-size:.9rem;color:var(--ink);
+}
+.uni-search-inner::placeholder{color:var(--ink4)}
+.uni-search-clear{
+  padding:10px 14px;background:none;border:none;cursor:pointer;
+  color:var(--ink3);font-size:.85rem;
+  transition:color .15s;
+}
+.uni-search-clear:hover{color:var(--blush)}
+.uni-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;align-items:center}
+.uni-filter-btn{
+  font-family:'Caveat',cursive;font-size:.95rem;font-weight:700;
+  padding:6px 18px;border-radius:3px;cursor:pointer;border:1.5px solid var(--ink4);
+  background:var(--paper);color:var(--ink2);
+  transition:all .2s var(--ease);
+}
+.uni-filter-btn:hover{border-color:var(--ink3);color:var(--ink);transform:translateY(-1px)}
+.uni-filter-btn:active{transform:translateY(0)}
+.uni-filter-btn.active{
+  background:var(--ink);color:var(--paper);border-color:var(--ink);
+  box-shadow:0 2px 8px rgba(40,32,22,.18);
+}
+
+/* ═══════════════════════════════════════
+   RANKINGS VIEW
+═══════════════════════════════════════ */
+.rank-view{padding:40px 52px}
+.rank-full-tbl{width:100%;border-collapse:collapse}
+.rank-full-tbl thead th{
+  padding:12px 16px;text-align:left;
+  font-family:'Courier Prime',monospace;font-size:.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;color:var(--ink3);
+  border-bottom:2px solid var(--ink4);background:var(--paper2);
+  white-space:nowrap;
+}
+.rank-full-tbl td{
+  padding:14px 16px;border-bottom:1px solid rgba(120,108,90,.1);vertical-align:middle;
+}
+.rank-full-tbl tbody tr{transition:background .18s var(--ease)}
+.rank-full-tbl tbody tr:hover td{background:rgba(120,108,90,.04)}
+
+/* Top-3 rows */
+.rank-row-1 td{background:linear-gradient(90deg,rgba(196,128,48,.07),transparent)}
+.rank-row-2 td{background:linear-gradient(90deg,rgba(120,108,90,.05),transparent)}
+.rank-row-3 td{background:linear-gradient(90deg,rgba(196,128,48,.04),transparent)}
+.rank-row-1:hover td,.rank-row-2:hover td,.rank-row-3:hover td{background:rgba(120,108,90,.07)!important}
+
+.rank-num{font-family:'Courier Prime',monospace;font-size:1rem;font-weight:700;color:var(--ink4)}
+.rank-medal{font-size:1.1rem;line-height:1}
+.rank-bar-wrap{display:flex;align-items:center;gap:10px}
+.rank-bar{flex:1;height:6px;background:rgba(120,108,90,.12);border-radius:3px;overflow:hidden}
+.rank-bar-fill{
+  height:100%;border-radius:3px;
+  background:linear-gradient(90deg,var(--mint),var(--lav));
+  animation:growBar .9s var(--ease-out) 0.25s both;
+  will-change:width;
+}
+.rank-score{
+  font-family:'Courier Prime',monospace;font-size:.9rem;font-weight:700;
+  min-width:32px;text-align:right;color:var(--mint);
+}
+.comp-badges{display:flex;gap:5px;flex-wrap:wrap}
+.comp-badge{
+  font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:4px;
+  font-family:'Courier Prime',monospace;white-space:nowrap;
+}
+.cb-a{background:var(--mint-soft);color:var(--mint)}
+.cb-b{background:var(--lav-soft);color:var(--lav)}
+.cb-c{background:var(--sky-soft);color:var(--sky)}
+.rating-stars{color:var(--peach);letter-spacing:-1px}
+
+/* ═══════════════════════════════════════
+   COMPARE VIEW
+═══════════════════════════════════════ */
+.compare-view{padding:40px 52px}
+.cmp-count-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Courier Prime',monospace;font-size:.75rem;color:var(--ink3);
+  border:1px solid var(--ink4);border-radius:20px;padding:3px 12px;margin-bottom:20px;
+}
+.cmp-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+.cmp-chip{
+  padding:11px 14px;border:1.5px solid var(--ink4);border-radius:var(--r);
+  cursor:pointer;transition:all .2s var(--ease);background:var(--paper);
+  font-size:.82rem;font-weight:600;position:relative;overflow:hidden;
+}
+.cmp-chip:hover{border-color:var(--lav);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.cmp-chip:active{transform:translateY(0)}
+.cmp-chip.selected{background:var(--lav-soft);border-color:var(--lav);color:var(--lav)}
+.cmp-chip.selected::after{
+  content:'✓';position:absolute;top:8px;right:10px;
+  font-size:.75rem;font-weight:800;color:var(--lav);
+}
+.cmp-chip .cn{font-weight:700;font-size:.85rem;margin-bottom:2px}
+.cmp-chip .cu{font-size:.7rem;color:var(--ink3)}
+.cmp-chip .cs{font-family:'Courier Prime',monospace;font-size:.88rem;color:var(--mint);font-weight:700;margin-top:4px}
+.cmp-chip.disabled{opacity:.45;pointer-events:none}
+
+/* Highlight rows */
+.row-high td{background:linear-gradient(90deg,var(--mint-soft),transparent)!important}
+.row-low  td{background:linear-gradient(90deg,var(--blush-soft),transparent)!important}
+
+/* ═══════════════════════════════════════
+   EMPTY STATE
+═══════════════════════════════════════ */
+.empty-state{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:64px 32px;gap:12px;text-align:center;
+  animation:slideInUp .3s var(--ease-out) both;
+}
+.empty-icon{font-size:2.5rem;opacity:.6}
+.empty-title{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--ink2)}
+.empty-sub{font-size:.82rem;color:var(--ink3)}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.footer{
+  background:var(--paper3);border-top:3px solid var(--ink4);
+  padding:32px 52px;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;
+}
+.footer-brand{font-family:'Caveat',cursive;font-size:2rem;font-weight:700;color:var(--ink)}
+.footer-brand span{color:var(--lav)}
+.footer-note{font-size:.76rem;color:var(--ink3);font-style:italic;line-height:1.65;flex:1;padding:0 24px}
+
+/* ═══════════════════════════════════════
+   TEMPLATE BADGE
+═══════════════════════════════════════ */
+.tmpl-badge{
+  position:fixed;bottom:20px;right:20px;z-index:999;
+  background:var(--lav-bg);border:1.5px solid var(--lav);
+  color:var(--lav);font-size:.68rem;font-weight:700;letter-spacing:.4px;
+  padding:7px 14px;border-radius:5px;font-family:'Courier Prime',monospace;
+  text-transform:uppercase;transform:rotate(-1deg);
+  box-shadow:var(--shadow-sm);animation:pulse 3s ease infinite;
+}
+
+/* ═══════════════════════════════════════
+   VIEW TRANSITION
+═══════════════════════════════════════ */
+.view-enter{animation:slideInUp .32s var(--ease-out) both}
+
+/* ═══════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════ */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--paper2)}
+::-webkit-scrollbar-thumb{background:var(--ink4);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--ink3)}
+
+/* ═══════════════════════════════════════
+   FOCUS RING SYSTEM
+═══════════════════════════════════════ */
+:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--lav);
+  border-radius:4px;
+}
+button:focus-visible,a:focus-visible{
+  box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--lav);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:900px){
+  .spread-grid{grid-template-columns:1fr}
+  .spread-left{border-right:none;border-bottom:1.5px solid var(--ink4)}
+  .stickies-grid,.log-cards{grid-template-columns:repeat(2,1fr)}
+  .cmp-selector{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .stickies-grid,.log-cards{grid-template-columns:1fr}
+  .tab-nav{gap:1px;padding:0 8px}
+  .tab{padding:7px 10px;font-size:.85rem}
+  .tab-icon{display:none}
+  .hero,.spread-left,.spread-right,.uni-view,.rank-view,.compare-view,
+  .stickies-section,.log-section,.compare-section,.footer{padding-left:20px;padding-right:20px}
+  .page-stripe{padding-left:20px;padding-right:20px}
+  .cmp-selector{grid-template-columns:repeat(2,1fr)}
+  .footer{flex-direction:column;text-align:center}
+  .footer-note{padding:0}
+}
+
+/* ═══════════════════════════════════════
+   PREFERS-REDUCED-MOTION
+═══════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div id="root">
+  <div class="initial-load">
+    <div class="load-ring"></div>
+    <p>Loading your planner…</p>
+  </div>
+</div>
+
+<script type="text/babel">
+const { useState, useCallback, useMemo, useEffect, useRef } = React;
+
+/* ═══════════════════════════════════════
+   DATA
+═══════════════════════════════════════ */
+const UNIVERSITIES = [
+  { id:1, name:"Hanoi University of Science & Technology", short:"HUST", type:"public", field:"tech",
+    rank:1, score:9.2, logo:"🏛️", majors:42, rating:4.7, province:"Hanoi",
+    scores:{2023:27.4,2024:28.1,2025:28.5}, methods:["THPT","DGNL","School Record"],
+    component:{thpt:28.5,social:8.8,users:4.7}, sticky:"sn-1" },
+  { id:2, name:"Vietnam National University Hanoi", short:"VNU", type:"public", field:"multi",
+    rank:2, score:8.8, logo:"🎓", majors:68, rating:4.5, province:"Hanoi",
+    scores:{2023:26.8,2024:27.2,2025:27.8}, methods:["THPT","DGNL-HN"],
+    component:{thpt:27.8,social:8.5,users:4.5}, sticky:"sn-2" },
+  { id:3, name:"Hanoi Medical University", short:"HMU", type:"public", field:"medical",
+    rank:3, score:8.6, logo:"⚕️", majors:18, rating:4.3, province:"Hanoi",
+    scores:{2023:26.9,2024:27.1,2025:27.2}, methods:["THPT"],
+    component:{thpt:27.2,social:9.0,users:4.3}, sticky:"sn-3" },
+  { id:4, name:"National Economics University", short:"NEU", type:"public", field:"business",
+    rank:4, score:8.3, logo:"📊", majors:35, rating:4.4, province:"Hanoi",
+    scores:{2023:26.5,2024:26.8,2025:27.0}, methods:["THPT","School Record"],
+    component:{thpt:27.0,social:8.2,users:4.4}, sticky:"sn-4" },
+  { id:5, name:"Foreign Trade University", short:"FTU", type:"public", field:"business",
+    rank:5, score:8.1, logo:"🌐", majors:22, rating:4.2, province:"Hanoi",
+    scores:{2023:26.2,2024:25.8,2025:26.5}, methods:["THPT","DGNL"],
+    component:{thpt:26.5,social:8.6,users:4.2}, sticky:"sn-5" },
+  { id:6, name:"Posts & Telecommunications Institute", short:"PTIT", type:"public", field:"tech",
+    rank:6, score:7.9, logo:"📡", majors:28, rating:4.0, province:"Hanoi",
+    scores:{2023:22.5,2024:23.0,2025:23.8}, methods:["THPT","School Record"],
+    component:{thpt:23.8,social:8.0,users:4.0}, sticky:"sn-6" },
+  { id:7, name:"Hanoi University of Civil Engineering", short:"HUCE", type:"public", field:"tech",
+    rank:7, score:7.5, logo:"🏗️", majors:31, rating:3.9, province:"Hanoi",
+    scores:{2023:21.0,2024:21.5,2025:22.0}, methods:["THPT","School Record"],
+    component:{thpt:22.0,social:7.5,users:3.9}, sticky:"sn-1" },
+  { id:8, name:"Thang Long University", short:"TLU", type:"private", field:"multi",
+    rank:8, score:7.0, logo:"🌟", majors:44, rating:3.8, province:"Hanoi",
+    scores:{2023:18.0,2024:18.5,2025:19.0}, methods:["THPT","School Record","DGNL"],
+    component:{thpt:19.0,social:7.2,users:3.8}, sticky:"sn-2" },
+];
+
+const MAJORS = [
+  { id:1,  name:"Computer Science",     code:"7480201", uni:"HUST",   uniShort:"HUST IT1",  field:"tech",       scores:{2023:26.8,2024:27.5,2025:28.5}, methods:["THPT","DGNL"],          quota:120 },
+  { id:2,  name:"Artificial Intelligence", code:"7480107", uni:"VNU/UET", uniShort:"UET – VNU", field:"tech",    scores:{2023:null,2024:28.3,2025:29.1}, methods:["THPT"],                  quota:50  },
+  { id:3,  name:"Software Engineering", code:"7480103", uni:"VNU",    uniShort:"VNU – UET", field:"tech",       scores:{2023:25.8,2024:26.5,2025:27.2}, methods:["THPT","DGNL-HN"],       quota:80  },
+  { id:4,  name:"Finance & Banking",    code:"7340201", uni:"NEU",    uniShort:"NEU",        field:"business",   scores:{2023:26.2,2024:26.5,2025:26.8}, methods:["THPT","School Record"], quota:150 },
+  { id:5,  name:"Medicine (M.D.)",      code:"7720101", uni:"HMU",    uniShort:"HMU",        field:"medical",    scores:{2023:26.9,2024:27.1,2025:27.2}, methods:["THPT"],                  quota:200 },
+  { id:6,  name:"International Economics", code:"7310106", uni:"FTU",  uniShort:"FTU",       field:"business",   scores:{2023:25.5,2024:25.8,2025:26.5}, methods:["THPT","DGNL"],          quota:100 },
+  { id:7,  name:"Electrical Engineering", code:"7520201", uni:"HUST",  uniShort:"HUST – EE", field:"tech",      scores:{2023:24.0,2024:25.5,2025:26.0}, methods:["THPT","School Record"], quota:140 },
+  { id:8,  name:"Telecommunications",   code:"7520208", uni:"PTIT",   uniShort:"PTIT",       field:"tech",       scores:{2023:22.5,2024:23.0,2025:23.8}, methods:["THPT","School Record"], quota:200 },
+  { id:9,  name:"Business Administration", code:"7340101", uni:"NEU",  uniShort:"NEU – BA",  field:"business",   scores:{2023:25.8,2024:26.0,2025:26.3}, methods:["THPT","School Record"], quota:180 },
+  { id:10, name:"English Language",     code:"7220201", uni:"ULIS",   uniShort:"ULIS – VNU", field:"humanities", scores:{2023:26.0,2024:26.3,2025:26.8}, methods:["THPT","DGNL-HN"],      quota:90  },
+  { id:11, name:"Automation & Control", code:"7520216", uni:"HUST",   uniShort:"HUST – AUTO",field:"tech",      scores:{2023:23.8,2024:24.5,2025:25.2}, methods:["THPT","School Record"], quota:120 },
+  { id:12, name:"Architecture",         code:"7580101", uni:"HUCE",   uniShort:"HUCE",       field:"tech",       scores:{2023:20.5,2024:21.0,2025:21.5}, methods:["THPT"],                  quota:80  },
+];
+
+const TRACKER_DATA = [
+  { label:"CS — HUST (IT1)",     y23:26.8, y24:27.5, y25:28.5 },
+  { label:"AI — UET/VNU",        y23:null,  y24:28.3, y25:29.1 },
+  { label:"CS — VNU",            y23:25.8, y24:26.5, y25:27.2 },
+  { label:"Automation — HUST",   y23:23.8, y24:24.5, y25:25.2 },
+  { label:"Telecom — PTIT",      y23:22.5, y24:23.0, y25:23.8 },
+  { label:"EE — HUST",           y23:23.5, y24:24.2, y25:25.0 },
+];
+
+const BJ_COLORS = [
+  "#5BBF8E","#3E7AB8","#C96868","#7B5FC0","#C48030","#A89820","var(--ink4)"
+];
+
+const MEDALS = ["🥇","🥈","🥉"];
+
+/* ═══════════════════════════════════════
+   HELPERS / SMALL COMPONENTS
+═══════════════════════════════════════ */
+
+const SpiralBinding = () => (
+  <div className="binding-tape">
+    <div className="spiral-rings">
+      {Array.from({length:40}).map((_,i)=>(
+        <div key={i} className="ring" aria-hidden="true"/>
+      ))}
+    </div>
+  </div>
+);
+
+const WashiBar = ({classes=["washi-mint","washi-blush","washi-lav","washi-peach","washi-sky"]}) => (
+  <div className="washi-bar" aria-hidden="true">
+    {classes.map((c,i)=><div key={i} className={c}/>)}
+  </div>
+);
+
+const PageStripe = ({left,center,page}) => (
+  <div className="page-stripe">
+    <span>{left}</span>
+    <span>{center}</span>
+    <span className="pg-badge" aria-label={`Page ${page}`}>{page}</span>
+  </div>
+);
+
+const ScoreCell = ({val}) => {
+  if(val==null) return <div className="tc tc-lemon" aria-label="No data">—</div>;
+  const cls = val>=28?"tc-blush":val>=25?"tc-mint":val>=22?"tc-lemon":"tc-sky";
+  return <div className={`tc ${cls}`}>{val.toFixed(1)}</div>;
+};
+
+const Trend = ({from, to}) => {
+  if(from==null||to==null) return null;
+  const delta = +(to - from).toFixed(1);
+  if(delta === 0) return <span className="trend trend-flat" aria-label="unchanged">= 0</span>;
+  const up = delta > 0;
+  return (
+    <span className={`trend ${up?"trend-up":"trend-down"}`}
+      aria-label={`${up?"increased":"decreased"} by ${Math.abs(delta)} points`}>
+      {up?"▲":"▼"}{Math.abs(delta)}
+    </span>
+  );
+};
+
+const MethodBadge = ({method}) => {
+  const cls = method==="THPT"?"mp-thpt":method==="School Record"?"mp-hb":"mp-dgnl";
+  return <span className={`mp ${cls}`}>{method}</span>;
+};
+
+const EmptyState = ({query}) => (
+  <div className="empty-state">
+    <span className="empty-icon">🔍</span>
+    <div className="empty-title">No results found</div>
+    <p className="empty-sub">
+      {query ? `No matches for "${query}". ` : ""}
+      Try adjusting your search or filters.
+    </p>
+  </div>
+);
+
+/* ═══════════════════════════════════════
+   HOME VIEW
+═══════════════════════════════════════ */
+const HomeView = ({onViewChange}) => {
+  const [search, setSearch]       = useState("");
+  const [activeFilter, setFilter] = useState("all");
+
+  const filters = [
+    {id:"all",      label:"All Fields",    cls:"washi-mint"},
+    {id:"tech",     label:"💻 Technology", cls:"washi-lav"},
+    {id:"medical",  label:"⚕️ Medical",    cls:"washi-blush"},
+    {id:"business", label:"📊 Business",   cls:"washi-peach"},
+    {id:"humanities",label:"🌐 Languages", cls:"washi-sky"},
+  ];
+
+  const handleSearch = () => {
+    onViewChange("universities", search);
+  };
+
+  return (
+    <div className="view-enter">
+
+      {/* ── HERO ── */}
+      <section className="hero dot-paper">
+        <div className="hero-tape-corner washi-blush" aria-hidden="true"/>
+        <div className="year-pill">
+          <span className="year-stamp-tag">2025</span>
+          <span style={{fontFamily:"'Caveat',cursive",fontSize:".95rem",color:"var(--ink3)"}}>← admission season</span>
+        </div>
+        <h1>Find your<br/><span className="hl">perfect major</span></h1>
+        <p className="hero-sub">
+          Look up admission scores for all universities in Hanoi — 3 years of history,
+          transparent rankings, and side-by-side comparison. All in one place.
+        </p>
+
+        {/* Search */}
+        <div className="search-field">
+          <label className="search-label" htmlFor="hero-search">
+            I'm looking for: _________________________
+          </label>
+          <div className="search-row">
+            <input
+              id="hero-search" className="search-input" type="text"
+              placeholder="university name, major, or code… (e.g. HUST, CS, 7480201)"
+              value={search} onChange={e=>setSearch(e.target.value)}
+              onKeyDown={e=>e.key==="Enter"&&handleSearch()}
+              aria-label="Search universities and majors"
+            />
+            <button className="search-btn" onClick={handleSearch}>Search →</button>
+          </div>
+        </div>
+
+        {/* Quick filters */}
+        <div className="filter-row" role="group" aria-label="Quick field filters">
+          <span className="filter-label">Quick filter:</span>
+          {filters.map(f=>(
+            <button key={f.id}
+              className={`filter-strip ${f.cls} ${activeFilter===f.id?"active":""}`}
+              onClick={()=>setFilter(f.id)}
+              aria-pressed={activeFilter===f.id}
+            >{f.label}</button>
+          ))}
+        </div>
+
+        {/* Stat boxes */}
+        <div className="stat-boxes">
+          {[
+            {icon:"🏛️",val:"152",lbl:"Universities",cls:"sb-mint"},
+            {icon:"📚",val:"548",lbl:"Majors",       cls:"sb-blush"},
+            {icon:"📅",val:"3 yrs",lbl:"Score History",cls:"sb-lav"},
+            {icon:"🎯",val:"6",   lbl:"Admission Methods",cls:"sb-peach"},
+          ].map(s=>(
+            <div key={s.lbl} className={`stat-box ${s.cls}`}>
+              <span className="stat-icon" aria-hidden="true">{s.icon}</span>
+              <div className="stat-val">{s.val}</div>
+              <div className="stat-lbl">{s.lbl}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <WashiBar/>
+
+      {/* ── RANKINGS SPREAD ── */}
+      <PageStripe left="Composite Rankings" center="60% THPT · 30% social · 10% user rating" page="2"/>
+      <div className="spread-grid ruled-paper">
+
+        {/* BuJo list */}
+        <div className="spread-left">
+          <div className="spread-heading">
+            <span className="stamp stamp-lav">Top Pick</span>
+            <h2>University Rankings</h2>
+          </div>
+          <ul className="bj-list" role="list" aria-label="Top universities">
+            {UNIVERSITIES.slice(0,7).map((u,i)=>(
+              <li key={u.id} className="bj-row" style={{"--i":i}}>
+                <div className="bj-dot"
+                  style={{background:i<6?BJ_COLORS[i]:"transparent",
+                    borderColor:BJ_COLORS[i]}}
+                  aria-label={`Rank ${u.rank}`}>
+                  {i<6&&<span style={{width:8,height:8,borderRadius:"50%",background:"var(--paper)",display:"block"}}/>}
+                </div>
+                <div>
+                  <div className="bj-name">
+                    {u.rank<=3&&<span style={{marginRight:5}}>{MEDALS[u.rank-1]}</span>}
+                    {u.name}
+                  </div>
+                  <div className="bj-sub">{u.short} · {u.type==="public"?"Public":"Private"}</div>
+                </div>
+                <div className="bj-chip">
+                  <div className="bv">{u.score.toFixed(1)}</div>
+                  <div className="by">/ 10</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="note-box">
+            <p>💡 <em>Score formula is public: THPT avg (60%) + social reputation (30%) + user ratings (10%).</em></p>
+          </div>
+        </div>
+
+        {/* Tracker */}
+        <div className="spread-right">
+          <div className="spread-heading">
+            <span className="stamp stamp-mint">Tracker</span>
+            <h2>Score History</h2>
+          </div>
+          <p className="tracker-label">Tech & Engineering · 2023 – 2025</p>
+          <table className="tracker-tbl" role="table" aria-label="Admission score tracker">
+            <thead>
+              <tr>
+                <th scope="col">Major / University</th>
+                <th scope="col">2023</th>
+                <th scope="col">2024</th>
+                <th scope="col">2025</th>
+                <th scope="col">Δ</th>
+              </tr>
+            </thead>
+            <tbody>
+              {TRACKER_DATA.map(row=>(
+                <tr key={row.label}>
+                  <td>{row.label}</td>
+                  <td><ScoreCell val={row.y23}/></td>
+                  <td><ScoreCell val={row.y24}/></td>
+                  <td><ScoreCell val={row.y25}/></td>
+                  <td><Trend from={row.y24} to={row.y25}/></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="legend" aria-label="Score legend">
+            {[
+              {bg:"var(--blush-bg)",lbl:"≥ 28 pts"},
+              {bg:"var(--mint-bg)", lbl:"25–27.9"},
+              {bg:"var(--lemon-bg)",lbl:"22–24.9"},
+              {bg:"var(--sky-bg)",  lbl:"< 22 pts"},
+            ].map(l=>(
+              <div key={l.lbl} className="leg-item">
+                <div className="leg-sw" style={{background:l.bg}}/>
+                <span>{l.lbl}</span>
+              </div>
+            ))}
+          </div>
+          <div style={{marginTop:16,padding:"12px 14px",background:"var(--peach-soft)",
+            borderLeft:"3px solid var(--peach)",borderRadius:"0 6px 6px 0"}}>
+            <p style={{fontFamily:"'Caveat',cursive",fontSize:".88rem",color:"var(--ink2)"}}>
+              ← Tap a major name to open the 3-year line chart with per-method breakdown
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <WashiBar classes={["washi-sky","washi-lav","washi-mint","washi-peach","washi-blush"]}/>
+
+      {/* ── STICKY NOTES ── */}
+      <PageStripe left="Featured Universities" center="Click a sticky note for full details" page="3"/>
+      <div className="stickies-section">
+        <div className="stickies-hdr">
+          <span className="stamp stamp-peach">Explore</span>
+          <h2>Pinned Universities</h2>
+          <span role="img" aria-label="pin">📌</span>
+        </div>
+        <div className="stickies-grid">
+          {UNIVERSITIES.slice(0,5).map((u,i)=>(
+            <div key={u.id} className={`sticky ${u.sticky}`}
+              role="button" tabIndex={0}
+              aria-label={`View details for ${u.name}`}
+              style={{"--i":i}}
+              onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();onViewChange("universities")}}}
+              onClick={()=>onViewChange("universities")}
+            >
+              <div className="sn-top">
+                <span className="sn-rank">✦ #{u.rank} {u.rank<=3&&MEDALS[u.rank-1]}</span>
+                <span className="sn-type">{u.type}</span>
+              </div>
+              <div className="sn-name">{u.name}</div>
+              <div className="sn-abbr">{u.short}</div>
+              <div className="sn-scores">
+                {[2023,2024,2025].map(y=>(
+                  <div key={y} className={`sn-score${y===2025?" latest":""}`}>
+                    <div className="sy">{y}</div>
+                    <div className="sp">{u.scores[y].toFixed(1)}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="sn-tags">{u.methods.map(m=><span key={m} className="sn-tag">{m}</span>)}</div>
+              <div className="sn-footer">
+                <span>{u.majors} majors · ★ {u.rating.toFixed(1)}</span>
+                <div className="sn-arrow" aria-hidden="true">→</div>
+              </div>
+            </div>
+          ))}
+
+          {/* CTA card */}
+          <div className="sticky sn-6" style={{"--i":5,
+            display:"flex",flexDirection:"column",alignItems:"center",
+            justifyContent:"center",textAlign:"center",padding:"32px 20px"}}>
+            <span style={{fontSize:"2rem",marginBottom:10}} aria-hidden="true">🔍</span>
+            <div style={{fontFamily:"'Caveat',cursive",fontSize:"1.3rem",fontWeight:700,
+              color:"var(--ink)",marginBottom:8}}>See all<br/>152 universities</div>
+            <p style={{fontSize:".76rem",color:"var(--ink2)",marginBottom:16}}>
+              Filter by type, region, or score range
+            </p>
+            <button onClick={()=>onViewChange("universities")}
+              style={{background:"var(--ink)",color:"var(--paper)",border:"none",cursor:"pointer",
+                fontFamily:"'Nunito',sans-serif",fontWeight:800,fontSize:".76rem",
+                padding:"10px 22px",borderRadius:6,textTransform:"uppercase",letterSpacing:".5px",
+                transition:"all .2s var(--ease)"}}>
+              Explore →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ── FEATURES LOG ── */}
+      <PageStripe left="Key Features" center="What BUNIK offers this admission season" page="4"/>
+      <div className="log-section">
+        <div className="log-hdr">
+          <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:4}}>
+            <span className="stamp stamp-sky">Features</span>
+            <h2>Tools for Every Student</h2>
+          </div>
+          <p>Three tools you'll use most during the admission process</p>
+        </div>
+        <div className="log-cards">
+          {[
+            {lbl:"Feature 01",icon:"📈",title:"Score Trend Charts",
+              desc:"3-year admission score history as a line chart. Color-coded by admission method. Hover to see exact scores per year.",bar:"var(--mint-bg)"},
+            {lbl:"Feature 02",icon:"⚖️",title:"Side-by-Side Comparison",
+              desc:"Select up to 5 majors from any university. Automatic highlight of highest and lowest score in your selection.",bar:"var(--blush-bg)"},
+            {lbl:"Feature 03",icon:"🏆",title:"Transparent Rankings",
+              desc:"Open formula: 60% THPT score + 30% social reputation + 10% user rating. Each component shown separately.",bar:"var(--lav-bg)"},
+          ].map(f=>(
+            <div key={f.title} className="log-card">
+              <div className="log-top-bar" style={{background:f.bar}}/>
+              <div className="log-date">{f.lbl}</div>
+              <span className="log-icon" aria-hidden="true">{f.icon}</span>
+              <h3>{f.title}</h3>
+              <p>{f.desc}</p>
+              <div className="log-check">
+                <div className="check-sq on" aria-hidden="true"/>
+                <span>Available in MVP</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <WashiBar classes={["washi-blush","washi-peach","washi-lemon","washi-mint","washi-sky"]}/>
+
+      {/* ── COMPARE PREVIEW ── */}
+      <PageStripe left="Quick Comparison" center="THPT admission scores · 3-year view" page="5"/>
+      <div className="compare-section">
+        <div className="cmp-hdr">
+          <span className="stamp stamp-blush">Compare</span>
+          <h2>Major Score Overview</h2>
+        </div>
+        <p className="cmp-note">* THPT method only. See school record & DGNL scores on each major's detail page.</p>
+        <div className="cmp-wrap">
+          <table className="cmp-tbl" role="table" aria-label="Major comparison table">
+            <thead>
+              <tr>
+                <th scope="col">Major</th>
+                <th scope="col">2023</th>
+                <th scope="col">2024</th>
+                <th scope="col">2025</th>
+                <th scope="col">Δ 24→25</th>
+                <th scope="col">Methods</th>
+                <th scope="col">Quota</th>
+              </tr>
+            </thead>
+            <tbody>
+              {MAJORS.slice(0,6).map(m=>(
+                <tr key={m.id}>
+                  <td>
+                    <div className="cmp-name">{m.name}</div>
+                    <div className="cmp-sub">{m.uniShort} · {m.code}</div>
+                  </td>
+                  <td><span className="cmp-pt">{m.scores[2023]??<span style={{color:"var(--ink4)"}}>—</span>}</span></td>
+                  <td><span className="cmp-pt">{m.scores[2024]}</span></td>
+                  <td><span className="cmp-pt hi">{m.scores[2025]}</span></td>
+                  <td><Trend from={m.scores[2024]} to={m.scores[2025]}/></td>
+                  <td>{m.methods.map(me=><MethodBadge key={me} method={me}/>)}</td>
+                  <td style={{fontFamily:"'Courier Prime',monospace",fontWeight:700}}>{m.quota}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════
+   UNIVERSITIES VIEW
+═══════════════════════════════════════ */
+const UniversitiesView = ({initialSearch=""}) => {
+  const [search, setSearch] = useState(initialSearch);
+  const [filter, setFilter] = useState("all");
+  const [sort,   setSort]   = useState("rank");
+  const inputRef = useRef(null);
+
+  useEffect(()=>{ if(initialSearch) inputRef.current?.focus(); },[]);
+
+  const fields = [
+    {id:"all",      label:"All"},
+    {id:"tech",     label:"💻 Tech"},
+    {id:"business", label:"📊 Business"},
+    {id:"medical",  label:"⚕️ Medical"},
+    {id:"multi",    label:"🌐 Multi-field"},
+    {id:"private",  label:"🏢 Private"},
+  ];
+
+  const filtered = useMemo(()=>{
+    let arr = filter==="private"
+      ? UNIVERSITIES.filter(u=>u.type==="private")
+      : filter==="all" ? [...UNIVERSITIES] : UNIVERSITIES.filter(u=>u.field===filter);
+    if(search.trim()){
+      const q = search.toLowerCase();
+      arr = arr.filter(u=>
+        u.name.toLowerCase().includes(q)||
+        u.short.toLowerCase().includes(q)||
+        u.field.toLowerCase().includes(q)
+      );
+    }
+    return arr.sort((a,b)=>sort==="rank"?a.rank-b.rank:b.scores[2025]-a.scores[2025]);
+  },[filter,sort,search]);
+
+  return (
+    <div className="uni-view view-enter">
+      <PageStripe left="Universities" center="All Hanoi universities · 2025 data" page="1"/>
+
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20,flexWrap:"wrap",gap:12}}>
+        <div className="spread-heading" style={{margin:0}}>
+          <span className="stamp stamp-mint">Browse</span>
+          <h2 style={{fontSize:"1.7rem"}}>Universities</h2>
+        </div>
+        <select onChange={e=>setSort(e.target.value)} value={sort}
+          aria-label="Sort order"
+          style={{fontFamily:"'Nunito',sans-serif",fontWeight:700,fontSize:".82rem",
+            padding:"7px 14px",border:"1.5px solid var(--ink4)",borderRadius:6,
+            background:"var(--paper)",color:"var(--ink)",cursor:"pointer",
+            transition:"border-color .2s"}}>
+          <option value="rank">Sort: by Ranking</option>
+          <option value="score">Sort: by 2025 Score</option>
+        </select>
+      </div>
+
+      {/* Search bar */}
+      <div className="uni-search-bar" role="search">
+        <input ref={inputRef} className="uni-search-inner" type="text"
+          placeholder="Search by name or abbreviation…"
+          value={search} onChange={e=>setSearch(e.target.value)}
+          aria-label="Search universities"
+        />
+        {search&&(
+          <button className="uni-search-clear" onClick={()=>setSearch("")}
+            aria-label="Clear search">✕</button>
+        )}
+      </div>
+
+      {/* Field filters */}
+      <div className="uni-filters" role="group" aria-label="Field filters">
+        {fields.map(f=>(
+          <button key={f.id} className={`uni-filter-btn ${filter===f.id?"active":""}`}
+            onClick={()=>setFilter(f.id)} aria-pressed={filter===f.id}>{f.label}</button>
+        ))}
+      </div>
+
+      {/* Results */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {filtered.length} university results
+      </div>
+
+      {filtered.length===0 ? (
+        <EmptyState query={search}/>
+      ) : (
+        <div className="stickies-grid">
+          {filtered.map((u,i)=>(
+            <div key={u.id} className={`sticky ${u.sticky}`}
+              role="button" tabIndex={0}
+              aria-label={`View ${u.name}`}
+              style={{"--i":i}}
+              onKeyDown={e=>{if(e.key==="Enter"||e.key===" ")e.preventDefault()}}
+            >
+              <div className="sn-top">
+                <span className="sn-rank">
+                  {u.rank<=3?MEDALS[u.rank-1]:"✦"} #{u.rank}
+                </span>
+                <span className="sn-type">{u.type}</span>
+              </div>
+              <div className="sn-name">{u.name}</div>
+              <div className="sn-abbr">{u.short} · {u.majors} majors</div>
+              <div className="sn-scores">
+                {[2023,2024,2025].map(y=>(
+                  <div key={y} className={`sn-score${y===2025?" latest":""}`}>
+                    <div className="sy">{y}</div>
+                    <div className="sp">{u.scores[y].toFixed(1)}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="sn-tags">{u.methods.map(m=><span key={m} className="sn-tag">{m}</span>)}</div>
+              <div className="sn-footer">
+                <span>Composite ★ {u.score.toFixed(1)}/10 <Trend from={u.scores[2024]} to={u.scores[2025]}/></span>
+                <div className="sn-arrow" aria-hidden="true">→</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════
+   RANKINGS VIEW
+═══════════════════════════════════════ */
+const RankingsView = () => (
+  <div className="rank-view view-enter">
+    <PageStripe left="Full Rankings" center="Composite: 60% THPT + 30% social + 10% users" page="1"/>
+    <div className="spread-heading" style={{marginBottom:24}}>
+      <span className="stamp stamp-lav">Rankings</span>
+      <h2 style={{fontSize:"1.7rem"}}>University Ranking 2025</h2>
+    </div>
+    <div className="cmp-wrap">
+      <table className="rank-full-tbl" role="table" aria-label="University rankings 2025">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">University</th>
+            <th scope="col">Composite Score</th>
+            <th scope="col">Components</th>
+            <th scope="col">2024→2025</th>
+            <th scope="col">User Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {UNIVERSITIES.map((u,i)=>{
+            const rowCls = u.rank===1?"rank-row-1":u.rank===2?"rank-row-2":u.rank===3?"rank-row-3":"";
+            return (
+              <tr key={u.id} className={rowCls} style={{"--i":i}}>
+                <td style={{width:48}}>
+                  {u.rank<=3
+                    ? <span className="rank-medal" aria-label={`Rank ${u.rank}`}>{MEDALS[u.rank-1]}</span>
+                    : <span className="rank-num">{String(u.rank).padStart(2,"0")}</span>
+                  }
+                </td>
+                <td>
+                  <div style={{fontWeight:700,fontSize:".9rem"}}>{u.name}</div>
+                  <div style={{fontSize:".72rem",color:"var(--ink3)",marginTop:2}}>
+                    {u.short} · {u.type==="public"?"Public":"Private"}
+                  </div>
+                </td>
+                <td style={{minWidth:180}}>
+                  <div className="rank-bar-wrap">
+                    <div className="rank-bar" role="presentation">
+                      <div className="rank-bar-fill"
+                        style={{"--bar-w":`${(u.score/10)*100}%`}}
+                        aria-label={`${u.score.toFixed(1)} out of 10`}
+                      />
+                    </div>
+                    <span className="rank-score">{u.score.toFixed(1)}</span>
+                  </div>
+                </td>
+                <td>
+                  <div className="comp-badges">
+                    <span className="comp-badge cb-a">THPT {u.component.thpt}pts</span>
+                    <span className="comp-badge cb-b">Social {u.component.social.toFixed(1)}</span>
+                    <span className="comp-badge cb-c">Users {u.component.users.toFixed(1)}★</span>
+                  </div>
+                </td>
+                <td style={{fontSize:".82rem"}}>
+                  <Trend from={u.scores[2024]} to={u.scores[2025]}/>
+                </td>
+                <td>
+                  <span className="rating-stars" aria-label={`${u.rating.toFixed(1)} stars`}>
+                    {"★".repeat(Math.round(u.rating))}{"☆".repeat(5-Math.round(u.rating))}
+                  </span>
+                  <div style={{fontFamily:"'Courier Prime',monospace",fontSize:".7rem",color:"var(--ink3)",marginTop:2}}>
+                    {u.rating.toFixed(1)} / 5.0
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+    <div className="note-box" style={{marginTop:20}}>
+      <p>📝 <em>Social reputation score updated by admins quarterly. User ratings are anonymous (1–5 stars), validated by lightweight CAPTCHA to prevent manipulation.</em></p>
+    </div>
+  </div>
+);
+
+/* ═══════════════════════════════════════
+   MAJORS VIEW
+═══════════════════════════════════════ */
+const MajorsView = () => {
+  const [field, setField] = useState("all");
+  const [sort,  setSort]  = useState("score");
+  const fields = [
+    {id:"all",       label:"All Fields"},
+    {id:"tech",      label:"💻 Technology"},
+    {id:"business",  label:"📊 Business"},
+    {id:"medical",   label:"⚕️ Medical"},
+    {id:"humanities",label:"🌐 Humanities"},
+  ];
+
+  const filtered = useMemo(()=>{
+    let arr = field==="all"?[...MAJORS]:MAJORS.filter(m=>m.field===field);
+    return arr.sort((a,b)=>sort==="score"?(b.scores[2025]||0)-(a.scores[2025]||0):a.name.localeCompare(b.name));
+  },[field,sort]);
+
+  return (
+    <div className="rank-view view-enter">
+      <PageStripe left="Majors" center="All admission majors · Hanoi · 2025" page="1"/>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:18,flexWrap:"wrap",gap:12}}>
+        <div style={{display:"flex",alignItems:"center",gap:12}}>
+          <span className="stamp stamp-peach">Majors</span>
+          <h2 style={{fontFamily:"'Caveat',cursive",fontSize:"1.7rem"}}>Browse Majors</h2>
+        </div>
+        <select value={sort} onChange={e=>setSort(e.target.value)} aria-label="Sort majors"
+          style={{fontFamily:"'Nunito',sans-serif",fontWeight:700,fontSize:".82rem",
+            padding:"7px 14px",border:"1.5px solid var(--ink4)",borderRadius:6,
+            background:"var(--paper)",color:"var(--ink)",cursor:"pointer"}}>
+          <option value="score">Sort: 2025 Score</option>
+          <option value="name">Sort: A–Z</option>
+        </select>
+      </div>
+
+      <div className="uni-filters" role="group" aria-label="Field filters">
+        {fields.map(f=>(
+          <button key={f.id} className={`uni-filter-btn ${field===f.id?"active":""}`}
+            onClick={()=>setField(f.id)} aria-pressed={field===f.id}>{f.label}</button>
+        ))}
+      </div>
+
+      <div aria-live="polite" aria-atomic="true" className="sr-only">{filtered.length} majors</div>
+
+      {filtered.length===0 ? <EmptyState/> : (
+        <div className="cmp-wrap">
+          <table className="rank-full-tbl" aria-label="Majors list">
+            <thead>
+              <tr>
+                <th scope="col">Major</th>
+                <th scope="col">University</th>
+                <th scope="col">2023</th>
+                <th scope="col">2024</th>
+                <th scope="col">2025</th>
+                <th scope="col">Δ</th>
+                <th scope="col">Methods</th>
+                <th scope="col">Quota</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((m,i)=>(
+                <tr key={m.id} style={{"--i":i}}>
+                  <td>
+                    <div style={{fontWeight:700}}>{m.name}</div>
+                    <div style={{fontSize:".7rem",color:"var(--ink3)",fontFamily:"'Courier Prime',monospace"}}>{m.code}</div>
+                  </td>
+                  <td style={{fontSize:".82rem",whiteSpace:"nowrap"}}>{m.uniShort}</td>
+                  <td><span className="cmp-pt">{m.scores[2023]??<span style={{color:"var(--ink4)"}}>—</span>}</span></td>
+                  <td><span className="cmp-pt">{m.scores[2024]}</span></td>
+                  <td><span className="cmp-pt hi">{m.scores[2025]}</span></td>
+                  <td><Trend from={m.scores[2024]} to={m.scores[2025]}/></td>
+                  <td style={{whiteSpace:"nowrap"}}>{m.methods.map(me=><MethodBadge key={me} method={me}/>)}</td>
+                  <td style={{fontFamily:"'Courier Prime',monospace",fontWeight:700,textAlign:"center"}}>{m.quota}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════
+   COMPARE VIEW
+═══════════════════════════════════════ */
+const CompareView = () => {
+  const [selected, setSelected] = useState([1,2,5]);
+
+  const toggle = useCallback(id=>{
+    setSelected(prev=>
+      prev.includes(id)
+        ? prev.filter(x=>x!==id)
+        : prev.length<5 ? [...prev,id] : prev
+    );
+  },[]);
+
+  const chosen   = MAJORS.filter(m=>selected.includes(m.id));
+  const scores25 = chosen.map(m=>m.scores[2025]||0).filter(Boolean);
+  const maxScore = Math.max(...scores25);
+  const minScore = Math.min(...scores25);
+  const isTied   = maxScore===minScore;
+
+  return (
+    <div className="compare-view view-enter">
+      <PageStripe left="Comparison Tool" center="Select up to 5 majors to compare" page="1"/>
+      <div className="spread-heading" style={{marginBottom:10}}>
+        <span className="stamp stamp-blush">Compare</span>
+        <h2 style={{fontSize:"1.7rem"}}>Major Comparison</h2>
+      </div>
+
+      <div className="cmp-count-pill" aria-live="polite">
+        <span>Selected:</span>
+        <strong>{selected.length} / 5</strong>
+        {selected.length===5&&<span style={{color:"var(--blush)",marginLeft:4}}>· max reached</span>}
+      </div>
+
+      {/* Selector grid */}
+      <div className="cmp-selector" role="group" aria-label="Major selection">
+        {MAJORS.map(m=>{
+          const isSelected   = selected.includes(m.id);
+          const isDisabled   = !isSelected && selected.length>=5;
+          return (
+            <div key={m.id}
+              className={`cmp-chip ${isSelected?"selected":""} ${isDisabled?"disabled":""}`}
+              onClick={()=>!isDisabled&&toggle(m.id)}
+              role="checkbox" aria-checked={isSelected} aria-disabled={isDisabled}
+              tabIndex={isDisabled?-1:0}
+              onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle(m.id)}}}
+            >
+              <div className="cn">{m.name}</div>
+              <div className="cu">{m.uniShort}</div>
+              <div className="cs">{m.scores[2025]} pts (2025)</div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Comparison table */}
+      {chosen.length===0 ? (
+        <EmptyState query="" />
+      ) : (
+        <div className="cmp-wrap" style={{marginTop:8}}>
+          <table className="cmp-tbl" role="table" aria-label="Comparison results">
+            <thead>
+              <tr>
+                <th scope="col">Major</th>
+                <th scope="col">2023</th>
+                <th scope="col">2024</th>
+                <th scope="col">2025 ▲</th>
+                <th scope="col">Δ</th>
+                <th scope="col">Methods</th>
+                <th scope="col">Quota</th>
+              </tr>
+            </thead>
+            <tbody>
+              {chosen.map(m=>{
+                const s25    = m.scores[2025]||0;
+                const isTop  = !isTied && s25===maxScore;
+                const isLow  = !isTied && s25===minScore && chosen.length>1;
+                const rowCls = isTop?"row-high":isLow?"row-low":"";
+                return (
+                  <tr key={m.id} className={rowCls}>
+                    <td>
+                      <div className="cmp-name">
+                        {isTop&&<span style={{marginRight:5,color:"var(--mint)"}}>● </span>}
+                        {isLow&&<span style={{marginRight:5,color:"var(--blush)"}}>● </span>}
+                        {m.name}
+                        {isTop&&<span style={{marginLeft:6,fontSize:".68rem",color:"var(--mint)",fontWeight:700}}>highest</span>}
+                        {isLow&&<span style={{marginLeft:6,fontSize:".68rem",color:"var(--blush)",fontWeight:700}}>lowest</span>}
+                      </div>
+                      <div className="cmp-sub">{m.uniShort}</div>
+                    </td>
+                    <td><span className="cmp-pt">{m.scores[2023]??<span style={{color:"var(--ink4)"}}>N/A</span>}</span></td>
+                    <td><span className="cmp-pt">{m.scores[2024]}</span></td>
+                    <td><span className="cmp-pt hi">{m.scores[2025]}</span></td>
+                    <td><Trend from={m.scores[2024]} to={m.scores[2025]}/></td>
+                    <td>{m.methods.map(me=><MethodBadge key={me} method={me}/>)}</td>
+                    <td style={{fontFamily:"'Courier Prime',monospace",fontWeight:700,textAlign:"center"}}>{m.quota}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          {!isTied&&chosen.length>1&&(
+            <div style={{padding:"12px 16px",borderTop:"1px solid rgba(120,108,90,.12)",
+              background:"var(--paper2)",display:"flex",gap:20,fontSize:".78rem",color:"var(--ink3)"}}>
+              <span><span style={{color:"var(--mint)",fontWeight:700}}>● Highest</span> — {chosen.find(m=>(m.scores[2025]||0)===maxScore)?.name}</span>
+              <span><span style={{color:"var(--blush)",fontWeight:700}}>● Lowest</span> — {chosen.find(m=>(m.scores[2025]||0)===minScore)?.name}</span>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+/* ═══════════════════════════════════════
+   APP SHELL
+═══════════════════════════════════════ */
+const TABS = [
+  {id:"home",          label:"Home",         icon:"📖", cls:"t-mint"},
+  {id:"universities",  label:"Universities",  icon:"🏛️", cls:"t-blush"},
+  {id:"majors",        label:"Majors",        icon:"📚", cls:"t-lav"},
+  {id:"rankings",      label:"Rankings",      icon:"🏆", cls:"t-peach"},
+  {id:"compare",       label:"Compare",       icon:"⚖️",  cls:"t-sky"},
+];
+
+const App = () => {
+  const [view,        setView]   = useState("home");
+  const [searchQuery, setSearch] = useState("");
+  const tabRefs = useRef({});
+
+  const changeView = useCallback((v, query="") => {
+    setView(v);
+    setSearch(query);
+    // smooth scroll to top of journal
+    setTimeout(()=>{
+      document.getElementById("main-content")?.scrollIntoView({behavior:"smooth",block:"start"});
+    },10);
+  },[]);
+
+  // Keyboard arrow navigation between tabs
+  const onTabKey = useCallback((e, tabId)=>{
+    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
+      e.preventDefault();
+      const idx  = TABS.findIndex(t=>t.id===tabId);
+      const dir  = e.key==="ArrowRight"?1:-1;
+      const next = TABS[(idx+dir+TABS.length)%TABS.length];
+      changeView(next.id);
+      tabRefs.current[next.id]?.focus();
+    }
+  },[changeView]);
+
+  const viewMap = {
+    home:         <HomeView onViewChange={changeView}/>,
+    universities: <UniversitiesView initialSearch={searchQuery}/>,
+    majors:       <MajorsView/>,
+    rankings:     <RankingsView/>,
+    compare:      <CompareView/>,
+  };
+
+  return (
+    <>
+      <div className="journal">
+        <SpiralBinding/>
+
+        <nav className="tab-nav" role="tablist" aria-label="Main navigation">
+          {TABS.map(t=>(
+            <button
+              key={t.id}
+              ref={el=>tabRefs.current[t.id]=el}
+              role="tab"
+              data-tab={t.id}
+              className={`tab ${t.cls} ${view===t.id?"active":""}`}
+              onClick={()=>changeView(t.id)}
+              onKeyDown={e=>onTabKey(e,t.id)}
+              aria-selected={view===t.id}
+              aria-controls="main-content"
+            >
+              <span className="tab-icon" aria-hidden="true">{t.icon}</span>
+              {t.label}
+            </button>
+          ))}
+        </nav>
+
+        <main id="main-content" key={view} role="tabpanel" aria-label={view} tabIndex={-1}>
+          {viewMap[view]}
+        </main>
+
+        <footer className="footer">
+          <div className="footer-brand">BU<span>NIK</span></div>
+          <div className="footer-note">
+            Hanoi University Admission Information System · 2025<br/>
+            GR1 School Project · Data updated each admission season
+          </div>
+          <span style={{fontSize:"1.7rem"}} role="img" aria-label="notebook">📓</span>
+        </footer>
+      </div>
+
+      {/* Screen-reader only utility */}
+      <style>{`.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}`}</style>
+
+      <div className="tmpl-badge" aria-hidden="true">Bullet Journal · BuJo Design</div>
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

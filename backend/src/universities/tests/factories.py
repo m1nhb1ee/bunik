@@ -1,6 +1,6 @@
 import factory
 from factory.django import DjangoModelFactory
-from apps.universities.models import Province, University
+from src.universities.models import Province, University
 
 
 class ProvinceFactory(DjangoModelFactory):
@@ -24,3 +24,4 @@ class UniversityFactory(DjangoModelFactory):
     address = factory.Faker('address')
     website = factory.Faker('url')
     description = factory.Faker('text')
+

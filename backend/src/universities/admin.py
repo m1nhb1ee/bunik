@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.universities.models import Province, University
+from src.universities.models import Province, University
 
 
 @admin.register(Province)
@@ -26,3 +26,4 @@ class UniversityAdmin(admin.ModelAdmin):
             'fields': ('created_at', 'updated_at')
         }),
     )
+

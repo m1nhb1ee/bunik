@@ -3,8 +3,8 @@ from rest_framework import status
 from rest_framework.test import APIClient
 from django.urls import reverse
 
-from apps.universities.models import Province, University
-from apps.universities.tests.factories import ProvinceFactory, UniversityFactory
+from src.universities.models import Province, University
+from src.universities.tests.factories import ProvinceFactory, UniversityFactory
 
 
 @pytest.mark.django_db
@@ -84,3 +84,4 @@ class TestUniversityViewSet:
         assert response.status_code == status.HTTP_200_OK
         assert len(response.data['results']) == 1
         assert response.data['results'][0]['id'] == str(uni1.id)
+

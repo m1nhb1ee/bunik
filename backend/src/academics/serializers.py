@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from apps.academics.models import Field, SubjectGroup, MajorCatalog, MajorSubjectGroup
+from src.academics.application.services import create_major, update_major
+from src.academics.models import Field, SubjectGroup, MajorCatalog
 
 
 class FieldSerializer(serializers.ModelSerializer):
@@ -46,29 +47,9 @@ class MajorCatalogWriteSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         subject_groups = validated_data.pop('subject_group_ids', [])
-        major = MajorCatalog.objects.create(**validated_data)
-        
-        for subject_group in subject_groups:
-            MajorSubjectGroup.objects.create(
-                major_catalog=major,
-                subject_group=subject_group
-            )
-        
-        return major
+        return create_major(validated_data=validated_data, subject_groups=subject_groups)
 
     def update(self, instance, validated_data):
         subject_groups = validated_data.pop('subject_group_ids', None)
-        
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()
-        
-        if subject_groups is not None:
-            instance.subject_groups.all().delete()
-            for subject_group in subject_groups:
-                MajorSubjectGroup.objects.create(
-                    major_catalog=instance,
-                    subject_group=subject_group
-                )
-        
-        return instance
+        return update_major(instance=instance, validated_data=validated_data, subject_groups=subject_groups)
+

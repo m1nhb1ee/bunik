@@ -1,9 +1,10 @@
 import uuid
+
 from django.db import models
 
 
 class RegionChoices(models.TextChoices):
-    NORTH = 'Bắc', 'Bắc'
+    NORTH = 'B\u00e1\u00ba\u00afc', 'B\u00e1\u00ba\u00afc'
     CENTRAL = 'Trung', 'Trung'
     SOUTH = 'Nam', 'Nam'
 
@@ -14,18 +15,17 @@ class Province(models.Model):
     region = models.CharField(max_length=20, choices=RegionChoices.choices)
 
     class Meta:
-        verbose_name = 'Tỉnh'
-        verbose_name_plural = 'Tỉnh/Thành phố'
         ordering = ['name']
+        indexes = [models.Index(fields=['region'])]
 
     def __str__(self):
         return self.name
 
 
 class UniversityTypeChoices(models.TextChoices):
-    PUBLIC = 'công_lập', 'Công lập'
-    PRIVATE = 'dân_lập', 'Dân lập'
-    MILITARY = 'quân_sự', 'Quân sự'
+    PUBLIC = 'c\u00c3\u00b4ng_l\u00e1\u00ba\u00adp', 'C\u00c3\u00b4ng l\u00e1\u00ba\u00adp'
+    PRIVATE = 'd\u00c3\u00a2n_l\u00e1\u00ba\u00adp', 'D\u00c3\u00a2n l\u00e1\u00ba\u00adp'
+    MILITARY = 'qu\u00c3\u00a2n_s\u00e1\u00bb\u00b1', 'Qu\u00c3\u00a2n s\u00e1\u00bb\u00b1'
 
 
 class University(models.Model):
@@ -43,13 +43,13 @@ class University(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Trường đại học'
-        verbose_name_plural = 'Các trường đại học'
         ordering = ['name']
         indexes = [
             models.Index(fields=['province']),
             models.Index(fields=['type']),
             models.Index(fields=['type', 'province']),
+            models.Index(fields=['is_active']),
+            models.Index(fields=['is_active', 'type', 'province']),
         ]
 
     def __str__(self):

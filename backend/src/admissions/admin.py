@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
+from src.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
 
 
 @admin.register(AdmissionMethod)
@@ -40,3 +40,4 @@ class AdmissionScoreAdmin(admin.ModelAdmin):
             'fields': ('note',)
         }),
     )
+

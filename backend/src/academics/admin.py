@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.academics.models import Field, SubjectGroup, MajorCatalog, MajorSubjectGroup
+from src.academics.models import Field, SubjectGroup, MajorCatalog, MajorSubjectGroup
 
 
 @admin.register(Field)
@@ -29,3 +29,4 @@ class MajorCatalogAdmin(admin.ModelAdmin):
     inlines = [MajorSubjectGroupInline]
     readonly_fields = []
     ordering = ['code']
+

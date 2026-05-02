@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from apps.admissions.views import (
+from src.admissions.views import (
     AdmissionMethodViewSet, UniversityProgramViewSet, AdmissionScoreViewSet
 )
 
@@ -12,3 +12,4 @@ router.register(r'scores', AdmissionScoreViewSet, basename='score')
 urlpatterns = [
     path('', include(router.urls)),
 ]
+

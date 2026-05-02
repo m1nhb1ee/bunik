@@ -102,3 +102,4 @@ class Migration(migrations.Migration):
             reverse_sql="DROP INDEX IF EXISTS uq_prog_no_internal_code;",
         ),
     ]
+

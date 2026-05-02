@@ -23,3 +23,4 @@ def authenticated_client(api_client, db):
 def test_user(db):
     """Create a test user"""
     return User.objects.create_user(username='testuser', password='testpass123')
+

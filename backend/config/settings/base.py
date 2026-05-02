@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 from datetime import timedelta
 from decouple import config, Csv
@@ -22,14 +21,15 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'rest_framework_simplejwt',
 
-    'apps.universities',
-    'apps.academics',
-    'apps.admissions',
+    'src.universities',
+    'src.academics',
+    'src.admissions',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'core.observability.request_id.RequestIDMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -65,6 +65,7 @@ DATABASES = {
         'PASSWORD': config('POSTGRES_PASSWORD', default='bunik'),
         'HOST': config('POSTGRES_HOST', default='localhost'),
         'PORT': config('POSTGRES_PORT', default='5432'),
+        'CONN_MAX_AGE': config('DB_CONN_MAX_AGE', default=60, cast=int),
     }
 }
 
@@ -100,7 +101,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'core.auth.permissions.IsStaffWriteOrReadOnly',
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
@@ -109,7 +110,17 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
+    'MAX_PAGE_SIZE': 100,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'EXCEPTION_HANDLER': 'core.errors.handlers.standard_exception_handler',
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': config('THROTTLE_ANON', default='100/min'),
+        'user': config('THROTTLE_USER', default='500/min'),
+    },
 }
 
 SIMPLE_JWT = {
@@ -131,3 +142,64 @@ SPECTACULAR_SETTINGS = {
         },
     ],
 }
+
+REDIS_URL = config('REDIS_URL', default='locmem://')
+if REDIS_URL.startswith('redis://') or REDIS_URL.startswith('rediss://'):
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': REDIS_URL,
+            'TIMEOUT': config('CACHE_DEFAULT_TIMEOUT', default=120, cast=int),
+        }
+    }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'bunik-local-cache',
+            'TIMEOUT': config('CACHE_DEFAULT_TIMEOUT', default=120, cast=int),
+        }
+    }
+
+CACHE_TTL_UNIVERSITIES_LIST = config('CACHE_TTL_UNIVERSITIES_LIST', default=180, cast=int)
+CACHE_TTL_SCORES_LIST = config('CACHE_TTL_SCORES_LIST', default=120, cast=int)
+
+CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://127.0.0.1:6379/0')
+CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', default=CELERY_BROKER_URL)
+CELERY_TASK_TIME_LIMIT = config('CELERY_TASK_TIME_LIMIT', default=300, cast=int)
+CELERY_TASK_SOFT_TIME_LIMIT = config('CELERY_TASK_SOFT_TIME_LIMIT', default=240, cast=int)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'request_id': {
+            '()': 'core.observability.request_id.RequestIDLogFilter',
+        }
+    },
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s %(levelname)s %(name)s request_id=%(request_id)s %(message)s',
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+            'filters': ['request_id'],
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': config('DJANGO_LOG_LEVEL', default='INFO'),
+            'propagate': True,
+        },
+        'audit': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+    },
+}
+

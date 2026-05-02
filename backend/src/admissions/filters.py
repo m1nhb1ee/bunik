@@ -1,7 +1,7 @@
 import django_filters
 from django.db.models import Q
-from apps.admissions.models import AdmissionScore, UniversityProgram
-from apps.universities.models import University
+from src.admissions.models import AdmissionScore, UniversityProgram
+from src.universities.models import University
 
 
 class AdmissionScoreFilterSet(django_filters.FilterSet):
@@ -37,3 +37,4 @@ class AdmissionScoreFilterSet(django_filters.FilterSet):
             'major_code',
             'region'
         ]
+

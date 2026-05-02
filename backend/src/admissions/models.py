@@ -19,8 +19,8 @@ class AdmissionMethod(models.Model):
 
 
 class UniversityProgram(models.Model):
-    from apps.universities.models import University
-    from apps.academics.models import MajorCatalog
+    from src.universities.models import University
+    from src.academics.models import MajorCatalog
 
     id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
     university = models.ForeignKey(University, on_delete=models.CASCADE, related_name='programs')
@@ -97,3 +97,4 @@ class AdmissionScore(models.Model):
 
     def __str__(self):
         return f"{self.university_program} - {self.admission_method.code} - {self.year}: {self.score}"
+

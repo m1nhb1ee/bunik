@@ -1,6 +1,6 @@
 import factory
 from factory.django import DjangoModelFactory
-from apps.academics.models import Field, SubjectGroup, MajorCatalog, MajorSubjectGroup
+from src.academics.models import Field, SubjectGroup, MajorCatalog, MajorSubjectGroup
 
 
 class FieldFactory(DjangoModelFactory):
@@ -35,3 +35,4 @@ class MajorSubjectGroupFactory(DjangoModelFactory):
 
     major_catalog = factory.SubFactory(MajorCatalogFactory)
     subject_group = factory.SubFactory(SubjectGroupFactory)
+

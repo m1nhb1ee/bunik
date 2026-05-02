@@ -1,19 +1,21 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 
-from apps.academics.models import Field, SubjectGroup, MajorCatalog
-from apps.academics.serializers import (
+from core.api.mixins import AuditWriteMixin
+from src.academics.models import Field, SubjectGroup, MajorCatalog
+from src.academics.serializers import (
     FieldSerializer, SubjectGroupSerializer,
     MajorCatalogListSerializer, MajorCatalogDetailSerializer,
     MajorCatalogWriteSerializer
 )
-from apps.academics.filters import MajorCatalogFilterSet
+from src.academics.filters import MajorCatalogFilterSet
 
 
-class FieldViewSet(viewsets.ModelViewSet):
+class FieldViewSet(AuditWriteMixin, viewsets.ModelViewSet):
+    audit_resource = 'field'
     queryset = Field.objects.all()
     serializer_class = FieldSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
@@ -22,7 +24,8 @@ class FieldViewSet(viewsets.ModelViewSet):
     ordering = ['code']
 
 
-class SubjectGroupViewSet(viewsets.ModelViewSet):
+class SubjectGroupViewSet(AuditWriteMixin, viewsets.ModelViewSet):
+    audit_resource = 'subject_group'
     queryset = SubjectGroup.objects.all()
     serializer_class = SubjectGroupSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
@@ -31,7 +34,8 @@ class SubjectGroupViewSet(viewsets.ModelViewSet):
     ordering = ['code']
 
 
-class MajorCatalogViewSet(viewsets.ModelViewSet):
+class MajorCatalogViewSet(AuditWriteMixin, viewsets.ModelViewSet):
+    audit_resource = 'major_catalog'
     queryset = MajorCatalog.objects.select_related('field').prefetch_related('subject_groups')
     filterset_class = MajorCatalogFilterSet
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
@@ -52,3 +56,4 @@ class MajorCatalogViewSet(viewsets.ModelViewSet):
         subject_groups = major.subject_groups.all()
         serializer = SubjectGroupSerializer(subject_groups, many=True)
         return Response(serializer.data)
+

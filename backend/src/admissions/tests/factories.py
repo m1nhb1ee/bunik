@@ -1,8 +1,8 @@
 import factory
 from factory.django import DjangoModelFactory
-from apps.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
-from apps.universities.tests.factories import UniversityFactory
-from apps.academics.tests.factories import MajorCatalogFactory
+from src.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
+from src.universities.tests.factories import UniversityFactory
+from src.academics.tests.factories import MajorCatalogFactory
 
 
 class AdmissionMethodFactory(DjangoModelFactory):
@@ -34,3 +34,4 @@ class AdmissionScoreFactory(DjangoModelFactory):
     score = factory.Faker('pydecimal', left_digits=2, right_digits=2, positive=True)
     quota = factory.Faker('pyint', min_value=1, max_value=100)
     note = factory.Faker('text')
+

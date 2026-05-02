@@ -1,7 +1,5 @@
 from rest_framework import serializers
-from apps.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
-from apps.universities.models import University
-from apps.academics.models import MajorCatalog
+from src.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
 
 
 class AdmissionMethodSerializer(serializers.ModelSerializer):
@@ -25,25 +23,20 @@ class UniversityProgramListSerializer(serializers.ModelSerializer):
 
 
 class UniversityProgramDetailSerializer(serializers.ModelSerializer):
-    from apps.universities.serializers import UniversityDetailSerializer
-    from apps.academics.serializers import MajorCatalogDetailSerializer
-    
+    from src.universities.serializers import UniversityDetailSerializer
+    from src.academics.serializers import MajorCatalogDetailSerializer
+
     university = UniversityDetailSerializer(read_only=True)
     major_catalog = MajorCatalogDetailSerializer(read_only=True)
-    admission_scores = serializers.SerializerMethodField()
     display_name = serializers.CharField(read_only=True)
 
     class Meta:
         model = UniversityProgram
         fields = [
             'id', 'university', 'major_catalog', 'internal_code',
-            'internal_name', 'display_name', 'admission_scores'
+            'internal_name', 'display_name'
         ]
         read_only_fields = ['id']
-
-    def get_admission_scores(self, obj):
-        scores = obj.admission_scores.all().select_related('admission_method')
-        return AdmissionScoreListSerializer(scores, many=True).data
 
 
 class UniversityProgramWriteSerializer(serializers.ModelSerializer):
@@ -79,7 +72,7 @@ class AdmissionScoreListSerializer(serializers.ModelSerializer):
 
 
 class AdmissionScoreDetailSerializer(serializers.ModelSerializer):
-    university_program = UniversityProgramDetailSerializer(read_only=True)
+    university_program = UniversityProgramListSerializer(read_only=True)
     admission_method = AdmissionMethodSerializer(read_only=True)
 
     class Meta:
@@ -116,3 +109,17 @@ class AdmissionScoreWriteSerializer(serializers.ModelSerializer):
             )
         
         return data
+
+
+class AdmissionScoreBulkUpsertItemSerializer(serializers.Serializer):
+    university_program = serializers.UUIDField()
+    admission_method = serializers.IntegerField()
+    year = serializers.IntegerField()
+    score = serializers.DecimalField(max_digits=6, decimal_places=2)
+    quota = serializers.IntegerField(required=False, allow_null=True)
+    note = serializers.CharField(required=False, allow_blank=True, allow_null=True)
+
+
+class AdmissionScoreBulkUpsertRequestSerializer(serializers.Serializer):
+    items = AdmissionScoreBulkUpsertItemSerializer(many=True)
+

@@ -2,8 +2,8 @@ import pytest
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from apps.academics.models import MajorCatalog
-from apps.academics.tests.factories import (
+from src.academics.models import MajorCatalog
+from src.academics.tests.factories import (
     FieldFactory, SubjectGroupFactory,
     MajorCatalogFactory, MajorSubjectGroupFactory
 )
@@ -92,3 +92,4 @@ class TestMajorCatalogViewSet:
         assert response.status_code == status.HTTP_200_OK
         assert len(response.data['results']) == 1
         assert response.data['results'][0]['id'] == major1.id
+

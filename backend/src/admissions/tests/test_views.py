@@ -2,11 +2,11 @@ import pytest
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from apps.admissions.models import AdmissionScore
-from apps.admissions.tests.factories import (
+from src.admissions.models import AdmissionScore
+from src.admissions.tests.factories import (
     AdmissionMethodFactory, UniversityProgramFactory, AdmissionScoreFactory
 )
-from apps.universities.tests.factories import UniversityFactory, ProvinceFactory
+from src.universities.tests.factories import UniversityFactory, ProvinceFactory
 
 
 @pytest.mark.django_db
@@ -161,3 +161,4 @@ class TestAdmissionScoreViewSet:
         assert response.status_code == status.HTTP_200_OK
         results_years = [s['year'] for s in response.data['results'][:3]]
         assert results_years == [2025, 2024, 2023]
+

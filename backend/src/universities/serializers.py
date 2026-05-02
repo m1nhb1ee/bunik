@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.universities.models import Province, University
+from src.universities.models import Province, University
 
 
 class ProvinceSerializer(serializers.ModelSerializer):
@@ -36,3 +36,4 @@ class UniversityWriteSerializer(serializers.ModelSerializer):
             'name', 'short_name', 'type', 'province', 'is_active',
             'logo_url', 'address', 'website', 'description'
         ]
+

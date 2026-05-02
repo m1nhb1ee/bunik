@@ -61,3 +61,4 @@ class Migration(migrations.Migration):
             index=models.Index(fields=['type', 'province'], name='universities_universit_type_prov_idx'),
         ),
     ]
+

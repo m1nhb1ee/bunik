@@ -3,5 +3,6 @@ from django.apps import AppConfig
 
 class AdmissionsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.admissions'
+    name = 'src.admissions'
     verbose_name = 'University Programs & Admission Scores'
+
