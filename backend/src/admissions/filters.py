@@ -1,7 +1,5 @@
 import django_filters
-from django.db.models import Q
-from src.admissions.models import AdmissionScore, UniversityProgram
-from src.universities.models import University
+from src.admissions.models import AdmissionScore
 
 
 class AdmissionScoreFilterSet(django_filters.FilterSet):
@@ -9,17 +7,17 @@ class AdmissionScoreFilterSet(django_filters.FilterSet):
     year_max = django_filters.NumberFilter(field_name='year', lookup_expr='lte')
     score_min = django_filters.NumberFilter(field_name='score', lookup_expr='gte')
     score_max = django_filters.NumberFilter(field_name='score', lookup_expr='lte')
-    university_short_name = django_filters.CharFilter(
-        field_name='university_program__university__short_name',
-        lookup_expr='icontains'
+    university_code = django_filters.CharFilter(
+        field_name='university_program__university__code',
+        lookup_expr='iexact',
     )
     major_code = django_filters.CharFilter(
         field_name='university_program__major_catalog__code',
-        lookup_expr='icontains'
+        lookup_expr='icontains',
     )
     region = django_filters.CharFilter(
         field_name='university_program__university__province__region',
-        lookup_expr='exact'
+        lookup_expr='exact',
     )
 
     class Meta:
@@ -33,8 +31,7 @@ class AdmissionScoreFilterSet(django_filters.FilterSet):
             'year_max',
             'score_min',
             'score_max',
-            'university_short_name',
+            'university_code',
             'major_code',
-            'region'
+            'region',
         ]
-

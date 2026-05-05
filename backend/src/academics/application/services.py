@@ -4,13 +4,15 @@ from src.academics.models import MajorCatalog, MajorSubjectGroup
 
 
 def _sync_major_subject_groups(major: MajorCatalog, subject_groups):
-    target_ids = {subject_group.id for subject_group in subject_groups}
-    existing_ids = set(
-        MajorSubjectGroup.objects.filter(major_catalog=major).values_list('subject_group_id', flat=True)
+    # subject_group.pk is the code string (SubjectGroup has CharField primary_key)
+    target_codes = {sg.pk for sg in subject_groups}
+    existing_codes = set(
+        MajorSubjectGroup.objects.filter(major_catalog=major)
+        .values_list('subject_group_id', flat=True)
     )
 
-    to_remove = existing_ids - target_ids
-    to_add = target_ids - existing_ids
+    to_remove = existing_codes - target_codes
+    to_add = target_codes - existing_codes
 
     if to_remove:
         MajorSubjectGroup.objects.filter(
@@ -21,8 +23,8 @@ def _sync_major_subject_groups(major: MajorCatalog, subject_groups):
     if to_add:
         MajorSubjectGroup.objects.bulk_create(
             [
-                MajorSubjectGroup(major_catalog=major, subject_group_id=subject_group_id)
-                for subject_group_id in to_add
+                MajorSubjectGroup(major_catalog=major, subject_group_id=code)
+                for code in to_add
             ],
             ignore_conflicts=True,
         )

@@ -1,121 +1,172 @@
-from django.conf import settings
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework import viewsets
-from rest_framework.decorators import action
+from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
+from rest_framework import status
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 
-from core.api.mixins import AuditWriteMixin, CachedListMixin
-from src.admissions.models import AdmissionMethod, UniversityProgram, AdmissionScore
-from src.admissions.serializers import (
-    AdmissionMethodSerializer, UniversityProgramListSerializer,
-    UniversityProgramDetailSerializer, UniversityProgramWriteSerializer,
-    AdmissionScoreListSerializer, AdmissionScoreDetailSerializer,
-    AdmissionScoreWriteSerializer, AdmissionScoreBulkUpsertRequestSerializer
-)
-from src.admissions.filters import AdmissionScoreFilterSet
-from src.admissions.tasks import bulk_upsert_admission_scores
+from core.supabase_client import get_client, paginate
 
 
-class AdmissionMethodViewSet(AuditWriteMixin, viewsets.ModelViewSet):
-    audit_resource = 'admission_method'
-    queryset = AdmissionMethod.objects.all()
-    serializer_class = AdmissionMethodSerializer
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ['code', 'name']
-    ordering_fields = ['code']
-    ordering = ['code']
+class AdmissionMethodViewSet(ViewSet):
+    @extend_schema(summary='Danh sách phương thức tuyển sinh')
+    def list(self, request):
+        r = get_client().table('admission_methods').select('*').order('code').execute()
+        return Response(r.data or [])
+
+    @extend_schema(summary='Chi tiết phương thức tuyển sinh')
+    def retrieve(self, request, pk=None):
+        r = (
+            get_client()
+            .table('admission_methods')
+            .select('*')
+            .eq('code', pk)
+            .maybe_single()
+            .execute()
+        )
+        if not r.data:
+            return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response(r.data)
 
 
-class UniversityProgramViewSet(AuditWriteMixin, viewsets.ModelViewSet):
-    audit_resource = 'university_program'
-    queryset = UniversityProgram.objects.select_related(
-        'university', 'major_catalog__field'
-    ).filter(university__is_active=True)
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['university', 'major_catalog', 'major_catalog__field']
-    search_fields = [
-        'internal_code', 'internal_name', 'major_catalog__name',
-        'university__name', 'university__short_name'
-    ]
-    ordering_fields = ['university__name', 'major_catalog__code']
-    ordering = ['university__name', 'major_catalog__code']
+class UniversityProgramViewSet(ViewSet):
+    _SELECT = (
+        'id, university_short_name, major_code, is_active, '
+        'universities!university_programs_university_short_name_fkey(id, name, code, type), '
+        'major_catalog(code, name, field_code)'
+    )
 
-    def get_serializer_class(self):
-        if self.action == 'retrieve':
-            return UniversityProgramDetailSerializer
-        elif self.action == 'scores':
-            return AdmissionScoreListSerializer
-        elif self.action in ['create', 'update', 'partial_update']:
-            return UniversityProgramWriteSerializer
-        return UniversityProgramListSerializer
+    @extend_schema(
+        parameters=[
+            OpenApiParameter('university_code', str, description='Mã trường (VD: BKA)'),
+            OpenApiParameter('major_code', str, description='Mã ngành'),
+            OpenApiParameter('field', str, description='Mã lĩnh vực'),
+            OpenApiParameter('is_active', bool, description='Còn hoạt động'),
+        ],
+        summary='Danh sách chương trình đào tạo',
+    )
+    def list(self, request):
+        q = get_client().table('university_programs').select(self._SELECT, count='exact')
 
+        if university_code := request.query_params.get('university_code'):
+            q = q.eq('university_short_name', university_code.upper())
+        if major_code := request.query_params.get('major_code'):
+            q = q.eq('major_code', major_code)
+        if is_active := request.query_params.get('is_active'):
+            q = q.eq('is_active', is_active.lower() == 'true')
+
+        q = q.order('university_short_name').order('major_code')
+        return Response(paginate(request, q))
+
+    @extend_schema(summary='Chi tiết chương trình đào tạo')
+    def retrieve(self, request, pk=None):
+        r = (
+            get_client()
+            .table('university_programs')
+            .select(self._SELECT)
+            .eq('id', pk)
+            .maybe_single()
+            .execute()
+        )
+        if not r.data:
+            return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response(r.data)
+
+    @extend_schema(summary='Điểm trúng tuyển của một chương trình')
     @action(detail=True, methods=['get'])
     def scores(self, request, pk=None):
-        program = self.get_object()
-        queryset = program.admission_scores.select_related('admission_method').order_by('-year', '-score')
-        page = self.paginate_queryset(queryset)
-        serializer = self.get_serializer(page if page is not None else queryset, many=True)
-        if page is not None:
-            return self.get_paginated_response(serializer.data)
-        return Response(serializer.data)
+        q = (
+            get_client()
+            .table('admission_scores')
+            .select('id, year, score, note, admission_method_code, admission_methods(code, name)', count='exact')
+            .eq('university_program_id', pk)
+            .order('year', desc=True)
+            .order('score', desc=True)
+        )
+        return Response(paginate(request, q))
 
 
-class AdmissionScoreViewSet(CachedListMixin, AuditWriteMixin, viewsets.ModelViewSet):
-    audit_resource = 'admission_score'
-    cache_timeout = settings.CACHE_TTL_SCORES_LIST
-    cache_namespace = 'admission-scores-list'
-    queryset = AdmissionScore.objects.select_related(
-        'university_program__university',
-        'university_program__major_catalog__field',
-        'admission_method'
-    ).filter(university_program__university__is_active=True)
-    filterset_class = AdmissionScoreFilterSet
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = [
-        'university_program__university__name',
-        'university_program__major_catalog__name',
-        'university_program__internal_code'
-    ]
-    ordering_fields = ['year', 'score', 'quota']
-    ordering = ['-year', '-score']
+class AdmissionScoreViewSet(ViewSet):
+    _SELECT = (
+        'id, year, score, note, '
+        'admission_method_code, admission_methods(code, name), '
+        'university_program_id, '
+        'university_programs('
+        '  id, university_short_name, major_code, '
+        '  universities!university_programs_university_short_name_fkey(id, name, code), '
+        '  major_catalog(code, name)'
+        ')'
+    )
 
-    def get_serializer_class(self):
-        if self.action == 'retrieve':
-            return AdmissionScoreDetailSerializer
-        elif self.action == 'bulk_upsert':
-            return AdmissionScoreBulkUpsertRequestSerializer
-        elif self.action in ['create', 'update', 'partial_update']:
-            return AdmissionScoreWriteSerializer
-        return AdmissionScoreListSerializer
+    @extend_schema(
+        parameters=[
+            OpenApiParameter('university_code', str, description='Mã trường (VD: BKA)'),
+            OpenApiParameter('major_code', str, description='Mã ngành'),
+            OpenApiParameter('admission_method', str, description='Mã phương thức (VD: THPT)'),
+            OpenApiParameter('year', int, description='Năm tuyển sinh'),
+            OpenApiParameter('year_min', int, description='Năm từ'),
+            OpenApiParameter('year_max', int, description='Năm đến'),
+            OpenApiParameter('score_min', float, description='Điểm từ'),
+            OpenApiParameter('score_max', float, description='Điểm đến'),
+        ],
+        summary='Danh sách điểm trúng tuyển',
+    )
+    def list(self, request):
+        q = get_client().table('admission_scores').select(self._SELECT, count='exact')
 
+        p = request.query_params
+        if year := p.get('year'):
+            q = q.eq('year', year)
+        if year_min := p.get('year_min'):
+            q = q.gte('year', year_min)
+        if year_max := p.get('year_max'):
+            q = q.lte('year', year_max)
+        if score_min := p.get('score_min'):
+            q = q.gte('score', score_min)
+        if score_max := p.get('score_max'):
+            q = q.lte('score', score_max)
+        if method := p.get('admission_method'):
+            q = q.eq('admission_method_code', method.upper())
+        if university_code := p.get('university_code'):
+            q = q.eq('university_programs.university_short_name', university_code.upper())
+        if major_code := p.get('major_code'):
+            q = q.eq('university_programs.major_code', major_code)
+
+        ordering = p.get('ordering', '-year')
+        desc = ordering.startswith('-')
+        q = q.order(ordering.lstrip('-'), desc=desc)
+
+        return Response(paginate(request, q))
+
+    @extend_schema(summary='Chi tiết điểm trúng tuyển')
+    def retrieve(self, request, pk=None):
+        r = (
+            get_client()
+            .table('admission_scores')
+            .select(self._SELECT)
+            .eq('id', pk)
+            .maybe_single()
+            .execute()
+        )
+        if not r.data:
+            return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response(r.data)
+
+    @extend_schema(
+        summary='Upsert nhiều điểm trúng tuyển',
+        description='Chèn hoặc cập nhật điểm. Mỗi item cần: university_program_id, admission_method_code, year, score.',
+    )
     @action(detail=False, methods=['post'], url_path='bulk-upsert')
     def bulk_upsert(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        items = request.data.get('items', [])
+        if not items:
+            return Response({'detail': 'items is required.'}, status=status.HTTP_400_BAD_REQUEST)
 
-        items = serializer.validated_data['items']
-        try:
-            task = bulk_upsert_admission_scores.delay(items)
-            self._log_write('bulk_upsert_async', None)
-            return Response(
-                {
-                    'code': 'accepted',
-                    'message': 'Bulk upsert job accepted',
-                    'details': {'task_id': task.id, 'items': len(items)},
-                    'request_id': getattr(request, 'request_id', None),
-                },
-                status=202,
-            )
-        except Exception:
-            result = bulk_upsert_admission_scores(items)
-            self._log_write('bulk_upsert_sync_fallback', None)
-            return Response(
-                {
-                    'code': 'ok',
-                    'message': 'Bulk upsert completed synchronously',
-                    'details': result,
-                    'request_id': getattr(request, 'request_id', None),
-                }
-            )
+        r = get_client().table('admission_scores').upsert(
+            items,
+            on_conflict='university_program_id,admission_method_code,year',
+        ).execute()
 
+        return Response(
+            {'inserted': len(r.data or []), 'results': r.data or []},
+            status=status.HTTP_200_OK,
+        )

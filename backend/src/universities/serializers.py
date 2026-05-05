@@ -5,7 +5,7 @@ from src.universities.models import Province, University
 class ProvinceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Province
-        fields = ['id', 'name', 'region']
+        fields = ['id', 'code', 'name', 'region']
 
 
 class UniversityListSerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class UniversityListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = University
-        fields = ['id', 'name', 'short_name', 'type', 'province_name', 'is_active']
+        fields = ['id', 'name', 'code', 'type', 'province_name', 'is_active']
 
 
 class UniversityDetailSerializer(serializers.ModelSerializer):
@@ -22,9 +22,9 @@ class UniversityDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = University
         fields = [
-            'id', 'name', 'short_name', 'type', 'province', 'is_active',
+            'id', 'name', 'code', 'type', 'province', 'is_active',
             'logo_url', 'address', 'website', 'description',
-            'created_at', 'updated_at'
+            'created_at', 'updated_at',
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']
 
@@ -33,7 +33,6 @@ class UniversityWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = University
         fields = [
-            'name', 'short_name', 'type', 'province', 'is_active',
-            'logo_url', 'address', 'website', 'description'
+            'name', 'code', 'type', 'province', 'is_active',
+            'logo_url', 'address', 'website', 'description',
         ]
-

@@ -1,8 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from src.academics.views import FieldViewSet, SubjectGroupViewSet, MajorCatalogViewSet
+from src.academics.views import FieldViewSet, SubjectGroupViewSet, MajorCatalogViewSet, ExamBlockViewSet
 
 router = DefaultRouter()
+router.register(r'exam-blocks', ExamBlockViewSet, basename='exam-block')
 router.register(r'fields', FieldViewSet, basename='field')
 router.register(r'subject-groups', SubjectGroupViewSet, basename='subject-group')
 router.register(r'majors', MajorCatalogViewSet, basename='major')

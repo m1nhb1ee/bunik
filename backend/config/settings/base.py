@@ -1,26 +1,18 @@
 from pathlib import Path
-from datetime import timedelta
 from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,testserver', cast=Csv())
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
     'django_filters',
     'drf_spectacular',
-    'rest_framework_simplejwt',
-
+    'corsheaders',
     'src.universities',
     'src.academics',
     'src.admissions',
@@ -28,14 +20,18 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'core.observability.request_id.RequestIDMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = config(
+    'CORS_ALLOWED_ORIGINS',
+    default='http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174',
+    cast=Csv(),
+)
+CORS_ALLOW_ALL_ORIGINS = config('CORS_ALLOW_ALL_ORIGINS', default=False, cast=bool)
 
 ROOT_URLCONF = 'config.urls'
 
@@ -48,8 +44,6 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
             ],
         },
     },
@@ -57,32 +51,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB', default='bunik'),
-        'USER': config('POSTGRES_USER', default='bunik'),
-        'PASSWORD': config('POSTGRES_PASSWORD', default='bunik'),
-        'HOST': config('POSTGRES_HOST', default='localhost'),
-        'PORT': config('POSTGRES_PORT', default='5432'),
-        'CONN_MAX_AGE': config('DB_CONN_MAX_AGE', default=60, cast=int),
-    }
-}
+# No direct database connection — all data access goes through Supabase REST API
+DATABASES = {}
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+SUPABASE_URL = config('SUPABASE_URL')
+SUPABASE_ANON_KEY = config('SUPABASE_ANON_KEY')
 
 LANGUAGE_CODE = 'vi-vn'
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
@@ -91,17 +64,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'core.auth.supabase_auth.SupabaseTokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'core.auth.permissions.IsStaffWriteOrReadOnly',
+        'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
@@ -110,24 +81,15 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
-    'MAX_PAGE_SIZE': 100,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'EXCEPTION_HANDLER': 'core.errors.handlers.standard_exception_handler',
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': config('THROTTLE_ANON', default='100/min'),
-        'user': config('THROTTLE_USER', default='500/min'),
+        'anon': config('THROTTLE_ANON', default='200/min'),
     },
-}
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
+    'UNAUTHENTICATED_USER': None,  # No default user for unauthenticated requests
 }
 
 SPECTACULAR_SETTINGS = {
@@ -136,10 +98,7 @@ SPECTACULAR_SETTINGS = {
     'VERSION': '4.1.0',
     'SERVE_PERMISSIONS': ['rest_framework.permissions.AllowAny'],
     'SERVERS': [
-        {
-            'url': 'http://localhost:8000',
-            'description': 'Local Development',
-        },
+        {'url': 'http://localhost:8000', 'description': 'Local Development'},
     ],
 }
 
@@ -161,21 +120,11 @@ else:
         }
     }
 
-CACHE_TTL_UNIVERSITIES_LIST = config('CACHE_TTL_UNIVERSITIES_LIST', default=180, cast=int)
-CACHE_TTL_SCORES_LIST = config('CACHE_TTL_SCORES_LIST', default=120, cast=int)
-
-CELERY_BROKER_URL = config('CELERY_BROKER_URL', default='redis://127.0.0.1:6379/0')
-CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND', default=CELERY_BROKER_URL)
-CELERY_TASK_TIME_LIMIT = config('CELERY_TASK_TIME_LIMIT', default=300, cast=int)
-CELERY_TASK_SOFT_TIME_LIMIT = config('CELERY_TASK_SOFT_TIME_LIMIT', default=240, cast=int)
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'filters': {
-        'request_id': {
-            '()': 'core.observability.request_id.RequestIDLogFilter',
-        }
+        'request_id': {'()': 'core.observability.request_id.RequestIDLogFilter'},
     },
     'formatters': {
         'standard': {
@@ -190,16 +139,9 @@ LOGGING = {
         }
     },
     'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': config('DJANGO_LOG_LEVEL', default='INFO'),
-            'propagate': True,
-        },
-        'audit': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': False,
-        },
+        'django': {'handlers': ['console'], 'level': config('DJANGO_LOG_LEVEL', default='INFO'), 'propagate': True},
+        'core': {'handlers': ['console'], 'level': 'DEBUG', 'propagate': False},
+        'src': {'handlers': ['console'], 'level': 'DEBUG', 'propagate': False},
+        'audit': {'handlers': ['console'], 'level': 'INFO', 'propagate': False},
     },
 }
-

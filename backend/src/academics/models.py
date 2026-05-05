@@ -4,36 +4,42 @@ from django.db import models
 class Field(models.Model):
     id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=10, unique=True)
-    name = models.CharField(max_length=150)
+    description = models.TextField(null=True, blank=True)
 
     class Meta:
-        verbose_name = 'NgÃ nh há»c'
-        verbose_name_plural = 'CÃ¡c ngÃ nh há»c'
+        managed = False
+        db_table = 'fields'
         ordering = ['code']
 
     def __str__(self):
-        return f'{self.code} - {self.name}'
+        return self.code
 
 
 class SubjectGroup(models.Model):
-    id = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=10, unique=True)
-    subjects = models.CharField(max_length=255)
+    code = models.CharField(max_length=10, primary_key=True)
+    subject_1 = models.CharField(max_length=30)
+    subject_2 = models.CharField(max_length=30)
+    subject_3 = models.CharField(max_length=30)
 
     class Meta:
-        verbose_name = 'NhÃ³m mÃ´n'
-        verbose_name_plural = 'CÃ¡c nhÃ³m mÃ´n'
+        managed = False
+        db_table = 'subject_groups'
         ordering = ['code']
 
     def __str__(self):
-        return f'{self.code} - {self.subjects}'
+        return f'{self.code}: {self.subject_1}, {self.subject_2}, {self.subject_3}'
 
 
 class MajorCatalog(models.Model):
-    id = models.AutoField(primary_key=True)
-    code = models.CharField(max_length=20, unique=True)
+    code = models.CharField(max_length=20, primary_key=True)
     name = models.CharField(max_length=255)
-    field = models.ForeignKey(Field, on_delete=models.PROTECT, related_name='majors')
+    field = models.ForeignKey(
+        Field,
+        on_delete=models.PROTECT,
+        to_field='code',
+        db_column='field_code',
+        related_name='majors',
+    )
     description = models.TextField(null=True, blank=True)
     subject_groups = models.ManyToManyField(
         SubjectGroup,
@@ -42,34 +48,30 @@ class MajorCatalog(models.Model):
     )
 
     class Meta:
-        verbose_name = 'ChuyÃªn ngÃ nh'
-        verbose_name_plural = 'CÃ¡c chuyÃªn ngÃ nh'
+        managed = False
+        db_table = 'major_catalog'
         ordering = ['code']
-        indexes = [
-            models.Index(fields=['field'], name='academics_majorca_field_idx'),
-        ]
 
     def __str__(self):
         return f'{self.code} - {self.name}'
 
 
 class MajorSubjectGroup(models.Model):
-    id = models.AutoField(primary_key=True)
     major_catalog = models.ForeignKey(
         MajorCatalog,
         on_delete=models.CASCADE,
-        related_name='major_subject_groups',
+        db_column='major_code',
     )
     subject_group = models.ForeignKey(
         SubjectGroup,
         on_delete=models.CASCADE,
-        related_name='major_subject_groups',
+        db_column='subject_group_code',
     )
 
     class Meta:
-        verbose_name = 'ChuyÃªn ngÃ nh - NhÃ³m mÃ´n'
-        verbose_name_plural = 'ChuyÃªn ngÃ nh - NhÃ³m mÃ´n'
+        managed = False
+        db_table = 'major_subject_groups'
         unique_together = [('major_catalog', 'subject_group')]
 
     def __str__(self):
-        return f'{self.major_catalog.code} - {self.subject_group.code}'
+        return f'{self.major_catalog_id} - {self.subject_group_id}'
