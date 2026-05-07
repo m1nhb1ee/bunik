@@ -1,72 +1,93 @@
-from rest_framework.viewsets import ViewSet
-from rest_framework.response import Response
+from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import status
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet
 
-from core.supabase_client import get_client, paginate
+from core.api.cache import get_or_set_api_payload
+from core.supabase_client import apply_ordering, get_client, paginate, parse_bool_param
 
 
 class ProvinceViewSet(ViewSet):
     @extend_schema(
-        parameters=[OpenApiParameter('search', str, description='Tìm theo tên')],
-        summary='Danh sách tỉnh/thành',
+        parameters=[OpenApiParameter('search', str, description='Tim theo ten')],
+        summary='Danh sach tinh/thanh',
     )
     def list(self, request):
-        q = get_client().table('provinces').select('*', count='exact').order('name')
-        if search := request.query_params.get('search'):
-            q = q.ilike('name', f'%{search}%')
-        return Response(paginate(request, q))
+        def load():
+            query = get_client().table('provinces').select('*', count='exact').order('name')
+            if search := request.query_params.get('search'):
+                query = query.ilike('name', f'%{search}%')
+            return paginate(request, query)
 
-    @extend_schema(summary='Chi tiết tỉnh/thành')
+        return Response(get_or_set_api_payload(request, 'provinces:list', load, timeout=300))
+
+    @extend_schema(summary='Chi tiet tinh/thanh')
     def retrieve(self, request, pk=None):
-        r = get_client().table('provinces').select('*').eq('id', pk).maybe_single().execute()
-        if not r.data:
+        def load():
+            response = get_client().table('provinces').select('*').eq('id', pk).maybe_single().execute()
+            return response.data
+
+        payload = get_or_set_api_payload(request, f'provinces:detail:{pk}', load, timeout=1800)
+        if not payload:
             return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
-        return Response(r.data)
+        return Response(payload)
 
 
 class UniversityViewSet(ViewSet):
     _SELECT_LIST = 'id, name, code, type, is_active, province_id, provinces(id, code, name, region)'
     _SELECT_DETAIL = '*, provinces(*)'
+    _ORDERABLE_FIELDS = {'name', 'code', 'type', 'created_at', 'updated_at'}
 
     @extend_schema(
         parameters=[
-            OpenApiParameter('search', str, description='Tìm theo tên hoặc mã trường'),
-            OpenApiParameter('type', str, description='Loại trường: công_lập | dân_lập | quân_sự | cao_đẳng'),
-            OpenApiParameter('province', int, description='ID tỉnh/thành'),
-            OpenApiParameter('is_active', bool, description='Còn hoạt động (mặc định: true)'),
+            OpenApiParameter('search', str, description='Tim theo ten hoac ma truong'),
+            OpenApiParameter('type', str, description='Loai truong'),
+            OpenApiParameter('province', int, description='ID tinh/thanh'),
+            OpenApiParameter('is_active', bool, description='Con hoat dong'),
+            OpenApiParameter('ordering', str, description='Sap xep theo name, code, type, created_at, updated_at'),
         ],
-        summary='Danh sách trường đại học',
+        summary='Danh sach truong dai hoc',
     )
     def list(self, request):
-        q = get_client().table('universities').select(self._SELECT_LIST, count='exact')
+        def load():
+            query = get_client().table('universities').select(self._SELECT_LIST, count='exact')
 
-        is_active = request.query_params.get('is_active', 'true').lower()
-        if is_active != 'all':
-            q = q.eq('is_active', is_active == 'true')
-        if type_ := request.query_params.get('type'):
-            q = q.eq('type', type_)
-        if province := request.query_params.get('province'):
-            q = q.eq('province_id', province)
-        if search := request.query_params.get('search'):
-            q = q.or_(f'name.ilike.%{search}%,code.ilike.%{search}%')
+            is_active_raw = request.query_params.get('is_active')
+            is_active = parse_bool_param(is_active_raw, default=True)
+            if (is_active_raw or '').lower() != 'all' and is_active is not None:
+                query = query.eq('is_active', is_active)
 
-        ordering = request.query_params.get('ordering', 'name')
-        desc = ordering.startswith('-')
-        q = q.order(ordering.lstrip('-'), desc=desc)
+            if type_ := request.query_params.get('type'):
+                query = query.eq('type', type_)
+            if province := request.query_params.get('province'):
+                query = query.eq('province_id', province)
+            if search := request.query_params.get('search'):
+                query = query.or_(f'name.ilike.%{search}%,code.ilike.%{search}%')
 
-        return Response(paginate(request, q))
+            query = apply_ordering(
+                query,
+                request.query_params.get('ordering'),
+                allowed_fields=self._ORDERABLE_FIELDS,
+                default='name',
+            )
+            return paginate(request, query)
 
-    @extend_schema(summary='Chi tiết trường đại học')
+        return Response(get_or_set_api_payload(request, 'universities:list', load, timeout=180))
+
+    @extend_schema(summary='Chi tiet truong dai hoc')
     def retrieve(self, request, pk=None):
-        r = (
-            get_client()
-            .table('universities')
-            .select(self._SELECT_DETAIL)
-            .eq('id', pk)
-            .maybe_single()
-            .execute()
-        )
-        if not r.data:
+        def load():
+            response = (
+                get_client()
+                .table('universities')
+                .select(self._SELECT_DETAIL)
+                .eq('id', pk)
+                .maybe_single()
+                .execute()
+            )
+            return response.data
+
+        payload = get_or_set_api_payload(request, f'universities:detail:{pk}', load, timeout=600)
+        if not payload:
             return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
-        return Response(r.data)
+        return Response(payload)

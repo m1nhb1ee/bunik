@@ -1,0 +1,82 @@
+﻿name,code,type,province_id,is_active
+Học viện An ninh nhân dân,ANH,quân_sự,1,true
+ĐH Bách khoa Hà Nội,BKA,công_lập,1,true
+Học viện Biên phòng,BPH,quân_sự,1,true
+HV Công nghệ Bưu chính Viễn thông,BVH,công_lập,1,true
+ĐH Công nghiệp Dệt may HN,CCM,công_lập,1,true
+ĐH CMC,CMC,dân_lập,1,true
+Học viện Cảnh sát nhân dân,CSH,quân_sự,1,true
+Trường Sĩ quan Đặc Công,DCH,quân_sự,1,true
+ĐH Công nghiệp Hà Nội,DCN,công_lập,1,true
+ĐH Công nghệ và Quản lí hữu nghị,DCQ,dân_lập,1,true
+ĐH Công nghệ Đông Á,DDA,dân_lập,1,true
+ĐH Điện lực,DDL,công_lập,1,true
+ĐH Đông Đô,DDU,dân_lập,1,true
+ĐH Dược Hà Nội,DKH,công_lập,1,true
+ĐH Kinh tế Kỹ thuật Công nghiệp,DKK,công_lập,1,true
+ĐH Kiểm sát Hà Nội,DKS,công_lập,1,true
+ĐH Lao động Xã hội,DLX,công_lập,1,true
+ĐH Tài nguyên & Môi trường,DMT,công_lập,1,true
+ĐH Nội vụ,DNV,công_lập,1,true
+ĐH Phương Đông,DPD,dân_lập,1,true
+ĐH Kinh doanh & Công nghệ,DQK,dân_lập,1,true
+ĐH Thăng Long,DTL,dân_lập,1,true
+ĐH Hoà Bình,ETU,dân_lập,1,true
+ĐH Tài Chính Ngân Hàng HN,FBU,dân_lập,1,true
+ĐH FPT Hà Nội,FPT,dân_lập,1,true
+ĐH Giao thông Vận tải,GHA,công_lập,1,true
+ĐH Sư Phạm Nghệ Thuật Trung Ương,GNT,công_lập,1,true
+ĐH Công nghệ GTVT,GTA,công_lập,1,true
+Học viện Báo chí và Tuyên truyền,HBT,công_lập,1,true
+HV Chính Trị Công An Nhân Dân,HCA,quân_sự,1,true
+Học viện Chính sách và Phát triển,HCP,công_lập,1,true
+Học viện Hậu cần,HEH,quân_sự,1,true
+Trường Sĩ quan Phòng Hoá,HGH,quân_sự,1,true
+ĐH Thủ đô Hà Nội,HNM,công_lập,1,true
+Học viện Phụ nữ Việt Nam,HPN,công_lập,1,true
+Học viện Ngoại giao,HQT,công_lập,1,true
+Học viện Tòa án,HTA,công_lập,1,true
+Học viện Tài chính,HTC,công_lập,1,true
+HV Thanh thiếu niên Việt Nam,HTN,công_lập,1,true
+Học viện Nông nghiệp Việt Nam,HVN,công_lập,1,true
+Học viện Quản lý Giáo dục,HVQ,công_lập,1,true
+ĐH Khoa Học và Công Nghệ Hà Nội,KCN,công_lập,1,true
+ĐH Kinh tế Quốc dân,KHA,công_lập,1,true
+Học viện Kỹ thuật Quân sự,KQH,quân_sự,1,true
+ĐH Kiến trúc Hà Nội,KTA,công_lập,1,true
+Trường Sĩ quan Lục quân 1,LAH,quân_sự,1,true
+Trường Sĩ quan Lục quân 2,LBH,quân_sự,1,true
+ĐH Công đoàn,LDA,công_lập,1,true
+ĐH Lâm Nghiệp,LNH,công_lập,1,true
+ĐH Luật Hà Nội,LPH,công_lập,1,true
+ĐH Mỏ - Địa chất,MDA,công_lập,1,true
+ĐH Mở Hà Nội,MHN,công_lập,1,true
+ĐH Mỹ thuật Công nghiệp,MTC,công_lập,1,true
+ĐH Hà Nội,NHF,công_lập,1,true
+Học viện Ngân hàng,NHH,công_lập,1,true
+Học viện Khoa học Quân sự,NQH,quân_sự,1,true
+ĐH Ngoại thương,NTH,công_lập,1,true
+ĐH Nguyễn Trãi,NTU,dân_lập,1,true
+ĐH Phenikaa,PKA,dân_lập,1,true
+HV Phòng không - Không quân,PKH,quân_sự,1,true
+ĐH Kinh tế – ĐHQGHN,QHE,công_lập,1,true
+ĐH Ngoại ngữ – ĐHQGHN,QHF,công_lập,1,true
+ĐH Công nghệ – ĐHQGHN,QHI,công_lập,1,true
+ĐH Luật – ĐHQGHN,QHL,công_lập,1,true
+Trường Quốc tế – ĐHQGHN,QHQ,công_lập,1,true
+ĐH Giáo dục – ĐHQGHN,QHS,công_lập,1,true
+ĐH Khoa học Tự nhiên – ĐHQGHN,QHT,công_lập,1,true
+ĐH KHXH & Nhân văn – ĐHQGHN,QHX,công_lập,1,true
+ĐH Y Dược – ĐHQGHN,QHY,công_lập,1,true
+ĐH Sân khấu Điện ảnh HN,SKD,công_lập,1,true
+ĐH Sư phạm Hà Nội,SPH,công_lập,1,true
+ĐH Thành Đô,TDD,dân_lập,1,true
+ĐH Sư Phạm Thể Dục Thể Thao HN,TDH,công_lập,1,true
+ĐH Thủy lợi,TLA,công_lập,1,true
+ĐH Thương mại,TMU,công_lập,1,true
+ĐH Công nghiệp Việt Hung,VHD,dân_lập,1,true
+ĐH Văn hóa Hà Nội,VHH,công_lập,1,true
+ĐH Xây dựng Hà Nội,XDA,công_lập,1,true
+ĐH Y Hà Nội,YHB,công_lập,1,true
+Học viện Quân y,YQH,quân_sự,1,true
+ĐH Y tế Công cộng,YTC,công_lập,1,true

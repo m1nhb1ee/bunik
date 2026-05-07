@@ -1,6 +1,8 @@
-import { useState } from "react";
-import { Link, useLocation, Outlet } from "react-router";
+﻿import { useEffect, useState } from "react";
+import { Link, useLocation, Outlet, useNavigate } from "react-router";
 import { Menu, X, Search, BookOpen, Award, BarChart3, Users, User, Star, Compass } from "lucide-react";
+import logo from "../../assets/logo.svg";
+import { PlayfulCursorField } from "./PlayfulCursorField";
 
 const navLinks = [
   { href: "/", label: "Trang chủ", icon: null },
@@ -15,7 +17,38 @@ const navLinks = [
 
 export function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
+  const [username, setUsername] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const rawUser = localStorage.getItem("gr1_user");
+    if (!rawUser) {
+      setUsername("");
+      return;
+    }
+
+    try {
+      const parsed = JSON.parse(rawUser);
+      setUsername(parsed?.user_name ?? "");
+    } catch {
+      setUsername("");
+    }
+  }, [location.pathname]);
+
+  const logout = () => {
+    localStorage.removeItem("gr1_access_token");
+    localStorage.removeItem("gr1_refresh_token");
+    localStorage.removeItem("gr1_user");
+    setUsername("");
+    setAccountMenuOpen(false);
+    navigate("/dang-nhap");
+  };
 
   return (
     <div
@@ -23,8 +56,10 @@ export function Layout() {
       style={{
         backgroundColor: "#FAFAF8",
         fontFamily: "'Nunito', sans-serif",
+        position: "relative",
       }}
     >
+      <PlayfulCursorField />
       {/* SVG Filters for hand-drawn effect */}
       <svg style={{ position: "absolute", width: 0, height: 0 }}>
         <defs>
@@ -41,35 +76,26 @@ export function Layout() {
         style={{
           background: "rgba(255,255,255,0.95)",
           backdropFilter: "blur(12px)",
-          borderBottom: "2px solid rgba(91,79,207,0.12)",
-          boxShadow: "0 2px 12px rgba(91,79,207,0.08)",
+          borderBottom: "2px solid rgba(2,82,89,0.12)",
+          boxShadow: "0 2px 12px rgba(2,82,89,0.08)",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
-              <div
-                className="w-10 h-10 rounded-2xl flex items-center justify-center text-white text-lg"
-                style={{
-                  background: "linear-gradient(135deg, #5B4FCF 0%, #FF6B6B 100%)",
-                  boxShadow: "3px 3px 0px rgba(91,79,207,0.3)",
-                  fontFamily: "'Baloo 2', cursive",
-                  fontWeight: 800,
-                }}
-              >
-                G1
-              </div>
+              <img src={logo} alt="GR1 logo" className="h-10 w-10 rounded-2xl border bg-white object-cover" style={{ borderColor: "rgba(2,82,89,0.2)" }} />
               <span
                 className="text-xl hidden sm:block"
                 style={{
                   fontFamily: "'Baloo 2', cursive",
                   fontWeight: 800,
-                  color: "#5B4FCF",
+                  color: "#ffffff",
                 }}
               >
-                GR1
-                <span style={{ color: "#FF6B6B" }}> Career</span>
+                <span style={{ color: "#f57573" }}>b</span>
+                <span style={{ color: "#BFDBFE" }}>uni</span>
+                <span style={{ color: "#f57573" }}>k</span>
               </span>
             </Link>
 
@@ -83,8 +109,8 @@ export function Layout() {
                     to={link.href}
                     className="px-3 py-2 rounded-xl text-sm transition-all"
                     style={{
-                      color: active ? "#5B4FCF" : "#4A4A6A",
-                      background: active ? "rgba(91,79,207,0.1)" : "transparent",
+                      color: active ? "#ff947a" : "#4A4A6A",
+                      background: active ? "rgba(255,148,122,0.16)" : "transparent",
                       fontWeight: active ? 700 : 600,
                     }}
                   >
@@ -96,22 +122,56 @@ export function Layout() {
 
             {/* CTA + Mobile toggle */}
             <div className="flex items-center gap-2">
-              <Link
-                to="/ho-so"
-                className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl text-white text-sm"
-                style={{
-                  background: "linear-gradient(135deg, #5B4FCF 0%, #7C6BE8 100%)",
-                  boxShadow: "3px 3px 0px rgba(91,79,207,0.25)",
-                  fontWeight: 700,
-                }}
-              >
-                <Star size={14} />
-                Tính điểm
-              </Link>
+              {username ? (
+                <div className="relative hidden sm:block">
+                  <button
+                    onClick={() => setAccountMenuOpen((value) => !value)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-2xl text-white text-sm"
+                    style={{
+                      background: "#ff947a",
+                      boxShadow: "3px 3px 0px rgba(255,148,122,0.28)",
+                      fontWeight: 700,
+                    }}
+                  >
+                    <Star size={14} />
+                    {username}
+                  </button>
+                  {accountMenuOpen && (
+                    <div
+                      className="absolute right-0 mt-2 min-w-[150px] rounded-2xl border bg-white p-2"
+                      style={{
+                        borderColor: "rgba(2,82,89,0.12)",
+                        boxShadow: "0 8px 22px rgba(2,82,89,0.12)",
+                      }}
+                    >
+                      <button
+                        onClick={logout}
+                        className="w-full rounded-xl px-3 py-2 text-left text-sm font-semibold"
+                        style={{ color: "#4A4A6A" }}
+                      >
+                        Đăng xuất
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  to="/dang-nhap"
+                  className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-2xl text-white text-sm"
+                  style={{
+                    background: "#ff947a",
+                    boxShadow: "3px 3px 0px rgba(255,148,122,0.28)",
+                    fontWeight: 700,
+                  }}
+                >
+                  <Star size={14} />
+                  Tài khoản
+                </Link>
+              )}
               <button
                 className="lg:hidden p-2 rounded-xl"
                 onClick={() => setMobileOpen(!mobileOpen)}
-                style={{ color: "#5B4FCF" }}
+                style={{ color: "#ff947a" }}
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
@@ -121,7 +181,7 @@ export function Layout() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden border-t px-4 py-3 flex flex-col gap-1" style={{ borderColor: "rgba(91,79,207,0.1)" }}>
+          <div className="lg:hidden border-t px-4 py-3 flex flex-col gap-1" style={{ borderColor: "rgba(2,82,89,0.1)" }}>
             {navLinks.map((link) => {
               const active = location.pathname === link.href;
               const Icon = link.icon;
@@ -132,8 +192,8 @@ export function Layout() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm"
                   style={{
-                    color: active ? "#5B4FCF" : "#4A4A6A",
-                    background: active ? "rgba(91,79,207,0.1)" : "transparent",
+                    color: active ? "#ffffff" : "#4A4A6A",
+                    background: active ? "rgba(255,148,122,0.16)" : "transparent",
                     fontWeight: active ? 700 : 600,
                   }}
                 >
@@ -152,33 +212,24 @@ export function Layout() {
       </main>
 
       {/* Footer */}
-      <footer style={{ background: "#1A1A2E", marginTop: "80px" }}>
+      <footer style={{ background: "#272727", marginTop: "80px" }}>
         {/* Wavy top border */}
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", marginTop: -2 }}>
           <path
             d="M0,30 C180,60 360,5 540,30 C720,55 900,10 1080,30 C1260,50 1380,15 1440,25 L1440,60 L0,60 Z"
-            fill="#1A1A2E"
+            fill="rgb(71, 71, 71)"
           />
         </svg>
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-sm"
-                  style={{
-                    background: "linear-gradient(135deg, #5B4FCF 0%, #FF6B6B 100%)",
-                    fontFamily: "'Baloo 2', cursive",
-                    fontWeight: 800,
-                  }}
-                >
-                  G1
-                </div>
-                <span style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#fff", fontSize: 18 }}>
-                  GR1 Career
+                <img src={logo} alt="GR1 logo" className="h-9 w-9 rounded-xl border border-white/35 bg-white object-cover" />
+                <span style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#ffffff", fontSize: 18 }}>
+                  bunik
                 </span>
               </div>
-              <p style={{ color: "#9090AA", fontSize: 14, lineHeight: 1.7 }}>
+              <p style={{ color: "#ffffff", fontSize: 14, lineHeight: 1.7, opacity: 0.92 }}>
                 Hệ thống hướng nghiệp & tuyển sinh đại học thông minh dành cho học sinh THPT Việt Nam.
               </p>
             </div>
@@ -197,11 +248,11 @@ export function Layout() {
               },
             ].map((col) => (
               <div key={col.title}>
-                <h4 style={{ color: "#fff", fontWeight: 700, marginBottom: 14, fontSize: 15 }}>{col.title}</h4>
+                <h4 style={{ color: "#ffffff", fontWeight: 700, marginBottom: 14, fontSize: 15 }}>{col.title}</h4>
                 <ul style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {col.links.map((l) => (
                     <li key={l}>
-                      <a href="#" style={{ color: "#9090AA", fontSize: 14, textDecoration: "none" }}>
+                      <a href="#" style={{ color: "#ffffff", opacity: 0.88, fontSize: 14, textDecoration: "none" }}>
                         {l}
                       </a>
                     </li>
@@ -212,11 +263,11 @@ export function Layout() {
           </div>
           <div
             className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8"
-            style={{ borderTop: "1px solid rgba(144,144,170,0.2)" }}
+            style={{ borderTop: "1px solid rgba(211,197,246,0.25)" }}
           >
-            <p style={{ color: "#9090AA", fontSize: 13 }}>© 2025 GR1 Career Platform. All rights reserved.</p>
+            <p style={{ color: "#ffffff", opacity: 0.85, fontSize: 13 }}>© 2026 bunik Platform. All rights reserved.</p>
             <div className="flex gap-4">
-              {["#5B4FCF", "#FF6B6B", "#43D9A3"].map((color, i) => (
+              {["#ffffff", "#bfdbfe", "#93c5fd"].map((color, i) => (
                 <div
                   key={i}
                   className="w-8 h-8 rounded-full"

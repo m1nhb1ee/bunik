@@ -1,5 +1,6 @@
 from typing import Optional
 from rest_framework.authentication import BaseAuthentication
+from rest_framework.authentication import get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
 from core.supabase_client import get_client
 
@@ -19,49 +20,26 @@ class SupabaseUser:
         return self.email
 
 
-class SupabaseTokenAuthentication(BaseAuthentication):
-    """
-    Authentication using Supabase JWT tokens.
-    Expects Authorization header: "Bearer <access_token>"
-    """
+class SupabaseAuthentication(BaseAuthentication):
     keyword = 'Bearer'
 
     def authenticate(self, request):
-        """
-        Authenticate using Supabase JWT token from Authorization header.
-        Returns (user, token) tuple if authenticated, None if no auth header, 
-        or raises AuthenticationFailed if token is invalid.
-        """
-        # Get Authorization header
-        auth_header = request.META.get('HTTP_AUTHORIZATION', '')
-        
-        if not auth_header:
-            # No auth header, allow unauthenticated access
+        auth = get_authorization_header(request).split()
+        if not auth:
             return None
-        
-        # Parse header
-        try:
-            auth_type, token = auth_header.split(maxsplit=1)
-        except ValueError:
+        if auth[0].lower() != self.keyword.lower().encode():
+            return None
+        if len(auth) != 2:
             raise AuthenticationFailed('Invalid token header format.')
-        
-        if auth_type.lower() != self.keyword.lower():
-            # Not our auth type, allow other auth methods
-            return None
-        
-        # Verify token with Supabase
+        token = auth[1].decode()
         return self.authenticate_credentials(token)
 
-    def authenticate_credentials(self, token: str):
-        """Verify token with Supabase"""
+    def authenticate_credentials(self, token):
         try:
             client = get_client()
-            # Verify the JWT token and get user info
             user_response = client.auth.get_user(token)
-            
             if not user_response or not user_response.user:
                 raise AuthenticationFailed('Invalid authentication token.')
-            
             user_data = user_response.user
             user = SupabaseUser(
                 user_id=user_data.id,
@@ -69,15 +47,12 @@ class SupabaseTokenAuthentication(BaseAuthentication):
                 metadata=user_data.user_metadata or {}
             )
             return (user, token)
-        except AuthenticationFailed:
-            raise
-        except Exception as e:
-            raise AuthenticationFailed(f'Invalid authentication token: {str(e)}')
+        except Exception:
+            raise AuthenticationFailed('Invalid authentication token.')
+
+    def authenticate_header(self, request):
+        return self.keyword
 
 
-class SupabasePermission:
-    """Base class for Supabase-based permissions"""
-    
-    def has_permission(self, request, view):
-        """Override this in subclasses"""
-        return True
+class SupabaseTokenAuthentication(SupabaseAuthentication):
+    pass

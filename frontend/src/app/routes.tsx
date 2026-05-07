@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+﻿import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import TruongPage from "./pages/TruongPage";
@@ -10,11 +10,12 @@ import SoSanhPage from "./pages/SoSanhPage";
 import HoSoPage from "./pages/HoSoPage";
 import BXHPage from "./pages/BXHPage";
 import TimNganhPage from "./pages/TimNganhPage";
+import AuthPage from "./pages/AuthPage";
 
 function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6">
-      <div className="text-7xl mb-6">🗺️</div>
+      <div className="text-7xl mb-6">404</div>
       <h1
         style={{
           fontFamily: "'Baloo 2', cursive",
@@ -24,24 +25,24 @@ function NotFound() {
           marginBottom: 8,
         }}
       >
-        404 – Không tìm thấy trang
+        404 - Khong tim thay trang
       </h1>
       <p style={{ color: "#4A4A6A", marginBottom: 24 }}>
-        Trang bạn tìm kiếm không tồn tại hoặc đã bị di chuyển
+        Trang ban tim kiem khong ton tai hoac da bi di chuyen
       </p>
       <a
         href="/"
         style={{
-          background: "linear-gradient(135deg, #5B4FCF 0%, #7C6BE8 100%)",
+          background: "#ff947a",
           color: "#fff",
           padding: "12px 28px",
           borderRadius: 16,
           fontWeight: 700,
           textDecoration: "none",
-          boxShadow: "3px 3px 0px rgba(91,79,207,0.3)",
+          boxShadow: "3px 3px 0px rgba(255,148,122,0.32)",
         }}
       >
-        Về trang chủ
+        Ve trang chu
       </a>
     </div>
   );
@@ -62,6 +63,8 @@ export const router = createBrowserRouter([
       { path: "ho-so", Component: HoSoPage },
       { path: "bxh", Component: BXHPage },
       { path: "tim-nganh", Component: TimNganhPage },
+      { path: "dang-nhap", Component: AuthPage },
+      { path: "dang-ky", Component: AuthPage },
       { path: "*", Component: NotFound },
     ],
   },

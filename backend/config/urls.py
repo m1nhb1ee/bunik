@@ -11,6 +11,7 @@ api_patterns = [
 ]
 
 urlpatterns = [
+    path('', include('core.auth.urls')),
     path('api/', include(api_patterns)),
     path('api/v1/', include(api_patterns)),
 

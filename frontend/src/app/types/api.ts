@@ -30,6 +30,9 @@ export type ApiMajorCatalog = {
   name: string;
   field_code: string;
   fields: ApiField | null;
+  major_subject_groups?: Array<{
+    subject_group_code: string;
+  }>;
 };
 
 export type ApiMajorDetail = ApiMajorCatalog & {
@@ -92,31 +95,94 @@ export type ApiExamBlock = {
   subjects: string[];
 };
 
-export type ApiReview = {
-  id: number;
-  author: string;
-  avatar: string;
-  rating: number;
-  content: string;
-  date: string;
-  category: string;
-};
-
 export type ApiUserRanking = {
   rank: number;
   id: number;
   name: string;
-  tier: 'D' | 'C' | 'B' | 'A' | 'S' | 'SS' | 'SSS';
+  tier: 'F' | 'E' | 'D' | 'C' | 'B' | 'A' | 'S';
   score: number;
   avatar: string;
   topSubject: string;
   anonymous: boolean;
 };
 
+export type ApiProfile = {
+  id: string;
+  user_name: string;
+  full_name: string;
+  grade: number;
+  dob: string;
+  gender: string;
+  gmail: string;
+  math?: number;
+  literature?: number;
+  english?: number;
+  physics?: number;
+  chemistry?: number;
+  biology?: number;
+  history?: number;
+  geography?: number;
+  is_special?: boolean;
+  special_subject?: 'toan' | 'ly' | 'hoa' | 'sinh' | 'tin' | 'ngoai_ngu' | 'van' | 'su' | 'dia';
+  special_score?: number;
+  base_score?: number;
+};
+
+export type ApiAward = {
+  id: number;
+  name: string;
+  level: string;
+  prize?: string | null;
+};
+
+export type ApiAchievement = {
+  id: number;
+  user_id: string;
+  award_id: number;
+  prize?: 'Khuyen Khich' | 'Ba' | 'Nhi' | 'Nhat' | null;
+  created_at?: string;
+  awards?: ApiAward;
+};
+
+export type ApiCertificate = {
+  id: number;
+  user_id: string;
+  name: string;
+  score?: number | null;
+  date?: string | null;
+  is_verified?: boolean | null;
+};
+
 export type ApiMajorTrend = {
   name: string;
   scores: number[];
   color: string;
+};
+
+export type ApiMajorRecommendation = {
+  id: string;
+  code: string;
+  name: string;
+  group: string;
+  block: string;
+  blocks: string[];
+  score_2025: number | null;
+  match_score: number;
+  university_name: string | null;
+};
+
+export type ApiMajorOverview = {
+  id: string;
+  code: string;
+  name: string;
+  group: string;
+  program_name?: string;
+  blocks: string[];
+  university_short_name: string;
+  university_name?: string;
+  scores: { [year: string]: number };
+  score_30?: number | null;
+  score_40?: number | null;
 };
 
 // UI-adapted types used by pages
@@ -145,6 +211,11 @@ export type UiMajor = {
   code: string;
   group: string;
   block: string;
+  blocks: string[];
+  universityShortName: string;
+  universityName?: string;
+  score30?: number | null;
+  score40?: number | null;
   method: string;
   universityId: string;
   scores: { [year: string]: number };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getTierColor } from "../data/mockData";
-import { Crown, Flame, Star, Zap, Shield } from "lucide-react";
+import { Crown, Star, Zap, Shield } from "lucide-react";
 import { getRankings } from "../services/api";
 import type { ApiUserRanking } from "../types/api";
 
@@ -12,13 +12,13 @@ const handCard = {
 };
 
 const tierIcons: { [k: string]: React.ReactNode } = {
-  SSS: <Crown size={18} color="#FFD700" />,
-  SS: <Flame size={18} color="#F44336" />,
   S: <Star size={18} color="#FF9800" />,
   A: <Zap size={18} color="#9C27B0" />,
   B: <Shield size={18} color="#2196F3" />,
   C: <Star size={18} color="#4CAF50" />,
   D: <Shield size={18} color="#9E9E9E" />,
+  E: <Shield size={18} color="#8F8F8F" />,
+  F: <Shield size={18} color="#7D7D7D" />,
 };
 
 function TierBadge({ tier }: { tier: string }) {
@@ -28,9 +28,7 @@ function TierBadge({ tier }: { tier: string }) {
       className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl"
       style={{
         background:
-          tier === "SSS"
-            ? "linear-gradient(135deg, #FF6B6B, #FFB347, #43D9A3, #5B4FCF)"
-            : `${color}25`,
+          tier === "S" ? "linear-gradient(135deg, #FF6B6B, #FFB347)" : `${color}25`,
         border: `1.5px solid ${color}50`,
       }}
     >
@@ -40,7 +38,7 @@ function TierBadge({ tier }: { tier: string }) {
           fontWeight: 900,
           fontFamily: "'Baloo 2', cursive",
           fontSize: 14,
-          color: tier === "SSS" ? "#fff" : color,
+          color: tier === "S" ? "#fff" : color,
         }}
       >
         {tier}
@@ -60,7 +58,10 @@ export default function BXHPage() {
   useEffect(() => {
     getRankings({ page_size: 100 })
       .then((response) => {
-        setRankings(response.results);
+        const safeRankings = Array.isArray((response as { results?: unknown[] }).results)
+          ? ((response as { results: ApiUserRanking[] }).results)
+          : [];
+        setRankings(safeRankings);
         setError(null);
       })
       .catch((err) => {

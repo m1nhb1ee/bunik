@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
 import { ChevronRight, TrendingUp, TrendingDown } from "lucide-react";
 import {
@@ -12,6 +12,7 @@ const dotBg = {
   backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
   backgroundSize: "24px 24px",
   backgroundColor: "#FAFAF8",
+  animation: "dotDrift 24s linear infinite",
 };
 
 const handCard = {
@@ -116,7 +117,7 @@ export default function NganhDetailPage() {
     setLoading(true);
     Promise.all([
       getMajorDetail(code),
-      getAdmissionScores({ major_code: code, page_size: 200 }),
+      getAdmissionScores({ major_code: code, page_size: 500, admission_method: "THPT", year_min: 2023, year_max: 2025 }),
     ])
       .then(([majorData, scoreRes]) => {
         setMajor(majorData);
@@ -130,7 +131,7 @@ export default function NganhDetailPage() {
     return (
       <div style={dotBg} className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="text-4xl mb-4">⏳</div>
+          <div className="text-4xl mb-4">â³</div>
           <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Đang tải dữ liệu...</p>
         </div>
       </div>
@@ -141,7 +142,7 @@ export default function NganhDetailPage() {
     return (
       <div style={dotBg} className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="text-5xl mb-4">📚</div>
+          <div className="text-5xl mb-4">ðŸ“š</div>
           <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Không tìm thấy ngành này</p>
           <Link to="/nganh" style={{ color: "#5B4FCF", fontWeight: 600 }}>← Quay lại danh sách</Link>
         </div>
@@ -225,10 +226,10 @@ export default function NganhDetailPage() {
 
             <div style={{ ...handCard, padding: "20px 28px", textAlign: "center", flexShrink: 0 }}>
               <p style={{ fontSize: 12, color: "#9090AA", fontWeight: 600 }}>
-                Điểm chuẩn {latestYear ?? "—"}
+                Điểm THPT {latestYear ?? "—"}
               </p>
               <p style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 900, fontSize: 52, color, lineHeight: 1.1 }}>
-                {latestScore ?? "—"}
+                {latestScore ?? "â€”"}
               </p>
               <div className="flex items-center justify-center gap-1.5 mt-1">
                 {trend === "up" ? (
@@ -254,7 +255,7 @@ export default function NganhDetailPage() {
           <div style={handCard} className="p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
               <h2 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "1.2rem" }}>
-                📈 Lịch sử điểm chuẩn theo phương thức
+                Lịch sử điểm THPT Quốc gia
               </h2>
               <div className="flex gap-2">
                 {(["1", "3", "5"] as YearRange[]).map((y) => (
@@ -304,7 +305,7 @@ export default function NganhDetailPage() {
           </div>
         ) : (
           <div style={handCard} className="p-6 text-center">
-            <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Chưa có dữ liệu điểm chuẩn cho ngành này</p>
+            <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Chưa có dữ liệu điểm THPT cho ngành này</p>
             <p style={{ color: "#9090AA", fontSize: 13, marginTop: 6 }}>Dữ liệu sẽ được cập nhật sau kỳ tuyển sinh</p>
           </div>
         )}
@@ -314,7 +315,7 @@ export default function NganhDetailPage() {
           <div style={{ ...handCard, overflow: "hidden" }}>
             <div className="p-5 border-b" style={{ borderColor: "rgba(91,79,207,0.08)" }}>
               <h2 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "1.1rem" }}>
-                📋 Bảng chi tiết điểm chuẩn
+                Bảng chi tiết điểm THPT
               </h2>
             </div>
             <div className="overflow-x-auto">
@@ -358,7 +359,7 @@ export default function NganhDetailPage() {
         {compareData.length > 1 && (
           <div style={handCard} className="p-6">
             <h2 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "1.1rem", marginBottom: 20 }}>
-              🏛️ So sánh nhanh các trường có ngành này
+              So sánh nhanh các trường có ngành này
             </h2>
             <ResponsiveContainer width="100%" height={Math.max(220, compareData.length * 40)}>
               <BarChart data={compareData} layout="vertical">

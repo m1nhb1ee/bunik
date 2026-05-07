@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
 import { MapPin, Globe, Star, ChevronRight, TrendingUp, TrendingDown, Minus, MessageSquare, Send } from "lucide-react";
 import {
@@ -24,6 +24,7 @@ const dotBg = {
   backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
   backgroundSize: "24px 24px",
   backgroundColor: "#FAFAF8",
+  animation: "dotDrift 24s linear infinite",
 };
 
 function StarRating({ value, onChange }: { value: number; onChange?: (v: number) => void }) {
@@ -118,13 +119,13 @@ export default function TruongDetailPage() {
       .finally(() => setLoading(false));
   }, [code]);
 
-  const tabs = ["📋 Ngành & Điểm chuẩn", "📡 Biểu đồ đánh giá", "💬 Đánh giá"];
+  const tabs = ["Ngành & Điểm chuẩn", "Biểu đồ đánh giá", "Đánh giá"];
 
   if (loading) {
     return (
       <div style={dotBg} className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="text-4xl mb-4">⏳</div>
+          <div className="text-4xl mb-4">â³</div>
           <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Đang tải dữ liệu...</p>
         </div>
       </div>
@@ -135,7 +136,7 @@ export default function TruongDetailPage() {
     return (
       <div style={dotBg} className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="text-5xl mb-4">🔍</div>
+          <div className="text-5xl mb-4">ðŸ”</div>
           <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Không tìm thấy trường này</p>
           <Link to="/truong" style={{ color: "#5B4FCF", fontWeight: 600 }}>← Quay lại danh sách</Link>
         </div>
@@ -356,14 +357,14 @@ export default function TruongDetailPage() {
                               const s = getLatestScoreByYear(m, y);
                               return (
                                 <td key={y} className="px-4 py-3.5" style={{ fontWeight: 700, color: "#1A1A2E", fontSize: 15 }}>
-                                  {s !== null ? s : "—"}
+                                  {s !== null ? s : "â€”"}
                                 </td>
                               );
                             })}
                             <td className="px-4 py-3.5">
                               {diff === null ? (
                                 <span className="flex items-center gap-1 text-sm" style={{ color: "#9090AA" }}>
-                                  <Minus size={14} /> —
+                                  <Minus size={14} /> â€”
                                 </span>
                               ) : diff > 0 ? (
                                 <span className="flex items-center gap-1 text-sm" style={{ color: "#16A34A", fontWeight: 700 }}>
@@ -395,7 +396,7 @@ export default function TruongDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div style={handCard} className="p-6">
               <h2 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "1.2rem", marginBottom: 20 }}>
-                📡 Biểu đồ đánh giá 6 tiêu chí
+                Biểu đồ đánh giá 6 tiêu chí
               </h2>
               <ResponsiveContainer width="100%" height={320}>
                 <RadarChart data={radarData}>
@@ -455,7 +456,7 @@ export default function TruongDetailPage() {
                   transform: "rotate(-0.5deg)",
                 }}
               >
-                <p style={{ fontSize: 12, color: "#4A4A6A", fontWeight: 700 }}>📝 Ghi chú phương pháp</p>
+                <p style={{ fontSize: 12, color: "#4A4A6A", fontWeight: 700 }}>Ghi chú phương pháp</p>
                 <p style={{ fontSize: 11, color: "#9090AA", marginTop: 4, lineHeight: 1.6 }}>
                   Điểm đánh giá tổng hợp từ: khảo sát người dùng, dữ liệu tuyển sinh Bộ GD&ĐT và chỉ số mạng xã hội.
                   Cập nhật định kỳ mỗi học kỳ.
@@ -473,7 +474,7 @@ export default function TruongDetailPage() {
               <div style={handCard} className="p-6 mb-6">
                 <div className="text-center mb-6">
                   <p style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 900, fontSize: 56, color: "#FFB347", lineHeight: 1 }}>
-                    {university.userRating > 0 ? university.userRating : "—"}
+                    {university.userRating > 0 ? university.userRating : "â€”"}
                   </p>
                   {university.userRating > 0 && (
                     <div className="flex justify-center gap-1 my-2">

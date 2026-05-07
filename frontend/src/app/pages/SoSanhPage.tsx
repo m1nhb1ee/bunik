@@ -12,6 +12,7 @@ const dotBg = {
   backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
   backgroundSize: "24px 24px",
   backgroundColor: "#FAFAF8",
+  animation: "dotDrift 24s linear infinite",
 };
 
 const handCard = {
