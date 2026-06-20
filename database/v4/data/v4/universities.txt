@@ -1,0 +1,96 @@
+# universities.txt — Danh sách trường ĐH crawl điểm chuẩn
+# Format: Tên trường|URL|type|province_code
+#
+# type        : công_lập | dân_lập | quân_sự
+# province_code: mã tỉnh thành — khớp với PROVINCES.code trong DB
+#
+# Danh sách province_code dùng trong file này:
+#   HN = Hà Nội
+#   HB = Hòa Bình    (ĐH Lâm Nghiệp cơ sở Xuân Mai)
+#
+Học viện An ninh nhân dân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-an-ninh-nhan-dan-ANH.html|quân_sự|HN
+Học viện Báo chí và Tuyên truyền|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-bao-chi-va-tuyen-truyen-HBT.html|công_lập|HN
+Học viện Biên phòng|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-bien-phong-BPH.html|quân_sự|HN
+Học viện Cảnh sát nhân dân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-canh-sat-nhan-dan-CSH.html|quân_sự|HN
+Học viện Chính sách và Phát triển|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-chinh-sach-va-phat-trien-HCP.html|công_lập|HN
+HV Công nghệ Bưu chính Viễn thông|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-cong-nghe-buu-chinh-vien-thong-phia-bac-BVH.html|công_lập|HN
+Học viện Hậu cần|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-hau-can-HEH.html|quân_sự|HN
+Học viện Khoa học Quân sự|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-khoa-hoc-quan-su-NQH.html|quân_sự|HN
+Học viện Kỹ thuật Mật mã|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ky-thuat-mat-ma-KMA.html|công_lập|HN
+Học viện Kỹ thuật Quân sự|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ky-thuat-quan-su-KQH.html|quân_sự|HN
+Học viện Ngân hàng|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ngan-hang-NHH.html|công_lập|HN
+Học viện Ngoại giao|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-ngoai-giao-HQT.html|công_lập|HN
+Học viện Nông nghiệp Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-nong-nghiep-viet-nam-HVN.html|công_lập|HN
+HV Phòng không - Không quân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-phong-khong-khong-quan-PKH.html|quân_sự|HN
+Học viện Phụ nữ Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-phu-nu-viet-nam-HPN.html|công_lập|HN
+Học viện Quản lý Giáo dục|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-quan-ly-giao-duc-HVQ.html|công_lập|HN
+Học viện Quân y|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-quan-y-he-quan-su-phia-bac-YQH.html|quân_sự|HN
+Học viện Tài chính|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-tai-chinh-HTC.html|công_lập|HN
+HV Thanh thiếu niên Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-thanh-thieu-nien-viet-nam-HTN.html|công_lập|HN
+Học viện Tòa án|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-toa-an-HTA.html|công_lập|HN
+ĐH Công nghệ – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-dai-hoc-quoc-gia-ha-noi-QHI.html|công_lập|HN
+ĐH Giáo dục – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-giao-duc-dai-hoc-quoc-gia-ha-noi-QHS.html|công_lập|HN
+ĐH Khoa học Tự nhiên – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-khoa-hoc-tu-nhien-dai-hoc-quoc-gia-ha-noi-QHT.html|công_lập|HN
+ĐH KHXH & Nhân văn – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-khoa-hoc-xa-hoi-va-nhan-van-dai-hoc-quoc-gia-ha-noi-QHX.html|công_lập|HN
+ĐH Kinh tế – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-te-dai-hoc-quoc-gia-ha-noi-QHE.html|công_lập|HN
+ĐH Luật – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-luat-dai-hoc-quoc-gia-ha-noi-QHL.html|công_lập|HN
+ĐH Ngoại ngữ – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-ngoai-ngu-dai-hoc-quoc-gia-ha-noi-QHF.html|công_lập|HN
+ĐH Y Dược – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/truong-dai-hoc-y-duoc-dai-hoc-quoc-gia-ha-noi-QHY.html|công_lập|HN
+Trường Quốc tế – ĐHQGHN|https://diemthi.tuyensinh247.com/diem-chuan/khoa-quoc-te-dai-hoc-quoc-gia-ha-noi-QHQ.html|công_lập|HN
+ĐH Bách khoa Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-bach-khoa-ha-noi-BKA.html|công_lập|HN
+ĐH Kinh tế Quốc dân|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-te-quoc-dan-KHA.html|công_lập|HN
+ĐH Ngoại thương|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-ngoai-thuong-co-so-phia-bac-NTH.html|công_lập|HN
+ĐH Thương mại|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thuong-mai-TMU.html|công_lập|HN
+ĐH Giao thông Vận tải|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-giao-thong-van-tai-ha-noi-GHA.html|công_lập|HN
+ĐH Công nghiệp Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghiep-ha-noi-DCN.html|công_lập|HN
+ĐH Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-ha-noi-NHF.html|công_lập|HN
+ĐH Xây dựng Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-xay-dung-XDA.html|công_lập|HN
+ĐH Luật Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-luat-ha-noi-LPH.html|công_lập|HN
+ĐH Y Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-y-ha-noi-YHB.html|công_lập|HN
+ĐH Dược Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-duoc-ha-noi-DKH.html|công_lập|HN
+ĐH Điện lực|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-dien-luc-DDL.html|công_lập|HN
+ĐH Mỏ - Địa chất|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-mo-dia-chat-MDA.html|công_lập|HN
+ĐH Thủy lợi|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thuy-loi-co-so-1-TLA.html|công_lập|HN
+ĐH Công nghệ GTVT|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-giao-thong-van-tai-GTA.html|công_lập|HN
+ĐH Mở Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-mo-ha-noi-MHN.html|công_lập|HN
+ĐH Sư phạm Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-su-pham-ha-noi-SPH.html|công_lập|HN
+ĐH Kiến trúc Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kien-truc-ha-noi-KTA.html|công_lập|HN
+ĐH Văn hóa Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-van-hoa-ha-noi-VHH.html|công_lập|HN
+ĐH Tài nguyên & Môi trường|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-tai-nguyen-va-moi-truong-ha-noi-DMT.html|công_lập|HN
+ĐH Nội vụ|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-noi-vu-ha-noi-DNV.html|công_lập|HN
+ĐH Công đoàn|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-doan-LDA.html|công_lập|HN
+ĐH Lao động Xã hội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-lao-dong-xa-hoi-co-so-ha-noi-DLX.html|công_lập|HN
+ĐH Phenikaa|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-phenikaa-PKA.html|dân_lập|HN
+ĐH Thăng Long|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thang-long-DTL.html|dân_lập|HN
+ĐH FPT Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-fpt-ha-noi-FPT.html|dân_lập|HN
+ĐH Kinh tế Kỹ thuật Công nghiệp|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-te-ky-thuat-cong-nghiep-DKK.html|công_lập|HN
+ĐH Kiểm sát Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kiem-sat-ha-noi-DKS.html|công_lập|HN
+ĐH Thủ đô Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thu-do-ha-noi-HNM.html|công_lập|HN
+ĐH Y tế Công cộng|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-y-te-cong-cong-YTC.html|công_lập|HN
+ĐH Kinh doanh & Công nghệ|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-kinh-doanh-va-cong-nghe-ha-noi-DQK.html|dân_lập|HN
+ĐH Công nghiệp Việt Hung|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghiep-viet-hung-VHD.html|dân_lập|HN
+ĐH Công nghiệp Dệt may HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghiep-det-may-ha-noi-CCM.html|công_lập|HN
+ĐH Công nghệ Đông Á|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-dong-a-DDA.html|dân_lập|HN
+ĐH Thành Đô|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-thanh-do-TDD.html|dân_lập|HN
+Trường Sĩ quan Lục quân 1|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-luc-quan-1-dai-hoc-tran-quoc-tuan-LAH.html|quân_sự|HN
+ĐH Phòng cháy chữa cháy|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-phong-chay-chua-chay-he-dan-su-phia-bac-PCH.html|công_lập|HN
+HV Âm Nhạc Quốc Gia|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-am-nhac-quoc-gia-viet-nam-NVH.html|công_lập|HN
+HV Chính Trị Công An Nhân Dân|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-chinh-tri-cong-an-nhan-dan-HCA.html|quân_sự|HN
+HV Dân Tộc|https://diemthi.tuyensinh247.com/diem-chuan/hoc-vien-dan-toc-HVD.html|công_lập|HN
+Trường Sĩ quan Lục quân 2|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-luc-quan-2-dai-hoc-nguyen-hue-LBH.html|quân_sự|HN
+Trường Sĩ quan Phòng Hoá|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-phong-hoa-HGH.html|quân_sự|HN
+Trường Sĩ quan Đặc Công|https://diemthi.tuyensinh247.com/diem-chuan/truong-si-quan-dac-cong-DCH.html|quân_sự|HN
+ĐH CMC|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cmc-CMC.html|dân_lập|HN
+ĐH Hoà Bình|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-hoa-binh-ETU.html|dân_lập|HN
+ĐH Khoa Học và Công Nghệ Hà Nội|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-khoa-hoc-va-cong-nghe-ha-noi-KCN.html|công_lập|HN
+ĐH Lâm Nghiệp|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-lam-nghiep-LNH.html|công_lập|HN
+ĐH Mỹ thuật Công nghiệp|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-my-thuat-cong-nghiep-MTC.html|công_lập|HN
+ĐH Mỹ thuật Việt Nam|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-my-thuat-viet-nam-MTH.html|công_lập|HN
+ĐH Nguyễn Trãi|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-nguyen-trai-NTU.html|dân_lập|HN
+ĐH Phương Đông|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-phuong-dong-DPD.html|dân_lập|HN
+ĐH Sân khấu Điện ảnh HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-san-khau-dien-anh-ha-noi-SKD.html|công_lập|HN
+ĐH Sư Phạm Nghệ Thuật Trung Ương|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-su-pham-nghe-thuat-trung-uong-GNT.html|công_lập|HN
+ĐH Sư Phạm Thể Dục Thể Thao HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-su-pham-the-duc-the-thao-ha-noi-TDH.html|công_lập|HN
+ĐH Tài Chính Ngân Hàng HN|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-tai-chinh-ngan-hang-ha-noi-FBU.html|dân_lập|HN
+ĐH Đông Đô|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-dong-do-DDU.html|dân_lập|HN
+ĐH Công nghệ và Quản lí hữu nghị|https://diemthi.tuyensinh247.com/diem-chuan/dai-hoc-cong-nghe-va-quan-ly-huu-nghi-DCQ.html|dân_lập|HN

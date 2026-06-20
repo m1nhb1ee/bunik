@@ -1,0 +1,1615 @@
+﻿id,university_short_name,major_code,program_source_code,program_name,quota,source,source_school_id,is_active
+5d7e674e-108b-5c00-8544-e0f2486f2576,ANH,7480201_Nam,7480201_Nam,Ngành Công nghệ thông tin (Thí sinh Nam),95,tuyensinh247,221,true
+c4de9de9-0422-51ac-b4a3-34da7c363ee8,ANH,7860100_Nam_B,7860100_Nam_B,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",214,tuyensinh247,,true
+601c59eb-f8f6-5a91-82dc-cd8ef716da06,ANH,7860100_Nu_B,7860100_Nu_B,"Ngành Nghiệp vụ an ninh (Thí sinh Nữ, miền Bắc)",24,tuyensinh247,,true
+77a27e8f-45e8-5b5f-877d-523baf507871,ANH,7860114_Nam_B,7860114_Nam_B,"Ngành An ninh mạng và phòng chống tội phạm công nghệ cao (Thí sinh Nam, miền Bắc)",66,tuyensinh247,221,true
+bd5945c9-74af-5ff3-9d79-defd673415d2,ANH,7860114_Nam_N,7860114_Nam_N,"Ngành An ninh mạng và phòng chống tội phạm công nghệ cao (Thí sinh Nam, miền Nam)",66,tuyensinh247,221,true
+33bfb6e7-a52e-53c0-8b13-205db03fb959,ANH,7860114_Nu_B,7860114_Nu_B,"Ngành An ninh mạng và phòng chống tội phạm công nghệ cao (Thí sinh Nữ, miền Bắc)",5,tuyensinh247,221,true
+1540952d-cbbc-5d8d-bea3-9331fa3c2c75,ANH,7860114_Nu_N,7860114_Nu_N,"Ngành An ninh mạng và phòng chống tội phạm công nghệ cao (Thí sinh Nữ, miền Nam)",5,tuyensinh247,221,true
+66852d40-0a71-5638-bb93-c70d36d85591,ANH,DS7480201,DS7480201,Công nghệ thông tin,50,tuyensinh247,,true
+bd54c85a-79d3-503c-a17a-484ac9f81d81,ANH,DS7480202,DS7480202,An toàn thông tin,50,tuyensinh247,,true
+96c3d097-7e14-557f-b4c8-ee15ff57a63f,BKA,BF-E12,BF-E12,Kỹ thuật Thực phẩm (CT tiên tiến),60,tuyensinh247,302,true
+c662002c-0685-558e-8d21-d39354a511cd,BKA,BF-E19,BF-E19,Kỹ thuật sinh học (CT tiên tiến),60,tuyensinh247,302,true
+df290692-8b06-5125-b8f5-96c7a2fba6ab,BKA,BF1,BF1,Kỹ thuật Sinh học,160,tuyensinh247,302,true
+0a9b0a80-ea8c-58bb-8871-c9b82309b3c8,BKA,BF2,BF2,Kỹ thuật Thực phẩm,360,tuyensinh247,302,true
+659f873a-d3a5-5b47-8468-6c09168f56a0,BKA,CH-E11,CH-E11,Kỹ thuật Hóa dược (CT tiên tiến),100,tuyensinh247,302,true
+a00687fa-dfbc-516a-bfa9-47f1b6a14e2e,BKA,CH-E20,CH-E20,Hóa học Mỹ phẩm (mới) (CT tiên tiến),40,tuyensinh247,,true
+3242531a-ec0f-5de6-940c-3f801877dd9e,BKA,CH1,CH1,Kỹ thuật Hóa học,680,tuyensinh247,302,true
+c3c3e4a3-fa08-5881-b290-33ed42a1b4dc,BKA,CH2,CH2,Hóa học,160,tuyensinh247,302,true
+86c69125-926a-5a4c-b7f8-643c1d9e3be3,BKA,ED2,ED2,Công nghệ Giáo dục,120,tuyensinh247,302,true
+2c2d1f8a-77cc-51f9-bc8f-be2accc5a169,BKA,ED3,ED3,Quản lý Giáo dục,60,tuyensinh247,302,true
+2ed0c21c-f437-5529-90ef-fd29ba7b8c4a,BKA,ED5,ED5,Tâm lý học công nghiệp và tổ chức (mới),40,tuyensinh247,,true
+b077c2b6-8be9-5b7e-a026-4c055e6abc9c,BKA,EE-E18,EE-E18,Hệ thống điện và năng lượng tái tạo (CT tiên tiến),60,tuyensinh247,302,true
+4f27a172-e609-5803-803d-4c0dcfd2adf8,BKA,EE-E8,EE-E8,Kỹ thuật điều khiển-Tự động hóa (CT tiên tiến),140,tuyensinh247,302,true
+eac617d3-cd33-5ead-b611-1d0b0417c54e,BKA,EE-EP,EE-EP,Tin học công nghiệp và Tự động hóa (CT Việt - Pháp PFIEV),40,tuyensinh247,302,true
+8cca808e-8b2d-5b17-a358-3f02f0cb9cd4,BKA,EE1,EE1,Kỹ thuật điện,240,tuyensinh247,302,true
+f4ac0426-4dec-5365-aaea-3860e0f4c987,BKA,EE2,EE2,Kỹ thuật điều khiển & Tự động hóa,500,tuyensinh247,302,true
+55bd8c3d-a7ac-54e6-9744-24263e87e0b2,BKA,EM-E13,EM-E13,Phân tích Kinh doanh (CT tiên tiến),140,tuyensinh247,302,true
+b15a4b01-6577-5105-a08e-e01e4444ba37,BKA,EM-E14,EM-E14,Logistics và Quản lý chuỗi cung ứng (CT tiên tiến),140,tuyensinh247,302,true
+2abec823-fd20-5513-9e5f-fff36c513cd1,BKA,EM-E17,EM-E17,Kế toán (mới) (CT tiên tiến),80,tuyensinh247,,true
+dd18edfd-b78c-5d43-9d32-0c161d04b36d,BKA,EM1,EM1,Quản lý Năng lượng,80,tuyensinh247,302,true
+14f40c67-150b-5621-ab96-4b8f3f8f3d0e,BKA,EM2,EM2,Quản lý Công nghiệp,100,tuyensinh247,302,true
+80cd47b7-cea3-5814-aabb-6776a8b76b15,BKA,EM3,EM3,Quản trị Kinh doanh,120,tuyensinh247,302,true
+dec2e16a-7a7f-5f69-b837-e604c604091e,BKA,EM5,EM5,Tài chính-Ngân hàng,100,tuyensinh247,302,true
+63739aee-ed6c-50fe-844f-df91a0a05f1e,BKA,ET-E16,ET-E16,Truyền thông số và Kỹ thuật đa phương tiện (CT tiên tiến),60,tuyensinh247,302,true
+c6fd3f45-48b7-5428-9382-4d8da34d3311,BKA,ET-E4,ET-E4,Kỹ thuật Điện tử - Viễn thông (CT tiên tiến),120,tuyensinh247,302,true
+1122c5ae-124b-55e3-8044-3aab4f1cab29,BKA,ET-E5,ET-E5,Kỹ thuật Y sinh (CT tiên tiến),40,tuyensinh247,302,true
+34c9c0b5-319a-5c6d-8343-7f072bea0c6f,BKA,ET-E9,ET-E9,Hệ thống nhúng thông minh và IoT (tăng cường tiếng Nhật),80,tuyensinh247,302,true
+9c3d32ba-5ef5-59e3-9abf-8209e44b06de,BKA,ET-LUH,ET-LUH,Điện tử - Viễn thông - ĐH Leibniz Hannover (CHLB Đức),40,tuyensinh247,302,true
+cc6b4ceb-9396-5344-88aa-45536abb8a92,BKA,ET1,ET1,Kỹ thuật Điện tử-Viễn thông,480,tuyensinh247,302,true
+7d4ae544-b6ac-5774-be81-67385cadd8c6,BKA,ET2,ET2,Kỹ thuật Y sinh,100,tuyensinh247,302,true
+3ee7e108-0f12-5526-aa0c-9d98e853443f,BKA,EV1,EV1,Kỹ thuật Môi trường,160,tuyensinh247,302,true
+27f6d74e-bd56-5416-8621-33f18177ccf8,BKA,EV2,EV2,Quản lý Tài nguyên và Môi trường,120,tuyensinh247,302,true
+d55efb80-dbf7-503d-bcd5-b56a90376f72,BKA,FL1,FL1,Tiếng Anh KHKT và Công nghệ,210,tuyensinh247,302,true
+18d42dcb-4ab0-5152-8df2-50681fe75c6c,BKA,FL2,FL2,Tiếng Anh chuyên nghiệp quốc tế (do ĐHBK Hà Nội và ĐH Plymouth Marjon - Vương quốc Anh cấp bằng),90,tuyensinh247,302,true
+b35ee16e-656e-5115-b39d-d43e8380a546,BKA,FL3,FL3,Tiếng Trung KH&CN,80,tuyensinh247,302,true
+e8ac8d46-7152-5b8b-990f-8c6633af66dd,BKA,FL4,FL4,Tiếng Hàn KH&CN (mới),40,tuyensinh247,,true
+79baf835-2e47-5f05-b0f2-e8513962171d,BKA,HE1,HE1,Kỹ thuật Nhiệt,250,tuyensinh247,302,true
+873473f9-de51-5357-9b31-6209df1671ff,BKA,IT-E10,IT-E10,Khoa học Dữ liệu và Trí tuệ nhân tạo (CT tiên tiến),160,tuyensinh247,302,true
+39be5a18-2e0e-58c8-9c62-214c9af71462,BKA,IT-E15,IT-E15,An toàn không gian số - Cyber Security (CT tiên tiến),40,tuyensinh247,302,true
+e2f39d4f-face-50d6-8da8-65a078f357b2,BKA,IT-E6,IT-E6,Công nghệ Thông tin Việt - Nhật (tăng cường tiếng Nhật),160,tuyensinh247,302,true
+69688848-6850-591d-88cd-9d8fd09de60c,BKA,IT-E7,IT-E7,Công nghệ Thông tin Global ICT (CT tiên tiến),160,tuyensinh247,302,true
+202dfc34-5a2c-5b5c-8181-3744b943641d,BKA,IT-EP,IT-EP,Công nghệ Thông tin Việt - Pháp (tăng cường tiếng Pháp),40,tuyensinh247,302,true
+951ec60c-e9de-5777-a102-db51088af9a6,BKA,IT1,IT1,CNTT: Khoa học Máy tính,300,tuyensinh247,302,true
+08dd2f4c-e1c5-5bf8-b81d-c0b770a60a83,BKA,IT2,IT2,CNTT: Kỹ thuật Máy tính,200,tuyensinh247,302,true
+39a2b6d3-4529-5afb-86a2-66ab0b695e63,BKA,ME-E1,ME-E1,Kỹ thuật Cơ điện tử (CT tiên tiến),180,tuyensinh247,302,true
+f69d8c21-8919-501b-ab1b-10abccb33adb,BKA,ME-GU,ME-GU,Cơ khí Chế tạo máy - hợp tác với trường ĐH Griffith (Úc),40,tuyensinh247,302,true
+1301195c-d702-5223-9abf-5aeb4abdac5e,BKA,ME-LUH,ME-LUH,Cơ điện tử - hợp tác với ĐH Leibniz Hannover (CHLB Đức),50,tuyensinh247,302,true
+d846f8fd-17e0-5575-902e-f473fdefb9b7,BKA,ME-NUT,ME-NUT,Cơ điện tử - hợp tác với ĐHCN Nagaoka (Nhật Bản),100,tuyensinh247,302,true
+30ae3985-f5bf-5bb8-88f5-8839359338b4,BKA,ME1,ME1,Kỹ thuật Cơ điện tử,300,tuyensinh247,302,true
+d87ac3c3-196b-59d8-bb43-b9702e92150f,BKA,ME2,ME2,Kỹ thuật Cơ khí,560,tuyensinh247,302,true
+44810dd2-fbce-5fe5-9689-7f67940bb0d2,BKA,MI-E22,MI-E22,Khoa học tính toán cho các hệ thống thông minh (mới) (CT tiên tiến),40,tuyensinh247,,true
+64c10856-1ba3-524c-b626-80cbe8e45b42,BKA,MI1,MI1,Toán-Tin,160,tuyensinh247,302,true
+7476a86b-0441-5f20-bcac-f9517aff5bb7,BKA,MI2,MI2,Hệ thống Thông tin quản lý,80,tuyensinh247,302,true
+39369f61-9978-5fcd-8af6-42dafe41457c,BKA,MS-E3,MS-E3,Khoa học và Kỹ thuật Vật liệu (CT tiên tiến),60,tuyensinh247,302,true
+cfa9b495-459d-554c-bd13-a000b155a470,BKA,MS1,MS1,Kỹ thuật Vật liệu,280,tuyensinh247,302,true
+be63440a-484f-5e6e-8b80-0aa7178f273e,BKA,MS2,MS2,Kỹ thuật Vi điện tử và Công nghệ nano,180,tuyensinh247,302,true
+6e55a0f6-5547-5eeb-9917-5da277f5e082,BKA,MS3,MS3,Công nghệ vật liệu Polyme và Compozit,80,tuyensinh247,302,true
+4ae06dd5-3be7-59ee-a0cb-8e791379668a,BKA,MS5,MS5,Kỹ thuật In,60,tuyensinh247,302,true
+5ba166f4-f3b7-5971-93b1-46821d73a9f4,BKA,PH1,PH1,Vật lý Kỹ thuật,200,tuyensinh247,302,true
+974caaf9-11d3-53ab-8a46-a9dd6e493d7a,BKA,PH2,PH2,Kỹ thuật Hạt nhân,40,tuyensinh247,302,true
+b46bd8b1-6331-50af-a12d-f98fcda30041,BKA,PH3,PH3,Vật lý Y khoa,60,tuyensinh247,302,true
+d013dae4-52d0-597e-8908-eb1b84149e6e,BKA,TE-E2,TE-E2,Kỹ thuật Ô tô (CT tiên tiến),100,tuyensinh247,302,true
+feca3bf3-0fa3-509b-8583-85077b300a08,BKA,TE-EP,TE-EP,Cơ khí Hàng không (CT Việt - Pháp PFIEV),40,tuyensinh247,302,true
+18b6eca0-3954-5a3d-a3b3-a81f3a0f48d3,BKA,TE1,TE1,Kỹ thuật Ô tô,200,tuyensinh247,302,true
+554e0a67-7ef0-5965-879e-0f3f23cbd997,BKA,TE2,TE2,Kỹ thuật Cơ khí động lực,120,tuyensinh247,302,true
+d1e3caf4-d412-501c-b37c-7b401d26b5e3,BKA,TE3,TE3,Kỹ thuật Hàng không,80,tuyensinh247,302,true
+b49a88fa-494a-56b0-8f72-ac77e15eb40c,BKA,TROY-IT,TROY-IT,Khoa học Máy tính - ĐH Troy (Hoa Kỳ) (do ĐH Troy cấp bằng),120,tuyensinh247,302,true
+a031bb80-e129-578e-9002-5febe10ae14a,BKA,TX1,TX1,Công nghệ Dệt May,240,tuyensinh247,302,true
+3ff82a7d-933d-5940-a4ac-41f81bc4f83d,BVH,7320101,7320101,Báo chí,100,tuyensinh247,227,true
+bbb225be-5c45-56ee-83c7-d1b52a81d0c5,BVH,7320104,7320104,Truyền thông đa phương tiện,120,tuyensinh247,227,true
+525ee813-6781-5c00-8411-03e98a43fb69,BVH,7320104_CLC,7320104_CLC,Truyền thông đa phương tiện,110,tuyensinh247,227,true
+619cae33-61d2-5ac4-ad63-8e2f4bd2c64c,BVH,7320104_LK,7320104_LK,"Truyền thông Đa phương tiện (Liên kết với đại học Công nghệ Queensland, Úc",20,tuyensinh247,,true
+306c318d-cbba-5cf1-b87c-1841b384f25f,BVH,7329001,7329001,Công nghệ đa phương tiện,260,tuyensinh247,227,true
+6cc5c670-1e2a-5d65-8d13-e89598b63f4b,BVH,7329001_GAM,7329001_GAM,Thiết kế và phát triển Game,150,tuyensinh247,227,true
+63ee24ce-19b6-551e-b4c6-7834096edf1e,BVH,7329001_LK,7329001_LK,"Công nghệ Đa phương tiện (Liên kết với đại học Canberra, Australia)",20,tuyensinh247,227,true
+38661de6-d8bd-5727-a4ef-b6699e7126b4,BVH,7329001_VHO,7329001_VHO,Công nghệ công nghiệp văn hóa số (định hướng điện ảnh),50,tuyensinh247,,true
+cf7376f2-f1bb-58bb-a192-53f309853658,BVH,7329001_,7329001_ĐGA,Thiết kế đồ họa game,30,tuyensinh247,,true
+5b2eaeed-afe3-5014-bf5d-f75c36728ff2,BVH,7340101,7340101,Quản trị kinh doanh,170,tuyensinh247,227,true
+0df0adef-cfe4-5bbd-8be9-39364b17935d,BVH,7340101_LOG,7340101_LOG,Logistics và quản trị chuỗi cung ứng,80,tuyensinh247,227,true
+2d258d96-e3af-5183-a662-08198fc8d64f,BVH,7340101_LTT,7340101_LTT,Logistics trong kinh tế tầm thấp,50,tuyensinh247,,true
+f8e7b9ee-fb45-5b27-b9fb-12fee7cd3cb0,BVH,7340101_,7340101_ĐSK,Quản trị Đổi mới sáng tạo và khởi nghiệp,50,tuyensinh247,,true
+6f8097b3-6ceb-5cf6-88aa-991326d4fc70,BVH,7340115,7340115,Marketing,240,tuyensinh247,227,true
+7032a629-3a99-5714-b4f7-37c43657c925,BVH,7340115,7340115 _CLC,Marketing,130,tuyensinh247,,true
+b1e3cbef-889b-58e8-926e-8aba14375dab,BVH,7340115_QHC,7340115_QHC,Quan hệ công chúng,110,tuyensinh247,227,true
+99f2df80-c534-50fc-857b-2f6d7f198af4,BVH,7340122,7340122,Thương mại điện tử,180,tuyensinh247,227,true
+4c6dc9f5-0e79-5486-b7a0-3c62b43a5c98,BVH,7340201_DAT,7340201_DAT,"Phân tích dữ liệu trong tài chính, kinh doanh",110,tuyensinh247,,true
+adbf2cd0-e3e0-5385-92b9-d74b173d08af,BVH,7340205,7340205,Công nghệ tài chính (Fintech),160,tuyensinh247,227,true
+a847858c-df78-5506-b2a2-d7ae6bb30cda,BVH,7340205_LK,7340205_LK,"Công nghệ tài chính (Liên kết đại học Huddersfield, Vương Quốc Anh)",20,tuyensinh247,227,true
+0a2fed13-1f06-58de-8b28-d34c137042d5,BVH,7340301,7340301,Kế toán,200,tuyensinh247,227,true
+82415df3-8566-5efa-a9b4-4a97adcc8c86,BVH,7340301_CLC,7340301_CLC,Kế toán (chuẩn quốc tế ACCA),60,tuyensinh247,227,true
+da784dfc-a148-5f0a-a001-8e80da52d918,BVH,7480101,7480101,Khoa học dữ liệu,160,tuyensinh247,227,true
+25e4eee0-1f35-5d12-b871-e77234e5413d,BVH,7480102,7480102,Kỹ thuật dữ liệu,135,tuyensinh247,227,true
+bafa37bb-5a25-5dc3-96bc-dd33f80b1ab0,BVH,7480107,7480107,Trí tuệ nhân tạo,160,tuyensinh247,227,true
+e9eb684d-d533-5574-b17c-24003c8fa52d,BVH,7480201,7480201,Công nghệ thông tin,600,tuyensinh247,227,true
+722b210b-1e79-5813-9854-461eab71a4cf,BVH,7480201,7480201 _UDU,Công nghệ thông tin (định hướng ứng dụng),330,tuyensinh247,227,true
+874c8a0f-e083-5995-b4c3-cea57a7c7ac4,BVH,7480201_CLC,7480201_CLC,Công nghệ thông tin,370,tuyensinh247,227,true
+a7c8ea73-c66b-53b0-87de-fda3f4b7d838,BVH,7480201_LK,7480201_LK,"Công nghệ thông tin Liên kết với Đại học Macquarie, Australia)",20,tuyensinh247,227,true
+3aefca66-7d50-5ffb-b612-785b385c6f32,BVH,7480201_VNH,7480201_VNH,Công nghệ thông tin Việt - Nhật,110,tuyensinh247,227,true
+264e468f-cc49-570a-805e-2ee03e34b41b,BVH,7480202,7480202,An toàn thông tin,200,tuyensinh247,227,true
+c2826db8-fa39-59bd-a6d3-43f0a2086a29,BVH,7480202_CLC,7480202_CLC,An toàn thông tin,120,tuyensinh247,227,true
+856bd61e-448c-5fcf-9b0c-31c039089afb,BVH,7510301,7510301,"Công nghệ Kỹ thuật Điện, điện tử",260,tuyensinh247,227,true
+703ba658-a37c-591b-aed6-5da41641b834,BVH,7510301_MBD,7510301_MBD,Công nghệ vi mạch bán dẫn,175,tuyensinh247,227,true
+e1048c2e-c498-5425-b095-bdad7a6591e4,BVH,7520207,7520207,Kỹ thuật Điện tử viễn thông,410,tuyensinh247,227,true
+a4dcc867-0886-5a66-abf1-a9ffe4587f06,BVH,7520207_,7520207_ AIoT,Trí tuệ nhân tạo vạn vật (AIoT),90,tuyensinh247,,true
+70e99edd-eb58-5ba0-bc7c-a86a74f77500,BVH,7520207_THV,7520207_THV,Kỹ thuật Truyền thông Hàng không vũ trụ,50,tuyensinh247,,true
+4697a0c8-7af2-5b6f-9f5d-588859babc2d,BVH,7520216,7520216,Kỹ thuật Điều khiển và tự động hóa,80,tuyensinh247,227,true
+d11ab465-4e51-5946-9f36-c2e8186caa64,BVH,7520216_UAV,7520216_UAV,UAV và Robot di động tự hành,50,tuyensinh247,,true
+1da7e8d5-b2d1-544b-8f45-5a3596634b1b,CCM,7210403,7210403,Thiết kế đồ hoạ,90,tuyensinh247,25,true
+20ccd56e-5c02-5649-a260-c124d92693ef,CCM,7210404,7210404,Thiết kế thời trang,100,tuyensinh247,25,true
+e05b2355-7ba9-5469-9e15-c0340f5f583b,CCM,7340101,7340101,Quản trị kinh doanh,160,tuyensinh247,25,true
+80b68039-91c5-583c-8e19-c403f4e36858,CCM,7340115,7340115,Marketing,240,tuyensinh247,25,true
+be96c20d-a4d2-571a-acfa-9111b58a8f50,CCM,7340122,7340122,Thương mại điện tử,140,tuyensinh247,25,true
+24314bff-c8c6-5b18-88d3-707e22dbcf7f,CCM,7340301,7340301,Kế toán,120,tuyensinh247,25,true
+1d85a3cd-a4ed-51b4-ae09-e47892f090b1,CCM,7510201,7510201,Công nghệ kỹ thuật cơ khí,90,tuyensinh247,25,true
+5dbaee0f-2512-5147-8561-32b154c0dc4b,CCM,7510301,7510301,"Công nghệ kỹ thuật điện, điện tử",120,tuyensinh247,25,true
+72ac2de3-dfb7-550e-88b5-d2a4c0d3705f,CCM,7510601,7510601,Quản lý công nghiệp,120,tuyensinh247,25,true
+873a44b0-ec5a-5da3-aea8-2f48b8bf2b2d,CCM,7540202,7540202,"Công nghệ sợi, dệt",20,tuyensinh247,25,true
+195438ed-4bc6-5403-a81a-44b8e53b055f,CCM,7540209,7540209,Công nghệ may,440,tuyensinh247,25,true
+f1191ce3-9907-5ee2-967c-f1cf4eed81a5,CMC,AI,AI,Trí tuệ Nhân tạo,80,tuyensinh247,557,true
+b17a0b08-0878-56f0-b291-a9704ebb3cbd,CMC,BA,BA,Quản trị Kinh doanh,160,tuyensinh247,557,true
+fb78a24b-4a2e-5b08-b19a-c9b3856588e2,CMC,CB,CB,Tiếng Trung Thương mại *,40,tuyensinh247,,true
+e6940cd9-c3a1-543c-a582-de5b3fe81c50,CMC,CL,CL,Ngôn ngữ Trung Quốc,160,tuyensinh247,557,true
+84a74714-4be9-557b-aa7c-5e61f12ab08b,CMC,CS,CS,Khoa học Máy tính,80,tuyensinh247,557,true
+4d6a4e74-2f38-5356-9d9a-a1d510033f3c,CMC,DA,DA,Thiết kế Mỹ thuật số *,40,tuyensinh247,,true
+37c8eb7c-72d6-5f1e-a16d-a91c07dc718e,CMC,EC,EC,Công nghệ Kỹ thuật Điện tử - Viễn thông (Thiết kế vi mạch bán dẫn),80,tuyensinh247,557,true
+6ba18641-f280-5f58-96a3-520851533796,CMC,EM,EM,Thương mại Điện tử,80,tuyensinh247,,true
+08c2e242-ac86-5c3d-bc4a-6a1d515a2ffa,CMC,GA,GA,Đồ họa Game,80,tuyensinh247,557,true
+6bea1152-e87a-5e3d-8740-60ff3309b205,CMC,GD,GD,Thiết kế Đồ họa,160,tuyensinh247,557,true
+90ae10e4-fa40-52ce-9dc5-27428774b915,CMC,IB,IB,Kinh doanh Quốc tế *,40,tuyensinh247,,true
+420acca6-dd21-5076-b6ca-f79cacbfc6ea,CMC,IT,IT,Công nghệ Thông tin,240,tuyensinh247,557,true
+5a557648-1118-55e9-81eb-28401daea212,CMC,KL,KL,Ngôn ngữ Hàn Quốc,80,tuyensinh247,557,true
+2befe729-2135-5f24-a3fe-338dd0c20545,CMC,LS,LS,Logistics và Quản lý chuỗi cung ứng,80,tuyensinh247,557,true
+ad37598f-86ac-5811-bdff-a7bb1decaeba,CMC,MC,MC,Truyền thông Đa phương tiện *,80,tuyensinh247,,true
+cc759a9f-6409-5e18-ac1e-6285fa11fc9d,CMC,MK,MK,Digital Marketing,160,tuyensinh247,557,true
+4ebd2167-d5c8-53d2-a8c0-48e5df910b0a,CMC,NS,NS,An ninh Mạng *,40,tuyensinh247,,true
+9e5e01f7-474e-5a4f-b96e-f739b403a240,CMC,PR,PR,Quan hệ Công chúng *,40,tuyensinh247,,true
+80fcb5cd-a43b-5277-a52a-78b84bef51c4,CMC,SE,SE,Kỹ thuật Phần mềm,80,tuyensinh247,557,true
+ee33d4eb-4ca0-5c1e-8f56-131286a3b3c2,CSH,7860100_Nam,7860100_Nam,Nhóm ngành nghiệp vụ Cảnh sát (Thí sinh Nam),342,tuyensinh247,,true
+68583cf6-51e0-594d-a936-fa2492d05a8a,CSH,7860100_Nu,7860100_Nu,Nhóm ngành nghiệp vụ Cảnh sát (Thí sinh Nữ),38,tuyensinh247,,true
+f1cebae8-ac6f-5dc1-8f63-37e42eef3f52,DCH,7860207_B,7860207_B,Chỉ huy - Tham mưu đặc công (miền Nam),27,tuyensinh247,292,true
+3d286f2d-1c71-552d-9971-7cb1c4426ea9,DCH,7860207_N,7860207_N,Chỉ huy - Tham mưu đặc công (miền Bắc),47,tuyensinh247,292,true
+ab50df5c-606b-5766-82c8-d896a71de82c,DCN,7210404,7210404,Thiết kế thời trang,60,tuyensinh247,308,true
+03f4afff-0b16-5a58-a5b5-a255d8b9c8b8,DCN,7220201,7220201,Ngôn ngữ Anh,200,tuyensinh247,308,true
+2005ec5e-6ddc-58c3-9395-75946ffefa4a,DCN,7220204,7220204,Ngôn ngữ Trung Quốc,150,tuyensinh247,308,true
+717f2023-6564-5093-9c00-ca073c673d74,DCN,7220204LK,7220204LK,Ngôn ngữ Trung Quốc (LK2+2 với ĐHKHKT Quảng Tây),30,tuyensinh247,308,true
+134152c3-e574-5152-bc2b-dccbc0538b53,DCN,7220209,7220209,Ngôn ngữ Nhật,70,tuyensinh247,308,true
+85f40536-fbf2-55d3-ad6e-6ae16d66db83,DCN,7220210,7220210,Ngôn ngữ Hàn Quốc,70,tuyensinh247,308,true
+04e26fe3-81e9-54cf-96d6-3485afd0a946,DCN,7229020,7229020,Ngôn ngữ học,50,tuyensinh247,308,true
+9fa47085-dc22-5d30-acef-a4384cb4737a,DCN,7310104,7310104,Kinh tế đầu tư,60,tuyensinh247,308,true
+926373fc-9de1-5280-9a4a-1233232cfeea,DCN,7310612,7310612,Trung Quốc học,50,tuyensinh247,308,true
+8ab50392-9fdf-54d0-b914-1de6f0231f69,DCN,7340101,7340101,Quản trị kinh doanh,260,tuyensinh247,308,true
+a386bc74-f236-5426-a671-5af8678007d4,DCN,73401012,73401012,Phân tích dữ liệu kinh doanh,120,tuyensinh247,308,true
+b298d9d3-40a7-5f11-818c-c516e78f345b,DCN,7340101TA,7340101TA,Quản trị kinh doanh (CTĐT bằng Tiếng Anh),40,tuyensinh247,,true
+f8392488-53ca-592d-8e43-039f8412c1cd,DCN,7340115,7340115,Marketing,120,tuyensinh247,308,true
+37027afe-806b-5db3-89fb-bcb9944ce82d,DCN,7340115TA,7340115TA,Marketing (CTĐT bằng tiếng Anh),40,tuyensinh247,,true
+388cd6e1-0f0a-548e-b1e5-3652131afa90,DCN,7340201,7340201,Tài chính - Ngân hàng,180,tuyensinh247,308,true
+0ff3f3df-df39-55d9-aa6f-408ef54557b6,DCN,7340201TA,7340201TA,Tài chính - Ngân hàng (CTĐT bằng Tiếng Anh),40,tuyensinh247,,true
+20ab880e-18c0-5b4d-b60e-3088b3794dd6,DCN,7340301,7340301,Kế toán,460,tuyensinh247,308,true
+e6b37dc0-511b-5c9b-830f-5206d2a9529e,DCN,7340301TA,7340301TA,Kế toán (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+bc24dcf2-df75-52e9-85ce-372d666345e8,DCN,7340302,7340302,Kiểm toán,120,tuyensinh247,308,true
+018eb627-c517-56d1-ad8b-f32573c56f43,DCN,7340404,7340404,Quản trị nhân lực,120,tuyensinh247,308,true
+a941cdf5-75ae-5559-8a63-ead16567f07a,DCN,7340406,7340406,Quản trị văn phòng,120,tuyensinh247,308,true
+eb8fd08b-84fd-52ff-9ebf-875d72bd6ca4,DCN,7420201,7420201,Công nghệ sinh học,50,tuyensinh247,,true
+925e8505-d38a-5800-a2b9-13015852f51f,DCN,7480101,7480101,Khoa học máy tính,120,tuyensinh247,308,true
+400a9231-6650-548d-8b96-60f82ccf18c0,DCN,74801012,74801012,Trí tuệ nhân tạo,60,tuyensinh247,,true
+672c0851-5bc1-5998-be54-ea60e1fe3cd9,DCN,7480101TA,7480101TA,Khoa học máy tính (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+5e18cafc-2d78-5d61-a828-5ffa16f926e6,DCN,7480102,7480102,Mạng máy tính và truyền thông dữ liệu,70,tuyensinh247,308,true
+d2839d02-bf54-5f9a-92b6-6c78f7d44682,DCN,7480103,7480103,Kỹ thuật phần mềm,240,tuyensinh247,308,true
+5cc60e07-8ec3-5032-82a2-1b8b8b533a0d,DCN,7480104,7480104,Hệ thống thông tin,120,tuyensinh247,308,true
+32a12951-5a35-5af4-9a10-07f80bf8eea9,DCN,7480108,7480108,Công nghệ kỹ thuật máy tính,120,tuyensinh247,308,true
+99d2b3da-d89e-55e8-8853-9ed7e911157e,DCN,74801081,74801081,Vi mạch bán dẫn,100,tuyensinh247,,true
+9a5141ee-7630-5097-a124-744faced1957,DCN,7480201,7480201,Công nghệ thông tin,300,tuyensinh247,308,true
+1b66392f-e40e-5a13-9e28-5bac7d2578fe,DCN,74802012,74802012,Công nghệ đa phương tiện,60,tuyensinh247,308,true
+fb4dff8b-a636-51c5-8dda-0dbe92c23a40,DCN,7480201TA,7480201TA,Công nghệ thông tin (CTĐT bằng tiếng Anh),40,tuyensinh247,,true
+f57725a4-7330-5594-b424-c4e9ea4a03e2,DCN,7480202,7480202,An toàn thông tin,60,tuyensinh247,,true
+a35b273c-360c-5627-830f-55f41ce899dd,DCN,7510201,7510201,Công nghệ kỹ thuật cơ khí,360,tuyensinh247,308,true
+18aaa143-eb1d-5443-82f6-4ae9754818c5,DCN,75102012,75102012,Công nghệ kỹ thuật khuôn mẫu,60,tuyensinh247,308,true
+812143d4-11c8-5387-93f9-eb173653dd11,DCN,75102013,75102013,Thiết kế cơ khí và kiểu dáng công nghiệp,60,tuyensinh247,308,true
+c32b51aa-0b71-5b1b-97fc-563008621dac,DCN,7510201TA,7510201TA,Công nghệ kỹ thuật cơ khí (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+04e4b64e-a15c-5af1-b834-48fc565922b6,DCN,7510203,7510203,Công nghệ kỹ thuật cơ điện tử,280,tuyensinh247,308,true
+206ffcd0-4046-5956-b094-a2dc165c493b,DCN,75102032,75102032,Robot và trí tuệ nhân tạo,60,tuyensinh247,308,true
+8592a6b0-b12b-5116-884e-06c5ba5bd725,DCN,75102033,75102033,Công nghệ kỹ thuật cơ điện tử ô tô,60,tuyensinh247,308,true
+c448a966-7319-55f7-86c7-cee156dd6158,DCN,7510203TA,7510203TA,Công nghệ kỹ thuật cơ điện tử (CTĐT bằng tiếng Anh),40,tuyensinh247,,true
+1bcf1f02-b792-58ec-8377-49972140f974,DCN,7510205,7510205,Công nghệ kỹ thuật ô tô,360,tuyensinh247,308,true
+c9cfa4e7-1dae-58eb-b335-f69872f5f4a7,DCN,7510205TA,7510205TA,Công nghệ kỹ thuật ô tô (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+ff4a5b68-fb67-569a-9567-96af09c3d7bc,DCN,7510206,7510206,Công nghệ kỹ thuật nhiệt,120,tuyensinh247,308,true
+deb07089-d4a2-518b-8ed7-f489fac4e2f5,DCN,7510251,7510251,Kỹ thuật ô tô và năng lượng mới,40,tuyensinh247,,true
+d2a4f673-9a3f-50f0-8a4a-c8db8693039b,DCN,7510301,7510301,Công nghệ kỹ thuật điện; điện tử,420,tuyensinh247,308,true
+17a11f0a-c023-5857-9539-ffa0c8cee471,DCN,7510301TA,7510301TA,Công nghệ kỹ thuật điện; điện tử (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+ef0f3555-3b94-51b3-886e-ccf82dca6a30,DCN,7510302,7510302,Công nghệ kỹ thuật điện tử - viễn thông,480,tuyensinh247,308,true
+e77bd6fd-811a-5c6d-b26e-3f5dca3e208f,DCN,75103021,75103021,Công nghệ kỹ thuật điện tử y sinh,60,tuyensinh247,308,true
+3094faff-0607-5619-b3aa-7ea95d8071d6,DCN,7510302TA,7510302TA,Công nghệ kỹ thuật điện tử - viễn thông (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+5b90b5ff-725b-524d-9bdf-c7d185d70839,DCN,7510303,7510303,Công nghệ kỹ thuật điều khiển và tự động hóa,300,tuyensinh247,308,true
+9ae669da-3512-5c3e-ac2e-0da4f29d2b4d,DCN,75103031,75103031,Kỹ thuật sản xuất thông minh,60,tuyensinh247,308,true
+27eedc5d-d3e2-5233-a6e7-74911e1e38ad,DCN,7510401,7510401,Công nghệ kỹ thuật hóa học,180,tuyensinh247,308,true
+50685c3b-7cbd-5065-9956-5dfb03f2b02c,DCN,7510402,7510402,Công nghệ vật liệu,40,tuyensinh247,,true
+9bb3150f-d739-5a18-8c96-ea5cde19f8b9,DCN,7510406,7510406,Công nghệ kỹ thuật môi trường,50,tuyensinh247,308,true
+e397243b-56c3-5194-bc9b-6ab2d72b023b,DCN,7510605,7510605,Logistics và quản lý chuỗi cung ứng,120,tuyensinh247,308,true
+0dd59373-7e2d-5ecf-9e0d-b8f1f56b8ec5,DCN,75190071,75190071,Năng lượng tái tạo,60,tuyensinh247,308,true
+f8cfa333-b3b1-5782-aa17-d62dfb83380b,DCN,7520116,7520116,Kỹ thuật cơ khí động lực,60,tuyensinh247,308,true
+cc62e9bb-f7a4-57f0-bbfe-fc86c2392d49,DCN,7520118,7520118,Kỹ thuật hệ thống công nghiệp,60,tuyensinh247,308,true
+8cb4816f-bdc7-539a-8758-d66cfeb6abc2,DCN,7540101,7540101,Công nghệ thực phẩm,120,tuyensinh247,308,true
+aa398195-6cac-5af8-8008-4b8ef1043e34,DCN,7540203,7540203,Công nghệ vật liệu dệt; may,50,tuyensinh247,308,true
+56d4249c-5830-577a-ae86-1e4fe055c34d,DCN,7540204,7540204,Công nghệ dệt; may,180,tuyensinh247,308,true
+01e2ceef-ab06-562d-bb01-d8c633fecc66,DCN,7720203,7720203,Hóa dược,60,tuyensinh247,308,true
+71c2c50c-f82f-5b52-a483-fcdf5ded3998,DCN,7810101,7810101,Du lịch,140,tuyensinh247,308,true
+7edf5bd8-8d35-578a-9cd4-391514973296,DCN,7810101TA,7810101TA,Du lịch (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+a35bce02-eec8-533a-9305-1d6f7a8278f4,DCN,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,130,tuyensinh247,308,true
+e92eeeef-1b4b-5d70-ae0e-98baca42316c,DCN,7810103TA,7810103TA,Quản trị dịch vụ du lịch và lữ hành (CTĐT bằng tiếng Anh),60,tuyensinh247,308,true
+82ad104d-74a4-5369-9468-a1c67a48039a,DCN,7810201,7810201,Quản trị khách sạn,130,tuyensinh247,308,true
+e92ac32a-d784-5183-bcac-fd0dc4c88424,DCN,7810201TA,7810201TA,Quản trị khách sạn (CTĐT bằng tiếng Anh),40,tuyensinh247,308,true
+bf45746d-f7eb-5e5e-bed1-4f1056adf4cd,DCN,7810202,7810202,Quản trị nhà hàng và dịch vụ ăn uống,60,tuyensinh247,308,true
+d8e22200-2c1a-5a47-a841-285c499ade89,DCN,7810202TA,7810202TA,Quản trị nhà hàng và dịch vụ ăn uống (CTĐT bằng tiếng Anh),20,tuyensinh247,308,true
+c45e97bf-83e1-5c78-a2a0-6bd000f086a8,DDL,7220201,7220201,Ngôn ngữ Anh,230,tuyensinh247,455,true
+9bfc0514-b720-5fd5-ac15-05390b39a65c,DDL,7340101,7340101,Quản trị kinh doanh,320,tuyensinh247,455,true
+3208457d-3f18-5688-bb56-d683d2b2f49d,DDL,7340115,7340115,Marketing,200,tuyensinh247,455,true
+5b1425ff-bbe4-5123-9f24-45e1cae59fcf,DDL,7340120,7340120,Kinh doanh quốc tế,100,tuyensinh247,,true
+5b1947e9-9fd1-5b1f-9450-2cb5950b2895,DDL,7340122,7340122,Thương mại Điện tử,300,tuyensinh247,455,true
+b417d2e3-356e-5125-bb9b-901a1bdcde29,DDL,7340301,7340301,Kế toán,350,tuyensinh247,455,true
+65255ae0-ad72-5215-8314-e0b9919d4aa1,DDL,7340302,7340302,Kiểm toán,120,tuyensinh247,455,true
+94ab1a16-d935-5fa1-bc09-362433add764,DDL,7380107,7380107,Luật kinh tế,200,tuyensinh247,455,true
+418e6a06-a2dc-5394-a03c-7bcccd0c0c7b,DDL,7460117,7460117,Toán tin,100,tuyensinh247,455,true
+8299391d-3f5d-56df-b44d-1acbcac88c7a,DDL,7480102,7480102,Mạng máy tính và Truyền thông dữ liệu,100,tuyensinh247,,true
+f0a81819-2e27-5f52-83f2-2158539d0e6a,DDL,7480106,7480106,Kỹ thuật máy tính,200,tuyensinh247,455,true
+9d3b78b1-7e91-505c-ba69-058a0c39e79e,DDL,7480107,7480107,Trí tuệ nhân tạo,250,tuyensinh247,455,true
+9e34552f-d4fc-5544-aaf3-67c58f5d9a16,DDL,7480201,7480201,Công nghệ thông tin,750,tuyensinh247,455,true
+bcdc7985-d8b5-5061-9676-951c0e5f3ec6,DDL,7510102,7510102,Công nghệ kỹ thuật công trình xây dựng,150,tuyensinh247,455,true
+dd1c1449-b712-599d-a02f-8aca5b268c1e,DDL,7510201,7510201,Công nghệ kỹ thuật cơ khí,260,tuyensinh247,455,true
+6da61016-4bab-5e2f-9262-2a7d3dc766bc,DDL,7510203,7510203,Công nghệ kỹ thuật cơ điện tử,300,tuyensinh247,455,true
+701316df-3032-5377-9e18-462b75afdae5,DDL,7510205,7510205,Công nghệ kỹ thuật ô tô,270,tuyensinh247,455,true
+32193703-8616-5545-9a7a-58039a3c0cd1,DDL,7510301,7510301,"Công nghệ kỹ thuật điện, điện tử",700,tuyensinh247,455,true
+d90fca24-f4c5-5d16-9290-8058e36955f7,DDL,7510302,7510302,Công nghệ kỹ thuật điện tử - viễn thông,420,tuyensinh247,455,true
+6f9c6d93-3d39-5fad-9ee8-0477ce27ecf5,DDL,7510303,7510303,Công nghệ kỹ thuật điều khiển và tự động hoá,650,tuyensinh247,455,true
+2fbf91bb-8f55-5cf3-8a30-22c64eef1611,DDL,7510402,7510402,Công nghệ vật liệu bán dẫn và vi mạch,80,tuyensinh247,455,true
+650b81f4-35e5-5478-aeba-9ff6ce020c05,DDL,7510403,7510403,Công nghệ kỹ thuật năng lượng,130,tuyensinh247,455,true
+9ea8caa1-cec8-5ad6-9770-954d879796da,DDL,7510406,7510406,Công nghệ kỹ thuật môi trường,90,tuyensinh247,455,true
+674957c5-e436-5c51-8f60-6e73861102d5,DDL,7510407,7510407,Công nghệ kỹ thuật hạt nhân,50,tuyensinh247,455,true
+74ef7dbf-9876-5617-9ad9-1eeb7209c1eb,DDL,7510601,7510601,Quản lý công nghiệp,200,tuyensinh247,455,true
+9a07817f-decb-5470-a7be-d97de08846e9,DDL,7510602,7510602,Quản lý năng lượng,100,tuyensinh247,455,true
+1db7239b-fe48-543f-9011-65bb1d87169f,DDL,7520107,7520107,Kỹ thuật Robot,180,tuyensinh247,455,true
+eb188f16-7bb6-5025-ac26-7d17ca0a2aca,DDL,7520115,7520115,Kỹ thuật nhiệt,230,tuyensinh247,455,true
+73fa8ba5-8528-55a0-b09d-18656b2d8b0f,DDL,7520117,7520117,Kỹ thuật công nghiệp,100,tuyensinh247,,true
+5a63b5dc-bdd6-5b06-94a9-5f91bb305619,DDL,7520118,7520118,Kỹ thuật hệ thống công nghiệp,100,tuyensinh247,,true
+0abb3af9-881b-5228-8f65-af6b314539c9,DDL,7520401,7520401,Vật lý kỹ thuật,100,tuyensinh247,,true
+ad9cd0d4-9f13-55b8-8985-4df0609505fc,DDL,7580302,7580302,Quản lý xây dựng,80,tuyensinh247,,true
+01de8ab8-16f9-570f-8a09-f1a218990099,DDL,7810103,7810103,Quản trị dịch vụ Du lịch và Lữ hành,280,tuyensinh247,455,true
+e1865ce4-507e-572e-a565-97c593cad458,DDL,7810201,7810201,Quản trị khách sạn,150,tuyensinh247,455,true
+82a4ebbf-5b3f-56d2-8539-b632015fa1b6,DKK,7140246DKK,7140246DKK,Sư phạm công nghệ,60,tuyensinh247,,true
+e25ff552-4cc0-5c51-801e-8c62ea0566a5,DKK,7220201DKD,7220201DKD,Ngôn ngữ Anh,60,tuyensinh247,356,true
+eaa1113a-8467-5987-8d20-100a12961bca,DKK,7220201DKK,7220201DKK,Ngôn ngữ Anh,170,tuyensinh247,356,true
+e35a4b4b-e228-5c5b-b8af-b341c44a2ad9,DKK,7310110DKK,7310110DKK,Quản lý kinh tế,70,tuyensinh247,,true
+93914edb-1a71-5b66-abca-a6d01f413f64,DKK,7340101DKD,7340101DKD,Quản trị kinh doanh,120,tuyensinh247,356,true
+9c20d0fa-7e88-51f8-b2b7-830b1c56824b,DKK,7340101DKK,7340101DKK,Quản trị kinh doanh,430,tuyensinh247,356,true
+3ebfc05c-fd91-5a8e-b69b-0d0b050293ed,DKK,7340115DKD,7340115DKD,Marketing,60,tuyensinh247,356,true
+8cc03233-da60-5dc0-8398-48a278e2c811,DKK,7340115DKK,7340115DKK,Marketing,270,tuyensinh247,356,true
+2108f961-085f-50e3-9aa7-1829989ca3ad,DKK,7340121DKD,7340121DKD,Kinh doanh thương mại,120,tuyensinh247,356,true
+06712144-17fd-5832-9163-54d7c2bfb1c4,DKK,7340121DKK,7340121DKK,Kinh doanh thương mại,380,tuyensinh247,356,true
+50f6d371-81d0-5235-b20d-08585f4cb699,DKK,7340201DKD,7340201DKD,Tài chính - Ngân hàng,120,tuyensinh247,356,true
+5f2351e4-5d01-5ad7-93ef-98be9c9b0b7b,DKK,7340201DKK,7340201DKK,Tài chính - Ngân hàng,420,tuyensinh247,356,true
+0ac9c928-8dd9-53eb-8eb9-25d5b8847029,DKK,7340204DKD,7340204DKD,Bảo hiểm,60,tuyensinh247,356,true
+86eeaa85-f215-5fa1-a368-a2be1a4f50ad,DKK,7340204DKK,7340204DKK,Bảo hiểm,120,tuyensinh247,356,true
+e0bc6c69-7138-56c2-bc30-33dadb30a207,DKK,7340301DKD,7340301DKD,Kế toán,180,tuyensinh247,356,true
+a1125148-8539-5034-9b3f-77915d8ba4d6,DKK,7340301DKK,7340301DKK,Kế toán,620,tuyensinh247,356,true
+b41e8377-f5b6-53b0-b0ed-f0f40b705d96,DKK,7340302DKD,7340302DKD,Kiểm toán,60,tuyensinh247,356,true
+2c8e3e13-97b7-5f4b-89a0-c81badda28e3,DKK,7340302DKK,7340302DKK,Kiểm toán,140,tuyensinh247,356,true
+94b3123a-a8ce-54aa-885e-44039231a1a7,DKK,7460108DKK,7460108DKK,Khoa học dữ liệu,210,tuyensinh247,356,true
+83d7a343-414f-5ebd-9e43-0c5ee21cd02d,DKK,7480102DKD,7480102DKD,Mạng máy tính và TTDL,60,tuyensinh247,356,true
+6f5ea6bd-ea41-5399-a524-c644e1753a2a,DKK,7480102DKK,7480102DKK,Mạng máy tính và TTDL,150,tuyensinh247,356,true
+ad5bcba0-2dfa-57c7-b6e0-a3f84180089f,DKK,7480108DKD,7480108DKD,Công nghệ kỹ thuật máy tính,60,tuyensinh247,356,true
+64058b30-385a-5c3d-9df8-14ca5cb3ee58,DKK,7480108DKK,7480108DKK,Công nghệ kỹ thuật máy tính,150,tuyensinh247,356,true
+82e9ff69-97d6-5d0d-8213-3e4c08e72426,DKK,7480201DKD,7480201DKD,Công nghệ thông tin,120,tuyensinh247,356,true
+ffdd901d-d29b-50bc-a72a-50382f83276b,DKK,7480201DKK,7480201DKK,Công nghệ thông tin,420,tuyensinh247,356,true
+cc8ade27-f487-5ba3-8d60-fa16c1045a5a,DKK,7510201DKD,7510201DKD,CNKT cơ khí,60,tuyensinh247,356,true
+1d943a82-c67f-5e3e-abf7-0218a57eebb8,DKK,7510201DKK,7510201DKK,CNKT cơ khí,220,tuyensinh247,356,true
+c5cdb555-5cad-5d25-9fe0-5c5568ebcf10,DKK,7510203DKD,7510203DKD,CNKT cơ - điện tử,60,tuyensinh247,356,true
+52c11145-2572-54fb-8472-2788d0f833ac,DKK,7510203DKK,7510203DKK,CNKT cơ - điện tử,220,tuyensinh247,356,true
+eb6c94fc-fd9c-5f3c-a433-113da4d6269c,DKK,7510205DKD,7510205DKD,Công nghệ kỹ thuật Ô tô,60,tuyensinh247,356,true
+a653c3db-f85d-50c0-b57b-7dc7353284fa,DKK,7510205DKK,7510205DKK,Công nghệ kỹ thuật Ô tô,220,tuyensinh247,356,true
+4f557594-a2d6-5b5e-895a-770a75118892,DKK,7510301DKD,7510301DKD,"CNKT điện, điện tử",60,tuyensinh247,356,true
+a74c63fa-2dd2-51c0-9d60-d88d65e5966d,DKK,7510301DKK,7510301DKK,"CNKT điện, điện tử",220,tuyensinh247,356,true
+e780a8ae-d68e-5a10-beda-19e361e69a3c,DKK,7510302DKD,7510302DKD,CNKT điện tử – viễn thông,60,tuyensinh247,356,true
+3f54cf88-07b8-59b4-ac84-d65ebf01a450,DKK,7510302DKK,7510302DKK,CNKT điện tử – viễn thông,220,tuyensinh247,356,true
+483cfff8-c14f-5345-98bc-8f56b9044a83,DKK,7510303DKD,7510303DKD,CNKT điều khiển và tự động hoá,110,tuyensinh247,356,true
+e25a4e0f-7a1e-52db-ad16-4ca973256fbf,DKK,7510303DKK,7510303DKK,CNKT điều khiển và tự động hoá,220,tuyensinh247,356,true
+894820d0-a81a-5281-bb88-d20826e2604a,DKK,7510605DKD,7510605DKD,Logistics và quản lý chuỗi cung ứng,120,tuyensinh247,356,true
+955cc18a-e21d-51d1-ab03-4e0879ff15c0,DKK,7510605DKK,7510605DKK,Logistics và quản lý chuỗi cung ứng,220,tuyensinh247,356,true
+28328d4e-0d2e-59b8-bc92-272cfc9a9092,DKK,7540101DKD,7540101DKD,Công nghệ thực phẩm,60,tuyensinh247,356,true
+c78c9635-5372-5980-a501-17b90f0519e2,DKK,7540101DKK,7540101DKK,Công nghệ thực phẩm,180,tuyensinh247,356,true
+77510d7d-39dd-5190-8a66-273a1dd9e046,DKK,7540106DKK,7540106DKK,ĐBCL & An toàn thực phẩm,60,tuyensinh247,356,true
+98b36038-2670-5cd0-a849-6ce2b5e616e6,DKK,7540203DKK,7540203DKK,Công nghệ vật liệu dệt may,60,tuyensinh247,356,true
+4ba65fee-7423-528d-9702-c95afd92b34b,DKK,7540204DKD,7540204DKD,"Công nghệ dệt, may",120,tuyensinh247,356,true
+f308bc3b-ed49-5188-88af-c2836ee3e257,DKK,7540204DKK,7540204DKK,"Công nghệ dệt, may",210,tuyensinh247,356,true
+d3c445d8-ea4c-5cbe-a1f9-a413f7ad5efa,DKK,7810103DKD,7810103DKD,Quản trị dịch vụ du lịch và lữ hành,60,tuyensinh247,356,true
+8871f7c5-96aa-54c1-b51a-e48ed1c1ff14,DKK,7810103DKK,7810103DKK,Quản trị dịch vụ du lịch và lữ hành,180,tuyensinh247,356,true
+c7c7281f-96db-5891-aaee-466d12a7240a,DKK,7810201DKK,7810201DKK,Quản trị khách sạn,180,tuyensinh247,356,true
+68f332d6-d0da-5e45-b6e3-1c03ee9a1b09,DLX,7220201,7220201,Ngôn ngữ Anh,100,tuyensinh247,366,true
+9b91326a-fa81-565d-a8a4-f6ef754b19e1,DLX,7310101A,7310101A,Kinh tế lao động,55,tuyensinh247,,true
+6e4c2e80-37c4-5012-a1b5-fb2499a5eda5,DLX,7310101B,7310101B,Kinh tế số,70,tuyensinh247,,true
+6f55a2e8-d7a2-501b-8c82-b4074e54eda9,DLX,7310401A,7310401A,Tâm lý học,120,tuyensinh247,,true
+5a2539e4-7f19-5772-9786-d43a82e0b3ea,DLX,7310401B,7310401B,Tâm lý học học đường,90,tuyensinh247,,true
+cc231296-1e7d-5ecd-a5d6-0032364722fa,DLX,7340101A,7340101A,Quản trị kinh doanh,180,tuyensinh247,,true
+0872ba30-0c2a-52d2-b30e-3a32a8cd05ea,DLX,7340101B,7340101B,Marketing,50,tuyensinh247,,true
+d1708f34-1fb6-56c1-a6e8-f8c8b8c1f25d,DLX,7340101C,7340101C,Logistics và quản trị chuỗi cung ứng,50,tuyensinh247,,true
+5d02f01a-1845-57de-8deb-65048420191a,DLX,7340201A,7340201A,Tài chính - Ngân hàng,180,tuyensinh247,,true
+dfa84f71-eb97-57ee-9020-00e0f98d2ff2,DLX,7340201B,7340201B,Công nghệ tài chính,70,tuyensinh247,,true
+3921eff6-12b2-5386-9ab3-9323f7171ff4,DLX,7340204A,7340204A,Bảo hiểm,50,tuyensinh247,,true
+7e343e03-6816-5c59-9c76-f5cbe4992964,DLX,7340204B,7340204B,Tài chính và Quản trị rủi ro,50,tuyensinh247,,true
+c1f7ede1-998a-579a-b3cd-c1e3c7615b62,DLX,7340204C,7340204C,Đầu tư tài chính,50,tuyensinh247,,true
+fca07a43-a940-541b-8171-f7ac31cced15,DLX,7340207,7340207,Bảo hiểm - Tài chính,50,tuyensinh247,366,true
+ae6bf92f-f834-5723-a697-6396ab190871,DLX,7340301A,7340301A,Kế toán,330,tuyensinh247,,true
+01e334b5-c469-55d5-91e9-06dbf97d5471,DLX,7340301B,7340301B,Phân tích dữ liệu trong kế toán,100,tuyensinh247,,true
+eb9c77ea-dbf0-5f20-90a3-94a4b066a4d8,DLX,7340301C,7340301C,Kế toán quản trị định hướng chứng chỉ quốc tế CMA,50,tuyensinh247,,true
+d6e95151-5b1a-5387-95f9-27c2ab8d92ff,DLX,7340302,7340302,Kiểm toán,70,tuyensinh247,366,true
+04c23b4c-fadf-5bdf-9d49-0327d971f185,DLX,7340404A,7340404A,Quản trị nhân lực,250,tuyensinh247,,true
+4a936d5d-a7ce-50d7-bb0d-b0bb7cccad7a,DLX,7340404B,7340404B,Quản trị nhân lực số,120,tuyensinh247,,true
+0070959e-41cc-526d-b820-9f9443f25e8a,DLX,7340404C,7340404C,Quản trị nhân lực và văn phòng,60,tuyensinh247,,true
+06f53773-d605-55b8-839b-9e0e93320ed1,DLX,7340405,7340405,Hệ thống thông tin quản lý,60,tuyensinh247,366,true
+f6289144-5456-5cce-a358-3d899a53f37d,DLX,7380107,7380107,Luật kinh tế,100,tuyensinh247,366,true
+5980b599-9cd0-587c-8f06-427f12b69dab,DLX,7480201,7480201,Công nghệ thông tin,120,tuyensinh247,366,true
+d8ee5759-ff78-5d0f-bf66-0441ed43edcd,DLX,7760101A,7760101A,Công tác xã hội,115,tuyensinh247,,true
+92025026-9089-5d33-ab4c-c435dec1c339,DLX,7760101B,7760101B,Dịch vụ chăm sóc xã hội với người cao tuổi,60,tuyensinh247,,true
+8dd03ee6-ab44-541b-95b2-6b3c0ec32034,DLX,7810103A,7810103A,Quản trị dịch vụ du lịch và lữ hành,100,tuyensinh247,,true
+293b9bc4-16f1-505e-9576-fe551474ab12,DLX,7810103B,7810103B,Quản trị khách sạn,50,tuyensinh247,,true
+9f501be9-3956-59bf-8a52-b49d7d3d797d,DMT,7220201,7220201,Ngôn ngữ Anh,120,tuyensinh247,171,true
+c77bc42e-0356-54cd-81bf-e9ae1727dce1,DMT,7340101,7340101,Quản trị kinh doanh,250,tuyensinh247,171,true
+fe9e4528-4ffb-51b8-8d28-cddaef81dd79,DMT,7340115,7340115,Marketing,250,tuyensinh247,171,true
+ea8efae6-5bc0-5f73-8ff7-c8380cd49a41,DMT,7340116,7340116,Bất động sản,350,tuyensinh247,171,true
+200cd99f-5e17-5e8c-b728-fac57812ee7a,DMT,7340301,7340301,Kế toán,200,tuyensinh247,171,true
+21670f96-97fd-59bb-8fe7-adb1119d5738,DMT,7380101,7380101,Luật,250,tuyensinh247,171,true
+590f17f7-22b9-50de-84a9-f9458b4d0a64,DMT,7440222,7440222,Khí tượng và khí hậu học,50,tuyensinh247,171,true
+8042a6f0-15db-50da-9d08-6de7ac2af46d,DMT,7440224,7440224,Thủy văn học,50,tuyensinh247,171,true
+0cdb89d0-dfd6-502b-a554-62f7339a7b99,DMT,7440298,7440298,Biến đổi khí hậu và phát triển bền vững,120,tuyensinh247,171,true
+8cc4397e-1a91-5c5b-b8d4-67f372ed298f,DMT,7480201,7480201,Công nghệ thông tin,300,tuyensinh247,171,true
+23d03536-f2f9-552e-b1b2-b826845b38c4,DMT,7510406,7510406,Công nghệ kỹ thuật môi trường,200,tuyensinh247,171,true
+f97aefc9-fca3-5405-abcf-17608a113613,DMT,7510605,7510605,Logistics và quản lý chuỗi cung ứng,200,tuyensinh247,171,true
+682f3116-1682-5e24-9190-5f89f4f89d20,DMT,7520501,7520501,Kỹ thuật địa chất,50,tuyensinh247,171,true
+ba00c11f-78ef-5412-a1d8-63cf4623f4ab,DMT,7520503,7520503,Kỹ thuật trắc địa bản đồ,90,tuyensinh247,171,true
+7e4c5603-8d51-50cc-93ea-c7112e3494ad,DMT,7520503PH,7520503PH,Kỹ thuật trắc địa bản đồ,10,tuyensinh247,171,true
+7d07c1c0-070f-5d53-bdc7-1ea45404b65d,DMT,7540106,7540106,Đảm bảo chất lượng và an toàn thực phẩm,100,tuyensinh247,171,true
+ac96c761-fe86-5269-b7bd-e1ffa04f0634,DMT,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,200,tuyensinh247,171,true
+0513ea11-c5f7-5fc4-b1ed-9812250009b5,DMT,7810201,7810201,Quản trị khách sạn,200,tuyensinh247,171,true
+9af965cb-f083-57fe-8e83-2ddaef36b404,DMT,7850101,7850101,Quản lý tài nguyên và môi trường,400,tuyensinh247,171,true
+12c4a32b-97b9-5bc5-a6b7-1bfa482d6831,DMT,7850102,7850102,Kinh tế Tài nguyên thiên nhiên,150,tuyensinh247,171,true
+2d9c4faf-43f2-5279-8d98-1f465e0f6e10,DMT,7850103,7850103,Quản lý đất đai,550,tuyensinh247,171,true
+c6c5ea6c-43b8-52fb-a157-be5f44b79525,DMT,7850103PH,7850103PH,Quản lý đất đai,10,tuyensinh247,171,true
+c2097fd5-a37e-5ed1-83a0-b49d547b1e7d,DMT,7850198,7850198,Quản lý tài nguyên nước,50,tuyensinh247,171,true
+f8cfd3ce-7d6f-5f19-83ee-2bea5e5a2428,DMT,7850199,7850199,Quản lý biển,50,tuyensinh247,171,true
+43a5bbe7-ba01-583f-b210-1f30a2d315b0,DQK,7210403,7210403,Cử nhân Thiết kế đồ họa,100,tuyensinh247,350,true
+b0630db9-f5cd-582f-9d71-054436d99069,DQK,7220201,7220201,Cử nhân Ngôn ngữ Anh,320,tuyensinh247,350,true
+c14b4220-eaba-5ec7-864a-e9a72024ee03,DQK,7220202,7220202,Cử nhân Ngôn ngữ Nga,50,tuyensinh247,350,true
+f0ded00d-f1b9-5c9e-8f21-a6d5d1a74b71,DQK,7220204,7220204,Cử nhân ngôn ngữ Trung Quốc,899,tuyensinh247,350,true
+603ad53e-2485-527e-a970-e015945467d7,DQK,7310101,7310101,Cử nhân Kinh tế,200,tuyensinh247,350,true
+3ab5b7f8-3217-5080-abd9-cde5077d160f,DQK,7310205,7310205,Cử nhân Quản lý nhà nước,40,tuyensinh247,350,true
+8e79f84f-a0ff-5264-8f82-c32a4cf8bbe1,DQK,7340101,7340101,Cử nhân Quản trị kinh doanh,960,tuyensinh247,350,true
+b5e5238f-1e6a-5a60-b4bb-90923fcead39,DQK,7340120,7340120,Cử nhân Kinh doanh quốc tế,400,tuyensinh247,350,true
+001963a4-e072-56ef-8e50-8b5fcdd83a3c,DQK,7340201,7340201- 2,"Cử nhân Tài chính - Ngân hàng, chuyên ngành Tài chính",185,tuyensinh247,,true
+e3c9d824-1fed-5830-9282-fa5fe514f1d0,DQK,7340201,7340201-1,"Cử nhân Tài chính - Ngân hàng, chuyên ngành Ngân hàng",185,tuyensinh247,,true
+f3e72f80-fc5f-58cd-9e1f-fe699b39292c,DQK,7340301,7340301,Cử nhân Kế toán,470,tuyensinh247,350,true
+083b35ee-80a2-5956-b4f7-3b01f753dbb8,DQK,7380107,7380107,Cử nhân Luật kinh tế,284,tuyensinh247,350,true
+02cf1ead-3766-5b08-8f9a-a28667838325,DQK,7480201,7480201,Kỹ sư Công nghệ thông tin,960,tuyensinh247,350,true
+7d1bfa40-4924-58f3-8e17-a4afdb7e68f3,DQK,7510203,7510203,Kỹ sư Công nghệ kỹ thuật cơ - điện từ,170,tuyensinh247,350,true
+279b7602-a4c5-54ac-9b99-42db9ed01109,DQK,7510205,7510205,Kỹ sư Công nghệ kỹ thuật ô tô,301,tuyensinh247,350,true
+179f8626-23f9-537b-8812-b66335a8b5ce,DQK,7510301,7510301,"Kỹ sư Công nghệ kỹ thuật điện, điện tử",150,tuyensinh247,350,true
+6ced4657-759b-5ace-a9c1-ab83628495e4,DQK,7510406,7510406,Kỹ sư Công nghệ kỹ thuật môi trường,30,tuyensinh247,350,true
+69f79c6c-6a0f-5c68-9db1-2df5a3153ecc,DQK,7580101,7580101,Kiến trúc sư,50,tuyensinh247,350,true
+b6df017b-3297-5416-ada2-94253daf65fa,DQK,7580106,7580106,Cử nhân Quản lý đô thị và công trình,20,tuyensinh247,350,true
+6f93447d-eabc-5a8c-a306-4eba09bdb1c6,DQK,7580108,7580108,Cử nhân Thiết kế nội thất,50,tuyensinh247,350,true
+86108fd5-2dc6-5791-a8d1-a5df7c2a6c8d,DQK,7580201,7580201,Kỹ sư Kỹ thuật xây dựng,70,tuyensinh247,350,true
+1351330d-525d-57c8-a52b-c08c4d2ef7d9,DQK,7720101,7720101,Bác sĩ Y khoa,144,tuyensinh247,350,true
+e05b5c9a-8f05-5904-bff1-aa2d5674fae8,DQK,7720201,7720201,Dược sĩ,180,tuyensinh247,350,true
+3929a2c8-a4b9-53e7-8d31-8e92001f7c2f,DQK,7720301,7720301,Cử nhân Điều dưỡng,64,tuyensinh247,350,true
+a60bd4fe-3fec-54ce-83da-efe72bc7534f,DQK,7720501,7720501,Bác sĩ Răng - Hàm - Mặt,60,tuyensinh247,350,true
+031f62d0-c1cb-50e6-98c0-0cd827bcf574,DQK,7810103,7810103,Cử nhân Quản trị dịch vụ du lịch và lữ hành,238,tuyensinh247,350,true
+ff0fb2ef-c8c3-52b5-802b-e798f6070e16,DQK,7850101,7850101,Kỹ sư Quản lý tài nguyên và môi trường,50,tuyensinh247,350,true
+759061ef-b387-5148-bdc5-74c41ca82f78,DTL,7210205,7210205,Thanh nhạc,40,tuyensinh247,425,true
+1b04610e-7c7f-5902-8b2b-d83faaf70715,DTL,7210403,7210403,Thiết kế đồ hoạ,60,tuyensinh247,425,true
+5f9957df-b5f2-5cb4-864f-a5c21da23a3d,DTL,7220201,7220201,Ngôn ngữ Anh,140,tuyensinh247,425,true
+18b60c15-059b-58dd-93c5-665fa172c017,DTL,7220204,7220204,Ngôn ngữ Trung Quốc,180,tuyensinh247,425,true
+7f8deb76-5ce7-57ca-bada-f87719b8c4d8,DTL,7220209,7220209,Ngôn ngữ Nhật,100,tuyensinh247,425,true
+89b87bbd-a0df-503c-bf66-4bd86986beb5,DTL,7220210,7220210,Ngôn ngữ Hàn Quốc,180,tuyensinh247,425,true
+ea880270-711a-5b11-8d8c-16db48e1f1ca,DTL,7310106,7310106,Kinh tế quốc tế,110,tuyensinh247,425,true
+2ddbff9f-75d9-5fe9-acc7-49b7751e1383,DTL,7310630,7310630,Việt Nam học,80,tuyensinh247,425,true
+f93079c4-f170-54ba-991e-4a417f5c7c0f,DTL,7320104,7320104,Truyền thông đa phương tiện,180,tuyensinh247,425,true
+9a48aea7-7acb-5d77-adc7-8013f42e3663,DTL,7340101,7340101,Quản trị kinh doanh,180,tuyensinh247,425,true
+48854236-1133-5607-9647-babfdca7afc3,DTL,7340101A,7340101A,Quản trị kinh doanh định hướng chuẩn nghề nghiệp quốc tế,35,tuyensinh247,,true
+68b9c64b-5885-5294-86b7-b072c805c2b8,DTL,7340115,7340115,Marketing,140,tuyensinh247,425,true
+7ec8c4e7-2009-51a1-a150-f71f64172418,DTL,7340122,7340122,Thương mại điện tử,70,tuyensinh247,425,true
+739bbe63-80da-5e29-8c84-35ee037d573a,DTL,7340201,7340201,Tài chính - Ngân hàng,150,tuyensinh247,425,true
+522f7c29-b304-59f9-82ed-2f62d3c4ef21,DTL,7340301,7340301,Kế toán,160,tuyensinh247,425,true
+4d43ef66-edc3-50c2-a439-a0c1e426355d,DTL,7340301A,7340301A,Kế toán định hướng chứng chỉ quốc tế ACCA,35,tuyensinh247,,true
+8e137ddc-88a8-5ca6-919e-7e65447f70e4,DTL,7380107,7380107,Luật kinh tế,140,tuyensinh247,425,true
+0d9687d0-9945-56b1-982b-81b776c2f9d4,DTL,7480101,7480101,Khoa học máy tính,70,tuyensinh247,425,true
+84ab7529-0a73-5785-9885-1e83d3fb26f8,DTL,7480104,7480104,Hệ thống thông tin,35,tuyensinh247,425,true
+be3e88ae-b051-5bf6-be8c-51fbf6daae5f,DTL,7480201,7480201,Công nghệ thông tin,210,tuyensinh247,425,true
+c278a481-b33e-53f1-8fa8-d5a42c3f2c4a,DTL,7480207,7480207,Trí tuệ nhân tạo,70,tuyensinh247,425,true
+7228e9e1-102f-5ae7-8bdc-5150415ef8e8,DTL,7510605,7510605,Logistics và quản lý chuỗi cung ứng,175,tuyensinh247,425,true
+fd23d85b-b8a4-583d-b0a1-8a7696be6d24,DTL,7720301,7720301,Điều dưỡng,160,tuyensinh247,425,true
+034c0cfc-620c-532f-9c3b-4264c165e5cc,DTL,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,150,tuyensinh247,425,true
+cdd6f2d4-007f-5ce2-9562-1ef28a16ec6c,DTL,7810201,7810201,Quản trị khách sạn,150,tuyensinh247,425,true
+efeb421c-2ed2-5084-93e1-e6111826e02f,ETU,52480203,52480203,Công nghệ đa phương tiện,60,tuyensinh247,,true
+e1ea5c2e-9345-5b46-bc3b-4dabaf92d594,ETU,7210403,7210403,Thiết kế đồ họa,79,tuyensinh247,339,true
+a1873b5a-c2a6-5dbb-aac7-4eaa5f7850fe,ETU,7220201,7220201,Ngôn ngữ Anh,139,tuyensinh247,339,true
+24524547-6299-529f-9794-ae161ceb89df,ETU,7220204,7220204,Ngôn ngữ Trung Quốc,239,tuyensinh247,339,true
+773ecc18-6a67-53db-9e14-117e6f7b67af,ETU,7310110,7310110,Quản lý kinh tế (Ngành mới),100,tuyensinh247,,true
+d18b93e4-f90f-5df3-9ae7-1d79cecc296e,ETU,7320104,7320104,Truyền thông đa phương tiện,179,tuyensinh247,339,true
+148a29fb-4ad7-5aa0-9e6a-291df84d1b8f,ETU,7320108,7320108,Quan hệ công chúng,99,tuyensinh247,339,true
+8df02b2e-489c-52e7-bd12-0508b9f4de39,ETU,7340101,7340101,Quản trị kinh doanh,99,tuyensinh247,339,true
+8562d81a-60ad-54ed-8b5d-8a1896e56bcd,ETU,7340122,7340122,Thương mại điện tử,50,tuyensinh247,339,true
+a6ab8c6f-a338-535c-9db7-36a8f7291a31,ETU,7340201,7340201,Tài chính ngân hàng,79,tuyensinh247,339,true
+dbc592c9-e51c-5219-9e3b-02e35d174dff,ETU,7340301,7340301,Kế toán,60,tuyensinh247,339,true
+52f4a55b-c360-5eee-938e-2ad91d2107f8,ETU,7380107,7380107,Luật kinh tế,146,tuyensinh247,339,true
+77e53e63-64d8-538e-b875-588caec6746a,ETU,7480201,7480201,Công nghệ thông tin,140,tuyensinh247,339,true
+b065d875-7aa5-529f-9985-5dda172be84e,ETU,7510605,7510605,Logistics & quản lý chuỗi cung ứng,50,tuyensinh247,339,true
+b145add1-b372-5629-a6cc-eb355346b21c,ETU,7520130,7520130,Kỹ thuật ô tô,99,tuyensinh247,339,true
+087c11e4-76f3-5f0e-ac68-43a4e20af9af,ETU,7580108,7580108,Thiết kế nội thất,39,tuyensinh247,339,true
+c8ab44a5-08b5-5325-8453-1a49bdfad8fb,ETU,7720101,7720101,Y khoa,479,tuyensinh247,339,true
+932213cb-1ebc-5cc3-b3e4-fc053d9366ea,ETU,7720115,7720115,Y học cổ truyền,289,tuyensinh247,339,true
+ff4d57cf-61cd-5d20-9438-3d891dc0ccd1,ETU,7720201,7720201,Dược học,99,tuyensinh247,339,true
+9fd5890b-2d16-50c8-9e4c-8ed94703cee0,ETU,7720301,7720301,Điều dưỡng,139,tuyensinh247,339,true
+973fb2af-18f8-5429-98e8-68c1b6906073,ETU,7810103,7810103,Quản trị dịch vụ Du lịch và Lữ hành,65,tuyensinh247,339,true
+c96d8002-eac2-5fcf-bde6-87d8be1a1be3,ETU,7810201,7810201,Quản trị khách sạn,50,tuyensinh247,339,true
+a9300cd0-0b44-5eeb-8e8f-3201068c8cf2,FBU,7220201,7220201,Ngôn ngữ Anh,100,tuyensinh247,474,true
+d127d68f-a180-5a0d-9d45-905473db57d6,FBU,7220204,7220204,Ngôn ngữ Trung Quốc,450,tuyensinh247,474,true
+df3154c8-d97f-5968-bece-cc9e16fcd06d,FBU,7220204_LK,7220204_LK,"Ngôn ngữ Trung Quốc (Liên kết đào tạo, cấp song bằng)",50,tuyensinh247,,true
+bfa1bbbb-6842-5e93-9312-4018bf0ca09d,FBU,7340101,7340101,Quản trị kinh doanh,450,tuyensinh247,474,true
+a679eb81-9fe0-5552-9883-41108d012093,FBU,7340120,7340120,Kinh doanh quốc tế,90,tuyensinh247,474,true
+6b5cd868-2dc3-52b4-b77b-481c8b89211c,FBU,7340120_LK,7340120_LK,"Kinh doanh quốc tế (Liên kết đào tạo, cấp song bằng)",10,tuyensinh247,,true
+c2d99b24-60a9-58dd-8cf4-0f43990c4a06,FBU,7340121,7340121,Kinh doanh thương mại,350,tuyensinh247,474,true
+9ccd7040-12ae-5e33-bf7b-2df7b2842c19,FBU,7340201,7340201,Tài chính - Ngân hàng,1000,tuyensinh247,474,true
+af90e6d6-5262-5586-8c6f-b509f566679c,FBU,7340301,7340301,Kế toán,400,tuyensinh247,474,true
+507e128c-2033-5d7f-adab-82dbf737e1c2,FBU,7340302,7340302,Kiểm toán,100,tuyensinh247,474,true
+52463d1a-5452-5ec9-915c-7f78b9977e9e,FBU,7380107,7380107,Luật kinh tế,200,tuyensinh247,474,true
+40206857-9dad-5849-90f9-3485a297905c,FBU,7480201,7480201,Công nghệ thông tin,950,tuyensinh247,474,true
+3fd6164f-52ba-5c88-9579-402a6bd319e9,GHA,7220201,7220201,Ngôn ngữ Anh,60,tuyensinh247,330,true
+63a0aee6-63fb-5d87-9221-50202abcb6f7,GHA,7310101,7310101,"Kinh tế (Chuyên ngành: Kinh tế và quản lý đầu tư, Kinh tế bưu chính viễn thông)",75,tuyensinh247,330,true
+6cb85193-3966-5a95-9b11-d1a29b276b90,GHA,7340101,7340101,Quản trị kinh doanh,70,tuyensinh247,330,true
+99e8e72c-3e17-5c7b-a3f7-81e161aecd35,GHA,7340201,7340201,Tài chính - Ngân hàng,65,tuyensinh247,330,true
+6dff9275-860a-5ae5-9de7-b5b2b8298d78,GHA,7340301,7340301,Kế toán (Chuyên ngành Kế toán tổng hợp),70,tuyensinh247,330,true
+d3847bd6-af25-58bf-989f-b0cd50732b5e,GHA,7460112,7460112,Toán ứng dụng (Chuyên ngành Toán tin ứng dụng),60,tuyensinh247,330,true
+6fc7d6e8-d952-56a3-abdf-4667778c8aef,GHA,7480101,7480101,Khoa học máy tính,60,tuyensinh247,330,true
+cae18d94-abd8-5f45-a0d2-1ccf834bae3b,GHA,7480106,7480106,"Kỹ thuật máy tính (theo hướng chuyên sâu vi mạch - bán dẫn, bao gồm lớp kỹ sư tài năng)",120,tuyensinh247,330,true
+02c14520-2400-58a3-8706-78a1ae3cead7,GHA,7480107,7480107,Trí tuệ nhân tạo,40,tuyensinh247,,true
+39da0434-24bd-5a9f-8a13-176f9445ccbd,GHA,7480201,7480201,Công nghệ thông tin (Chương trình CLC Công nghệ thông tin Việt - Anh),90,tuyensinh247,330,true
+e458ee68-d40c-5d2b-85d6-5923ff922235,GHA,7510605,7510605,Logistics và quản lý chuỗi cung ứng (Chương trình CLC Logistics và quản lý chuỗi cung ứng Việt - Anh),45,tuyensinh247,330,true
+930fe249-3705-572a-99cb-94939c4cbaf9,GHA,7520103,7520103,Kỹ thuật cơ khí (Chương trình CLC Tự động hóa thiết kế cơ khí),50,tuyensinh247,330,true
+16ef9428-aa75-5702-8336-74af29e1bff5,GHA,7520107,7520107,Kỹ thuật robot (Chuyên ngành Kỹ thuật robot và trí tuệ nhân tạo),65,tuyensinh247,330,true
+5b65e4cb-7f65-5a5f-8d59-5f8300548c55,GHA,7520114,7520114,Kỹ thuật cơ điện tử,60,tuyensinh247,330,true
+0152cd63-9b94-5eb5-b3a0-342dcc524b23,GHA,7520115,7520115,Kỹ thuật nhiệt (Chuyên ngành Kỹ thuật nhiệt lạnh và điều hoà không khí),70,tuyensinh247,330,true
+1819e604-2ab1-5829-977c-606e624a6f61,GHA,7520116,7520116,"Kỹ thuật cơ khí động lực (Chuyên ngành: Kỹ thuật phương tiện đường sắt, Máy xây dựng, Kỹ thuật máy động lực)",150,tuyensinh247,330,true
+a2513089-533a-5e90-a6b3-3be415458cfb,GHA,7520130,7520130,Kỹ thuật ô tô (Chương trình CLC Kỹ thuật ô tô),90,tuyensinh247,330,true
+622ac01c-23a9-5a41-b5e1-939c5d14a5c6,GHA,7520201,7520201,"Kỹ thuật điện (Chuyên ngành Hệ thống điện đường sắt tốc độ cao, đường sắt đô thị)",65,tuyensinh247,330,true
+fc4c887e-ce28-5c96-a315-c4913773a9f1,GHA,7520207,7520207,Kỹ thuật điện tử - viễn thông (Chương trình CLC Kỹ thuật viễn thông),50,tuyensinh247,330,true
+11c6409e-0f6b-5694-b601-0ee4e5478e9d,GHA,7520216,7520216,Kỹ thuật điều khiển và tự động hoá (Chuyên ngành Điều khiển và thông tin tín hiệu đường sắt hiện đại),60,tuyensinh247,330,true
+0c6a8c11-8af8-575e-88fe-29650aae7e6b,GHA,7520320,7520320,Kỹ thuật môi trường,55,tuyensinh247,330,true
+7a2fd372-060b-5be9-9645-0a182f9234c4,GHA,7580101,7580101,Kiến trúc,50,tuyensinh247,330,true
+ed8f0bcf-2544-5cd5-ab0e-dc91baf436a7,GHA,7580106,7580106,Quản lý đô thị và công trình,55,tuyensinh247,330,true
+17afa26f-fc3a-592f-b864-fdc630c86ea2,GHA,7580201,7580201,Kỹ thuật xây dựng (Chương trình tiên tiến Kỹ thuật xây dựng công trình giao thông),60,tuyensinh247,330,true
+c4bf0b42-3465-5cc3-84b7-204d2a6b6528,GHA,7580202,7580202,Kỹ thuật xây dựng công trình thủy,50,tuyensinh247,330,true
+561decfd-a83e-5790-94fc-99f06547024a,GHA,7580205,7580205,Kỹ thuật xây dựng công trình giao thông (Chuyên ngành Đường sắt tốc độ cao),60,tuyensinh247,330,true
+ccdbe524-a56f-5c7f-9ec6-27ea1cf2ed40,GHA,7580210,7580210,Kỹ thuật cơ sở hạ tầng (Chuyên ngành Cơ sở hạ tầng kỹ thuật đô thị),60,tuyensinh247,330,true
+de439992-b828-5347-a483-5af44f28f02c,GHA,7580215,7580215,Kỹ thuật an toàn giao thông,60,tuyensinh247,330,true
+41773888-13cb-5403-bf9c-d9eb0c6f021f,GHA,7580301,7580301,Kinh tế xây dựng (Chương trình CLC Kinh tế xây dựng công trình giao thông Việt - Anh),50,tuyensinh247,330,true
+a441b886-b8eb-5f46-9005-44b89a10a6f5,GHA,7580302,7580302,Quản lý xây dựng (Chương trình CLC Quản lý xây dựng Việt - Anh),50,tuyensinh247,330,true
+1f43bb93-f6c7-599c-8a18-62326fbe83fe,GHA,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,70,tuyensinh247,330,true
+e3bc4a70-157a-594c-a4db-7ba359346d4d,GHA,7840101,7840101,"Khai thác vận tải (Chuyên ngành: Vận tải - Thương mại quốc tế, Quy hoạch và quản lý GTVT đô thị, Vận tải - Kinh tế đường bộ và thành phố, Vận tải đường sắt)",120,tuyensinh247,330,true
+a2257429-4149-5e28-b0ef-6d342b20bf49,GHA,7840104,7840104,"Kinh tế vận tải (Chuyên ngành: Kinh tế vận tải ô tô, Kinh tế vận tải hàng không, Kinh tế vận tải đường sắt, Kinh tế vận tải thuỷ bộ)",140,tuyensinh247,330,true
+6e9235fd-9718-541d-ac46-ba2f434dd07a,GHA,GHA01,GHA01,Ngôn ngữ Anh,60,tuyensinh247,,true
+f0e454a4-e597-5c3d-9487-26454b33fece,GHA,GHA02,GHA02,Toán ứng dụng (chuyên ngành Toán tin ứng dụng),60,tuyensinh247,,true
+2218c48b-4c22-55d0-a729-a4f023800f40,GHA,GHA03,GHA03,Kinh tế (chuyên ngành: Kinh tế và quản lý đầu tư; Kinh tế bưu chính viễn thông),75,tuyensinh247,,true
+d2d91ab1-9243-57e4-a4d5-fcfc274bdf39,GHA,GHA04,GHA04,Quản trị kinh doanh,70,tuyensinh247,,true
+98cc3ff1-8e61-5497-86c5-81be179516e4,GHA,GHA04QT,GHA04QT,Quản trị kinh doanh (Chương trình CLC Quản trị kinh doanh Việt-Anh),90,tuyensinh247,,true
+3ac039ca-d7a7-5735-a93a-9948bd7e2884,GHA,GHA05,GHA05,Tài chính - Ngân hàng,65,tuyensinh247,,true
+d0f31604-e4cc-5696-8d7d-e6860ea7dcb6,GHA,GHA06,GHA06,Kế toán (chuyên ngành Kế toán tổng hợp),70,tuyensinh247,,true
+c0b90673-2adc-5fcd-96b3-c68962a3f48b,GHA,GHA06QT,GHA06QT,Kế toán (Chương trình CLC Kế toán tổng hợp Việt-Anh),90,tuyensinh247,,true
+2f66c111-e390-5fb2-83c7-056e98692868,GHA,GHA10,GHA10,Logistics và quản lý chuỗi cung ứng,65,tuyensinh247,,true
+91bf1e18-8349-5e90-b3d3-4764783d8f84,GHA,GHA10QT,GHA10QT,Logistics và quản lý chuỗi cung ứng (Chương trình CLC Logistics và quản lý chuỗi cung ứng Việt -Anh),50,tuyensinh247,,true
+97d325f2-c4d9-5669-9638-6d4fbbbe3f02,GHA,GHA13,GHA13,Khoa học máy tính,60,tuyensinh247,,true
+3989ee62-76fe-5a98-a36f-eaf8e74a55f9,GHA,GHA14,GHA14,Công nghệ thông tin,180,tuyensinh247,,true
+ebed6cac-babb-50bb-8ab1-eec57aa169db,GHA,GHA14QT,GHA14QT,Công nghệ thông tin (Chương trình CLC Công nghệ thông tin Việt-Anh),90,tuyensinh247,,true
+c504d4e4-8dd4-5591-b000-e27dce3bc7ba,GHA,GHA15,GHA15,Trí tuệ nhân tạo,40,tuyensinh247,,true
+7664274c-eed7-5409-9532-f746271e6817,GHA,GHA16,GHA16,Kỹ thuật cơ khí (chuyên ngành: Công nghệ chế tạo cơ khí; Tự động hoá thiết kế cơ khí),75,tuyensinh247,,true
+89084ea9-a442-515e-ae2a-3bcb9f67e305,GHA,GHA16QT,GHA16QT,Kỹ thuật cơ khí (Chương trình CLC Tự động hóa thiết kế cơ khí),50,tuyensinh247,,true
+a033064d-291a-5278-bc7b-c67186f9fc45,GHA,GHA17,GHA17,Kỹ thuật cơ điện tử,60,tuyensinh247,,true
+15837821-5486-52be-a7e4-726e907d7a04,GHA,GHA18,GHA18,Kỹ thuật nhiệt (chuyên ngành: Kỹ thuật nhiệt lạnh và điều hoà không khí),70,tuyensinh247,,true
+c97427f8-6551-5cb0-8606-dc51bf1ad012,GHA,GHA19,GHA19,Kỹ thuật cơ khí động lực (chuyên ngành: Kỹ thuật phương tiện đường sắt; Máy xây dựng; Kỹ thuật máy động lực),150,tuyensinh247,,true
+1547f25e-4d5c-5d06-bd2d-0f28262d2f5e,GHA,GHA19DS,GHA19DS,Kỹ thuật cơ khí động lực (chuyên ngành: Kỹ thuật phương tiện đường sắt tốc độ cao),75,tuyensinh247,,true
+420851c9-c8da-5064-b553-f965cafc1a3c,GHA,GHA20,GHA20,Kỹ thuật ô tô,180,tuyensinh247,,true
+b76c3a1d-8ec4-5b26-9bbe-1e91271f6902,GHA,GHA20QT,GHA20QT,Kỹ thuật ô tô (Chương trình CLC Kỹ thuật ô tô Việt - Anh),90,tuyensinh247,,true
+364708d4-de63-5978-abf9-e78004390062,GHA,GHA21,GHA21,Kỹ thuật điện (chuyên ngành: Trang bị điện trong công nghiệp và GTVT; Hệ thống điện trong giao thông và công nghiệp),70,tuyensinh247,,true
+39948b03-7c45-5788-8ce9-c4d75d107760,GHA,GHA21DS,GHA21DS,Kỹ thuật điện (chuyên ngành: Hệ thống điện đường sắt tốc độ cao; đường sắt đô thị),65,tuyensinh247,,true
+6de4291b-e8a9-5b5a-b097-403ec00328ae,GHA,GHA22,GHA22,Kỹ thuật điện tử - viễn thông (chuyên ngành: Kỹ thuật viễn thông; Kỹ thuật thông tin và truyền thông),140,tuyensinh247,,true
+7317a563-f6f9-5746-b81f-86511ccdc29e,GHA,GHA22BD,GHA22BD,Kỹ thuật điện tử - viễn thông (chuyên ngành: Kỹ thuật điện tử và tin học công nghiệp),50,tuyensinh247,,true
+fca76254-6293-50e3-962c-4330bbe35827,GHA,GHA22QT,GHA22QT,Kỹ thuật điện tử - viễn thông (Chuyên ngành Kỹ thuật điện tử và tin học công nghiệp),50,tuyensinh247,,true
+e7d04a4e-13c5-5eef-b7c6-b47d910d5c81,GHA,GHA23,GHA23,Kỹ thuật điều khiển và tự động hoá (chuyên ngành: Tự động hoá; Kỹ thuật điều khiển và tự động hoá giao thông),130,tuyensinh247,,true
+3d549585-bd98-5aa1-993c-3b1129b7c895,GHA,GHA23DS,GHA23DS,Kỹ thuật điều khiển và tự động hoá (chuyên ngành: Điều khiển và thông tin tín hiệu đường sắt hiện đại),60,tuyensinh247,,true
+fa7e6692-b0d3-5de0-b58d-53e9f579c8d4,GHA,GHA24,GHA24,Kỹ thuật robot (chuyên ngành Kỹ thuật robot & trí tuệ nhân tạo),65,tuyensinh247,,true
+7ce5d6a5-ef4b-56c7-97b3-68ab70e10985,GHA,GHA33,GHA33,Kỹ thuật máy tính (theo hướng chuyên sâu vi mạch-bán dẫn; bao gồm lớp kỹ sư tài năng),120,tuyensinh247,,true
+aa171ef7-4ccf-5d9a-a62f-5cddc13852d3,GTA,GTADCAI2,GTADCAI2,Trí tuệ nhân tạo,180,tuyensinh247,,true
+ed7743f1-aad4-5706-8765-0b691852cebe,GTA,GTADCAI3,GTADCAI3,Trí tuệ nhân tạo,180,tuyensinh247,,true
+fad6d10c-1539-51bb-8ca5-fc3fe98f8875,GTA,GTADCAI4,GTADCAI4,Trí tuệ nhân tạo,180,tuyensinh247,,true
+6a6913f2-ff5a-5567-a37d-86e9657e0157,GTA,GTADCAI5,GTADCAI5,Trí tuệ nhân tạo,180,tuyensinh247,,true
+5789afc5-d9d2-58cf-805f-9a28eba6d20a,GTA,GTADCAI6,GTADCAI6,Trí tuệ nhân tạo,180,tuyensinh247,,true
+7b469232-8e1b-571e-8d97-ef4ce5cdadf5,GTA,GTADCAI7,GTADCAI7,Trí tuệ nhân tạo,180,tuyensinh247,,true
+3be527f7-9316-5fb5-8cd6-b95bf3880324,GTA,GTADCAT2,GTADCAT2,An toàn dữ liệu và an ninh mạng,60,tuyensinh247,58,true
+dd4b4aae-485b-54a3-beee-d36271664f08,GTA,GTADCBC2,GTADCBC2,"Quản lý, khai thác và bảo trì đường cao tốc",30,tuyensinh247,58,true
+622c6b9b-c30a-5a88-9538-8c48bf058024,GTA,GTADCCD2,GTADCCD2,Công nghệ kỹ thuật xây dựng Cầu đường bộ,150,tuyensinh247,58,true
+a8493bcf-c425-5eb7-b1f1-59e425b538ee,GTA,GTADCCH2,GTADCCH2,Hạ tầng giao thông đô thị thông minh,60,tuyensinh247,58,true
+e2c24de7-486d-54bc-960d-1abee4a987dd,GTA,GTADCCI2,GTADCCI2,Thương mại quốc tế,40,tuyensinh247,58,true
+3c8452c1-d0a7-58ff-b12f-f3ab3c9ee304,GTA,GTADCCM2,GTADCCM2,Công nghệ chế tạo máy,100,tuyensinh247,58,true
+c5cc058a-7762-5a52-b711-03935cae655f,GTA,GTADCCN2,GTADCCN2,Công nghệ kỹ thuật cơ điện tử,150,tuyensinh247,58,true
+641b2aaf-6935-500c-b647-8c11cb33e021,GTA,GTADCDD2,GTADCDD2,CNKT công trình xây dựng dân dụng và công nghiệp,180,tuyensinh247,58,true
+044fc9da-e72a-50d8-89df-8538994e5877,GTA,GTADCDM2,GTADCDM2,CNKT cơ khí đầu máy - toa xe và tàu điện Metro,50,tuyensinh247,58,true
+89d380d6-27ec-5e1e-ab34-76f53510332e,GTA,GTADCDT2,GTADCDT2,Công nghệ kỹ thuật điện tử - viễn thông,260,tuyensinh247,58,true
+e18639e3-90db-505e-bd13-61ae37554c58,GTA,GTADCEN2,GTADCEN2,Ngôn ngữ Anh,80,tuyensinh247,58,true
+a9114695-7b7d-546d-93cc-d4b6daaf6abd,GTA,GTADCFT2,GTADCFT2,Công nghệ tài chính,100,tuyensinh247,58,true
+509c78d2-6eca-564e-a02a-091296a94674,GTA,GTADCHQ2,GTADCHQ2,Hải quan và Logistics,120,tuyensinh247,58,true
+1bb3e1b1-abdf-580e-b716-094334414c76,GTA,GTADCHS2,GTADCHS2,Đường sắt tốc độ cao,80,tuyensinh247,58,true
+fa55f2e7-df22-5952-a60a-269b638d60f1,GTA,GTADCKB2,GTADCKB2,Kinh tế và quản lý bất động sản,60,tuyensinh247,58,true
+6c11c3e3-cc80-5c80-8155-79f5b0fc291d,GTA,GTADCKN2,GTADCKN2,Kiến trúc nội thất,180,tuyensinh247,58,true
+4a646d29-0cb9-5f31-8f89-992a487d7c59,GTA,GTADCKQ2,GTADCKQ2,Kinh doanh quốc tế,30,tuyensinh247,58,true
+534b2560-67d4-5c27-9b3c-4fe8e2f9e2fc,GTA,GTADCKS2,GTADCKS2,Kinh doanh số,120,tuyensinh247,58,true
+61bf0e57-0d0d-501e-a702-884ae36f65e3,GTA,GTADCKT2,GTADCKT2,Kế toán doanh nghiệp,360,tuyensinh247,58,true
+a876da04-6b77-5812-83d4-8332a142ae3a,GTA,GTADCKX2,GTADCKX2,Kinh tế xây dựng,240,tuyensinh247,58,true
+9b14d596-78a4-5486-9fd1-3a69042850b7,GTA,GTADCLA2,GTADCLA2,Luật,60,tuyensinh247,58,true
+2a1b67ce-3e3c-557d-8635-8c154a7f0396,GTA,GTADCLD2,GTADCLD2,Lữ hành và du lịch,50,tuyensinh247,58,true
+0a9ce597-0a23-5492-8209-479a484fed03,GTA,GTADCLG2,GTADCLG2,Logistics và quản lý chuỗi cung ứng,240,tuyensinh247,58,true
+7a750216-2ffd-5a39-8f03-f7da1b0f6785,GTA,GTADCLH2,GTADCLH2,Logistics và hạ tầng giao thông,60,tuyensinh247,58,true
+0949b675-b2f9-5902-9cd7-d890805a3ab3,GTA,GTADCMA2,GTADCMA2,Marketing,100,tuyensinh247,,true
+25e9fc9f-14cb-5703-8f87-6eab3df849ce,GTA,GTADCMN2,GTADCMN2,Công nghệ và quản lý môi trường,70,tuyensinh247,58,true
+37e63149-8b6b-5111-b754-85ca0d2e3859,GTA,GTADCMQ2,GTADCMQ2,Công nghệ và quản lý thiết bị xây dựng,40,tuyensinh247,,true
+4c514d64-5bf4-50e4-b891-aa1ea87ed4cd,GTA,GTADCMQ3,GTADCMQ3,Công nghệ và quản lý thiết bị xây dựng,40,tuyensinh247,,true
+9ac5d35f-b91b-597b-a9ff-265e1515710e,GTA,GTADCMQ4,GTADCMQ4,Công nghệ và quản lý thiết bị xây dựng,40,tuyensinh247,,true
+3f8e551a-9a0a-5fc1-aaa5-05a25aaeb2ea,GTA,GTADCMQ5,GTADCMQ5,Công nghệ và quản lý thiết bị xây dựng,40,tuyensinh247,,true
+ae9d4778-28a5-5f31-b6a2-a1ef2ed0d65c,GTA,GTADCMQ6,GTADCMQ6,Công nghệ và quản lý thiết bị xây dựng,40,tuyensinh247,,true
+5db503fc-633d-58b7-8a56-77a3cd468932,GTA,GTADCMS2,GTADCMS2,Digital Marketing,100,tuyensinh247,,true
+1b301725-4909-52f8-b360-c6f7b44f1588,GTA,GTADCMT2,GTADCMT2,CNKT cơ khí tàu thủy và công trình nổi,30,tuyensinh247,58,true
+b994bf6f-e572-56e5-a3c6-5c843e97c629,GTA,GTADCMX2,GTADCMX2,Máy và thiết bị tự động hóa xây dựng,80,tuyensinh247,58,true
+369277fd-9cd6-53a9-9481-0b7bfce3a0ca,GTA,GTADCOD2,GTADCOD2,Cơ điện tử ô tô,100,tuyensinh247,58,true
+9e53ac27-d665-5097-afd0-926ae900de0f,GTA,GTADCOG2,GTADCOG2,Công nghệ ô tô và giao thông thông minh,40,tuyensinh247,58,true
+08e0c217-f5e9-5d22-a943-63b724ea1724,GTA,GTADCOH2,GTADCOH2,Công nghệ ô tô điện và ô tô hybrid,60,tuyensinh247,58,true
+9997a161-eb9e-54b5-82cd-b572fe56234a,GTA,GTADCOT2,GTADCOT2,Công nghệ kỹ thuật ô tô,300,tuyensinh247,58,true
+d54799c9-979f-5f7f-aea9-39263980a8d2,GTA,GTADCPK2,GTADCPK2,Phân tích dữ liệu trong kinh tế,60,tuyensinh247,,true
+528af3fa-818f-5ac7-a1ce-ab051c113017,GTA,GTADCQK2,GTADCQK2,Quản lý kinh tế,60,tuyensinh247,,true
+335a16c8-7612-5d9a-8aa1-552c52ada9cd,GTA,GTADCQM2,GTADCQM2,Quản trị Marketing,305,tuyensinh247,58,true
+c15b9d31-c935-55f6-9620-24768b82531c,GTA,GTADCQS2,GTADCQS2,Quản lý xây dựng số,40,tuyensinh247,,true
+d55840b9-828d-5851-94fa-a51afb834ba5,GTA,GTADCQS3,GTADCQS3,Quản lý xây dựng số,40,tuyensinh247,,true
+c78e82f8-b14f-58f0-af5f-8b4965fc13c2,GTA,GTADCQS4,GTADCQS4,Quản lý xây dựng số,40,tuyensinh247,,true
+7150de52-f25d-5f41-91a4-127bf3d36325,GTA,GTADCQS5,GTADCQS5,Quản lý xây dựng số,40,tuyensinh247,,true
+3ae3e74f-9a47-5edf-858d-87d4dab4ba60,GTA,GTADCQS6,GTADCQS6,Quản lý xây dựng số,40,tuyensinh247,,true
+31370017-619f-5396-871f-03e56089ffd9,GTA,GTADCQT2,GTADCQT2,Quản trị doanh nghiệp,120,tuyensinh247,58,true
+e65f50e1-705d-5dfa-92b0-b2fcbda5290c,GTA,GTADCQX2,GTADCQX2,Quản lý xây dựng,45,tuyensinh247,58,true
+2421980b-bbef-5db8-a697-94d87ff50702,GTA,GTADCRT2,GTADCRT2,Công nghệ kỹ thuật Robot và Trí tuệ nhân tạo,120,tuyensinh247,58,true
+e8ba6852-0ccc-5730-afb8-a6c072294efa,GTA,GTADCTD2,GTADCTD2,Thương mại điện tử,350,tuyensinh247,58,true
+c9bb775a-9fd3-59dc-a588-d5acff8bcb71,GTA,GTADCTG2,GTADCTG2,Trí tuệ nhân tạo và giao thông thông minh,60,tuyensinh247,58,true
+6da9d700-0cff-5cae-b187-c511f2b101df,GTA,GTADCTN2,GTADCTN2,Tài chính doanh nghiệp,180,tuyensinh247,58,true
+4a696819-9af0-5ff0-9eb2-52f2454fc22c,GTA,GTADCTQ2,GTADCTQ2,Thanh tra và quản lý công trình giao thông,60,tuyensinh247,58,true
+8a9fb3a9-7d46-581e-9186-4101ea7fd0d7,GTA,GTADCTT2,GTADCTT2,Công nghệ thông tin,240,tuyensinh247,58,true
+9d2c28eb-2f68-5ce8-aa52-c3de688997f3,GTA,GTADCVL2,GTADCVL2,Logistics và vận tải đa phương thức,180,tuyensinh247,58,true
+513f95b7-06d3-5f54-853e-52d56d6f3709,GTA,GTADCVM2,GTADCVM2,Công nghệ kỹ thuật vi mạch bán dẫn,60,tuyensinh247,58,true
+1c6117bf-b970-5d72-b879-aac9112c034d,GTA,GTADCVV2,GTADCVV2,Kỹ thuật vi điện tử và vật lý bán dẫn,40,tuyensinh247,58,true
+3d5679a0-9569-57a3-a4e2-d8082ff100a3,GTA,GTADCXQ2,GTADCXQ2,Xây dựng và quản lý hạ tầng đô thị,80,tuyensinh247,58,true
+4b2b262a-ac1f-5fc3-b703-836941126241,GTA,GTADCXS2,GTADCXS2,Xây dựng và quản lý khai thác đường sắt đô thị,50,tuyensinh247,,true
+dbe6e35c-3f8b-5add-b507-d070f104051b,HBT,527,527,"Kinh tế, chuyên ngành Quản lý kinh tế",150,tuyensinh247,224,true
+d6e690ba-6483-5bbb-8d3e-679b56636503,HBT,530,530,"Chính trị học, chuyên ngành Công tác tư tưởng - văn hóa",100,tuyensinh247,224,true
+dd637640-fc06-5d7b-aeff-dbe486630c8a,HBT,531,531,"Chính trị học, chuyên ngành Chính trị phát triển",50,tuyensinh247,224,true
+21b3fdd9-9582-5b3b-a01f-7d429cceb739,HBT,533,533,"Chính trị học, chuyên ngành Tư tưởng Hồ Chí Minh",40,tuyensinh247,224,true
+a4f35242-51bf-5e18-ac94-13e75534d59b,HBT,538,538,"Chính trị học, chuyên ngành Truyền thông chính sách",50,tuyensinh247,224,true
+eefbc6d9-bde9-56d6-b233-1b83b2bc54fe,HBT,602,602,"Báo chí, chuyên ngành Báo in",50,tuyensinh247,224,true
+557b1dad-0ef2-5ad2-b07d-ff1a8bca7c16,HBT,603,603,"Báo chí, chuyên ngành Ảnh báo chí",50,tuyensinh247,224,true
+1a8f44e3-9cfe-5f78-9fdc-191d3214227b,HBT,604,604,"Báo chí, chuyên ngành Báo phát thanh",50,tuyensinh247,224,true
+fa61e0b1-8fb6-58c9-819b-34328df97930,HBT,605,605,"Báo chí, chuyên ngành Báo truyền hình",100,tuyensinh247,224,true
+5b9b63bc-4fa9-55ce-94c8-f5d79a6ade57,HBT,606,606,"Báo chí, chuyên ngành Quay phim truyền hình",50,tuyensinh247,224,true
+1962a0de-2b8a-5234-be36-211054c6b9b0,HBT,607,607,"Báo chí, chuyên ngành Báo mạng điện tử",100,tuyensinh247,224,true
+f716582e-7b11-5874-91d1-6dc049688c53,HBT,610,610,"Quan hệ quốc tế, chuyên ngành Thông tin đối ngoại",50,tuyensinh247,224,true
+b4e1aa0e-890b-5f81-9c8b-e0feb4b35f88,HBT,611,611,"Quan hệ quốc tế, chuyên ngành Quan hệ chính trị và Truyền thông quốc tế",50,tuyensinh247,224,true
+42348794-013b-581d-8380-5681ed242e80,HBT,614,614,"Quan hệ quốc tế, chuyên ngành Quan hệ quốc tế và Truyền thông toàn cầu",50,tuyensinh247,224,true
+9c8b977e-b22a-535a-a39a-e31722783b64,HBT,615,615,"Quan hệ công chúng, chuyên ngành Quan hệ công chúng chuyên nghiệp",50,tuyensinh247,224,true
+27fb7aad-d15c-5a55-aa7a-57b7d76797fc,HBT,616,616,"Quan hệ công chúng, chuyên ngành Truyền thông marketing",100,tuyensinh247,224,true
+fa1e7f3e-b167-5392-aa3f-7a4dd1e74d3f,HBT,618,618,"Quan hệ công chúng, chuyên ngành Quảng cáo",50,tuyensinh247,,true
+43483b76-9c5b-5ec6-8344-266bad248d6b,HBT,7220201,7220201,Ngôn ngữ Anh,60,tuyensinh247,224,true
+2f8da6e8-f435-58e3-9799-3416597552f8,HBT,7229001,7229001,Triết học,40,tuyensinh247,224,true
+9427d170-0cf2-58ee-8024-228096977c31,HBT,7229008,7229008,Chủ nghĩa xã hội khoa học,40,tuyensinh247,224,true
+4cde5142-ecdd-5a6c-81f8-1d193c23f1ac,HBT,7229010,7229010,"Lịch sử, chuyên ngành Lịch sử Đảng Cộng sản Việt Nam",40,tuyensinh247,224,true
+ed198a24-7be8-575b-84d0-c41ed568bd50,HBT,7310102,7310102,Kinh tế chính trị,40,tuyensinh247,224,true
+c4879f83-dcdf-52e5-9f93-50fb6e374c12,HBT,7310202,7310202,Xây dựng Đảng và chính quyền nhà nước,90,tuyensinh247,224,true
+81b45e19-8634-59c7-a338-68b96cecb7ff,HBT,7310205,7310205,Quản lý nhà nước,100,tuyensinh247,224,true
+a4140851-0f06-58e2-9615-963a4a05b073,HBT,7310301,7310301,Xã hội học,50,tuyensinh247,224,true
+3519a5c4-cec9-592e-8695-7fa83d4c1718,HBT,7320104,7320104,Truyền thông đa phương tiện,150,tuyensinh247,224,true
+49884a9a-8626-584b-a9b6-c1721f080047,HBT,7320105,7320105,Truyền thông đại chúng,100,tuyensinh247,224,true
+3afb6535-c0c8-51c5-bec2-bfd99e0186d3,HBT,7320107,7320107,Truyền thông quốc tế,50,tuyensinh247,224,true
+e71b60ac-4a27-5381-b342-1fbd2ce5a0cc,HBT,7340403,7340403,Quản lý công,100,tuyensinh247,224,true
+cce686c1-1024-50e9-8787-1c7b21639aaf,HBT,7760101,7760101,Công tác xã hội,50,tuyensinh247,224,true
+2eec2a74-982c-572d-9131-928d55160d1f,HBT,801,801,"Xuất bản, chuyên ngành Biên tập xuất bản",50,tuyensinh247,224,true
+e2fca70e-af72-5c64-82b9-e39fe55fce6f,HBT,802,802,"Xuất bản, chuyên ngành Xuất bản điện tử",50,tuyensinh247,224,true
+5ad9b500-ebbf-55b3-a2e2-3c3b066b8fe2,HCA,7310202_Nam_B,7310202_Nam_B,"Xây dựng Đảng và chính quyền nhà nước (Thí sinh Nam, miền Bắc)",45,tuyensinh247,555,true
+18850f0e-a7ca-5827-8e27-06c3bb1e50c1,HCA,7310202_Nam_N,7310202_Nam_N,"Xây dựng Đảng và chính quyền nhà nước (Thí sinh Nam, miền Nam)",45,tuyensinh247,555,true
+2c452b6f-0730-537d-b8ee-c5842c0bc1b3,HCA,7310202_Nu_B,7310202_Nu_B,"Xây dựng Đảng và chính quyền nhà nước (Thí sinh Nữ, miền Bắc)",5,tuyensinh247,555,true
+d6cda0b1-e39b-5594-9403-786f7c85cf84,HCA,7310202_Nu_N,7310202_Nu_N,"Xây dựng Đảng và chính quyền nhà nước (Thí sinh Nữ, miền Nam)",5,tuyensinh247,555,true
+c7d1e9bc-8b31-5d72-942f-1ede7a4a5521,HCP,7220201,7220201,Tiếng Anh trong Kinh tế và kinh doanh,100,tuyensinh247,479,true
+e5fcbaf8-e17e-509a-9695-1c5bc0206010,HCP,7310101,7310101,Kinh tế nguồn nhân lực,100,tuyensinh247,479,true
+84b3eca3-f93a-5903-adf8-75e6d30de2f1,HCP,7310104,7310104,Kinh tế đầu tư,150,tuyensinh247,,true
+b78b7036-1fba-5d5f-91ac-1db909a4cb14,HCP,7310105,7310105,Kinh tế phát triển,150,tuyensinh247,479,true
+52546c13-5046-5477-8133-6402144ff96c,HCP,7310106,7310106,Kinh tế quốc tế,200,tuyensinh247,479,true
+4c9664bc-a0a5-5de9-b309-fa4c3148be1e,HCP,7310106_1,7310106_1,Kinh tế đối ngoại chất lượng cao,100,tuyensinh247,479,true
+d48131ef-0e9e-5993-b2cf-08a5051cfe19,HCP,7310109,7310109,Kinh tế và kinh doanh số,120,tuyensinh247,479,true
+8f8b799b-fe48-5d40-a1c9-e4b625a2865c,HCP,7310205,7310205,Quản lý công,100,tuyensinh247,479,true
+7ce76db6-d460-5735-99d5-08e89c131404,HCP,7340101,7340101,Quản trị kinh doanh,150,tuyensinh247,479,true
+edff9706-7739-5c3f-b9a8-eca74bd1afd9,HCP,7340101_1,7340101_1,Quản trị kinh doanh chất lượng cao,100,tuyensinh247,479,true
+6a3e0b50-a92a-527a-b1f8-83320b9dfe2f,HCP,7340101_2,7340101_2,Quản trị dịch vụ cao cấp,50,tuyensinh247,,true
+d0aed71a-b363-5ebd-b786-6d13db616b9e,HCP,7340115,7340115,Marketing,150,tuyensinh247,,true
+e1a5e593-2c5a-5c4c-895d-e8ec002b60f8,HCP,7340201,7340201,Tài chính - Ngân hàng,320,tuyensinh247,479,true
+0f9b9b49-a343-5552-87fc-16f069ddb6d2,HCP,7340201_1,7340201_1,Tài chính chất lượng cao,100,tuyensinh247,479,true
+58499bdc-3c2d-5f8b-b7c7-743b02ae3c8e,HCP,7340301,7340301,Kế toán,150,tuyensinh247,479,true
+eb16bf24-6b34-5dba-86ae-2e16ecc7effe,HCP,7340301_2,7340301_2,Kế toán (Định hướng ACCA),50,tuyensinh247,,true
+53faddf0-048e-5818-9089-924be8caefcc,HCP,7340302,7340302,Kiểm toán,100,tuyensinh247,,true
+0fd58f0a-72f3-55ae-a58d-71ae4fb3275b,HCP,7380107,7380107,Luật Kinh tế,200,tuyensinh247,479,true
+e8800494-2694-50bb-9132-b5af74a4a194,HCP,7460108,7460108,Khoa học dữ liệu,100,tuyensinh247,,true
+fef3321c-063d-52d6-8fc9-cecbbd3340ff,HGH,7860229_B,7860229_B,Chỉ huy Kỹ thuật Hoá học (Miền Bắc),27,tuyensinh247,286,true
+ada48377-bf5a-578b-a389-007e9fc320dc,HGH,7860229_N,7860229_N,Chỉ huy Kỹ thuật Hoá học (Miền Nam),18,tuyensinh247,286,true
+89db5547-d0b7-5ec8-8a5b-c9fdc3d8ed9d,HNM,7140114,7140114,Quản lí Giáo dục,50,tuyensinh247,126,true
+584e055a-1d60-5140-8a42-d0bc899fc956,HNM,7140201,7140201,Giáo dục Mầm non,200,tuyensinh247,126,true
+08f9bdff-a202-53f1-a362-70fc7310c74e,HNM,7140202,7140202,Giáo dục Tiểu học,310,tuyensinh247,126,true
+2a2e0811-95a7-5ff0-972e-a380cad50f8e,HNM,7140203,7140203,Giáo dục đặc biệt,45,tuyensinh247,126,true
+506f0aab-0a93-505d-b707-162f2c13df79,HNM,7140204,7140204,Giáo dục công dân,35,tuyensinh247,126,true
+dd878608-7a1b-5ccc-80f7-dd514e64b48a,HNM,7140206,7140206,Giáo dục thể chất,35,tuyensinh247,126,true
+9a9ec3e1-eb53-57b2-b8a9-eb440ebd36c6,HNM,7140209,7140209,Sư phạm Toán học,45,tuyensinh247,126,true
+fd775fc9-adde-5db2-b906-91e9f94134a5,HNM,7140210,7140210,Sư phạm Tin học,50,tuyensinh247,126,true
+e3e1786c-a750-59cd-96e4-0b4013ff40f0,HNM,7140211,7140211,Sư phạm Vật lí,30,tuyensinh247,126,true
+091c36bf-cea6-5a91-a0e3-b1f287ed7fca,HNM,7140217,7140217,Sư phạm Ngữ văn,40,tuyensinh247,126,true
+e60eb269-666b-5e93-9744-40fda45cc73b,HNM,7140218,7140218,Sư phạm Lịch sử,30,tuyensinh247,126,true
+d4fbc047-d718-5c2a-985f-d8cf95ba8f1f,HNM,7140231,7140231,Sư phạm Tiếng Anh,35,tuyensinh247,126,true
+cd75ff33-bd6a-557f-9eae-f5682181af01,HNM,7140247,7140247,Sư phạm khoa học tự nhiên,40,tuyensinh247,,true
+1fb47752-0874-5e64-b1d6-ff01af26049a,HNM,7140249,7140249,Sư phạm Lịch sử - Địa lí,40,tuyensinh247,,true
+76a7071c-445c-5087-9f1b-4858b0a982b4,HNM,7220101,7220101,Tiếng Việt và Văn hóa Việt Nam,50,tuyensinh247,,true
+63f03773-aab8-5d68-820c-482543292439,HNM,7220201,7220201,Ngôn ngữ Anh,70,tuyensinh247,126,true
+a80e8574-d7ca-50aa-b601-c039d455b6b1,HNM,7220204,7220204,Ngôn ngữ Trung Quốc,105,tuyensinh247,126,true
+98992add-f1fb-5f67-86ad-28dbde40a835,HNM,7229030,7229030,Văn học,100,tuyensinh247,126,true
+5cd0135e-0484-5611-99cd-c15616be706a,HNM,7229040,7229040,Văn hóa học,50,tuyensinh247,126,true
+ea78b1e0-c69b-5f68-a9e7-5ff4c8130181,HNM,7310110,7310110,Quản lý kinh tế,50,tuyensinh247,126,true
+d19707f1-1122-59af-9dba-c177a51d3d0b,HNM,7310201,7310201,Chính trị học,50,tuyensinh247,126,true
+f5232d08-81a3-5dc1-8462-df85b284b453,HNM,7310401,7310401,Tâm lí học,90,tuyensinh247,126,true
+a22969c8-a1e1-58b7-bdfb-9a7743225f93,HNM,7310630,7310630,Việt Nam học,50,tuyensinh247,126,true
+fc2f7bab-8c6b-581e-a6e1-deefbaaa0e62,HNM,7340101,7340101,Quản trị kinh doanh,90,tuyensinh247,126,true
+272faa34-b082-52da-83de-699db599bc25,HNM,7340201,7340201,Tài chính -Ngân hàng,50,tuyensinh247,126,true
+ae54a810-7c42-59c2-831d-cedfad1a4b3c,HNM,7340403,7340403,Quản lí công,50,tuyensinh247,126,true
+f8358bd8-6421-5a1e-a687-cc54cd48b5e5,HNM,7380101,7380101,Luật,90,tuyensinh247,126,true
+1bc2551b-c62b-5328-8643-793f49e9828e,HNM,7420201,7420201,Công nghệ sinh học,30,tuyensinh247,,true
+46f61962-35fa-537c-859e-b802fe5e91ae,HNM,7460112,7460112,Toán ứng dụng,70,tuyensinh247,126,true
+a7f8d29c-d499-53eb-84e4-d35e2f17645e,HNM,7480201,7480201,Công nghệ thông tin,70,tuyensinh247,126,true
+26e06a8c-ee89-5113-8fcf-1836b7e53821,HNM,7510406,7510406,Công nghệ kĩ thuật môi trường,50,tuyensinh247,126,true
+b3e3bac7-ab5e-57a2-9306-29acd2817d06,HNM,7510605,7510605,Logistics và Quản lí chuỗi cung ứng,100,tuyensinh247,126,true
+bd7b7a90-6536-54ac-8939-7717aae00328,HNM,7760101,7760101,Công tác xã hội,50,tuyensinh247,126,true
+9db5bbeb-2b0e-550e-baea-84eec84fc8d1,HNM,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,100,tuyensinh247,126,true
+1d98c1f4-8d6e-51a5-9ecb-aa062e7e7caa,HNM,7810201,7810201,Quản trị khách sạn,100,tuyensinh247,126,true
+420330d9-556c-5e76-b891-e00797a2f7ca,HNM,7810302,7810302,Huấn luyện thể thao,50,tuyensinh247,,true
+9c648106-2fa2-5d18-bb01-b119efd73344,HPN,7310101,7310101,Kinh tế,215,tuyensinh247,556,true
+7caf0eab-e693-52ae-a23f-2762c7121e56,HPN,7310101E,7310101E,Kinh tế (Chất lượng cao),35,tuyensinh247,,true
+80fd8d61-a8bb-54a9-8abd-27151b13bbbc,HPN,7310109,7310109,Kinh tế số,240,tuyensinh247,556,true
+a920d4c1-0f6d-5c22-8f02-c2baa263e855,HPN,7310399,7310399,Giới và Phát triển,150,tuyensinh247,556,true
+395aa59e-666f-5578-9c0e-999da809b3ca,HPN,7310401,7310401,Tâm lý học,230,tuyensinh247,556,true
+abdff77e-474f-5fe0-a682-e812c5e243cb,HPN,7320104,7320104,Truyền thông đa phương tiện,130,tuyensinh247,556,true
+b7db3ffe-c250-529d-a377-a439c5388b95,HPN,73201041,73201041,Truyền thông xã hội,70,tuyensinh247,,true
+36e11618-fdff-5bee-8731-fb80e0018eb1,HPN,7340101,7340101,Quản trị kinh doanh,170,tuyensinh247,556,true
+b5288175-aa58-53e9-9fdb-66981b1a5b52,HPN,7340101E,7340101E,Quản trị kinh doanh (Chất lượng cao),30,tuyensinh247,,true
+7e9bcbb8-5c92-55e5-9482-d54a39001216,HPN,7340115,7340115,Marketing,190,tuyensinh247,556,true
+6d9b5aa2-551e-55b2-9796-3aff513d3593,HPN,7380101,7380101,Luật,200,tuyensinh247,556,true
+f464bf76-0dfa-5e31-b2c4-8a43e4d17c0d,HPN,7380107,7380107,Luật kinh tế,200,tuyensinh247,556,true
+a3b684be-b442-562c-bc6c-1f559ef405b2,HPN,7480201,7480201,Công nghệ thông tin,140,tuyensinh247,556,true
+96091db4-78f8-53c0-88df-3f2485707aa9,HPN,74802011,74802011,Thiết kế và phát triển game,70,tuyensinh247,,true
+e0e7d047-6c07-54d2-8ad4-a8db29cb2e7f,HPN,7760101,7760101,Công tác xã hội,150,tuyensinh247,556,true
+b1b5ff91-aa6a-52be-94e4-4dfcd035e13e,HPN,77601011,77601011,Phát triển và quản lý dịch vụ xã hội,80,tuyensinh247,,true
+fec40673-87cb-586e-87e9-94ce2a214320,HPN,7760101PH,7760101PH,Công tác xã hội,70,tuyensinh247,556,true
+b492433d-aadc-582a-8e0a-30aa700777a3,HPN,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,250,tuyensinh247,556,true
+9a5a2b08-8225-5bf5-8944-3d112c61dbb7,HPN,7810103PH,7810103PH,Quản trị dịch vụ du lịch và lữ hành,70,tuyensinh247,556,true
+b286cd03-eafc-59fe-af99-dc3ae4c3dbdf,HQT,HQT01,HQT01,Quan hệ quốc tế,400,tuyensinh247,246,true
+2d88597b-3509-57a1-9dc3-34aed3c2f235,HQT,HQT02,HQT02,Ngôn ngữ Anh,200,tuyensinh247,246,true
+50ec57b1-9e30-562c-b4de-c9bb1f493b6a,HQT,HQT03,HQT03,Kinh tế quốc tế,260,tuyensinh247,246,true
+f8752bcd-924a-56a3-b08c-57f651091901,HQT,HQT04,HQT04,Luật quốc tế,200,tuyensinh247,246,true
+16bbe1fa-d6f3-5f54-82e1-38acf2af9ae6,HQT,HQT05,HQT05,Truyền thông quốc tế,400,tuyensinh247,246,true
+6c3030fe-f109-500c-96d8-f745bdad3573,HQT,HQT06,HQT06,Kinh doanh quốc tế,260,tuyensinh247,246,true
+4b874315-0392-5132-9573-40cecd22a160,HQT,HQT07,HQT07,Luật thương mại quốc tế,200,tuyensinh247,246,true
+4369e0dd-f661-5282-a02c-b6aac18e35e1,HQT,HQT08-01,HQT08-01,Hàn Quốc học,80,tuyensinh247,246,true
+4b8c4134-864a-5152-bd71-a2eda8356014,HQT,HQT08-02,HQT08-02,Hoa Kỳ học,40,tuyensinh247,246,true
+7479c242-3305-5ff9-a9d7-fc645de043dc,HQT,HQT08-03,HQT08-03,Nhật Bản học,40,tuyensinh247,246,true
+65de34e6-661e-591f-8b1e-725f7a094367,HQT,HQT08-04,HQT08-04,Trung Quốc học,120,tuyensinh247,246,true
+e89eaefd-b71b-5bda-a549-cfd9d5fb9d62,HTA,7380101,7380101,Luật,330,tuyensinh247,579,true
+a557e403-6212-52a8-add1-f365eafbfc08,HTC,HC0101QT,HC0101QT,Thuế và Quản trị thuế (Theo định hướng ACCA),80,tuyensinh247,,true
+443a8a68-fab5-5e62-ad6e-5d65f0187cb0,HTC,HC0106QT,HC0106QT,Hải quan và Logistics (Theo định hướng FIATA),510,tuyensinh247,,true
+9b46d04a-356e-590b-9abb-2bbc9ed5d219,HTC,HC0108QT,HC0108QT,Tài chính quốc tế (Theo định hướng CMA) *,50,tuyensinh247,,true
+7e88e7ad-f2b6-5d23-a4d0-a984ecd33000,HTC,HC0109QT,HC0109QT,Phân tích tài chính (Theo định hướng ICAEW CFAB),200,tuyensinh247,,true
+35e5214f-cd8e-5a4e-9c94-50fd95cc4070,HTC,HC0111QT,HC0111QT,Tài chính doanh nghiệp (Theo định hướng ACCA),600,tuyensinh247,,true
+9ef37e43-f479-5e22-9927-f603d3d30c90,HTC,HC0115QT,HC0115QT,Ngân hàng (Theo định hướng ICAEW CFAB),80,tuyensinh247,,true
+45fddaa4-fb0e-56a2-891e-591ef9e14ddd,HTC,HC0119,HC0119,Tài chính - Ngân hàng (CTĐT Thuế; Hải quan và nghiệp vụ ngoại thương; Tài chính quốc tế; Phân tích tài chính; Tài chính doanh nghiệp; Ngân hàng; Đầu tư tài chính; Tài chính số *),900,tuyensinh247,,true
+3099bd3a-b8d7-572e-b774-d3bdf672b222,HTC,HC0119QT,HC0119QT,Đầu tư tài chính (Theo định hướng ICAEW CFAB),80,tuyensinh247,,true
+dfac0317-0960-5f72-b569-6d5bfe489bd9,HTC,HC0201QT,HC0201QT,Kế toán doanh nghiệp (Theo định hướng ACCA),370,tuyensinh247,,true
+5e27fa56-ef09-5b4e-b340-d0227a445b01,HTC,HC0202QT,HC0202QT,Kế toán quản trị và Kiểm soát quản lý (Theo định hướng CMA),80,tuyensinh247,,true
+e2a12c81-dd95-514a-be72-f892f069ba74,HTC,HC0203QT,HC0203QT,Kế toán công (Theo định hướng ACCA),100,tuyensinh247,,true
+e2d21f9b-86bd-5412-8a21-71bbe515b069,HTC,HC0214,HC0214,Kế toán (CTĐT Kế toán doanh nghiệp; Kế toán công; Kế toán và phân tích dữ liệu *),511,tuyensinh247,,true
+17ceb67f-aaf9-511d-bbe9-cd53c0823553,HTC,HC0301QT,HC0301QT,Quản trị doanh nghiệp (Theo định hướng ICAEW CFAB),160,tuyensinh247,,true
+acb793e6-4677-5aee-ad44-14aa5d488723,HTC,HC0303QT,HC0303QT,Quản trị kinh doanh khách sạn (Theo định hướng AHLEI) *,50,tuyensinh247,,true
+a850718d-9265-5ccf-8387-871ecc28bcdd,HTC,HC0312,HC0312,Quản trị kinh doanh (CTĐT Quản trị doanh nghiệp; Quản trị kinh doanh du lịch),160,tuyensinh247,,true
+cc0c7ae7-4f28-5c73-a25d-bc20f00793c0,HTC,HC0401,HC0401,Tin học tài chính kế toán,110,tuyensinh247,,true
+6e70d7f8-132e-50d0-a7ea-151b8f7692b1,HTC,HC0512,HC0512,Ngôn ngữ Anh (CTĐT Tiếng Anh tài chính kế toán; Tiếng Anh và tiếng Trung tài chính kế toán *),170,tuyensinh247,,true
+29034daf-3dd5-5984-9065-57f09fd2af33,HTC,HC0613,HC0613,Kinh tế (CTĐT Kinh tế và quản lý nguồn lực tài chính; Kinh tế số *),104,tuyensinh247,,true
+572d7fd4-35de-5084-a548-9fef91361992,HTC,HC0701,HC0701,Quản lý tài chính công,180,tuyensinh247,,true
+87ddbb9e-f239-5a7c-9870-ff3368cd5600,HTC,HC0801,HC0801,Tài chính bảo hiểm,80,tuyensinh247,,true
+5382c665-c16d-5623-93a6-c24f4e45e258,HTC,HC0901,HC0901,Thẩm định giá và kinh doanh bất động sản,80,tuyensinh247,,true
+7d3f640c-276b-553d-963f-0e9fa2238a2b,HTC,HC0901QT,HC0901QT,Thẩm định giá và kinh doanh bất động sản (Theo định hướng ACCA),80,tuyensinh247,,true
+141538fa-a4e0-577c-a64d-2c16afb1cbd8,HTC,HC1001,HC1001,Kiểm toán,150,tuyensinh247,,true
+fa5f1b8c-4686-53fe-8a70-9edbbb9713e1,HTC,HC1001QT,HC1001QT,Kiểm toán (Theo định hướng ICAEW CFAB),350,tuyensinh247,,true
+c5d7d225-4bff-5a08-9bd6-956ba4ef016a,HTC,HC1101,HC1101,Marketing,160,tuyensinh247,,true
+ca940dc7-dfbf-5715-9e57-38b46b5a99d4,HTC,HC1102QT,HC1102QT,Digital Marketing (Theo định hướng ICDL),260,tuyensinh247,,true
+53a94883-7ed4-5adb-b0ee-7acfd346c209,HTC,HC1201,HC1201,Kinh tế đầu tư,80,tuyensinh247,,true
+0dc0575c-790c-582d-bc43-b3eb322e59c4,HTC,HC1201QT,HC1201QT,Kinh tế đầu tư (Theo định hướng ACCA),120,tuyensinh247,,true
+198b8454-bef0-5800-b661-5ecc92cd46b0,HTC,HC1301,HC1301,Trí tuệ nhân tạo trong tài chính kế toán,51,tuyensinh247,,true
+e6c117d5-b3a1-528c-85e1-d018726256bf,HTC,HC1412,HC1412,Khoa học dữ liệu (CTĐT Khoa học dữ liệu trong tài chính; An ninh tài chính *),52,tuyensinh247,,true
+82c56ef9-3b8f-520f-b935-31097e72b54d,HTC,HC1501QT,HC1501QT,Kinh doanh quốc tế (Theo định hướng ICAEW CFAB),160,tuyensinh247,,true
+b0fd64a4-8f8a-5f93-a601-99979209a24d,HTC,HC1601,HC1601,Kinh tế chính trị - Tài chính,50,tuyensinh247,,true
+a6824e99-5ff5-5392-869a-0cf0a50cbea9,HTC,HC1701,HC1701,Luật kinh doanh,52,tuyensinh247,,true
+c2be6aca-7254-5f97-a5a3-ed2cbe845c01,HTC,HC1812,HC1812,Toán kinh tế (CTĐT Toán tài chính; Thống kê ứng dụng trong tài chính *),100,tuyensinh247,,true
+205ef560-0232-5f0b-baad-38561df304a0,HTC,HCDDP,HCDDP,Chương trình LKĐT mỗi bên cấp Một Bằng cử nhân DDP (Dual Degree Programme),120,tuyensinh247,,true
+4eca7ed7-7601-5ff7-acc2-7e02e4fce9b8,HTC,HCTOULON1,HCTOULON1,"Bảo hiểm - Ngân hàng - Tài chính (Chương trình LKĐT với Trường Đại học Toulon, Cộng hòa Pháp)",100,tuyensinh247,,true
+9b913d36-f016-56cc-b9aa-6ff601543f1b,HTC,HCTOULON2,HCTOULON2,"Kế toán – Kiểm soát – Kiểm toán (Chương trình LKĐT với Trường Đại học Toulon, Cộng hòa Pháp)",100,tuyensinh247,,true
+af371798-a464-5d71-ba4d-7d3375495e67,HTC,HS0106QT,HS0106QT,Hải quan và Logistics (Theo định hướng FIATA),100,tuyensinh247,,true
+f00b8ce1-74fd-5e2f-b455-259ca525d65a,HTC,HS0109QT,HS0109QT,Phân tích tài chính (Theo định hướng ICAEW CFAB),50,tuyensinh247,,true
+0b0bd1a8-0353-5741-b6c4-73cf2b4c9fb2,HTC,HS0111QT,HS0111QT,Tài chính doanh nghiệp (Theo định hướng ACCA),100,tuyensinh247,,true
+2b61c0a3-35c0-5299-97a9-05adafd8d789,HTC,HS0201QT,HS0201QT,Kế toán doanh nghiệp (Theo định hướng ACCA),80,tuyensinh247,,true
+6f4d7f6a-f4d3-5753-9822-a5a6dbaf0872,HTC,HS1001QT,HS1001QT,Kiểm toán (Theo định hướng ICAEW CFAB),50,tuyensinh247,,true
+d5928263-fde7-5eab-99c3-00076e0696c7,HTC,HY0151,HY0151,Tài chính – Ngân hàng (CTĐT Tài chính doanh nghiệp; Ngân hàng),275,tuyensinh247,,true
+d1180695-c8de-52f2-aadd-de90132ea7ac,HTC,HY0213,HY0213,Kế toán (CTĐT Kế toán doanh nghiệp; Kế toán công),460,tuyensinh247,,true
+518b34d2-4ff1-5cd2-8217-25dee919cc6b,HTC,HY0312,HY0312,Quản trị kinh doanh (CTĐT Quản trị doanh nghiệp; Quản trị kinh doanh du lịch),300,tuyensinh247,,true
+82602978-18f0-592a-8252-69989adc3f25,HTC,HY0402,HY0402,Công nghệ thương mại điện tử,50,tuyensinh247,,true
+82faa07c-c3db-5ca0-bf52-45da76068c1e,HTC,HY0603,HY0603,Quản lý kinh tế,80,tuyensinh247,,true
+a8c71313-40c4-553c-80ce-8f63c6746c01,HTC,HY1001,HY1001,Kiểm toán,50,tuyensinh247,,true
+3c9b2fba-4e05-5370-a2e0-70c4d0c50ac3,HTC,HY1101,HY1101,Marketing,80,tuyensinh247,,true
+89568b58-6890-5308-b931-3b4868791dbc,HTC,HY1502,HY1502,Thương mại quốc tế,80,tuyensinh247,,true
+e2c1fb97-bb32-564b-92de-fd668a807afc,HVD,7310101,7310101,Kinh tế giáo dục vùng dân tộc thiểu số,120,tuyensinh247,,true
+9aec6b3f-616d-506f-936a-0c401af4134c,HVN,HVN01,HVN01,Thú y,659,tuyensinh247,562,true
+2af82e8b-7fe3-56f6-97fc-2ea24d1178da,HVN,HVN02,HVN02,Chăn nuôi thú y - Thuỷ sản,240,tuyensinh247,562,true
+338b7651-95d8-5983-94f6-01a52c7f123b,HVN,HVN03,HVN03,Nông nghiệp và cảnh quan,135,tuyensinh247,562,true
+de644031-1ee5-5076-bbe9-b45886dd4f4f,HVN,HVN04,HVN04,Công nghệ kỹ thuật ô tô và Cơ điện tử,540,tuyensinh247,562,true
+8dc9107a-67b3-5ba3-851f-9758273428d7,HVN,HVN05,HVN05,Kỹ thuật cơ khí,130,tuyensinh247,562,true
+dbe17242-ef49-5ddf-845e-ccc8cd5a8a80,HVN,HVN06,HVN06,"Kỹ thuật điện, Điện từ và Tự động hoá",280,tuyensinh247,562,true
+00b03a6b-e1eb-54cd-ab41-914b321643b5,HVN,HVN07,HVN07,Logistics và Quản lý chuỗi cung ứng,960,tuyensinh247,562,true
+5369c024-d430-501c-9b9c-6d5df9f7422c,HVN,HVN08,HVN08,"Kế toán, Quản trị kinh doanh và Thương mại",2065,tuyensinh247,562,true
+24fdecaf-e307-5cfc-a120-77f907b910fc,HVN,HVN09,HVN09,Công nghệ sinh học và Công nghệ dược liệu,120,tuyensinh247,562,true
+ed5c8b78-f216-54ae-ad9b-e1661572b2a4,HVN,HVN10,HVN10,Công nghệ thực phẩm và Chế biến,415,tuyensinh247,562,true
+9d40b410-6c3f-5dde-b560-8661480c1650,HVN,HVN11,HVN11,Kinh tế và Quản lý,565,tuyensinh247,562,true
+aed6cac7-757f-5377-b142-b79af495ed7b,HVN,HVN12,HVN12,Xã hội học,220,tuyensinh247,562,true
+ca460424-4355-5561-88d2-aee70af7e8c9,HVN,HVN13,HVN13,Luật,265,tuyensinh247,562,true
+dbbe4b0e-82e5-5a03-ad11-a75b655928ec,HVN,HVN14,HVN14,Công nghệ thông tin và Kỹ thuật số,500,tuyensinh247,562,true
+325dee09-18a5-52b6-ac2f-3eeebe255786,HVN,HVN15,HVN15,"Quản lý đất đai, Bất động sản và Môi trường",265,tuyensinh247,562,true
+998d62dd-9d13-5bc1-b49d-cbc461b7cf99,HVN,HVN16,HVN16,Khoa học môi trường,20,tuyensinh247,562,true
+f7bbdfab-5f76-5ee7-b7a6-5851d4b9dbf2,HVN,HVN17,HVN17,Ngôn ngữ Anh,395,tuyensinh247,562,true
+8536add6-0047-54f9-bc5f-c01b63572137,HVN,HVN18,HVN18,Ngôn ngữ Trung Quốc,50,tuyensinh247,562,true
+c3131dc4-8bc9-50c4-acb4-d5d65c20c3d0,HVN,HVN19,HVN19,Sư phạm công nghệ,30,tuyensinh247,562,true
+17c8b18d-29d2-52a0-ad65-362a00613788,HVN,HVN20,HVN20,Du lịch,100,tuyensinh247,562,true
+a2bb1fef-b0a5-5acf-8e03-2838ac56d7eb,HVN,HVN21,HVN21,Quản lý và phát triển du lịch,150,tuyensinh247,562,true
+dffba81f-f60f-52de-8214-d64cd82970cf,HVN,HVN22,HVN22,Quy hoạch vùng vả Đô thị,50,tuyensinh247,562,true
+e560aa7d-8a6d-5277-b138-5810953a03ac,HVN,HVN23,HVN23,Di sản học,30,tuyensinh247,562,true
+bbf4edfa-210c-5dc3-a051-9430d7ad98fe,HVQ,7140101,7140101,Giáo dục học (Giáo dục trẻ rối loạn phát triển),100,tuyensinh247,257,true
+6bf75415-f10b-556f-bc2a-5e5fdaf8007f,HVQ,7140114,7140114,Quản lý giáo dục,180,tuyensinh247,257,true
+bba6dc9e-a801-5356-9a15-6741860c8713,HVQ,7220201,7220201,Ngôn ngữ Anh,100,tuyensinh247,257,true
+897fc084-e7f4-5cbb-a47c-2b411f206181,HVQ,7310101,7310101,Kinh tế,120,tuyensinh247,257,true
+83c5b734-0acc-51de-b424-26983887d3fb,HVQ,7310403,7310403,Tâm lý học giáo dục,200,tuyensinh247,257,true
+2320ec9b-ce42-5d8b-987e-1314e9df6546,HVQ,7340406,7340406,Quản trị văn phòng,150,tuyensinh247,257,true
+89444654-d972-54aa-9816-4b3c54981cd6,HVQ,7480201,7480201,Công nghệ thông tin,150,tuyensinh247,257,true
+eddbdd31-5102-54db-b65c-b5b26daaf5fc,KHA,7220201,7220201,Ngôn ngữ Anh,90,tuyensinh247,357,true
+49953b80-c47d-5f03-9a8e-503a3d4a9a0d,KHA,7310101_1,7310101_1,Kinh tế học,50,tuyensinh247,357,true
+487ebdad-de5b-5ab1-8cea-3b38645983fb,KHA,7310101_2,7310101_2,Kinh tế và quản lý đô thị,50,tuyensinh247,357,true
+7ee811ca-0458-5320-a5c2-61acfe54f44a,KHA,7310101_3,7310101_3,Kinh tế và quản lý nguồn nhân lực,50,tuyensinh247,357,true
+d6a261da-05c3-5206-9967-789a7bd6516d,KHA,7310104,7310104,Kinh tế đầu tư,100,tuyensinh247,357,true
+a6aa4980-cce8-5fc9-9a60-6b8a222154c3,KHA,7310105,7310105,Kinh tế phát triển,80,tuyensinh247,357,true
+74996915-90bd-554d-a9f7-603bab3f38a8,KHA,7310106,7310106,Kinh tế quốc tế,50,tuyensinh247,357,true
+fcf8a187-66c3-5f35-87af-d919a11d107f,KHA,7310107,7310107,Thống kê kinh tế,50,tuyensinh247,357,true
+756f33cd-6891-5ebd-9966-57e1e830aecc,KHA,7310108,7310108,Toán kinh tế,50,tuyensinh247,357,true
+57e03b2e-a250-5776-a464-c320bc87ac6a,KHA,7320108,7320108,Quan hệ công chúng,50,tuyensinh247,357,true
+b7c9bf71-a441-5e8f-b468-81e4e6b67783,KHA,7340101,7340101,Quản trị kinh doanh,180,tuyensinh247,357,true
+94d1f37c-8465-5453-b26c-d09ace3a454d,KHA,7340115,7340115,Marketing,100,tuyensinh247,357,true
+2fac890d-070d-5153-8a59-462efcc107a2,KHA,7340116,7340116,Bất động sản,70,tuyensinh247,357,true
+f7bd921e-c3cc-55bf-9edd-29fd5d3fe6a7,KHA,7340120,7340120,Kinh doanh quốc tế,100,tuyensinh247,357,true
+043c460d-f739-5de0-8715-0eea3614be27,KHA,7340121,7340121,Kinh doanh thương mại,100,tuyensinh247,357,true
+4625fd53-5903-5b27-85f7-4ca49dccb207,KHA,7340122,7340122,Thương mại điện tử,50,tuyensinh247,357,true
+56904c65-ff57-5eb0-a335-b89fa96a2f1c,KHA,7340201,7340201,Tài chính – Ngân hàng,230,tuyensinh247,357,true
+26445a3d-d392-5809-a01a-f08534e8af7c,KHA,7340204,7340204,Bảo hiểm,80,tuyensinh247,357,true
+61a007c5-6ccf-5319-b259-d14e92df9b47,KHA,7340205,7340205,Công nghệ tài chính (dự kiến),50,tuyensinh247,,true
+fb70777c-5d53-5ab7-aea5-ea1684071ccb,KHA,7340301,7340301,Kế toán,150,tuyensinh247,357,true
+3a098d43-9ead-5ee2-af26-07cd5d273b37,KHA,7340302,7340302,Kiểm toán,50,tuyensinh247,357,true
+e1546e70-862e-500b-8066-f01a45678010,KHA,7340401,7340401,Khoa học quản lý,90,tuyensinh247,357,true
+06765ec8-fb2e-5c0a-a085-1ddb049bcbc8,KHA,7340403,7340403,Quản lý công,50,tuyensinh247,357,true
+f6343f04-428c-5914-a6b1-b1673e6a0662,KHA,7340404,7340404,Quản trị nhân lực,70,tuyensinh247,357,true
+36815925-f751-54ca-b1e6-8eb0023def0d,KHA,7340405,7340405,Hệ thống thông tin quản lý,100,tuyensinh247,357,true
+1fb627ce-dd41-5cf6-9cd5-478bdaa585f1,KHA,7340408,7340408,Quan hệ lao động,40,tuyensinh247,357,true
+6cc7dfab-b68c-54be-8ad1-0fac4bda9782,KHA,7340409,7340409,Quản lý dự án,50,tuyensinh247,357,true
+30f2a837-4e9b-54cc-a39d-7241d040a8f3,KHA,7380101,7380101,Luật,50,tuyensinh247,357,true
+4d47b1f2-45e8-506f-8603-834bafb63fe0,KHA,7380107,7380107,Luật kinh tế,80,tuyensinh247,357,true
+b5c82eab-f1d6-510f-b15b-f2e201eba418,KHA,7380109,7380109,Luật thương mại quốc tế,50,tuyensinh247,357,true
+601892a7-f73c-5e23-b6d6-2c0e3a84f4ce,KHA,7480101,7480101,Khoa học máy tính,50,tuyensinh247,357,true
+a8a48947-af69-5be7-9f69-50be7db4cf19,KHA,7480104,7480104,Hệ thống thông tin,50,tuyensinh247,357,true
+f0039c39-f0ba-5bc7-8673-8b6c63fef7fe,KHA,7480201,7480201,Công nghệ thông tin,100,tuyensinh247,357,true
+345790b8-5653-57f8-b993-8414dbd1d5ab,KHA,7480202,7480202,An toàn thông tin,50,tuyensinh247,357,true
+c0f8b0eb-a32a-5c57-b89b-0cc52ef59b3a,KHA,7510605,7510605,Logistics và Quản lý chuỗi cung ứng,100,tuyensinh247,357,true
+4dc60f63-a628-5269-9a5c-05f34bdb2bd0,KHA,7620114,7620114,Kinh doanh nông nghiệp,50,tuyensinh247,357,true
+93f5a5a7-37b0-5ca4-8568-ace82765f445,KHA,7620115,7620115,Kinh tế nông nghiệp,50,tuyensinh247,357,true
+3eec0af8-36b2-5556-bae4-fdbaeb37fb3e,KHA,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,60,tuyensinh247,357,true
+adb5fe98-703d-56ca-8e6e-a76721f9a963,KHA,7810201,7810201,Quản trị khách sạn,50,tuyensinh247,357,true
+63f71498-a92f-5875-a064-5b957f2579cb,KHA,7850101,7850101,Quản lý tài nguyên và môi trường,50,tuyensinh247,357,true
+e4f97efb-98c3-5adf-a849-99f6e89a55e9,KHA,7850102,7850102,Kinh tế tài nguyên thiên nhiên,50,tuyensinh247,357,true
+e7c57488-f8ba-5411-afe8-fdcdbe9df3ff,KHA,7850103,7850103,Quản lý đất đai,50,tuyensinh247,357,true
+ee329862-d354-58c1-8690-ffc2f635cdc1,KHA,CLC1-01,CLC1-01,(1) Kinh tế phát triển,55,tuyensinh247,,true
+8015f4a8-4389-5b64-9f31-e1f9a449e5e0,KHA,CLC1-02,CLC1-02,(2) Ngân hàng,55,tuyensinh247,,true
+8ffa9abc-65ef-5004-b8ca-a2413e964bdd,KHA,CLC1-03,CLC1-03,(3) Công nghệ thông tin và chuyển đổi số,55,tuyensinh247,,true
+2cef3c13-2bad-5267-a092-6059e26b9150,KHA,CLC1-04,CLC1-04,(4) Bảo hiểm tích hợp chứng chỉ ANZIIF,55,tuyensinh247,,true
+ba313832-9591-5c92-a4e9-dc7292d4827a,KHA,CLC2-01,CLC2-01,(1) Kinh tế Đầu tư,160,tuyensinh247,,true
+2bc1b9a8-fada-54fb-bb20-440f2c9cdc3e,KHA,CLC2-02,CLC2-02,(2) Quản trị nhân lực,160,tuyensinh247,,true
+8ebcf6eb-7569-5d4c-9e95-54a3c5ad1958,KHA,CLC2-03,CLC2-03,(3) Quản trị kinh doanh,105,tuyensinh247,,true
+84818af4-2116-591a-85ef-564dcdce248b,KHA,CLC2-04,CLC2-04,(4) Quan hệ công chúng,160,tuyensinh247,,true
+e5d54189-7811-58f8-8428-f7506edc8737,KHA,CLC3-01,CLC3-01,(1) Tài chính doanh nghiệp,325,tuyensinh247,,true
+d1111263-da2e-5045-a497-b4dd2d05cb33,KHA,CLC3-02,CLC3-02,(2) Marketing số,270,tuyensinh247,,true
+bc550b41-933f-55c3-a4f0-410e3dbe992a,KHA,CLC3-03,CLC3-03,(3) Quản trị Marketing,165,tuyensinh247,,true
+2d0d690f-0164-56c0-95e0-edef4c20438d,KHA,CLC3-04,CLC3-04,(4) Quản trị Kinh doanh quốc tế,270,tuyensinh247,,true
+8a092761-464d-5116-bea6-4de5b158a2db,KHA,CLC3-05,CLC3-05,(5) Kinh tế quốc tế,270,tuyensinh247,,true
+948aa820-0e37-5475-a7cc-aa7be7c8623b,KHA,CLC3-06,CLC3-06,(6) Logistics và quản lý chuỗi cung ứng,165,tuyensinh247,,true
+a11963c2-f59f-5166-b1b0-cdb697061444,KHA,CLC3-07,CLC3-07,(7) Thương mại điện tử,165,tuyensinh247,,true
+4b7cb79c-e80b-5947-8c28-718cd2ac8bf6,KHA,CLC3-08,CLC3-08,(8) Kiểm toán tích hợp chứng chỉ ACCA,270,tuyensinh247,,true
+3c23c4da-a345-5102-a477-a0105f780321,KHA,EBBA,EBBA,Quản trị kinh doanh (E-BBA),110,tuyensinh247,357,true
+8bc7fecc-bca9-56fd-9635-d921a74621ba,KHA,EP01,EP01,Khởi nghiệp và phát triển kinh doanh (BBAE),90,tuyensinh247,357,true
+88e9bb01-69df-591d-b13b-7ec13f3d9bea,KHA,EP02,EP02,Khoa học tính toán trong Tài chính và Bảo hiểm,50,tuyensinh247,357,true
+e866dd2e-8a34-5094-b581-425383998cfc,KHA,EP03,EP03,Phân tích dữ liệu kinh tế (EDA),90,tuyensinh247,357,true
+2759bb0a-9fea-5a2e-b09f-2f75185a3019,KHA,EP04,EP04,Kế toán tích hợp chứng chỉ quốc tế (ICAEW CFAB),60,tuyensinh247,357,true
+74f2c21b-e332-5e88-86b8-56f9e65a8476,KHA,EP05,EP05,Kinh doanh số (E-BDB),60,tuyensinh247,357,true
+951a2078-1a16-5836-854c-952c7c814392,KHA,EP06,EP06,Phân tích kinh doanh (BA),60,tuyensinh247,357,true
+dd07671a-f0fc-5e91-a6b2-c55e20b0cc0d,KHA,EP07,EP07,Quản trị điều hành thông minh (E-SOM),70,tuyensinh247,357,true
+4cf2f402-588d-5b91-b438-6aac6fc912de,KHA,EP08,EP08,Quản trị chất lượng và Đổi mới (E-MQI),70,tuyensinh247,357,true
+3098446e-a151-5fcc-8fbc-32e006ced592,KHA,EP09,EP09,Công nghệ tài chính và Ngân hàng số,100,tuyensinh247,357,true
+6dad1737-63d0-54c3-9c65-4784c40a0227,KHA,EP10,EP10,Tài chính và Đầu tư (BFI),100,tuyensinh247,357,true
+7280e03f-48ec-5dac-bcd4-19856a85c740,KHA,EP11,EP11,Quản trị khách sạn quốc tế (IHME),50,tuyensinh247,357,true
+b3941a73-9b5e-51d3-9b1f-20206ada1ae1,KHA,EP12,EP12,Kiểm toán tích hợp chứng chỉ quốc tế (ICAEW CFAB),60,tuyensinh247,357,true
+d4cdcada-907b-572c-8666-2ea113fd5214,KHA,EP13,EP13,Kinh tế học tài chính (FE),90,tuyensinh247,357,true
+d8f97b9f-8267-551d-b2ce-68d184a1cc7e,KHA,EP14,EP14,Logistics và Quản lý CCU tích hợp chứng chỉ Logistic quốc tế (LSIC),100,tuyensinh247,357,true
+ff236392-72d2-52e8-a0a6-dee19dd123ad,KHA,EP15,EP15,Khoa học dữ liệu,70,tuyensinh247,357,true
+5160fe3f-2e22-5899-8638-11ecbe5a4a14,KHA,EP16,EP16,Trí tuệ nhân tạo,80,tuyensinh247,357,true
+cdb9269d-98ef-5b34-873e-189b03536ddf,KHA,EP17,EP17,Kỹ thuật phần mềm,50,tuyensinh247,357,true
+3ee2f6f3-45f1-5bfc-9d3d-248980e452f4,KHA,EP18,EP18,Quản trị giải trí và sự kiện,50,tuyensinh247,357,true
+1aad0e35-ca6d-54eb-a0af-471bc3f44585,KHA,EP19,EP19,Công nghệ Marketing,50,tuyensinh247,,true
+85862f89-97ee-54e1-9854-f1dad47e2b06,KHA,EP20,EP20,Công nghệ Logistics và Quản trị chuỗi cung ứng,50,tuyensinh247,,true
+9329110b-055f-58d4-bf59-1679e1b47b9a,KHA,EP21,EP21,Kiểm toán nội bộ,50,tuyensinh247,,true
+c1a1e16a-35a7-5b18-b79e-318ec673a7c2,KHA,EP22,EP22,Kinh tế quốc tế,50,tuyensinh247,,true
+43cb573a-7fbe-5991-ab66-ba04b95dfda8,KHA,EP23,EP23,Kinh tế số (dự kiến),50,tuyensinh247,,true
+37fe5b5d-bc05-5425-b643-4795d42c906c,KHA,EP24,EP24,Kinh tế Y tế,40,tuyensinh247,,true
+6053f9c0-6d76-58cb-aee6-576a2d8daad8,KHA,EP25,EP25,Phát triển quốc tế,40,tuyensinh247,,true
+93ad23bd-4325-5105-86cd-f6b9d7a1e5b2,KHA,EP26,EP26,Công nghệ môi trường và phát triển bền vững,50,tuyensinh247,,true
+177a6780-85eb-52cd-9c73-acc98dbfe08d,KHA,EP27,EP27,Quản trị công nghiệp sáng tạo,50,tuyensinh247,,true
+bdd095d1-172a-511a-be29-0834510ef74f,KHA,EP28,EP28,Quản trị nhân lực quốc tế,40,tuyensinh247,,true
+2b3125c3-be09-5eb6-90b7-60e3a594b49b,KHA,EP29,EP29,Quản trị rủi ro định lượng,50,tuyensinh247,,true
+462be2e4-f33e-51a0-96b5-70cdaa86382a,KHA,EP30,EP30,Toán ứng dụng (dự kiến),50,tuyensinh247,,true
+37663e0e-268b-548f-8faa-f6859a010b1f,KHA,EP31,EP31,Thẩm định giá,50,tuyensinh247,,true
+af1e39cb-ded1-5be2-8b33-371c0ae207fb,KHA,EP32,EP32,Thống kê và Trí tuệ kinh doanh,50,tuyensinh247,,true
+0fcd1719-9f83-5939-9a57-f54bf53c2fb3,KHA,EPMP,EPMP,Quản lý công và Chính sách (E-PMP),70,tuyensinh247,357,true
+b3d64516-3d32-5f4e-98e1-6ce6e4cffc05,KHA,POHE1,POHE1,Quản trị khách sạn,50,tuyensinh247,357,true
+4b03e8f9-ec27-5c5d-b51f-eea314567506,KHA,POHE2,POHE2,Quản trị lữ hành,50,tuyensinh247,357,true
+822e1bc6-b787-58d3-aa0e-e562ce61d28f,KHA,POHE3,POHE3,Truyền thông Marketing,60,tuyensinh247,357,true
+abec8927-9f82-518b-854c-ff3b5b685023,KHA,POHE4,POHE4,Luật kinh doanh,50,tuyensinh247,357,true
+75df8d3b-a995-5d7f-b9b6-60e4e4a4d8b3,KHA,POHE5,POHE5,Quản trị kinh doanh thương mại,50,tuyensinh247,357,true
+7843c6b4-4e25-58ed-90b3-c4f6f47e00ec,KHA,POHE6,POHE6,Quản lý thị trường,50,tuyensinh247,357,true
+e6ecbc73-5c70-53ea-a79d-5584daed799f,KHA,POHE7,POHE7,Thẩm định giá,50,tuyensinh247,357,true
+88702a64-ed58-55dc-80f0-9de9dd365a45,KHA,TT1-01,TT1-01,(1) Kế toán,55,tuyensinh247,,true
+78988ca1-f47d-5370-9fc8-0bece6e0160a,KHA,TT1-02,TT1-02,(2) Kế hoạch tài chính,55,tuyensinh247,,true
+a9114def-07cb-5882-a359-26a5b0d25f6b,KHA,TT1-03,TT1-03,(3) Quản trị kinh doanh,55,tuyensinh247,,true
+026e43a3-b989-5747-a81b-4d1569966a58,KHA,TT2-01,TT2-01,(1) Tài chính,220,tuyensinh247,,true
+8fa94b50-0242-5751-b97c-20c325c43bf8,KHA,TT2-02,TT2-02,(2) Kinh doanh quốc tế,110,tuyensinh247,,true
+0eb1c653-bf92-5167-aece-089fc30eaac1,KMA,7480201KA,7480201KA,Công nghệ thông tin,140,tuyensinh247,,true
+9694885a-59be-5178-8fca-bf3fa73bea5f,KMA,7480202KA,7480202KA,An toàn thông tin,240,tuyensinh247,,true
+fb4c6a70-253b-5532-8c2f-35fc5005d42c,KQH,7860220_CLC,7860220_CLC,Kỹ sư quân sự (đào tạo chất lượng cao),30,tuyensinh247,,true
+2dbb3892-a67a-5fd4-9db9-c3e2ab9e8333,KQH,7860220_LK,7860220_LK,Kỹ sư quân sự (liên kết),5,tuyensinh247,,true
+6752a2d2-ecbc-5e18-b8f5-6064a04f5498,KQH,7860220_NN,7860220_NN,Kỹ sư quân sự (đào tạo tại nước ngoài),195,tuyensinh247,,true
+044145dc-436b-523b-98a4-d929ed4fe6c9,KQH,7860220_Nam_B,7860220_Nam_B,"Kỹ sư quân sự (miền Bắc, thí sinh Nam)",251,tuyensinh247,241,true
+c008a30d-03a7-5522-b79f-dd21c68e0ae7,KQH,7860220_Nam_N,7860220_Nam_N,"Kỹ sư quân sự (miền Nam, thí sinh Nam)",135,tuyensinh247,241,true
+52626129-eef2-5f6f-b731-d6b65a0c6581,KQH,7860220_Nu_B,7860220_Nu_B,"Kỹ sư quân sự (miền Bắc, thí sinh Nữ)",9,tuyensinh247,241,true
+ca12904e-ae12-53ee-a005-f474df59c87e,KQH,7860220_Nu_N,7860220_Nu_N,"Kỹ sư quân sự (miền Nam, thí sinh Nữ)",5,tuyensinh247,241,true
+a288c146-c9f1-52f5-9daa-96b176b5ad08,LDA,7220201,7220201,Ngôn ngữ Anh,60,tuyensinh247,316,true
+38a24682-a77e-5630-a734-15d47e32d5f7,LDA,7310101,7310101,Kinh tế,100,tuyensinh247,316,true
+70a2299e-0601-5fb1-b107-deccb02afc2e,LDA,7310109,7310109,Kinh tế số,60,tuyensinh247,,true
+868b7674-fed2-5ef5-ad1e-963a9cb98c23,LDA,7310301,7310301,Xã hội học,150,tuyensinh247,316,true
+61b7b28c-6b40-5b1b-9da5-c709dcbea3f7,LDA,7310401,7310401,Tâm lý học,60,tuyensinh247,,true
+8ed8a731-afb9-5e55-99ce-0fe7cc75cda8,LDA,7310630,7310630,Việt Nam học,80,tuyensinh247,316,true
+83a9e79f-c9d7-5bc2-bc5a-c57bfdfd931a,LDA,7320105,7320105,Truyền thông đại chúng,100,tuyensinh247,316,true
+f9d72388-007b-5ca2-9f8f-5c9faf85cc06,LDA,7340101,7340101,Quản trị kinh doanh,300,tuyensinh247,316,true
+18e3cdb7-075b-5177-8bf6-6e3cd1ed07e0,LDA,7340101P,7340101P,Quản trị kinh doanh (chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),60,tuyensinh247,316,true
+db39541d-6eb9-527e-9fec-7415e27c40d7,LDA,7340120,7340120,Kinh doanh quốc tế,60,tuyensinh247,,true
+96c421ce-bcd7-5384-ac13-05b5ad59ad9c,LDA,7340201,7340201,Tài chính - Ngân hàng,250,tuyensinh247,316,true
+9537de08-aed5-5952-871f-393206e56c04,LDA,7340205,7340205,Công nghệ tài chính,60,tuyensinh247,,true
+c17b774e-0432-5dbb-8784-cf733e311d71,LDA,7340301,7340301,Kế toán,280,tuyensinh247,316,true
+cb6b1bcf-caa4-584f-a7e8-f6c71fd1d48f,LDA,7340302,7340302,Kiểm toán,60,tuyensinh247,,true
+46e5abd9-c624-5a1c-9c1c-ff88b20cb0b1,LDA,7340404,7340404,Quản trị nhân lực,330,tuyensinh247,316,true
+ff907564-5dc5-5676-bb7d-245ebe9ec543,LDA,7340408,7340408,Quan hệ lao động,100,tuyensinh247,316,true
+059fee07-e8aa-5ae3-8a05-89902a2a8fe7,LDA,7340409,7340409,Quản lý dự án,60,tuyensinh247,,true
+60f67043-dadf-573b-8e7d-244add3e6cff,LDA,7380101,7380101,Luật,129,tuyensinh247,316,true
+6c366bdb-c119-5754-af9e-fa13f2c442a3,LDA,7380107,7380107,Luật kinh tế,60,tuyensinh247,,true
+2a7a5652-20af-537d-b92e-fc299383dd2b,LDA,7460108,7460108,Khoa học dữ liệu,80,tuyensinh247,316,true
+92eaf264-5fcf-52e7-9077-5339f7aef12c,LDA,7480107,7480107,Trí tuệ nhân tạo,60,tuyensinh247,,true
+5a513625-d258-53ba-b0e1-a8dc13e01f1b,LDA,7480201,7480201,Công nghệ thông tin,60,tuyensinh247,316,true
+57a3f88d-6210-5f82-92cb-ab82fed89104,LDA,7760101,7760101,Công tác xã hội,150,tuyensinh247,316,true
+3790a297-f926-5477-9c27-f5460b0695d2,LDA,7810101,7810101,Du lịch,100,tuyensinh247,316,true
+d45106d2-2b01-5766-8eeb-0bb6affd4f2b,LDA,7850201,7850201,Bảo hộ lao động,180,tuyensinh247,316,true
+cdaaf2d8-dea2-5019-80e8-2ef3a7ca08a1,LNH,7310101,7310101,"Kinh tế (Kinh tế, Kinh tế đầu tư; Kinh tế số, Kinh tế tuần hoàn)",60,tuyensinh247,370,true
+24f109e1-82bb-5207-a6f2-7882c37d1997,LNH,7340101,7340101,"Quản trị kinh doanh (Quản trị doanh nghiệp, quản trị Logistics; Marketing số)",160,tuyensinh247,370,true
+936e70c3-96a2-5681-968d-ccdb280c2842,LNH,7340116,7340116,Bất động sản,30,tuyensinh247,370,true
+60f01ef6-7962-5e92-9972-607f4a0adfc4,LNH,7340201,7340201,"Tài chính - Ngân hàng (Bảo hiểm và đầu tư tài chính, Ngân hàng, Tài chính, Tài chính - Ngân hàng)",60,tuyensinh247,370,true
+87dec95e-becc-549a-b59a-a10e44b7654e,LNH,7340301,7340301,"Kế toán (Kế toán, Kế toán doanh nghiệp, Kế toán công)",200,tuyensinh247,370,true
+af57996b-6aa7-588c-b8ef-011863aa9d53,LNH,7420201,7420201,Công nghệ sinh học,30,tuyensinh247,370,true
+eadcff6b-ac3c-52e0-8df5-0fb759b6fb68,LNH,7480104,7480104,Hệ thống thông tin (Công nghệ thông tin),60,tuyensinh247,370,true
+aba14e8e-c0c1-5c89-b914-292ded8faf0d,LNH,7510203,7510203,Công nghệ kỹ thuật cơ điện tử,130,tuyensinh247,370,true
+771e52d1-c302-5ae6-9af6-ea93ff149890,LNH,7510205,7510205,Công nghệ kỹ thuật ô tô,130,tuyensinh247,370,true
+a393e602-2e46-5de3-8e1a-9dd91fefb338,LNH,7510605,7510605,Logistics và Quản lý chuỗi cung ứng,180,tuyensinh247,370,true
+99144c8b-bdee-5f52-b605-887cdb947783,LNH,7520103,7520103,Kỹ thuật cơ khí (Công nghệ chế tạo máy),50,tuyensinh247,370,true
+636fe994-2fc4-5009-a9e4-3762510a493b,LNH,7520118,7520118,Kỹ thuật hệ thống công nghiệp,30,tuyensinh247,370,true
+4f7c0838-1399-5a99-8f35-7ebc3a04c89d,LNH,7549001,7549001,"Công nghệ chế biến lâm sản (Công nghệ gỗ và quản trị sản xuất, Kỹ nghệ gỗ và nội thất, Thiết kế và kỹ thuật đồ gỗ nội thất)",30,tuyensinh247,370,true
+ae438323-3b39-50b5-8a2c-897b4dd92f00,LNH,7580102,7580102,"Kiến trúc cảnh quan (Quy hoạch và Thiết kế cảnh quan, Quản lý công trình cảnh quan đô thị, Quản lý cây xanh đô thị)",30,tuyensinh247,370,true
+36b4c4d8-5cca-5518-9b0d-ec869718ee3d,LNH,7580108,7580108,Thiết kế nội thất,70,tuyensinh247,370,true
+806db253-9e5c-5cf3-9ab5-d15027613597,LNH,7580201,7580201,Kỹ thuật xây dựng,30,tuyensinh247,370,true
+b6d1f586-1d8e-56d5-b3d0-a3bbe8b2ab06,LNH,7620105,7620105,Chăn nuôi,30,tuyensinh247,370,true
+de6aa5c2-2922-538e-a089-3115575a0a0b,LNH,7620110,7620110,"Khoa học cây trồng (Nông nghiệp công nghệ cao, Khuyến nông và phát triển nông thôn)",30,tuyensinh247,370,true
+4a567c90-5a21-5b1d-bbd6-dd4dc24c4879,LNH,7620205,7620205,Lâm sinh (Công nghệ viễn thám và GIS; Quản lý phát thải cacbon; Lâm sinh),40,tuyensinh247,370,true
+a2524a8c-a54c-57b2-ad5e-6e5ad3ecae0e,LNH,7620210,7620210,Lâm nghiệp,30,tuyensinh247,370,true
+5f1e6133-e207-5ed4-808d-bd10294849f9,LNH,7620211,7620211,Quản lý tài nguyên rừng (Kiểm lâm),90,tuyensinh247,370,true
+60559cf7-e495-548c-8614-32c67d398197,LNH,7640101,7640101,Thú y,90,tuyensinh247,370,true
+80865a4b-22a0-5b90-a792-957443a496d2,LNH,7760101,7760101,Công tác xã hội,50,tuyensinh247,370,true
+4c8ea9e2-2e86-5d16-82f0-ea7ea34c953f,LNH,7810103,7810103,"Quản trị dịch vụ Du lịch và Lữ hành (Quản trị khách sạn, Quản trị lữ hành)",220,tuyensinh247,370,true
+bfecafab-74e3-59ce-a682-5c09fbe27e71,LNH,7850101,7850101,Quản lý tài nguyên và Môi trường,30,tuyensinh247,370,true
+d55015df-7344-537e-827e-f98ace35906c,LNH,7850103,7850103,"Quản lý đất đai (Địa tin học, Quản trị đất đai hiện đại, Quản trị đô thị thông minh)",60,tuyensinh247,370,true
+57dd46b3-e2b1-5480-9f6a-314bad4cb61a,LNH,7850104,7850104,Du lịch sinh thái,30,tuyensinh247,370,true
+3f62d442-365e-53e5-90dc-93b355ba5ea5,LNH,7850106,7850106,Quản lý tài nguyên thiên nhiên,20,tuyensinh247,370,true
+6061d841-bd3a-50ff-b947-e40559ed3307,LPH,7220201,7220201,Ngôn ngữ Anh,200,tuyensinh247,368,true
+09cc797d-23a1-5e50-91f8-a7f7eb808b4b,LPH,7380101,7380101,Luật,1600,tuyensinh247,368,true
+b6566b79-9142-5f71-bfe2-0ae4a2fc0947,LPH,7380101PH,7380101PH,Luật (Đào tạo tại Phân hiệu Đắk Lắk),300,tuyensinh247,368,true
+3dce8e11-a410-53c0-885a-09d32a5922d7,LPH,7380107,7380107,Luật Kinh tế,550,tuyensinh247,368,true
+ecb2e504-159a-5bc0-8ebc-a04a0de36215,LPH,7380109,7380109,Luật Thương mại quốc tế,200,tuyensinh247,368,true
+b08c52d2-3e64-5de7-9fd6-a36977627947,MHN,7210403,7210403,Thiết kế đồ họa,160,tuyensinh247,296,true
+92b41980-45da-5a2b-b0d7-7dde27defb9a,MHN,7210404,7210404,Thiết kế thời trang,55,tuyensinh247,296,true
+b002a5b0-12bf-5232-bad2-c12baeecc06f,MHN,7220201,7220201,Ngôn ngữ Anh,290,tuyensinh247,296,true
+0954680a-c9cf-5205-9acb-7b68f8b12d7a,MHN,7220204,7220204,Ngôn ngữ Trung Quốc,280,tuyensinh247,296,true
+e7b16e9c-8706-58db-bf96-4ec3ee5912d5,MHN,7340101,7340101,Quản trị kinh doanh,290,tuyensinh247,296,true
+9651acd4-f04a-5e82-916f-8be92f972583,MHN,7340122,7340122,Thương mại điện tử,130,tuyensinh247,296,true
+272a6452-ef3a-5727-ab4d-fa087e66f8e6,MHN,7340201,7340201,Tài chính - Ngân hàng,375,tuyensinh247,296,true
+39316c89-e313-50b6-b590-099b03d2c87a,MHN,7340204,7340204,Bảo hiểm,45,tuyensinh247,296,true
+a9523b8a-8d45-5459-82f3-88bc13628a4a,MHN,7340301,7340301,Kế toán,260,tuyensinh247,296,true
+00d0aa18-2710-561c-a5f1-541173fd94bd,MHN,7380101,7380101,Luật,230,tuyensinh247,296,true
+65bf17a3-4ca4-5b54-bfa0-fb7950b8ba07,MHN,7380107,7380107,Luật kinh tế,230,tuyensinh247,296,true
+99fe8467-17b8-5397-86ac-2e89fd25f31e,MHN,7380108,7380108,Luật quốc tế,100,tuyensinh247,296,true
+e6a9b033-5c51-55f4-a8d1-27fcadfd24dc,MHN,7420201,7420201,Công nghệ sinh học,120,tuyensinh247,296,true
+f770e173-b688-5e41-acd4-328db188bf11,MHN,7480106,7480106,Kỹ thuật máy tính,75,tuyensinh247,,true
+212cdbd2-8cc8-5e31-adba-d09c0f7e7b7f,MHN,7480201,7480201,Công nghệ thông tin,385,tuyensinh247,296,true
+c8ce22ae-1459-5bfd-bf92-3cfd3b1068ee,MHN,7510302,7510302,Công nghệ kỹ thuật điện tử - viễn thông,200,tuyensinh247,296,true
+60d38a36-aad6-54f5-bfeb-0ef73c84bed8,MHN,7510303,7510303,Công nghệ kỹ thuật điều khiển và tự động hóa,290,tuyensinh247,296,true
+0560dd38-01c0-5b5d-a110-94111dfece26,MHN,7540101,7540101,Công nghệ thực phẩm,180,tuyensinh247,296,true
+169cf581-0477-52e4-a862-006e394e21da,MHN,7580101,7580101,Kiến trúc,85,tuyensinh247,296,true
+a267da2e-6028-5581-bbf2-a11e81c10b16,MHN,7580108,7580108,Thiết kế nội thất,100,tuyensinh247,296,true
+4ebc2c9b-84f9-53dd-8e6b-76f7b3716a26,MHN,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,225,tuyensinh247,296,true
+5cfff814-bedd-5429-b915-1f46f7de0979,MHN,7810201,7810201,Quản trị khách sạn,150,tuyensinh247,296,true
+19ce31f9-e8de-5eb4-8c92-2a02bca801aa,MTC,7210103,7210103,Ngành Hội họa,80,tuyensinh247,372,true
+5a08b237-c978-57a1-b2af-adc0e9dccc13,MTC,7210105,7210105,Ngành Điêu khắc,30,tuyensinh247,372,true
+b7232d27-52f0-54df-9162-52541160db5e,MTC,7210107,7210107,Ngành Gốm,40,tuyensinh247,372,true
+23d7ee61-f3ab-517e-86d5-167ab894e4e9,MTC,7210402,7210402,Ngành Thiết kế Công nghiệp,80,tuyensinh247,372,true
+145ab05a-0e38-5ae7-9717-9c2d9888137c,MTC,7210403,7210403,Ngành Thiết kế Đồ họa,200,tuyensinh247,372,true
+3d7ebfdb-d067-5f8d-b1a9-46dd00f3d9e0,MTC,7210404,7210404,Ngành Thiết kế Thời trang,120,tuyensinh247,372,true
+ccb039a7-139f-50e7-be6e-0a17a54cf224,MTC,7580108,7580108,Ngành Thiết kế Nội thất,200,tuyensinh247,372,true
+29ad50b0-f9e1-59d2-8121-1885154bc0ec,MTH,7140222,7140222,Sư phạm Mỹ thuật,15,tuyensinh247,,true
+dd0dc021-9f1a-5d12-b735-87cee5b60b06,MTH,7210101,7210101,"Lý luận, lịch sử và phê bình nghệ thuật",7,tuyensinh247,374,true
+03194654-2e6d-5a68-8add-a5d561fbe249,MTH,7210103,7210103,Hội họa,45,tuyensinh247,374,true
+4460abf6-a8f6-54bb-bc8d-1e11e0035828,MTH,7210104,7210104,Đồ họa,11,tuyensinh247,374,true
+b3c0d841-efaa-59d7-848a-8ebe9c6483ff,MTH,7210105,7210105,Điêu khắc,7,tuyensinh247,374,true
+bb5a7112-2d25-5735-9e8f-0568152f20bf,MTH,7210403,7210403,Thiết kế đồ họa,45,tuyensinh247,374,true
+809b01ed-2058-5adb-adba-ac98648c82c4,NHF,7220101,7220101,Tiếng Việt và Văn hoá Việt Nam (dành cho người nước ngoài),250,tuyensinh247,,true
+21ba8693-7b4b-5ba1-a412-76eeb30889cb,NHF,7220201,7220201,Ngôn ngữ Anh,300,tuyensinh247,336,true
+1fbd5ffe-8d4b-534c-a995-514ce404e9b7,NHF,7220201,7220201 TM,Ngôn ngữ Anh - thương mại,100,tuyensinh247,,true
+8a3b357e-8a7c-5418-b501-857d11343dd2,NHF,7220201,7220201 TT,Ngôn ngữ Anh - CTTT,100,tuyensinh247,336,true
+b2314414-e29a-5b5d-885d-c27bfc16cd6f,NHF,7220202,7220202,Ngôn ngữ Nga,150,tuyensinh247,336,true
+e402c741-a136-5425-9f50-41e6ac57549b,NHF,7220203,7220203,Ngôn ngữ Pháp,135,tuyensinh247,336,true
+db952711-f377-50a7-9ef2-30b3d4a6ffde,NHF,7220204,7220204,Ngôn ngữ Trung Quốc,280,tuyensinh247,336,true
+4c719fbd-82f2-5614-a91e-5c4ced4dcc14,NHF,7220204,7220204 TT,Ngôn ngữ Trung Quốc - CTTT,120,tuyensinh247,336,true
+a58b248c-017e-54bc-87da-1f78d3051f4f,NHF,7220205,7220205,Ngôn ngữ Đức,150,tuyensinh247,336,true
+bda2c4d0-9306-5295-afcc-c5da56b7a10e,NHF,7220206,7220206,Ngôn ngữ Tây Ban Nha,100,tuyensinh247,336,true
+a6c5d865-33c6-5efe-b52c-2598c3a6281c,NHF,7220207,7220207,Ngôn ngữ Bồ Đào Nha,75,tuyensinh247,336,true
+baf19859-73c4-5348-870e-f86c957ca4ae,NHF,7220208,7220208,Ngôn ngữ Italia,75,tuyensinh247,336,true
+1b6dad3a-c1c7-567e-b34f-61cbd493f797,NHF,7220208,7220208 TT,Ngôn ngữ Italia - CTTT,75,tuyensinh247,336,true
+f97ec5f6-ed12-5c75-b077-dff8ca3c1ae3,NHF,7220209,7220209,Ngôn ngữ Nhật,200,tuyensinh247,336,true
+780b287c-02e8-5c12-9702-7aace4d7fce7,NHF,7220210,7220210,Ngôn ngữ Hàn Quốc,120,tuyensinh247,336,true
+ad0ad710-e22f-57cc-bff8-7e8209bbcd14,NHF,7220210,7220210 TT,Ngôn ngữ Hàn Quốc - CTTT,120,tuyensinh247,336,true
+58addf69-4679-54d1-862b-5929cea30fbd,NHF,7310111,7310111,Nghiên cứu phát triển,60,tuyensinh247,336,true
+b76cfbe4-2f54-5dff-9a69-7cd20101140d,NHF,7310206,7310206,Quan hệ quốc tế,75,tuyensinh247,,true
+69ccb285-1656-542d-8342-553a9e5f9a78,NHF,7310601,7310601,Quốc tế học,125,tuyensinh247,336,true
+407f0f77-7401-5e57-b2e7-12813f200dc0,NHF,7320104,7320104,Truyền thông đa phương tiện,120,tuyensinh247,336,true
+6b1d2c9c-a0ae-54f2-a3f9-f42914a43d58,NHF,7320109,7320109,Truyền thông doanh nghiệp,75,tuyensinh247,336,true
+d07de7c1-6ebf-52b7-9a63-0e867231891f,NHF,7340101,7340101,Quản trị kinh doanh,100,tuyensinh247,336,true
+483ed30f-4815-5258-a015-bebe8c5c8b89,NHF,7340115,7340115,Marketing,75,tuyensinh247,336,true
+fd770351-c8be-5c7a-ad34-b0c7672e7712,NHF,7340201,7340201,Tài chính - Ngân hàng,100,tuyensinh247,336,true
+54ad73d7-548f-5bea-9896-2b7f2ef68ac7,NHF,7340205,7340205,Công nghệ tài chính,75,tuyensinh247,336,true
+561697d6-5506-5db8-b2ba-40102553b144,NHF,7340301,7340301,Kế toán,100,tuyensinh247,336,true
+99173b57-48a2-5d7e-83fb-26d9fb6357b9,NHF,7480201,7480201,Công nghệ thông tin,180,tuyensinh247,336,true
+e9cc3938-b90e-532e-b497-fd6f303fc91c,NHF,7480201,7480201 TT,Công nghệ thông tin - CTTT,120,tuyensinh247,336,true
+21b728e5-e26e-53a7-aa25-7b72c4a78fe1,NHF,7810103,7810103,Quản trị Dịch vụ du lịch và lữ hành,75,tuyensinh247,336,true
+222a8dad-8a59-5d07-a316-0c5437134550,NHF,7810103,7810103 TT,Quản trị Dịch vụ du lịch và lữ hành - CTTT,75,tuyensinh247,336,true
+9cf33e3a-8a4d-5210-8422-a3049b506f4d,NHH,ACT01,ACT01,Chất lượng cao Kế toán,180,tuyensinh247,247,true
+006dd7fb-b60e-50dd-9495-e60d45286c16,NHH,ACT02,ACT02,Kế toán,70,tuyensinh247,247,true
+91873a8d-a794-56cd-8b7b-8f9170fc0d51,NHH,ACT03,ACT03,"Kế toán (Liên kết ĐH Sunderland, Anh. Cấp song bằng)",100,tuyensinh247,247,true
+82129020-d983-58a3-b3f8-49db30426b92,NHH,ACT04,ACT04,Kiểm toán,120,tuyensinh247,247,true
+3ec4eafd-94ee-5299-941c-f45bfaa4c588,NHH,ACT05,ACT05,Chất lượng cao Kiểm toán,120,tuyensinh247,,true
+55208fed-b139-5939-b232-0b3e519ad1ed,NHH,ACT06,ACT06,Kế toán (Định hướng Nhật bản). Học viện Ngân hàng cấp bằng,50,tuyensinh247,,true
+9517934e-ee66-55dc-be61-2387fc56e825,NHH,BANK01,BANK01,Chất lượng cao Ngân hàng,210,tuyensinh247,247,true
+98460437-9916-5d81-9992-7e6253d02570,NHH,BANK02,BANK02,Ngân hàng,140,tuyensinh247,247,true
+44a0456d-ea76-5e17-8251-bb691165efe9,NHH,BANK03,BANK03,Ngân hàng số,140,tuyensinh247,247,true
+83dfea40-712e-5e58-bf23-d13b8b20e023,NHH,BANK04,BANK04,"Tài chính-Ngân hàng (Liên kết ĐH Sunderland, Anh Quốc. Cấp song bằng)",100,tuyensinh247,247,true
+f59d5cfb-75ee-5e85-82ee-5fac0e002ec4,NHH,BANK06,BANK06,Chất lượng cao Ngân hàng và Tài chính quốc tế,120,tuyensinh247,247,true
+ec1f3280-b67b-5542-9fda-a2167b4185d7,NHH,BANK07,BANK07,Chất lượng cao Ngân hàng trung ương và chính sách công,60,tuyensinh247,247,true
+35552e80-d17b-5ee5-a7e5-40139663d68d,NHH,BANK08,BANK08,"Ngân hàng Tài chính - Đại học West of England (UWE), Anh (Cấp song bằng)",80,tuyensinh247,,true
+68530a61-2c3d-511a-93de-86a0a1a3a9d3,NHH,BUS01,BUS01,Chất lượng cao Quản trị kinh doanh,120,tuyensinh247,247,true
+fc3aa268-1379-584b-bae9-3f9cbe2f4db1,NHH,BUS02,BUS02,Quản trị kinh doanh,70,tuyensinh247,247,true
+f2803f84-3b55-5e59-b157-6bbbac94fd7a,NHH,BUS03,BUS03,Quản trị du lịch,70,tuyensinh247,247,true
+d4419be0-05a7-5062-85a1-9e80a7edfc39,NHH,BUS04,BUS04,"Quản trị kinh doanh (Liên kết với ĐH CityU, Hoa kỳ. Cấp song bằng)",80,tuyensinh247,247,true
+90bb63b2-2783-55b6-8eca-2191662500c0,NHH,BUS06,BUS06,Chất lượng cao Marketing số,120,tuyensinh247,247,true
+3746200f-45b9-5d06-ae4a-3dc2eb1a7bdf,NHH,BUS07,BUS07,Marketing,70,tuyensinh247,247,true
+9e732af7-b554-532e-839f-ed30cef6e42e,NHH,BUS08,BUS08,Chất lượng cao Quản trị nhân lực,60,tuyensinh247,,true
+c3c10cd1-b231-5838-b185-7c77abc74b39,NHH,BUS09,BUS09,Chất lượng cao Kinh doanh số,60,tuyensinh247,,true
+53956083-4dda-53ba-8023-ec69e43b5d82,NHH,BUS10,BUS10,"Quản trị kinh doanh, Hàng hải & Logistics - Đại học Genoa, CH Ý (Cấp song bằng)",50,tuyensinh247,,true
+4efac236-c0ca-5263-9fa5-b26ade3eee26,NHH,BUS11,BUS11,"Marketing - Đại học West of England (UWE), Anh (Cấp song bằng)",80,tuyensinh247,,true
+05898ab2-58db-55dd-b1fb-90abd15ace6c,NHH,DS01,DS01,Khoa học dữ liệu trong kinh tế và kinh doanh,140,tuyensinh247,247,true
+f53c9cf6-89af-5feb-b16d-9507cc4b57a9,NHH,ECON01,ECON01,Kinh tế đầu tư,70,tuyensinh247,247,true
+c2c8c9b5-0eeb-59e8-9233-ec1062b9fac2,NHH,ECON02,ECON02,Chất lượng cao Kinh tế đầu tư,120,tuyensinh247,247,true
+5d3046bb-8efb-5497-84c9-ee79389cbe04,NHH,ECON03,ECON03,Kinh tế quốc tế,70,tuyensinh247,,true
+63248071-2390-5daa-928a-947a73f06f67,NHH,FIN01,FIN01,Chất lượng cao Tài chính,350,tuyensinh247,247,true
+5ae24839-9e4f-5f0f-a228-bf88c32be8ee,NHH,FIN02,FIN02,Tài chính,140,tuyensinh247,247,true
+5723cf52-aa50-51e4-849a-1fbe61e7bf05,NHH,FIN04,FIN04,Chất lượng cao Hoạch định và tư vấn tài chính,60,tuyensinh247,247,true
+925c9d50-9ffc-5f3d-a81e-14d0d84d35ac,NHH,FIN05,FIN05,Công nghệ tài chính,140,tuyensinh247,,true
+7454626b-79d1-5e11-839f-854a12635b7c,NHH,FL01,FL01,Ngôn ngữ Anh Tài chính – Ngân hàng,70,tuyensinh247,247,true
+67623353-c0fb-5895-8e8e-ac646b2f0de4,NHH,FL02,FL02,Chất lượng cao Ngôn ngữ Anh Tài chính – Ngân hàng,120,tuyensinh247,247,true
+87a8ace7-37da-59a0-8875-bcd46f2eda67,NHH,IB01,IB01,Kinh doanh quốc tế,70,tuyensinh247,247,true
+75f0eed0-8d98-5b45-ac69-9169ea15f686,NHH,IB02,IB02,Logistics và quản lý chuỗi cung ứng,70,tuyensinh247,247,true
+6e057415-734a-5313-8c98-1cc3e1d07718,NHH,IB04,IB04,Chất lượng cao Kinh doanh quốc tế,180,tuyensinh247,247,true
+d2b77e9e-aa7c-5e97-8604-ff9c557389e5,NHH,IB05,IB05,Chất lượng cao Thương mại điện tử,60,tuyensinh247,247,true
+275266de-a991-5934-a5db-45cd98f62684,NHH,IB06,IB06,Chất lượng cao Logistics và Quản lý chuỗi cung ứng,60,tuyensinh247,,true
+f09c9c1e-fbdf-5c65-9135-1849a59e3edf,NHH,IB07,IB07,"Quản trị kinh doanh quốc tế - Đại học West of England (UWE), Anh (Cấp song bằng)",80,tuyensinh247,,true
+8e196aaa-d2e8-5833-90c1-83b21a378205,NHH,IT01,IT01,Công nghệ thông tin,120,tuyensinh247,247,true
+82a9415e-f8f6-5ab4-83bf-6eec012e5e87,NHH,LAW01,LAW01,Luật kinh tế,180,tuyensinh247,247,true
+71d670a4-6140-5411-93fe-fcb8412ff41b,NHH,LAW03,LAW03,Chất lượng cao Luật Kinh tế,120,tuyensinh247,,true
+2440c8ba-f07a-52e7-9f71-7826cf225d0d,NHH,LAW04,LAW04,Luật học,70,tuyensinh247,,true
+fb856203-cd6b-57f2-995a-5fa736dadb0f,NHH,MIS01,MIS01,Hệ thống thông tin quản lý,70,tuyensinh247,247,true
+50ba6ec2-5b31-56eb-9062-2c52f6546e5a,NHH,MIS02,MIS02,Chất lượng cao Hệ thống thông tin quản lý,60,tuyensinh247,247,true
+81ec442d-93cc-5839-86ba-8f640903a709,NTH,NT,NT.CN.H18_1,CT TH Khoa học máy tính và dữ liệu trong kinh tế và kinh doanh,150,tuyensinh247,,true
+7032641c-270e-54bd-9803-df9a2953e88c,NTH,NT,NT.CN.H18_2,CT TH Trí tuệ nhân tạo cho đổi mới sáng tạo trong kinh tế và kinh doanh,150,tuyensinh247,,true
+7f2b2e38-6a76-578d-b19c-31931cadb952,NTH,NT,NT.CN.H18_3,CT TH Khoa học dữ liệu cho đổi mới sáng tạo trong kinh tế và kinh doanh,150,tuyensinh247,,true
+9c2ee570-309d-553e-acbf-cae7c64e9ffa,NTH,NT,NT.KD.H05,CT TT i-Hons Kinh doanh quốc tế và Phân tích dữ liệu kinh doanh,70,tuyensinh247,,true
+eca63107-716b-5436-bb79-28b421d283b5,NTH,NT,NT.KD.H06_1,CT CLC Kinh doanh quốc tế,190,tuyensinh247,,true
+2956a8e2-0b33-5045-8400-6bfc78455c8b,NTH,NT,NT.KD.H06_2,CT TC Kinh doanh quốc tế,190,tuyensinh247,,true
+7ecedab1-1c4f-5a58-bd20-d5e43ae1bd5c,NTH,NT,NT.KD.H07_1,CT ĐHNNQT Kinh doanh số toàn cầu,130,tuyensinh247,,true
+2b6e23cc-c343-560c-b4af-b8399661c6f5,NTH,NT,NT.KD.H07_2,CT ĐHNNQT Kinh doanh quốc tế theo mô hình tiên tiến Nhật Bản,130,tuyensinh247,,true
+8381433a-3d0a-5888-8b79-884274b207a5,NTH,NT,NT.KD.H08_1,CT ĐHNNQT Kinh doanh sáng tạo và Công nghiệp văn hóa,100,tuyensinh247,,true
+14a76129-16f2-509f-9b67-9349a405789c,NTH,NT,NT.KD.H08_2,CT ĐHNNQT Quản lý công nghiệp thông minh,100,tuyensinh247,,true
+0eac1f60-c22f-5b01-bec5-16685e0cc50d,NTH,NT,NT.KE.H16_1,CT TC Kế toán - Kiểm toán,200,tuyensinh247,,true
+8fd6a2bb-e534-5164-8322-766fcf5e7626,NTH,NT,NT.KE.H16_2,CT ĐHNNQT Kế toán - Kiểm toán theo định hướng ACCA,200,tuyensinh247,,true
+1d93b053-1a16-5286-be86-f693314811a0,NTH,NT,NT.KE.H16_3,CT ĐHNNQT Kiểm toán tích hợp công nghệ,200,tuyensinh247,,true
+250e67cc-eba3-5092-a7fd-37b0689f2d40,NTH,NT,NT.KE.S28,CT TC Kế toán - Kiểm toán,70,tuyensinh247,,true
+d5469a5e-140d-5344-a67f-00a0075fc57e,NTH,NT,NT.KK.Q29_1,CT TC Kế toán - Kiểm toán,100,tuyensinh247,,true
+1dfa9cda-dfcd-5001-8c40-3e6b8373bb32,NTH,NT,NT.KK.Q29_2,CT TC Kinh doanh quốc tế,100,tuyensinh247,,true
+e365350d-cdf2-5f33-9bb8-13c8b02fe033,NTH,NT,NT.KT.H01,CT TT Kinh tế đối ngoại,80,tuyensinh247,,true
+f892358a-e2fb-589f-8a49-583a607e6acc,NTH,NT,NT.KT.H02_1,CT CLC Kinh tế đối ngoại,640,tuyensinh247,,true
+5a701c92-4c5d-5803-8f8f-507e469da6fb,NTH,NT,NT.KT.H02_2,CT TC Kinh tế đối ngoại,640,tuyensinh247,,true
+e74566bb-c787-5417-bf50-d4c8f5509f65,NTH,NT,NT.KT.H03,CT ĐHNNQT Logistics toàn cầu và đối mới chuỗi cung ứng,50,tuyensinh247,,true
+754330a1-ef22-5907-ab2a-f26fc80fbacc,NTH,NT,NT.KT.H04_1,CT CLC Kinh tế quốc tế,340,tuyensinh247,,true
+b1775eaf-8180-56ed-b06f-d621de51d51f,NTH,NT,NT.KT.H04_2,CT TC Kinh tế quốc tế,340,tuyensinh247,,true
+6405da17-35b9-5d27-bedd-43f8244843b6,NTH,NT,NT.KT.H04_3,CT ĐHNNQT Kinh tế số và Phân tích dữ liệu,340,tuyensinh247,,true
+5a950c12-a69b-5338-88aa-7cac8e72df98,NTH,NT,NT.KT.S23_1,CT CLC Kinh tế đối ngoại,520,tuyensinh247,,true
+90932f8e-6cb1-5f23-88fc-a964ec696a6c,NTH,NT,NT.KT.S23_2,CT TC Kinh tế đối ngoại,520,tuyensinh247,,true
+b6543007-ed70-57dc-b45d-87f2d9e5f1e1,NTH,NT,NT.KT.S24,CT ĐHNNQT Logistics toàn cầu và đối mới chuỗi cung ứng,50,tuyensinh247,,true
+7b423e06-a575-53d4-aee2-9dfc8972603c,NTH,NT,NT.LS.H17_1,CT TC Luật thương mại quốc tế,220,tuyensinh247,,true
+47e6e65f-4295-5147-a060-ffb7256a65da,NTH,NT,NT.LS.H17_2,CT ĐHNNQT Luật Kinh doanh quốc tế theo mô hình thực hành nghề nghiệp,220,tuyensinh247,,true
+82c34bc6-9201-5394-9215-42690cda59bc,NTH,NT,NT.LS.H17_3,CT ĐHNNQT Luật Kinh tế và kinh doanh số,220,tuyensinh247,,true
+416ee501-6e80-5a3a-a3cd-abf2f014a58d,NTH,NT,NT.LS.H17_4,CT TH Luật dân sự và tố tụng dân sự,220,tuyensinh247,,true
+7c92b5ba-1368-596f-828d-56c546c33095,NTH,NT,NT.MT.S26,CT ĐHNNQT Truyền thông Marketing tích hợp,50,tuyensinh247,,true
+dd71c202-af67-5d65-9976-6d249930f384,NTH,NT,NT.NN.H19,CT TH Tiếng Anh thương mại,170,tuyensinh247,,true
+9623784b-cb2b-578e-b529-7645b7cf994d,NTH,NT,NT.NN.H20,CT TH Tiếng Trung thương mại,120,tuyensinh247,,true
+6e8c5009-c56c-512e-8361-1db643ee353b,NTH,NT,NT.NN.H21,CT TH Tiếng Nhật thương mại,120,tuyensinh247,,true
+145e2e4a-2369-50e2-9469-cb58c7cb0264,NTH,NT,NT.NN.H22,CT TH Tiếng Pháp thương mại,60,tuyensinh247,,true
+e68e946e-02ba-5a1e-aee5-cc1bd9617bae,NTH,NT,NT.QK.H12_1,CT ĐHNNQT Quản trị khách sạn,100,tuyensinh247,,true
+aa95c4f8-0a98-5c41-9308-d7129184e1d2,NTH,NT,NT.QK.H12_2,CT ĐHPTQT Kinh tế chính trị quốc tế,100,tuyensinh247,,true
+5f301254-ab2a-5704-bf12-aa8edf4b94bc,NTH,NT,NT.QT.H09,CT TT Quản trị kinh doanh,80,tuyensinh247,,true
+77572587-9e81-50af-a95f-b34e7ab62ccc,NTH,NT,NT.QT.H10_1,CT CLC Quản trị kinh doanh,230,tuyensinh247,,true
+7015cd9e-e9b0-50ed-bb29-04976c1fe359,NTH,NT,NT.QT.H10_2,CT TC Quản trị kinh doanh,230,tuyensinh247,,true
+42dc4504-0a70-5f49-9f2a-b6a4a679a47f,NTH,NT,NT.QT.H10_3,CT ĐHNNQT Quản trị nguồn nhân lực số và phát triển tổ chức,230,tuyensinh247,,true
+386287c1-9468-5ec3-9a79-9a5bf16ac2f3,NTH,NT,NT.QT.S25_1,CT CLC Quản trị kinh doanh,140,tuyensinh247,,true
+9bbb0d4b-bed1-55e5-9e91-1a33b2f14c0e,NTH,NT,NT.QT.S25_2,CT TC Quản trị kinh doanh,140,tuyensinh247,,true
+f6c4815a-f452-5885-bd04-772f134537a3,NTH,NT,NT.TC.H14,CT TT Tài chính - Ngân hàng,40,tuyensinh247,,true
+0c8028a4-2371-52e5-ae1c-8ab98dff5712,NTH,NT,NT.TC.H15_1,CT CLC Tài chính - Ngân hàng,300,tuyensinh247,,true
+c5711db3-9ebb-5c71-93b9-26018a4a07ac,NTH,NT,NT.TC.H15_2,CT TC Tài chính - Ngân hàng,300,tuyensinh247,,true
+a5dc5f29-1035-5d0a-a402-adc63f52103b,NTH,NT,NT.TC.H15_3,CT ĐHNNQT Công nghệ tài chính và Tài chính bền vững,300,tuyensinh247,,true
+7f5e0fbf-9b6e-50a0-9239-6e9092702178,NTH,NT,NT.TC.S27_1,CT CLC Tài chính - Ngân hàng,120,tuyensinh247,,true
+7ffcc215-5a9b-5547-be62-0de1f9ae37a5,NTH,NT,NT.TC.S27_2,CT TC Tài chính - Ngân hàng,120,tuyensinh247,,true
+b3c37a6c-2092-57d5-8b35-8ff76f082794,NTH,NT,NT.TM.H11_1,CT ĐHNNQT Thương mại số thông minh và đổi mới kinh doanh,100,tuyensinh247,,true
+c3d1cabe-83bd-5c5e-a5bd-bc92e7982abf,NTH,NT,NT.TM.H11_2,CT ĐHNNQT Marketing số,100,tuyensinh247,,true
+277c7481-0d16-5e53-8e33-751edf63afe7,NTU,7210403,7210403,Thiết kế đồ họa,40,tuyensinh247,384,true
+772b2073-6eeb-5969-96a6-4ad56e76c385,NTU,7220209,7220209,Ngôn ngữ Nhật,100,tuyensinh247,384,true
+f8901af1-353f-5c2d-9d2e-061d88bd9f33,NTU,7220210,7220210,Ngôn ngữ Hàn Quốc,150,tuyensinh247,384,true
+614cec31-cde4-57ca-9cb3-9891301e4664,NTU,7310601,7310601,Quốc tế học,182,tuyensinh247,384,true
+993b01ca-780c-58c6-adc2-dfa453f07738,NTU,7320108,7320108,Quan hệ công chúng,103,tuyensinh247,384,true
+f924488d-8ee2-5e76-95e0-18a678790a98,NTU,7340101,7340101,Quản trị kinh doanh,250,tuyensinh247,384,true
+4a3cff7a-d494-5ea6-b485-f74aac61d999,NTU,7340201,7340201,Tài chính - Ngân hàng,100,tuyensinh247,384,true
+16d91071-f287-5f70-a62b-58fef6ecdd40,NTU,7340301,7340301,Kế toán,100,tuyensinh247,384,true
+891b447b-7d62-55be-84ec-96f6c0f6768e,NTU,7480201,7480201,Công nghệ thông tin,150,tuyensinh247,384,true
+f0e7cce2-bcbb-5070-bba9-b3fd0b3ed7ff,NTU,7580101,7580101,Thiết kế nội thất,50,tuyensinh247,384,true
+1d5159e3-74d4-5613-8d1f-d20d33f2f571,PKA,BIO1,BIO1,Công Nghệ Sinh Học,52,tuyensinh247,423,true
+2701724d-8cac-561b-b2bf-bc0eeef4ac4f,PKA,BIO2,BIO2,Công Nghệ Mỹ Phẩm*,100,tuyensinh247,,true
+9503f4f2-9a1a-5887-8d2e-823fa8bdf286,PKA,BMS,BMS,Khoa Học Y Sinh,80,tuyensinh247,423,true
+9e898189-0f37-528c-8503-b1da38a8db16,PKA,CHE1,CHE1,Kỹ Thuật Hóa Học,54,tuyensinh247,423,true
+45be0f3a-9ef2-557c-a710-955e5018e1e2,PKA,CHE2,CHE2,Công Nghệ Pin Xe Điện*,100,tuyensinh247,,true
+2725b81c-8bbd-53f1-9e90-9f4933e87343,PKA,DEN1,DEN1,Răng - Hàm - Mặt,200,tuyensinh247,423,true
+04222421-fdb5-557a-a1a1-b75450643f83,PKA,EEE-AI,EEE-AI,Kỹ Thuật Điều Khiển Và Tự Động Hóa (Robot Và Trí Tuệ Nhân Tạo),95,tuyensinh247,423,true
+7675fe49-6d1d-58b7-92c0-df5414923455,PKA,EEE1,EEE1,Kỹ Thuật Điều Khiển Và Tự Động Hóa,157,tuyensinh247,423,true
+24c7fb09-61c6-5579-bf58-d1b42101986e,PKA,EEE2,EEE2,Kỹ Thuật Y Sinh (Điện Tử Y Sinh),54,tuyensinh247,423,true
+89cc6dfc-1514-5db0-9dba-b93c78b0d943,PKA,EEE3,EEE3,Kỹ Thuật Điện Tử - Viễn Thông (Hệ Thống Nhúng Thông Minh Và Iot),100,tuyensinh247,423,true
+3ffbd0c3-acd5-5359-8b81-9015b4c4a1ac,PKA,EEE4,EEE4,Kỹ Thuật Điện Tử - Viễn Thông (Thiết Kế Vi Mạch Bán Dẫn),150,tuyensinh247,423,true
+825af524-da1a-5b82-b4ce-4203ce4b2ddf,PKA,FBE1,FBE1,Quản Trị Kinh Doanh,1056,tuyensinh247,423,true
+0969648a-c0a0-5b9f-8902-3fd9cd0187a8,PKA,FBE10,FBE10,Kinh Tế Và Quản Lý Đầu Tư*,120,tuyensinh247,,true
+210e7ad7-3bdc-5f51-aaaf-b9cca19b0ebd,PKA,FBE11,FBE11,Kinh Doanh Quốc Tế (Chương Trình Học Bằng Tiếng Việt)*,150,tuyensinh247,,true
+bdd46d18-7a12-5b32-ac96-9b26cac9681e,PKA,FBE12,FBE12,Kinh Doanh Thương Mại*,200,tuyensinh247,,true
+8fced2ee-1ffb-51d9-859e-bb04e75b1a35,PKA,FBE2,FBE2,Kế Toán,356,tuyensinh247,423,true
+e381acfe-7fcc-5645-ae7a-a0592323cd7d,PKA,FBE3,FBE3,Tài Chính - Ngân Hàng,350,tuyensinh247,423,true
+af846872-54b8-57c5-bc3d-aa4cd09bf0e6,PKA,FBE4,FBE4,Quản Trị Nhân Lực,250,tuyensinh247,423,true
+eb510a68-2edf-5f2f-9447-7a8ab100c49e,PKA,FBE5,FBE5,Kiểm Toán,108,tuyensinh247,423,true
+595b4df6-ac1f-50bd-8bda-2428ddd03799,PKA,FBE6,FBE6,Kinh Doanh Quốc Tế (Các Học Phần Chuyên Ngành Học Bằng Tiếng Anh),96,tuyensinh247,423,true
+e4516fcc-2b46-575f-b14c-8579c35c111d,PKA,FBE7,FBE7,Logistics Và Quản Lý Chuỗi Cung Ứng (Một Số Học Phần Chuyên Ngành Học Bằng Tiếng Anh),200,tuyensinh247,423,true
+89e2d320-8416-5348-907b-7065ebf2a1fd,PKA,FBE8,FBE8,Marketing (Một Số Học Phần Chuyên Ngành Học Bằng Tiếng Anh),480,tuyensinh247,423,true
+e3662084-aff7-54ef-8f00-aebcd035a68d,PKA,FIDT1,FIDT1,Kinh Tế Số,100,tuyensinh247,423,true
+c9875931-e6ef-5114-9ad8-70805baed7cc,PKA,FIDT10,FIDT10,Quan Hệ Công Chúng*,200,tuyensinh247,,true
+244a3176-2690-5e84-a717-afb184dc7e57,PKA,FIDT2,FIDT2,Quản Trị Kinh Doanh (Kinh Doanh Số),158,tuyensinh247,423,true
+eaa866cf-cd46-5a60-b674-ac1ddef2e3d9,PKA,FIDT3,FIDT3,Thương Mại Điện Tử,720,tuyensinh247,423,true
+8ce2e266-c87c-5ee5-99fa-29cccd22196c,PKA,FIDT4,FIDT4,Logistics Và Quản Lý Chuỗi Cung Ứng (Logistics Số),100,tuyensinh247,423,true
+299e8c1a-997a-5c09-acf1-08fd76e82bdb,PKA,FIDT5,FIDT5,Marketing (Công Nghệ Marketing),360,tuyensinh247,423,true
+6bf9c920-ae71-54a2-9f2c-b2886b50050e,PKA,FIDT6,FIDT6,Truyền Thông Đa Phương Tiện,840,tuyensinh247,423,true
+24d8cc9f-4f86-52b4-94d7-6ae775af742a,PKA,FIDT7,FIDT7,Công Nghệ Tài Chính,80,tuyensinh247,423,true
+3578e971-9472-55e6-ae81-4f7d92e56f74,PKA,FIDT8,FIDT8,Hệ Thống Thông Tin Quản Lý*,200,tuyensinh247,,true
+9cd126f2-8994-510f-8315-e500dbca9542,PKA,FIDT9,FIDT9,Kinh Tế Quốc Tế (Phân Tích Dữ Liệu Kinh Doanh)*,100,tuyensinh247,,true
+5249b5b1-6068-570b-93cd-7c4ce1ee7165,PKA,FLC1,FLC1,Ngôn Ngữ Trung Quốc,660,tuyensinh247,423,true
+7b33787d-8d55-5ef6-869b-bb3ef5169be0,PKA,FLE1,FLE1,Ngôn Ngữ Anh,570,tuyensinh247,423,true
+31651384-deb7-565b-b031-eab7644ba883,PKA,FLF1,FLF1,Ngôn Ngữ Pháp,54,tuyensinh247,423,true
+2506b833-f3c4-5d9f-9f5d-92e5304c3bd8,PKA,FLJ1,FLJ1,Ngôn Ngữ Nhật,120,tuyensinh247,423,true
+a4be9cf9-2ea3-5f41-ab8a-3bdef6f49afe,PKA,FLK1,FLK1,Ngôn Ngữ Hàn Quốc,312,tuyensinh247,423,true
+bc8e038b-b457-586e-99e6-193539ccfc05,PKA,FOL1,FOL1,Luật Kinh Tế,420,tuyensinh247,,true
+5cd86835-f4a1-53d3-9594-460600d59a79,PKA,FOL2,FOL2,Luật Kinh Doanh,120,tuyensinh247,,true
+5a70ad90-48a6-5811-96c6-50967b912ed0,PKA,FOL3,FOL3,Luật,120,tuyensinh247,,true
+64854ecf-79db-5ae0-809a-9fb871d2117f,PKA,FOL4,FOL4,Luật Quốc Tế,48,tuyensinh247,,true
+ed698edd-1741-5f9a-83c7-c5759516c166,PKA,FOL5,FOL5,Luật Thương Mại Quốc Tế,48,tuyensinh247,,true
+ac2f297f-c06a-551e-9f64-bc59253184e4,PKA,FOS1,FOS1,Đông Phương Học,260,tuyensinh247,423,true
+e9025d27-b9b9-5b44-8cd8-683f2ee52aad,PKA,FOS2,FOS2,Việt Nam Học*,50,tuyensinh247,,true
+b9b4f21e-3225-5fe6-91cd-09ca732ba07b,PKA,FTME,FTME,Y Học Cổ Truyền,100,tuyensinh247,423,true
+6b3af529-d445-50f6-92a5-2b362fdaa8fe,PKA,FTS1,FTS1,Du Lịch (Định Hướng Quản Trị Du Lịch),383,tuyensinh247,423,true
+52f8f614-b295-50d7-b1c2-019bf202d48d,PKA,FTS2,FTS2,Quản Trị Khách Sạn,320,tuyensinh247,423,true
+16604762-0d44-506c-814c-8ef9fe2d2d52,PKA,FTS3,FTS3,Kinh Doanh Du Lịch Số,97,tuyensinh247,423,true
+6db8a5bd-2361-526e-85f0-8690bde56e37,PKA,FTS4,FTS4,Hướng Dẫn Du Lịch Quốc Tế,160,tuyensinh247,423,true
+3946dd74-3b88-5d12-b72b-2821d1261c8a,PKA,HM1,HM1,Quản Lý Bệnh Viện,80,tuyensinh247,423,true
+c80a6bb3-75a9-5b1f-b8c0-050cb4404fd9,PKA,ICT-TN,ICT-TN,Tài Năng Khoa Học Máy Tính,30,tuyensinh247,423,true
+0d766252-6c05-513d-95c8-0af581adf657,PKA,ICT-VJ,ICT-VJ,Công Nghệ Thông Tin Việt Nhật,100,tuyensinh247,423,true
+609992e5-4bd4-54e4-87c1-5679fad1a33a,PKA,ICT1,ICT1,Công Nghệ Thông Tin,545,tuyensinh247,423,true
+b2695ea6-5928-5262-be04-1014bd61eb74,PKA,ICT2,ICT2,Kỹ Thuật Phần Mềm (Một Số Học Phần Chuyên Ngành Học Bằng Tiếng Anh),88,tuyensinh247,423,true
+a0fd3053-aa92-58f8-a9eb-37217f49760f,PKA,ICT3,ICT3,Khoa Học Máy Tính (Trí Tuệ Nhân Tạo Và Khoa Học Dữ Liệu),96,tuyensinh247,423,true
+c2640a32-6202-562a-9013-7d00362795d3,PKA,ICT4,ICT4,An Toàn Thông Tin (Một Số Học Phần Chuyên Ngành Học Bằng Tiếng Anh),80,tuyensinh247,423,true
+1612d004-86e0-5e0a-b76c-37db5483ac59,PKA,ICT5,ICT5,Trí Tuệ Nhân Tạo,80,tuyensinh247,423,true
+13c5304d-ec8d-5f74-afe6-5faa6657d63a,PKA,ICT6,ICT6,Khoa Học Dữ Liệu*,150,tuyensinh247,,true
+2f933106-fe90-577c-ac5f-50bdb271f4e7,PKA,ICT7,ICT7,Hệ Thống Thông Tin*,120,tuyensinh247,,true
+2210f490-e814-57a5-bec9-5676be4a449f,PKA,ICT8,ICT8,An Ninh Mạng*,100,tuyensinh247,,true
+347d4d71-ea60-5fd7-8e40-537fa0667651,PKA,MAT01,MAT01,Toán Tin Ứng Dụng*,60,tuyensinh247,,true
+09f2fe56-c96c-5427-a479-1908aed732a2,PKA,MAT02,MAT02,Toán Ứng Dụng Trong Kinh Tế Và Logistics*,60,tuyensinh247,,true
+b120d1bd-6fc9-50f3-877b-b8c6e87c5e06,PKA,MED1,MED1,Y Khoa,240,tuyensinh247,423,true
+4379042e-0a1e-56a4-826a-945aa0378348,PKA,MEM1,MEM1,Kỹ Thuật Cơ Điện Tử,156,tuyensinh247,423,true
+3bd30c34-e341-5a06-9820-8fcf38d36681,PKA,MEM1-IMS,MEM1-IMS,Kỹ Thuật Cơ Điện Tử (Hệ Thống Cơ Điện Tử Thông Minh),80,tuyensinh247,423,true
+a91ebf3a-a889-5ea2-bcf0-56a79201b7c8,PKA,MEM2,MEM2,Kỹ Thuật Cơ Khí,144,tuyensinh247,423,true
+cb283531-91d5-5682-8d79-aa6f2b69bbec,PKA,MEM2-IMD,MEM2-IMD,Kỹ Thuật Cơ Khí (Thiết Kế Cơ Khí Thông Minh)*,50,tuyensinh247,,true
+a784e455-436e-5789-8874-5ce193f83c8e,PKA,MIW,MIW,Hộ Sinh,48,tuyensinh247,423,true
+59102f66-94d9-527b-8dcb-0e82b8f5879b,PKA,MSE-AI,MSE-AI,Vật Liệu Thông Minh Và Trí Tuệ Nhân Tạo,108,tuyensinh247,423,true
+46ff3701-6a84-57db-8bd8-679b5cac35da,PKA,MSE-IC,MSE-IC,Chip Bán Dẫn Và Công Nghệ Đóng Gói,80,tuyensinh247,423,true
+e36070b7-b7b9-5b7d-aaa0-18d5c3cc0edf,PKA,MSE1,MSE1,Vật Liệu Tiên Tiến Và Công Nghệ Nano,128,tuyensinh247,423,true
+a8df8dbc-d490-5ec7-910f-d792f0be80c8,PKA,MTT1,MTT1,Kỹ Thuật Xét Nghiệm Y Học,72,tuyensinh247,423,true
+e3f1b674-5e9b-5f1e-8391-ea3c0e057bc1,PKA,NUR1,NUR1,Điều Dưỡng,364,tuyensinh247,423,true
+c3bf697b-acb7-5996-81c9-6b4bec1e20be,PKA,PAS1,PAS1,Vật Lý Thiên Văn Và Khoa Học Dữ Liệu Không Gian*,20,tuyensinh247,,true
+dc05c00d-0105-5738-b2d8-687de1c014ef,PKA,PHA1,PHA1,Dược Học,382,tuyensinh247,423,true
+a702d6fb-ab50-5437-aebd-502730eff240,PKA,RET1,RET1,Kỹ Thuật Phục Hồi Chức Năng,72,tuyensinh247,423,true
+67547718-1049-54e6-9793-5dd94d252b3d,PKA,RTS1,RTS1,Kỹ Thuật Hình Ảnh Y Học,110,tuyensinh247,423,true
+8976ac8a-2966-5d67-81aa-104b7097a52d,PKA,VEE1,VEE1,Kỹ Thuật Ô Tô,360,tuyensinh247,423,true
+2de4760f-01d7-54fa-a4f9-0c44ad2ef568,PKA,VEE2,VEE2,Cơ Điện Tử Ô Tô,120,tuyensinh247,423,true
+47b84b4d-16ac-54cc-a150-9b75c540224e,PKA,VEE3,VEE3,Kỹ Thuật Phần Mềm Ô Tô,160,tuyensinh247,423,true
+10e4cd1f-32bd-555d-9b5a-d85c6ea7c14c,PKH,7860226_B,7860226_B,"Ngành Chỉ huy Tham mưu Phòng không, Không quân và Tác chiến điện tử (Thí sinh miền Bắc)",210,tuyensinh247,252,true
+632142b7-0fb1-56c1-8115-0a295acb8776,PKH,7860226_N,7860226_N,"Ngành Chỉ huy Tham mưu Phòng không, Không quân và Tác chiến điện tử (Thí sinh miền Nam)",140,tuyensinh247,252,true
+3badafaa-3b14-585d-82cd-0cc07603e3ac,QHE,7310101,7310101,Ngành Kinh tế,400,tuyensinh247,352,true
+216a3088-981b-5cb8-8ac0-3c45a7f2cdf0,QHE,7310105,7310105,Ngành Kinh tế phát triển,350,tuyensinh247,352,true
+97a20cf3-295b-519f-a03a-cf6e43a3d66a,QHE,7310106,7310106,Ngành Kinh tế quốc tế,510,tuyensinh247,352,true
+18b6428e-39c5-5c71-9375-8bd21b3e940c,QHE,7340101,7340101,Ngành Quản trị kinh doanh,410,tuyensinh247,352,true
+453bae55-6ef8-583e-a06d-4baab049c928,QHE,7340101,7340101.68,Ngành Quản trị kinh doanh (do Đại học Troy cấp bằng),150,tuyensinh247,,true
+c3a6d770-ad97-53ee-9d83-ab6d501b73ba,QHE,7340101,7340101.98,Ngành Quản trị kinh doanh (do Đại học St.Francis cấp bằng),350,tuyensinh247,,true
+75da58a4-7376-5a8a-b6ea-5517175333fd,QHE,7340201,7340201,Ngành Tài chính – Ngân hàng,500,tuyensinh247,352,true
+cfd503da-6a95-5c1d-8b7c-c9976a216b1c,QHE,7340301,7340301,Ngành Kế toán,330,tuyensinh247,352,true
+650756b1-9c06-5424-a9af-afed8e302c96,QHF,7140231,7140231,Sư phạm tiếng Anh,150,tuyensinh247,380,true
+e460d5b5-2067-54e7-aebf-10ba524c8b20,QHF,7140234,7140234,Sư phạm tiếng Trung Quốc,25,tuyensinh247,380,true
+668ed3e3-3dfd-52ff-aa05-9188ba2106a9,QHF,7140235,7140235,Sư phạm tiếng Đức,25,tuyensinh247,380,true
+8aa634ea-e1e2-56d2-b871-1d279bc5b2f2,QHF,7140236,7140236,Sư phạm tiếng Nhật,25,tuyensinh247,380,true
+6a87b137-dfde-5184-b802-c3463fc7bdf4,QHF,7140237,7140237,Sư phạm tiếng Hàn Quốc,25,tuyensinh247,380,true
+bbe0d7e0-3e2e-5fe4-a8bc-d17a7e3112b5,QHF,7220101,7220101,Tiếng Việt và Văn hóa Việt Nam,50,tuyensinh247,380,true
+a975c31e-f3e6-5058-a4ef-fc26892782f6,QHF,7220201,7220201,Ngôn ngữ Anh,770,tuyensinh247,380,true
+8585a456-0040-55e3-aba6-5b7c6c5f4508,QHF,7220202,7220202,Ngôn ngữ Nga,70,tuyensinh247,380,true
+664fa4dc-975a-5911-a3fe-e465f2699e62,QHF,7220203,7220203,Ngôn ngữ Pháp,150,tuyensinh247,380,true
+709ddc37-f92a-56d5-a07e-27d99b4e55c4,QHF,7220204,7220204,Ngôn ngữ Trung Quốc,300,tuyensinh247,380,true
+02c13ee3-5a4f-5a7f-b0b0-fbf1de6ccd5a,QHF,7220205,7220205,Ngôn ngữ Đức,120,tuyensinh247,380,true
+31a035fd-5249-574d-8870-be8eab8b8cac,QHF,7220209,7220209,Ngôn ngữ Nhật,300,tuyensinh247,380,true
+28fc307c-f6bb-5485-8147-2fbb7a1370a8,QHF,7220210,7220210,Ngôn ngữ Hàn Quốc,280,tuyensinh247,380,true
+4e5de4fa-4a9d-561f-a373-07a7d03f81f8,QHF,7220211,7220211,Ngôn ngữ Ả Rập,60,tuyensinh247,380,true
+bb932572-0ad3-5bda-a04b-44a5f70a414a,QHF,7220212,7220212,Văn hóa và truyền thông xuyên quốc gia,50,tuyensinh247,380,true
+f4f024ff-db0f-571e-b56b-47829a557d23,QHF,7310403,7310403,Tâm lý học giáo dục,50,tuyensinh247,,true
+498c55ee-13b4-5d43-98ea-e347178179b0,QHI,CN1,CN1,Công nghệ thông tin,460,tuyensinh247,311,true
+68f72a85-6d6e-5f4f-a8aa-b6badb264c3d,QHI,CN10,CN10,Công nghệ nông nghiệp,60,tuyensinh247,311,true
+32ae23e7-cc0f-57a9-9f12-5d952cdf16b4,QHI,CN11,CN11,Kỹ thuật điều khiển và tự động hoá,140,tuyensinh247,311,true
+3c9d4d16-a72e-5d12-a8b8-e030fa6dce43,QHI,CN12,CN12,Trí tuệ nhân tạo,320,tuyensinh247,311,true
+4e42c4bd-0483-554f-b794-53f66b730da4,QHI,CN13,CN13,Kỹ thuật năng lượng,60,tuyensinh247,311,true
+794b7459-5aff-53be-a9d7-d41fc0483b8b,QHI,CN14,CN14,Hệ thống thông tin,240,tuyensinh247,311,true
+b0b03fd1-7025-51b5-b1e1-c5ea0d206d39,QHI,CN15,CN15,Mạng máy tính và truyền thông dữ liệu,120,tuyensinh247,311,true
+1447d3e6-8b86-5a42-9582-663fa144a84d,QHI,CN17,CN17,Kỹ thuật Robot,140,tuyensinh247,311,true
+1e041627-1d85-50c8-a49e-7ac231ce0da3,QHI,CN18,CN18,Thiết kế công nghiệp và Đồ họa,240,tuyensinh247,311,true
+851c1326-bcd8-511b-b118-0bea78fb4ac1,QHI,CN19,CN19,Công nghệ vật liệu (CT Công nghệ vật liệu và Vi điện tử),120,tuyensinh247,311,true
+26cfe00d-f7e5-55da-8ef8-cdf6f8fe3d00,QHI,CN2,CN2,Kỹ thuật máy tính,400,tuyensinh247,311,true
+77139756-7317-5f43-954e-aaee317340fa,QHI,CN20,CN20,Khoa học dữ liệu (CT Khoa học và Kỹ thuật dữ liệu),120,tuyensinh247,311,true
+bb7fa02d-6e82-5944-a3f2-80d8c4067124,QHI,CN21,CN21,Công nghệ sinh học (CT Công nghệ kỹ thuật sinh học),60,tuyensinh247,311,true
+419a12d8-65c2-548e-89a6-753f21c2173f,QHI,CN3,CN3,Vật lý kỹ thuật,160,tuyensinh247,311,true
+0207079e-db93-5354-93d4-fb0857532da6,QHI,CN4,CN4,Cơ kỹ thuật,60,tuyensinh247,311,true
+65fd9eb3-d0c4-5df1-9993-fd76150849e5,QHI,CN5,CN5,Công nghệ kỹ thuật xây dựng,160,tuyensinh247,311,true
+6e2108a7-476e-54ba-83b3-176039e13dae,QHI,CN6,CN6,Công nghệ kỹ thuật cơ - điện tử,160,tuyensinh247,311,true
+e3ce2fe3-51d5-5c38-8c6f-6e987e2b809b,QHI,CN7,CN7,Công nghệ hàng không vũ trụ,120,tuyensinh247,311,true
+e6009a6e-b87e-59e1-a8e3-b1177191b98f,QHI,CN8,CN8,Khoa học máy tính,400,tuyensinh247,311,true
+203c2800-6fc0-51f1-aef0-6c7896a61d95,QHI,CN9,CN9,Công nghệ kỹ thuật điện tử – viễn thông,480,tuyensinh247,311,true
+4cb49e51-40f7-55db-afe9-2a56ed6dba97,QHL,7380101,7380101,Luật,520,tuyensinh247,266,true
+34238de9-9ae2-5a18-ade5-71d820e092df,QHL,7380107,7380107,Luật Kinh tế (CTĐT Luật Kinh doanh),320,tuyensinh247,,true
+9ed63893-17f2-5177-8c37-b8d28e3632cc,QHL,7380109,7380109,Luật Thương mại quốc tế,150,tuyensinh247,266,true
+336079fa-f3a1-5b16-aec0-68757a65b4db,QHS,QHS01,QHS01,Sư phạm Toán học,120,tuyensinh247,,true
+b3220a16-5598-5340-95a0-c18d6e8c9cf4,QHS,QHS02,QHS02,Sư phạm Vật lí,32,tuyensinh247,,true
+fe538eef-f8e2-56c5-8f72-9188c9102322,QHS,QHS03,QHS03,Sư phạm Hoá học,36,tuyensinh247,,true
+8d5b1bfc-98ef-54ff-93ac-2b0a9cf33f6e,QHS,QHS04,QHS04,Sư phạm Sinh học,50,tuyensinh247,,true
+01cacded-e9a7-5d7b-957e-02fa43f4713c,QHS,QHS05,QHS05,Sư phạm Khoa học Tự nhiên,100,tuyensinh247,,true
+8a7cab41-7b31-5264-a5d2-3f5ba637632f,QHS,QHS06,QHS06,Sư phạm Ngữ văn,150,tuyensinh247,,true
+396def64-bd1e-546c-af41-5b859512df77,QHS,QHS07,QHS07,Sư phạm Lịch sử,45,tuyensinh247,,true
+428c11bb-2b56-5a0a-99cd-2634ba9b990f,QHS,QHS08,QHS08,Sư phạm Lịch sử - Địa lý,85,tuyensinh247,,true
+60bb4cda-fa79-5fbb-896f-a1a1c13d2100,QHS,QHS09,QHS09,Giáo dục Mầm non,150,tuyensinh247,,true
+dcfd1a0e-e184-5f0d-8bd1-9cf18c8eabec,QHS,QHS10,QHS10,Giáo dục Tiểu học,150,tuyensinh247,,true
+ceb600da-80cc-522a-b4e3-f848b8e4a823,QHS,QHS11,QHS11,Khoa học giáo dục và khác,550,tuyensinh247,,true
+3e6082a1-d512-540f-b35f-8dd5f0381810,QHS,QHS12,QHS12,Tâm lý học và tâm lý học giáo dục,400,tuyensinh247,,true
+a4056f21-4e89-5ab6-b6e4-bf2592254b54,QHT,QHT01,QHT01,Toán học,60,tuyensinh247,346,true
+540ded12-7e1c-5d86-ba31-443a3151cc34,QHT,QHT02,QHT02,Toán tin,60,tuyensinh247,346,true
+41c1c3cc-8ee4-5c7e-841b-da5bd391ff34,QHT,QHT03,QHT03,Vật lý học,130,tuyensinh247,346,true
+08943fe4-00ee-5fc8-8dd4-179672e7b99a,QHT,QHT04,QHT04,Khoa học vật liệu,100,tuyensinh247,346,true
+919944a8-1ff1-588b-99f4-b5d96b4989bb,QHT,QHT05,QHT05,Công nghệ kỹ thuật hạt nhân,75,tuyensinh247,346,true
+e33c179d-e13b-5d12-9b04-1dfc211a4525,QHT,QHT06,QHT06,Hóa học,160,tuyensinh247,346,true
+d8e58a00-4b64-5292-ad62-b1a56d60c064,QHT,QHT07,QHT07,Công nghệ kỹ thuật hóa học,125,tuyensinh247,346,true
+4124ccb9-dcbd-5619-ba7c-546e1e1a60cd,QHT,QHT08,QHT08,Sinh học,120,tuyensinh247,346,true
+c7244efb-96fd-5d62-bde2-bff871b88ce7,QHT,QHT09,QHT09,Công nghệ sinh học,190,tuyensinh247,346,true
+1882dc46-00a3-5899-96a6-cc34f417ec31,QHT,QHT10,QHT10,Địa lý tự nhiên,30,tuyensinh247,346,true
+51533a80-7f0e-52c0-8c88-ab9fe3db845b,QHT,QHT12,QHT12,Quản lý đất đai,90,tuyensinh247,346,true
+1a8b1649-62e8-5be8-b77d-2b091fa5d07d,QHT,QHT13,QHT13,Khoa học môi trường,90,tuyensinh247,346,true
+998b9bd7-75aa-5789-b662-08339fa4b1af,QHT,QHT15,QHT15,Công nghệ kỹ thuật môi trường,80,tuyensinh247,346,true
+d3a91a73-0c70-5f66-8dc3-0fd48bdd61ed,QHT,QHT16,QHT16,Khí tượng và khí hậu học,40,tuyensinh247,346,true
+3a63b2ad-8d0a-578d-99b3-a27c711ff1b8,QHT,QHT17,QHT17,Hải dương học,25,tuyensinh247,346,true
+0252ccd4-fa86-5475-b4f6-7406c5eeeaf6,QHT,QHT18,QHT18,Địa chất học,30,tuyensinh247,346,true
+3e50c899-ea15-53c5-bdfb-c1dd5c543ed3,QHT,QHT20,QHT20,Quản lý tài nguyên và môi trường,130,tuyensinh247,346,true
+efbc0679-f4b6-5349-bbc9-d36557f51f5b,QHT,QHT43,QHT43,Hóa dược,125,tuyensinh247,346,true
+b6a61f1e-589f-5503-b356-c245e7f1f04e,QHT,QHT81,QHT81,Sinh dược học,60,tuyensinh247,346,true
+7ceefa4b-3927-5a09-8590-27494869aafe,QHT,QHT82,QHT82,"Môi trường, sức khỏe và an toàn",50,tuyensinh247,346,true
+cde2cb16-9be1-539e-8e3c-b09b61986b76,QHT,QHT91,QHT91,Khoa học thông tin địa không gian,30,tuyensinh247,346,true
+0f7e671b-a6f8-5435-8fdc-c13b8bf0ea4b,QHT,QHT92,QHT92,Tài nguyên và môi trường nước,25,tuyensinh247,346,true
+49001992-5eb8-5cac-b4d0-05acbbdf0d49,QHT,QHT93,QHT93,Khoa học dữ liệu,70,tuyensinh247,346,true
+2678927a-56f7-5412-9886-9589259d6041,QHT,QHT94,QHT94,Kỹ thuật điện tử và tin học,130,tuyensinh247,346,true
+38a0166e-f739-52e1-821f-4f348717a999,QHT,QHT95,QHT95,Quản lý phát triển đô thị và bất động sản,90,tuyensinh247,346,true
+402b501f-457a-5d6d-953c-a6a0d9913ec9,QHT,QHT96,QHT96,Khoa học và công nghệ thực phẩm,130,tuyensinh247,346,true
+d7e431d5-12bd-5af8-a04d-1e0ecd60c61e,QHT,QHT98,QHT98,Khoa học máy tính và thông tin,125,tuyensinh247,346,true
+14ce4311-2989-541e-9b2d-9f506a075b61,QHT,QHT99,QHT99,Công nghệ Bán dẫn (thuộc ngành Khoa học vật liệu),140,tuyensinh247,346,true
+4d6ec798-ba0a-55d6-bb0b-5d5007d3e7db,QHX,QHX01,QHX01,Báo chí,160,tuyensinh247,348,true
+8d278a19-b778-5027-8259-6b4d3509e4b5,QHX,QHX02,QHX02,Chính trị học,60,tuyensinh247,348,true
+ce98fbd3-0526-58af-b837-8191774c6f7e,QHX,QHX03,QHX03,Công tác xã hội,55,tuyensinh247,348,true
+1091a106-4b8c-5d63-9dfe-ff040affb37b,QHX,QHX04,QHX04,"Điện ảnh và nghệ thuật đại chúng (ngành Lý luận, lịch sử và phê bình điện ảnh, truyền hình) (dự kiến)",50,tuyensinh247,348,true
+5295bf2a-7706-51ce-9793-6f8097bd69d3,QHX,QHX05,QHX05,Đông Nam Á học,50,tuyensinh247,348,true
+899975c3-ccbf-5687-b207-5a8f32c5aaf5,QHX,QHX06,QHX06,Đông phương học,100,tuyensinh247,348,true
+34a8650d-ea59-5735-8f2f-a6ac5dee1b1c,QHX,QHX07,QHX07,Hán Nôm,30,tuyensinh247,348,true
+5c82dcfe-bdac-5c5d-9ab6-00f2e373e265,QHX,QHX08,QHX08,Hàn Quốc học,60,tuyensinh247,348,true
+8965d12d-4cc1-524d-88b2-9551475d47fa,QHX,QHX09,QHX09,Khoa học quản lý,120,tuyensinh247,348,true
+b1ea4374-ed24-5a2d-943e-21a1d228e7fe,QHX,QHX10,QHX10,Lịch sử,80,tuyensinh247,348,true
+39ee4ecf-5b70-5ae3-af28-cdebe8c8b100,QHX,QHX11,QHX11,Lưu trữ học,50,tuyensinh247,348,true
+a754cc27-3156-502e-95c0-c82a8b0b5765,QHX,QHX12,QHX12,Ngôn ngữ học,80,tuyensinh247,348,true
+881bd592-802a-58c1-8275-7dbfd531f17c,QHX,QHX13,QHX13,Nhân học,50,tuyensinh247,348,true
+f5909bd8-9053-58fb-bed2-8a48f6b1481e,QHX,QHX14,QHX14,Nhật Bản học,50,tuyensinh247,348,true
+15a6f8f1-48de-5c42-9994-f993082bcbf2,QHX,QHX15,QHX15,Quan hệ công chúng,200,tuyensinh247,348,true
+1e9372c5-0b27-5542-974e-b745c8b767fd,QHX,QHX16,QHX16,Quản lý thông tin,110,tuyensinh247,348,true
+7c9967da-bb26-56e5-88bb-620ebc521f69,QHX,QHX17,QHX17,Quản trị dịch vụ du lịch và lữ hành,200,tuyensinh247,348,true
+b40905d7-7669-546a-beb6-6623b9af267a,QHX,QHX18,QHX18,Quản trị khách sạn,150,tuyensinh247,348,true
+70f1c523-bb51-5e7b-a67b-b1b1dbcb0c32,QHX,QHX19,QHX19,Quản trị văn phòng,110,tuyensinh247,348,true
+69c724cb-c437-5f15-b077-7ef9d93a692a,QHX,QHX20,QHX20,Quốc tế học,180,tuyensinh247,348,true
+9220f3df-cd03-51a9-99d1-ea291083c8f8,QHX,QHX21,QHX21,Tâm lý học,200,tuyensinh247,348,true
+80bd6937-75da-545b-b105-143a67260303,QHX,QHX22,QHX22,Thông tin - Thư viện,50,tuyensinh247,348,true
+aaf35b9a-e619-56f6-ab9d-8b4d37951b96,QHX,QHX23,QHX23,Tôn giáo học,50,tuyensinh247,348,true
+ea1898ac-e522-5286-a08d-492e5e503d44,QHX,QHX24,QHX24,Triết học,50,tuyensinh247,348,true
+2e8b6ac2-297f-54a5-a5d4-13e2a7a5468e,QHX,QHX25,QHX25,Văn hóa học,55,tuyensinh247,348,true
+121ec2d0-b1d4-5d71-8259-6cb75c029cb8,QHX,QHX26,QHX26,Văn học,120,tuyensinh247,348,true
+296cf6c3-ed61-528d-9d36-4ba859e8187b,QHX,QHX27,QHX27,Việt Nam học,60,tuyensinh247,348,true
+0840dfca-3c42-5764-83b6-66f3870c53e4,QHX,QHX28,QHX28,Xã hội học,70,tuyensinh247,348,true
+1a01a092-a801-5742-8c31-c22db1c74037,QHX,QHX29,QHX29,Truyền thông đa phương tiện,50,tuyensinh247,,true
+560052aa-40e7-5a39-b1dd-903a91287637,QHY,7720101,7720101,Y khoa,300,tuyensinh247,471,true
+db46a7ca-7356-5f23-9e17-cc06df5743af,QHY,7720201,7720201,Dược học,160,tuyensinh247,471,true
+667da423-da64-5bf4-85bd-070911c70728,QHY,7720301,7720301,Điều dưỡng,60,tuyensinh247,471,true
+472eedd3-5501-52b2-90b5-8d4e43b79ed2,QHY,7720501,7720501,Răng Hàm Mặt,60,tuyensinh247,471,true
+af06df1a-703d-5282-bb00-08503fe1585d,QHY,7720601,7720601,Kỹ thuật Xét nghiệm Y học,60,tuyensinh247,471,true
+e9fecdb2-ea85-5d6f-9098-8678d65295c3,QHY,7720602,7720602,Kỹ thuật Hình ảnh Y học,60,tuyensinh247,471,true
+fd3cfdb3-52ef-5ad6-a3ef-f2213a4d38ce,SKD,7210226B,7210226B,Diễn viên chèo,15,tuyensinh247,408,true
+ac32fe83-ab98-5bae-997a-db74559d618c,SKD,7210226C,7210226C,Diễn viên rối,10,tuyensinh247,408,true
+eaa239d5-f42c-5f31-ad13-57d36c71dc1d,SKD,7210226E,7210226E,Nhạc công kịch hát dân tộc,10,tuyensinh247,408,true
+186e6302-e9e8-5144-9b3f-6e15adfda7c2,SKD,7210227A,7210227A,"Đạo diễn âm thanh, ánh sáng sân khấu",15,tuyensinh247,408,true
+dee39e10-884c-5d49-92bb-a459c6287ed9,SKD,7210227B,7210227B,Đạo diễn sự kiện lễ hội,15,tuyensinh247,408,true
+86c493bd-1b31-52b5-8076-e6119e96c7f8,SKD,7210233A,7210233A,Biên kịch điện ảnh,15,tuyensinh247,408,true
+9d341ff7-a275-54b5-93ad-53eccecf8c84,SKD,7210233B,7210233B,Biên tập truyền hình,20,tuyensinh247,408,true
+e76d036c-b644-5dab-a742-7ba78f0ccd06,SKD,7210234,7210234,"Diễn viên kịch, điện ảnh – truyền hình",40,tuyensinh247,408,true
+516fda00-7c56-5954-ac17-90edd0609cf8,SKD,7210234A,7210234A,Diễn viên nhạc kịch,15,tuyensinh247,408,true
+e565d1e7-44e2-5444-a07c-e4081f70387f,SKD,7210235A,7210235A,Đạo diễn điện ảnh,15,tuyensinh247,408,true
+d339379c-cd65-5938-af58-753a8229e62f,SKD,7210235B,7210235B,Đạo diễn truyền hình,15,tuyensinh247,408,true
+4048c2e8-3fb4-5b92-8ec6-f8a7c933d425,SKD,7210235C,7210235C,"Đạo diễn, sản xuất nội dung số",15,tuyensinh247,408,true
+e7112388-c11c-586e-a49f-e0085319fe48,SKD,7210236A,7210236A,Quay phim điện ảnh,20,tuyensinh247,408,true
+94a8e842-672f-5eab-8f11-56ef0f64c48c,SKD,7210236B,7210236B,Quay phim truyền hình,15,tuyensinh247,408,true
+79088dc6-cb2e-52e8-b58f-f1388e161041,SKD,7210243,7210243,Biên đạo múa,10,tuyensinh247,408,true
+99f59556-d22d-5c88-906b-2e2910c8b839,SKD,7210243A,7210243A,Biên đạo múa đại chúng,30,tuyensinh247,408,true
+0a25dae3-8e15-5a8e-abfb-9f2359f0f0c8,SKD,7210244,7210244,Huấn luyện múa,10,tuyensinh247,408,true
+26128791-adb8-5173-b84e-2209a8958327,SKD,7210301A,7210301A,Nhiếp ảnh nghệ thuật,20,tuyensinh247,408,true
+76f022fb-830c-533f-a4dc-5096080e7d80,SKD,7210301B,7210301B,Nhiếp ảnh báo chí,20,tuyensinh247,408,true
+3707f73e-a48b-5be2-a1cb-506fda67ca59,SKD,7210301C,7210301C,Nhiếp ảnh truyền thông đa phương tiện,20,tuyensinh247,408,true
+af02700e-6219-5c15-9467-4ae4a6ef48e7,SKD,7210302A,7210302A,Công nghệ dựng phim,20,tuyensinh247,408,true
+1cf16160-9d87-5d87-b03e-fc5c6ead4d88,SKD,7210302B,7210302B,Âm thanh điện ảnh – truyền hình,10,tuyensinh247,408,true
+2e5987f8-dfef-563e-930b-4401ce1ec4cd,SKD,7210406A,7210406A,Thiết kế mỹ thuật sân khấu,10,tuyensinh247,408,true
+1711df85-d222-5383-ace5-ae983bf4a498,SKD,7210406B,7210406B,Thiết kế mỹ thuật hoạt hình,10,tuyensinh247,,true
+bf994218-2bc5-5c95-9814-475dc0842262,SKD,7210406C,7210406C,Thiết kế mỹ thuật hoạt hình,10,tuyensinh247,408,true
+966975c1-c3ae-53c2-9e2d-32a918480829,SKD,7210406D,7210406D,Thiết kế trang phục nghệ thuật,10,tuyensinh247,408,true
+adcbe93a-a6bf-5c80-9da4-bfa1b94822c6,SKD,7210406E,7210406E,Thiết kế đồ hoạ kỹ xảo,20,tuyensinh247,408,true
+6754c543-c36b-5c73-b01e-6a4aa75fa6e3,SKD,7210406F,7210406F,Nghệ thuật hóa trang,25,tuyensinh247,408,true
+b87d18de-6115-58df-9f5c-1980459d51a1,SPH,7140101,7140101,Giáo dục học (Giáo dục và truyền thông),80,tuyensinh247,,true
+1354b3fa-feab-5fc8-9d74-b9f565d5705d,SPH,7140114,7140114,Quản lí giáo dục,90,tuyensinh247,411,true
+8587d7b9-fcce-57a5-93f6-a2dc353a7c5b,SPH,7140201,7140201,Giáo dục Mầm non,190,tuyensinh247,411,true
+4ffca3e3-ef10-547c-8b5f-9b7e14a01aa1,SPH,7140201K,7140201K,Giáo dục Mầm non - Sư phạm Tiếng Anh,60,tuyensinh247,411,true
+eb7d9a9f-30f2-5dba-b185-f61d1bcfd98e,SPH,7140202,7140202,Giáo dục Tiểu học,215,tuyensinh247,411,true
+1a0079ed-ef9b-5996-bfbd-d0b17f2a52c6,SPH,7140202K,7140202K,Giáo dục Tiểu học - Sư phạm Tiếng Anh,100,tuyensinh247,411,true
+84e6718a-4e33-5696-9833-8252006001a2,SPH,7140203,7140203,Giáo dục đặc biệt,80,tuyensinh247,411,true
+16fa1a9f-06e4-5d9a-acc1-27f42046a2e1,SPH,7140204,7140204,Giáo dục công dân,110,tuyensinh247,411,true
+77da6a12-1a73-53b2-aa41-0762115d630f,SPH,7140205,7140205,Giáo dục chính trị,25,tuyensinh247,411,true
+797054aa-aebb-5db6-865a-3a2c6e34696c,SPH,7140206,7140206,Giáo dục thể chất,160,tuyensinh247,411,true
+3c1481fe-3a0b-50f0-a66e-f2ece1767326,SPH,7140208,7140208,Giáo dục Quốc phòng và An ninh,60,tuyensinh247,411,true
+5174c18b-e779-521a-9103-e4e7ba1bc4d8,SPH,7140209,7140209,Sư phạm Toán học,300,tuyensinh247,411,true
+803e9afa-0b8c-52fc-9fc4-dfe07df83def,SPH,7140209K,7140209K,Sư phạm Toán học (dạy Toán bằng tiếng Anh),60,tuyensinh247,411,true
+1a3e6b58-7054-5835-8c48-9f6a40fb4317,SPH,7140210,7140210,Sư phạm Tin học,100,tuyensinh247,411,true
+83a3bf5c-4649-5faa-91ce-0616970b97b7,SPH,7140210K,7140210K,Sư phạm Tin học (dạy bằng Tiếng Anh),20,tuyensinh247,,true
+c2a63d0c-8fc0-5222-bb6b-da029ca3c044,SPH,7140211,7140211,Sư phạm Vật lí,50,tuyensinh247,411,true
+472500e9-d992-5a3e-9cf2-2b5dbd78316a,SPH,7140211K,7140211K,Sư phạm Vật lí (dạy Toán bằng tiếng Anh),20,tuyensinh247,411,true
+b6330db4-ad89-5c26-8fab-6f4c26d9a26d,SPH,7140212,7140212,Sư phạm Hoá học,50,tuyensinh247,411,true
+6188a63e-50d8-55b3-9fa6-0035a465319b,SPH,7140212K,7140212K,Sư phạm Hoá học (dạy Hóa học bằng tiếng Anh),20,tuyensinh247,411,true
+5524e492-e1be-5d74-b17c-d08d43054531,SPH,7140213,7140213,Sư phạm Sinh học,70,tuyensinh247,411,true
+84d275bf-0e28-5fe3-a4ff-6c4e400e8590,SPH,7140217,7140217,Sư phạm Ngữ văn,450,tuyensinh247,411,true
+d665b005-9c2e-5f5a-941c-379d2628729b,SPH,7140218,7140218,Sư phạm Lịch sử,85,tuyensinh247,411,true
+af3ca499-b6b4-5e25-82b3-93c8a39a46bd,SPH,7140219,7140219,Sư phạm Địa lí,100,tuyensinh247,411,true
+d06eef1a-2019-516b-aeba-cc9525ddc28a,SPH,7140221,7140221,Sư phạm Âm nhạc,80,tuyensinh247,411,true
+fed35cfc-1758-5e0b-aa90-79fd2bf21563,SPH,7140222,7140222,Sư phạm Mỹ thuật,80,tuyensinh247,411,true
+4664dc3d-aac9-5e00-a7a4-3fa92781b887,SPH,7140231,7140231,Sư phạm Tiếng Anh,160,tuyensinh247,411,true
+1bf5d993-006a-529f-849a-5a97178f3bad,SPH,7140233,7140233,Sư phạm Tiếng Pháp,20,tuyensinh247,411,true
+087cdf91-fbc9-56ab-b69a-ade442c2500b,SPH,7140246,7140246,Sư phạm Công nghệ,150,tuyensinh247,411,true
+a61fc831-32d5-5848-b30a-752b4c4bd762,SPH,7140247,7140247,Sư phạm Khoa học tự nhiên,70,tuyensinh247,411,true
+a024da15-b7b4-5e59-a89a-324822fc8066,SPH,7140249,7140249,Sư phạm Lịch sử - Địa lí,100,tuyensinh247,411,true
+66b40bca-fa03-5c83-a09b-1f863637611b,SPH,7220101,7220101,Tiếng Việt và văn hóa Việt Nam,70,tuyensinh247,411,true
+35ebec77-6ded-5ad5-85d2-79a2cd2d1026,SPH,7220101_A,7220101_A,Tiếng Việt và văn hóa Việt Nam - Tuyển sinh người nước ngoài,10,tuyensinh247,411,true
+7b5e77af-3ab7-574a-b59d-a8f307973735,SPH,7220201,7220201,Ngôn ngữ Anh,60,tuyensinh247,411,true
+776d8713-e817-5ca1-bf04-dcd50b1f9f2b,SPH,7220203,7220203,Ngôn ngữ Pháp (Tiếng Pháp ứng dụng và giao tiếp quốc tế),60,tuyensinh247,,true
+82efb721-8c04-52c7-8c7d-ce2ad9273202,SPH,7220204,7220204,Ngôn ngữ Trung Quốc,45,tuyensinh247,411,true
+39fe483c-2db9-5b5e-9761-3c8b90518261,SPH,7229001,7229001,Triết học (Triết học Mác Lê-nin),195,tuyensinh247,411,true
+5cfdb99d-e1ff-5daf-8230-bcb5a3831a84,SPH,7229010,7229010,Lịch sử,60,tuyensinh247,411,true
+62c1616f-1384-5434-b148-fdab2431e307,SPH,7229030,7229030,Văn học,100,tuyensinh247,411,true
+54c915ce-ab36-52c3-9c01-63e12f413f4b,SPH,7310201,7310201,Chính trị học,100,tuyensinh247,411,true
+89606277-cac1-5556-bf6e-2dd199050e3e,SPH,7310301,7310301,Xã hội học,80,tuyensinh247,411,true
+93e53ad9-656f-58cb-bdb3-2a5f8db915d2,SPH,7310401,7310401,Tâm lý học (Tâm lý học trường học),200,tuyensinh247,411,true
+b16ba017-0d82-56be-8591-37ed837de6fe,SPH,7310403,7310403,Tâm lý học giáo dục,90,tuyensinh247,411,true
+36d0eb3a-19cb-5865-a6ac-7bb53543ea05,SPH,7310501,7310501,Địa lí học (Địa lí tài nguyên và môi trường),70,tuyensinh247,,true
+437385eb-baac-56eb-b4a0-e153be1bbe2b,SPH,7310601,7310601,Quốc tế học (bắt đầu tuyển sinh từ 2026),60,tuyensinh247,,true
+014815f5-c395-5282-9ad3-818aa4b06e3c,SPH,7310630,7310630,Việt Nam học (Tuyển sinh người Việt Nam),210,tuyensinh247,411,true
+39311b08-d945-58a3-bc67-f2fc85e6272d,SPH,7310630_A,7310630_A,Việt Nam học (Tuyển sinh người nước ngoài),10,tuyensinh247,411,true
+c7a10233-cf13-520e-98e0-7db724947ede,SPH,7420101,7420101,Sinh học,120,tuyensinh247,411,true
+dac22ad1-a5ff-5ea5-8414-438d1f9b08fe,SPH,7420201,7420201,Công nghệ sinh học (mới),80,tuyensinh247,411,true
+e7e36b47-4d26-5843-8287-6b7de428715a,SPH,7440102,7440102,Vật lí học (vật lí bán dẫn và kỹ thuật) (mới),120,tuyensinh247,411,true
+b41bfc6a-67bf-5e97-8718-f67f0600fc87,SPH,7440112,7440112,Hóa học,120,tuyensinh247,411,true
+5b987915-3537-55e0-8e57-051ea5187a14,SPH,7440112D,7440112D,Hóa học (Hóa dược),120,tuyensinh247,,true
+69d2ea5a-2c54-5b5d-a0d8-73e63809e294,SPH,7460101,7460101,Toán học,100,tuyensinh247,411,true
+dc050c92-3a73-58c4-ae46-bf6cc0321e3d,SPH,7460108,7460108,Khoa học dữ liệu,60,tuyensinh247,,true
+5bfdc07f-2d4c-51e1-9361-826b5d83767c,SPH,7480107,7480107,Trí tuệ nhân tạo,60,tuyensinh247,,true
+82ff7ed0-80ff-538d-90c0-5dca0039d283,SPH,7480201,7480201,Công nghệ thông tin,140,tuyensinh247,411,true
+b115d254-34d9-5dc1-b7da-49fad7d75dc3,SPH,7760101,7760101,Công tác xã hội,220,tuyensinh247,411,true
+9bb709b2-de96-55b3-a7e7-acbea4ca58fc,SPH,7760103,7760103,Hỗ trợ giáo dục người khuyết tật,160,tuyensinh247,411,true
+5e542de4-3f84-5c60-bb52-0dc399d809bb,SPH,7810103,7810103,Quản trị dịch vụ du lịch và lữ hành,150,tuyensinh247,411,true
+adf351b3-9228-5da2-a29e-818bbc68f509,SPH,7810302,7810302,Huấn luyện thể thao,70,tuyensinh247,,true
+49816764-07af-51a4-92b0-566a2a473870,TDD,7140101,7140101,Giáo dục học,60,tuyensinh247,29,true
+8abde34f-a0f6-5839-bc3e-daa46e78180d,TDD,7220201,7220201,Ngôn ngữ Anh,120,tuyensinh247,29,true
+cb5442f9-907e-52a7-8308-c5cd86112453,TDD,7220204,7220204,Ngôn ngữ Trung Quốc,180,tuyensinh247,29,true
+7cc36222-584f-5ac6-804f-7638a406b6ca,TDD,7310630,7310630,Việt Nam học (Hướng dẫn du lịch),80,tuyensinh247,29,true
+4a88a199-ecaa-569b-87e3-b4a9e12043a4,TDD,7340101,7340101,Quản trị Kinh doanh,100,tuyensinh247,29,true
+bf2290fb-9956-574b-a44c-7e6495c98252,TDD,7340301,7340301,Kế toán,120,tuyensinh247,29,true
+e7f17940-3aa1-5346-b7e6-54d5df34f970,TDD,7340406,7340406,Quản trị Văn phòng,120,tuyensinh247,29,true
+a6153816-9289-5916-8522-4add87fdcb7e,TDD,7380101,7380101,Luật,60,tuyensinh247,29,true
+64a1a386-b27a-52ef-8c19-b56574142cae,TDD,7480201,7480201,Công nghệ thông tin,200,tuyensinh247,29,true
+2d2c44ce-4b4a-5e5a-996c-048080acadf5,TDD,7510205,7510205,Công nghệ kỹ thuật Ô tô,100,tuyensinh247,29,true
+1e779bb6-020f-537e-b37a-af050b41fa66,TDD,7510301,7510301,"Công nghệ kỹ thuật Điện, Điện tử",60,tuyensinh247,29,true
+61cbdf86-da6c-598b-8d26-a58f33c78805,TDD,7720201,7720201,Dược học,640,tuyensinh247,29,true
+281202e6-23a7-5885-996d-1ad67afbd107,TDD,7720301,7720301,Điều dưỡng,80,tuyensinh247,29,true
+b716e753-ed88-527b-b147-80e83b0c9921,TDD,7810201,7810201,Quản trị khách sạn,100,tuyensinh247,29,true
+f14cb2f8-f086-565e-b794-5429c02baa12,TDH,7140206,7140206,Giáo dục Thể chất,300,tuyensinh247,418,true
+47cf7e95-2070-56bf-81b4-932d8233b588,TDH,7140208,7140208,Giáo dục Quốc phòng và An ninh,50,tuyensinh247,,true
+baeaaf73-9fd7-5059-9e15-9b1bb600b9cd,TDH,7810301,7810301,Quản lý thể dục thể thao,30,tuyensinh247,,true
+8e857cf9-3a28-572e-ab91-b65043e97a5b,TDH,7810302,7810302,Huấn luyện thể thao,500,tuyensinh247,418,true
+f34c22c6-508d-5076-b5d5-ca1257c5abd8,TLA,TLA101,TLA101,Xây dựng và quản lý công trình thủy (Kỹ thuật xây dựng công trình thủy),140,tuyensinh247,421,true
+1e1ae401-0fab-5f29-8467-c6bc0ca32604,TLA,TLA102,TLA102,Kỹ thuật tài nguyên nước,100,tuyensinh247,421,true
+3d044477-b27f-55e9-ba31-23f859da29e7,TLA,TLA103,TLA103,Tài nguyên nước và môi trường (Thủy văn học),120,tuyensinh247,421,true
+a08e6679-9274-5c84-87af-698e92c66cd5,TLA,TLA104,TLA104,Kỹ thuật xây dựng dân dụng và công nghiệp (Kỹ thuật xây dựng),210,tuyensinh247,421,true
+c4444940-844f-54fa-87cf-14782b4322e1,TLA,TLA105,TLA105,Kỹ thuật cơ khí,120,tuyensinh247,421,true
+dd318cad-3ea3-5cea-ad1a-06ce4cfc2f92,TLA,TLA106,TLA106,Công nghệ thông tin,120,tuyensinh247,421,true
+2e2f69c1-0736-5d6c-b3dd-092af87a98ca,TLA,TLA107,TLA107,Xây dựng và quản lý cấp thoát nước đô thị (Kỹ thuật cấp thoát nước),100,tuyensinh247,421,true
+4e6eed6d-e8bb-5f71-a742-617eec0e3344,TLA,TLA109,TLA109,Kỹ thuật môi trường,120,tuyensinh247,421,true
+83024fa9-a627-5ddb-a1b3-632fdb8300d5,TLA,TLA110,TLA110,Xây dựng và quản lý hạ tầng đô thị (Kỹ thuật cơ sở hạ tầng),120,tuyensinh247,421,true
+b821b3a2-7c3d-53f3-b5f7-5a6ab3a89bba,TLA,TLA111,TLA111,Công nghệ kỹ thuật xây dựng,150,tuyensinh247,421,true
+ed3b33ae-c154-537a-adaf-5c77a10dfb5d,TLA,TLA112,TLA112,Kỹ thuật điện,70,tuyensinh247,421,true
+a99f0448-cf03-5fc8-87d0-6b47588ff762,TLA,TLA113,TLA113,"Kỹ thuật xây dựng công trình giao thông (gồm các chương trình: Kỹ thuật xây dựng cầu, đường bộ; Kỹ thuật xây dựng Đường sắt tốc độ cao và đường sắt đô thị)",180,tuyensinh247,421,true
+1388985c-e726-58b5-a8f1-8362c6d22ac1,TLA,TLA114,TLA114,Quản lý xây dựng,210,tuyensinh247,421,true
+843da0db-2474-5917-8ef8-1bcd3114def6,TLA,TLA116,TLA116,Hệ thống thông tin,80,tuyensinh247,421,true
+9826eb45-89d7-53c9-b999-46015abd3940,TLA,TLA117,TLA117,Kỹ thuật phần mềm,80,tuyensinh247,421,true
+ebb078db-ad1e-5984-9742-faf142d06f78,TLA,TLA118,TLA118,Kỹ thuật hóa học,90,tuyensinh247,421,true
+1fa98729-0d5f-5d65-86b2-5aed3972cfb8,TLA,TLA119,TLA119,Công nghệ sinh học,70,tuyensinh247,421,true
+c909476d-5c59-55c8-818e-a30e2aa413c0,TLA,TLA120,TLA120,Kỹ thuật cơ điện tử,120,tuyensinh247,421,true
+f8c62821-0f2a-5322-9338-65c41c705657,TLA,TLA121,TLA121,Kỹ thuật điều khiển và tự động hóa,140,tuyensinh247,421,true
+0c98f242-a5c3-5f61-b09e-0f54e6988196,TLA,TLA122,TLA122,Công nghệ cơ khí tự động hóa (Công nghệ chế tạo máy),120,tuyensinh247,421,true
+b2947ea4-c66f-5754-a636-ba4b588dd727,TLA,TLA123,TLA123,Kỹ thuật Ô tô,140,tuyensinh247,421,true
+471e27cd-d4be-5dbe-9aa8-bda8722ea8bb,TLA,TLA124,TLA124,Kỹ thuật điện tử - viễn thông (gồm các chương trình: Kỹ thuật điện tử - viễn thông; Công nghệ bán dẫn và thiết kế vi mạch),180,tuyensinh247,421,true
+e5aaf9a1-f0cc-5bf2-9128-62f0b6ce0e86,TLA,TLA126,TLA126,Trí tuệ nhân tạo và khoa học dữ liệu,80,tuyensinh247,421,true
+5590b49d-7e0f-56d7-ba99-763a5e952b81,TLA,TLA127,TLA127,An ninh mạng,80,tuyensinh247,421,true
+f3a8ff9a-34c8-5f94-bf9e-391eb8c6c472,TLA,TLA128,TLA128,Kỹ thuật Robot và Điều khiển thông minh,120,tuyensinh247,421,true
+0f4e3906-f7cf-5296-979c-9c7f30971656,TLA,TLA129,TLA129,Chương trình Công nghệ chăm sóc sắc đẹp và sức khỏe từ dược liệu,70,tuyensinh247,,true
+5d0e932f-18aa-52db-a027-928b504f4cdd,TLA,TLA130,TLA130,Chương trình Kỹ thuật xe năng lượng mới thông minh,70,tuyensinh247,,true
+38a0c432-dab6-5062-800c-e74ceeb15a54,TLA,TLA201,TLA201,Chương trình tiên tiến ngành Kỹ thuật và quản lý xây dựng (*),30,tuyensinh247,421,true
+5bf4f4eb-8fe1-5e02-88cc-3f02da6f5691,TLA,TLA202,TLA202,Chương trình tiên tiến ngành Kỹ thuật và quản lý tài nguyên nước(**),30,tuyensinh247,421,true
+fcb0991b-8b46-5bc2-9345-f3528ab3e1d1,TLA,TLA203,TLA203,Ngôn ngữ Anh,140,tuyensinh247,421,true
+ef82fe25-4616-55d5-9c9f-c9fcf1b6552f,TLA,TLA204,TLA204,Ngôn ngữ Trung Quốc,100,tuyensinh247,421,true
+01b78a75-6712-5cd2-9d0d-ae658f5f56c1,TLA,TLA301,TLA301,Luật,120,tuyensinh247,421,true
+91611f0c-c72d-56cb-b4e5-f669cee9d6c0,TLA,TLA302,TLA302,Luật kinh tế,120,tuyensinh247,421,true
+6d96c130-80c3-5d3a-8c1c-4ef00104dfa7,TLA,TLA401,TLA401,Kinh tế,130,tuyensinh247,421,true
+52e520fa-9cd9-5651-826d-6322adae82cd,TLA,TLA402,TLA402,Quản trị kinh doanh,140,tuyensinh247,421,true
+322f53f2-17e1-57e8-9e01-ebe4326a1237,TLA,TLA403,TLA403,Kế toán,120,tuyensinh247,421,true
+51d708fa-5393-53ed-9865-8d4183fa3747,TLA,TLA404,TLA404,Kinh tế xây dựng,140,tuyensinh247,421,true
+4c90df53-cbe6-5a48-9bde-049fe201a9bd,TLA,TLA405,TLA405,Thương mại điện tử,120,tuyensinh247,421,true
+78d021dd-54f3-5de7-9365-1136a36dbc85,TLA,TLA406,TLA406,Quản trị dịch vụ du lịch và lữ hành,70,tuyensinh247,421,true
+6f116477-917a-5cec-bef5-9562cd056158,TLA,TLA407,TLA407,Logistics và quản lý chuỗi cung ứng,70,tuyensinh247,421,true
+ad44cd00-7b20-57f2-8997-bd817096cced,TLA,TLA408,TLA408,Tài chính – Ngân hàng,70,tuyensinh247,421,true
+19f1713e-5ec3-55fb-93fb-0033b4379872,TLA,TLA409,TLA409,Kiểm toán,120,tuyensinh247,421,true
+22c05d99-f2a2-5c1d-b787-eb2b246bd3a7,TLA,TLA410,TLA410,Kinh tế số,70,tuyensinh247,421,true
+24c0a49f-4ad0-58a8-a949-8b5793e7a3f5,TLA,TLA411,TLA411,Chương trình Kế toán tích hợp chứng chỉ quốc tế,70,tuyensinh247,421,true
+cbaad1ec-7bde-5325-ae68-e827ce95b859,TLA,TLA412,TLA412,Chương trình Công nghệ tài chính,70,tuyensinh247,421,true
+e4606c71-d65c-541b-b13c-a167ea26a74f,TLA,TLA413,TLA413,Kinh doanh thương mại,70,tuyensinh247,,true
+517c3f5a-1da7-5b54-8884-786db7585b58,TMU,TM01,TM01,Quản trị kinh doanh,250,tuyensinh247,426,true
+d4eb6158-4182-5b79-9864-50a06b057b5d,TMU,TM02,TM02,Quản trị kinh doanh - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP,150,tuyensinh247,426,true
+92bff708-06d7-5f4c-8fe5-de7ac808d8d5,TMU,TM03,TM03,Quản trị kinh doanh (Khởi nghiệp và phát triển kinh doanh),100,tuyensinh247,426,true
+cfe4afd9-efed-5d4a-b1b3-2346518808bf,TMU,TM04,TM04,Quản trị khách sạn,100,tuyensinh247,426,true
+beeebf26-12e9-58ed-8207-dc676044e6ba,TMU,TM05,TM05,Quản trị khách sạn (Quản trị khách sạn - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),100,tuyensinh247,426,true
+2bf91f1c-a715-5313-b132-1c736beb10e0,TMU,TM06,TM06,Quản trị dịch vụ du lịch và lữ hành,80,tuyensinh247,426,true
+47922578-d330-58f8-990f-ee330e6e1cd0,TMU,TM07,TM07,Marketing (Marketing Thương mại),160,tuyensinh247,426,true
+1d79113b-6323-53b8-9dd5-0e8d6891506e,TMU,TM08,TM08,Marketing (Marketing thương mại - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),150,tuyensinh247,426,true
+3b2585c0-fa46-54cd-b038-7cdc4abe2f01,TMU,TM09,TM09,Marketing (Marketing số),100,tuyensinh247,426,true
+055ea82b-da1b-587a-8748-b22ccaebe248,TMU,TM10,TM10,Marketing (Quản trị Thương hiệu),100,tuyensinh247,426,true
+69248049-827b-5af4-9fc6-f5cc7436ec04,TMU,TM11,TM11,Marketing (Quản trị thương hiệu - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),100,tuyensinh247,426,true
+fa483e29-8e00-535d-b84d-68f8007f48f5,TMU,TM12,TM12,Kế toán (Kế toán doanh nghiệp),120,tuyensinh247,426,true
+99f368c8-933f-57f2-8ddf-a1feac6b0282,TMU,TM13,TM13,Kế toán (Kế toán tích hợp chứng chỉ quốc tế ICAEW CFAB - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),120,tuyensinh247,426,true
+d45c2066-bf07-59e7-8ba3-a8b1622f6901,TMU,TM14,TM14,Kế toán (Kế toán công),80,tuyensinh247,426,true
+a587711c-82b9-5b95-bb4a-1027fbc7985d,TMU,TM15,TM15,Kiểm toán (Kiểm toán),100,tuyensinh247,426,true
+956b7520-c53e-542a-85f2-942beb0a676d,TMU,TM16,TM16,Kiểm toán (Kiểm toán tích hợp chứng chỉ quốc tế ICAEW CFAB - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),120,tuyensinh247,426,true
+d910e6f3-2c20-5e7d-8c88-ba59b909c717,TMU,TM17,TM17,Logistics và Quản lý chuỗi cung ứng (Logistics và Quản lý chuỗi cung ứng),120,tuyensinh247,426,true
+54f79158-0e20-501c-979e-3a88ecefb282,TMU,TM18,TM18,Logistics và Quản lý chuỗi cung ứng (Logistics và Xuất nhập khẩu - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),120,tuyensinh247,426,true
+5206a6b5-d6b3-5101-996d-58e729edffbd,TMU,TM19,TM19,Kinh doanh quốc tế (Thương mại quốc tế),160,tuyensinh247,426,true
+c0f3c855-d028-543d-8342-1232a1104159,TMU,TM20,TM20,Kinh doanh quốc tế (Thương mại quốc tế - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),140,tuyensinh247,426,true
+309947dc-d8de-534c-8a26-0c76308edfd3,TMU,TM21,TM21,Kinh tế quốc tế,120,tuyensinh247,426,true
+c0af5621-d5f4-52af-8d68-12678b5ddb7e,TMU,TM22,TM22,Kinh tế (Quản lý kinh tế),170,tuyensinh247,426,true
+1ab8ab86-b0c7-57a3-849e-fc20f649b1ae,TMU,TM23,TM23,Kinh tế (Kinh tế và Quản lý đầu tư - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),120,tuyensinh247,426,true
+16deff03-3b68-5d59-bcc7-755e5e7b81c2,TMU,TM24,TM24,Tài chính - Ngân hàng (Tài chính - Ngân hàng thương mại),120,tuyensinh247,426,true
+840cb5f5-1cea-5606-be75-68476f861dcf,TMU,TM25,TM25,Tài chính - Ngân hàng (Tài chính - Ngân hàng thương mại - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),140,tuyensinh247,426,true
+cf17977b-e3d8-57d2-8143-457c90d8a8b1,TMU,TM26,TM26,Tài chính - Ngân hàng (Tài chính công),60,tuyensinh247,426,true
+f2308ec4-a940-5c32-8990-0653a3826a6c,TMU,TM27,TM27,Tài chính - Ngân hàng (Công nghệ tài chính ngân hàng),120,tuyensinh247,426,true
+0cf5be25-f46d-5ec5-ab21-5bda0f1b524a,TMU,TM28,TM28,Thương mại điện tử (Quản trị thương mại điện tử),170,tuyensinh247,426,true
+d20a3f8d-2965-5372-bb97-bc73a55df1d4,TMU,TM29,TM29,Thương mại điện tử (Thương mại điện tử - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),120,tuyensinh247,426,true
+d9d7f31c-5555-5754-a468-2253486ce08b,TMU,TM30,TM30,Thương mại điện tử (Kinh doanh số),100,tuyensinh247,426,true
+374ac49a-f286-5c1f-a86a-87a6216266a3,TMU,TM31,TM31,Hệ thống thông tin quản lý (Quản trị Hệ thống thông tin),150,tuyensinh247,426,true
+38861d64-8ca7-524e-baa1-d4bf8b8f8d4e,TMU,TM32,TM32,Hệ thống thông tin quản lý (Quản trị Hệ thống thông tin - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),80,tuyensinh247,426,true
+4c5fdf9a-8783-5820-9e03-4e602eda8b40,TMU,TM33,TM33,Ngôn ngữ Anh (Tiếng Anh thương mại),250,tuyensinh247,426,true
+1f21c8b9-3fe9-549e-a214-7984831c55ce,TMU,TM34,TM34,Luật kinh tế (Luật kinh tế),130,tuyensinh247,426,true
+56f4fdb4-6b2f-58ba-95fc-27997469cbf5,TMU,TM35,TM35,Luật kinh tế (Luật kinh doanh - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),110,tuyensinh247,426,true
+51eadb2c-b1e3-558d-9f2e-0e0409280404,TMU,TM36,TM36,Luật kinh tế (Luật thương mại quốc tế),110,tuyensinh247,426,true
+8730d07f-942f-5f31-890e-e3c663b7dc6b,TMU,TM37,TM37,Quản trị nhân lực (Quản trị nhân lực doanh nghiệp),150,tuyensinh247,426,true
+677e9d4e-495c-5ba4-9149-06e1fb8f4ec1,TMU,TM38,TM38,Quản trị nhân lực (Quản trị nhân lực doanh nghiệp - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),130,tuyensinh247,426,true
+35265400-40a6-5f8a-a521-0b8e05a137c4,TMU,TM39,TM39,Kinh tế số (Phân tích kinh doanh trong môi trường số),100,tuyensinh247,426,true
+ca2abc15-1a98-5f79-a123-1bbc24f424ca,TMU,TM40,TM40,Ngôn ngữ Trung Quốc (Tiếng Trung thương mại),140,tuyensinh247,426,true
+1e79a745-9a92-5c90-ab40-7156dcbd825d,TMU,TM41,TM41,Ngôn ngữ Trung Quốc (Tiếng Trung thương mại - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),120,tuyensinh247,426,true
+7afbc3b7-4922-5823-9965-bf69bb0baed1,TMU,TM42,TM42,Quản trị kinh doanh (Tiếng Pháp thương mại),50,tuyensinh247,426,true
+719c5976-3f3a-530f-a438-9879fba92ce8,TMU,TM43,TM43,Quản trị kinh doanh (Quản trị kinh doanh) - Khởi nghiệp (Thành lập doanh nghiệp) - Chương trình đào tạo song bằng quốc tế,40,tuyensinh247,426,true
+10a997b5-53f1-55f4-b0fb-e62675fd9eee,TMU,TM44,TM44,Marketing (Marketing thương mại) - Thương mại sản phẩm và dịch vụ (Bán hàng) - Chương trình đào tạo song bằng quốc tế,60,tuyensinh247,426,true
+6a0d8d57-1e24-51fe-b432-4b11748949ae,TMU,TM45,TM45,Quản trị kinh doanh (Quản trị kinh doanh - Chương trình đào tạo tiến tiến),50,tuyensinh247,426,true
+f8b5510d-cfab-5cda-a83b-aa250fbbee92,TMU,TM46,TM46,Logistics và quản lý chuỗi cung ứng (Logistics và quản lý chuỗi cung ứng) - Thương mại và phân phối (Quản lý chuỗi cung ứng và phân phối) - Chương trình đào tạo song bằng quốc tế,40,tuyensinh247,,true
+02001512-53d0-544a-9df1-0ad9a540d945,TMU,TM47,TM47,"Kế toán (Kế toán tích hợp chứng chỉ quốc tế ICAEW CFAB) - Bảo hiểm, ngân hàng, tài chính: Quan hệ khách hàng (Thương mại sản phẩm ngân hàng và dịch vụ tài chính) - Chương trình đào tạo song bằng quốc tế",40,tuyensinh247,,true
+24fe9661-1ce4-5b42-8f23-59e72204db1a,TMU,TM48,TM48,Logistics và Quản lý chuỗi cung ứng (Logistics và Quản lý vận tải đa phương thức - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),90,tuyensinh247,,true
+55b78d8d-65e6-5a42-af64-9bba1d070114,TMU,TM49,TM49,Kinh tế số (Phân tích dữ liệu trong kinh tế và kinh doanh - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),90,tuyensinh247,,true
+88f98540-7002-5b0e-bef7-96cfd95478b0,TMU,TM50,TM50,Quản trị dịch vụ du lịch và lữ hành (Quản trị sự kiện và dịch vụ giải trí - Chương trình định hướng chuyên sâu nghề nghiệp quốc tế - IPOP),80,tuyensinh247,,true
+8c27d565-064c-5e3d-8d13-af63cf43b343,TMU,TM51,TM51,Khoa học máy tính (Ứng dụng trí tuệ nhân tạo trong kinh doanh),80,tuyensinh247,,true
+8feb28a2-a06f-506e-9baa-b003b9f7fb42,VHH,7220110,7220110,Sáng tác văn học,30,tuyensinh247,441,true
+61a4f0d5-ae52-514c-9a32-68c1560400b3,VHH,7220201,7220201,Ngôn ngữ Anh,70,tuyensinh247,441,true
+c5b86e8c-5b6c-579a-9322-c090c38b4b94,VHH,7229040A,7229040A,Nghiên cứu văn hóa,50,tuyensinh247,441,true
+34c64b6d-8501-5462-9396-7aa1327dd2d4,VHH,7229040B,7229040B,Văn hóa truyền thông,110,tuyensinh247,441,true
+9cf581c9-5f81-5a2b-9fcf-91f6606f949d,VHH,7229040C,7229040C,Văn hóa đối ngoại,50,tuyensinh247,441,true
+9f6549ba-21bd-5659-8533-6f6f4b3fe58e,VHH,7229042A,7229042A,Phát triển công nghiệp văn hóa,70,tuyensinh247,441,true
+afdae7d8-d7fa-5cf9-bf5b-764b31cf309c,VHH,7229042B,7229042B,Quản lý di sản văn hóa,60,tuyensinh247,441,true
+0e0316ae-0736-5da4-8d05-79abc7939622,VHH,7229042C,7229042C,Tổ chức hoạt động nghệ thuật,70,tuyensinh247,441,true
+93e95671-1e74-53f1-95fa-0d1772d355bf,VHH,7229042D,7229042D,Tổ chức sự kiện văn hóa,130,tuyensinh247,441,true
+48bf7d46-3791-5c91-96dd-84a9c2d6dece,VHH,7320101,7320101,Báo chí,130,tuyensinh247,441,true
+38b23c4c-253f-51cc-8a91-78021fbf263e,VHH,7320201A,7320201A,Quản trị thư viện,50,tuyensinh247,441,true
+b75540a2-46a8-5c89-9a91-34a8146d21bb,VHH,7320201B,7320201B,Thư viện và thiết bị trường học,50,tuyensinh247,441,true
+f33b2616-6f94-5dfd-9afc-8811ad6b510e,VHH,7320205,7320205,Quản lý thông tin,90,tuyensinh247,441,true
+8646917f-cfa5-590a-adee-a6dd246f201b,VHH,7320305,7320305,Bảo tàng học,60,tuyensinh247,441,true
+7e2fd904-f28f-5bb3-8d9d-eb4b485ae6a2,VHH,7320402,7320402,Kinh doanh xuất bản phẩm,100,tuyensinh247,441,true
+84d33922-f97b-5051-ab8d-453760c7da1b,VHH,7380101,7380101,Luật,110,tuyensinh247,441,true
+493814ee-0c2d-5529-b3e7-75c68a95c2d6,VHH,7810101A,7810101A,Văn hóa du lịch,170,tuyensinh247,441,true
+ec6beaf9-e108-5c0c-b43c-e192d21908aa,VHH,7810101B,7810101B,"Lữ hành, hướng dẫn du lịch",120,tuyensinh247,441,true
+a76ac9cc-4885-5983-a71e-f1c8f77874a0,VHH,7810101C,7810101C,Hướng dẫn du lịch quốc tế,110,tuyensinh247,441,true
+b4f630bc-a5f7-5408-a7c4-da264427e48b,VHH,7810103A,7810103A,Quản trị kinh doanh du lịch,190,tuyensinh247,441,true
+30edf979-3f9e-574f-8b94-637d5dabf189,VHH,7810103B,7810103B,Quản trị du lịch cộng đồng,80,tuyensinh247,441,true
+e313dd8d-c0d6-51e3-ad8d-d6eab9652968,XDA,7210110,7210110,Mỹ thuật đô thị (*),50,tuyensinh247,443,true
+7895218f-4367-5213-a986-efc25df90f90,XDA,72104_NT,72104_NT,CTĐT Nghệ thuật và thiết kế,90,tuyensinh247,443,true
+73c2d047-60b8-5a8b-8560-b4ce08a5fc58,XDA,7340409,7340409,Quản lý dự án (*),100,tuyensinh247,443,true
+1fc16907-eb93-52ce-a204-b871a5df9f53,XDA,7460108,7460108,Khoa học dữ liệu (*),50,tuyensinh247,443,true
+5b632f81-b722-5e2e-890c-8d71c5ec714f,XDA,7480101,7480101,Khoa học máy tính,100,tuyensinh247,443,true
+3e82133d-8ccb-519f-be68-b9aa2bf87cb1,XDA,7480101_QT,7480101_QT,Khoa học Máy tính,30,tuyensinh247,443,true
+8c488fc9-4759-5b2b-bf1c-6a5021fb8735,XDA,7480201,7480201,Công nghệ thông tin,250,tuyensinh247,443,true
+9b6cce39-87b1-5dfe-91dd-e85ef3e9acb0,XDA,7480201_01,7480201_01,Công nghệ thông tin/ Công nghệ đa phương tiện (*),100,tuyensinh247,443,true
+d07811f4-5920-5958-8dc4-d89d27eecdcc,XDA,7480201_02,7480201_02,Công nghệ thông tin/ An toàn thông tin,50,tuyensinh247,443,true
+ba035a44-0556-5ebf-bde9-50c3cdcaa227,XDA,7510103,7510103,Công nghệ kỹ thuật xây dựng,50,tuyensinh247,443,true
+55b13e6a-684c-5840-95dd-29c0205e1eb4,XDA,7510105,7510105,Công nghệ kỹ thuật vật liệu xây dựng,100,tuyensinh247,443,true
+2ba6761b-1535-5be6-a501-ba0408b5734c,XDA,7510605,7510605,Logistics và Quản lý chuỗi cung ứng (*),200,tuyensinh247,443,true
+fe285454-9c4a-52de-911f-9d2bea54d7a2,XDA,7510605_01,7510605_01,Logistics và Quản lý chuỗi cung ứng/ Logistics đô thị (*),50,tuyensinh247,443,true
+a0891352-149a-54c6-8379-70796da25ab4,XDA,7510605_02,7510605_02,Logistics và Quản lý chuỗi cung ứng/ Logistics công nghiệp (*),50,tuyensinh247,443,true
+6cca7d38-9533-5132-b1da-9d67c2637572,XDA,7520103,7520103,Kỹ thuật cơ khí,100,tuyensinh247,443,true
+15dcb011-de93-5e2c-93c7-a8dd0af0be8b,XDA,7520103_01,7520103_01,Kỹ thuật cơ khí/ Máy xây dựng,100,tuyensinh247,443,true
+e0284918-de96-5902-8840-ca6a43b821b5,XDA,7520103_03,7520103_03,Kỹ thuật cơ khí/ Kỹ thuật cơ điện,100,tuyensinh247,443,true
+9931c89c-9add-5c31-8d58-d62ec333f0d2,XDA,7520103_04,7520103_04,Kỹ thuật cơ khí/ Kỹ thuật ô tô,100,tuyensinh247,443,true
+b924ab1e-177d-5691-90e3-93c7577f2f82,XDA,7520201,7520201,Kỹ thuật điện,50,tuyensinh247,443,true
+78198dc0-e9ed-5c43-80fe-5c86a876e34b,XDA,7520216,7520216,Kỹ thuật điều khiển và tự động hóa,50,tuyensinh247,443,true
+552ed032-072a-5e7e-b086-1b09401ddb55,XDA,7520309,7520309,Kỹ thuật vật liệu,50,tuyensinh247,443,true
+a416d316-e59f-5704-9c00-a6bc3223f600,XDA,7520320,7520320,Kỹ thuật Môi trường,50,tuyensinh247,443,true
+94ed4785-db5c-5682-8ae7-033f7a35cc34,XDA,7580101,7580101,Kiến trúc,300,tuyensinh247,443,true
+b930325f-ff71-5765-b4d1-af3afde818ec,XDA,7580101_02,7580101_02,Kiến trúc/Kiến trúc công nghệ,50,tuyensinh247,443,true
+f8ad77f2-a513-5811-8285-05b47e93f440,XDA,7580102,7580102,Kiến trúc cảnh quan,50,tuyensinh247,443,true
+0806e54e-8d28-5429-aeda-4c94c83142a2,XDA,7580103,7580103,Kiến trúc nội thất,100,tuyensinh247,443,true
+9d9586e9-86b4-5a8a-924e-e3f9c799ff01,XDA,7580105,7580105,Quy hoạch vùng và đô thị,50,tuyensinh247,443,true
+161a3c94-2056-5d04-adbf-2182af730784,XDA,7580201,7580201,Kỹ thuật xây dựng,300,tuyensinh247,443,true
+dbd336fb-950e-55c0-813b-af5a6fba4662,XDA,7580201_01,7580201_01,Kỹ thuật xây dựng/ Xây dựng Dân dụng và Công nghiệp,400,tuyensinh247,443,true
+b399d081-9424-5104-819d-2e6943fa447a,XDA,7580201_02,7580201_02,Kỹ thuật xây dựng/ Hệ thống kỹ thuật trong công trình,100,tuyensinh247,443,true
+bb13c788-6c05-5295-9df3-21a679cc6608,XDA,7580201_03,7580201_03,Kỹ thuật xây dựng/ Tin học xây dựng,150,tuyensinh247,443,true
+92fc54c8-1b01-5d5e-bb83-8fa53cdae8c2,XDA,7580201_04,7580201_04,Kỹ thuật xây dựng/ Kỹ thuật công trình thủy,50,tuyensinh247,443,true
+28d829f7-83d9-583f-8321-b3cc28d7e1e1,XDA,7580201_05,7580201_05,Kỹ thuật xây dựng/ Kỹ thuật công trình biển,50,tuyensinh247,443,true
+4120d91e-608d-5235-bc40-25e86016c393,XDA,7580201_CLC,7580201_CLC,Kỹ thuật xây dựng (Chương trình đào tạo Kỹ sư chất lượng cao - PFIEV),100,tuyensinh247,443,true
+f3b2de56-4a65-5a14-b8b2-de7033b70b4e,XDA,7580201_QT,7580201_QT,Kỹ thuật xây dựng,30,tuyensinh247,443,true
+7e12aca4-595c-5799-9784-9bf994e62444,XDA,7580205_01,7580205_01,Kỹ thuật xây dựng công trình Giao thông/ Xây dựng Cầu đường,150,tuyensinh247,443,true
+b79c566a-2ed9-58a1-a81b-3d08dd8d2ec9,XDA,7580205_02,7580205_02,Kỹ thuật xây dựng công trình giao thông/ Đường sắt tốc độ cao và đường sắt đô thị,50,tuyensinh247,443,true
+493004b8-43dc-5c7d-a2e7-3d26ef80a3a4,XDA,7580213_01,7580213_01,Kỹ thuật Cấp thoát nước/ Kỹ thuật nước - Môi trường nước,100,tuyensinh247,443,true
+0ac6f2c9-a458-5208-81f9-06609edfbac1,XDA,7580301,7580301,Kinh tế xây dựng,450,tuyensinh247,443,true
+e798b587-5d16-56c0-a999-f64c842ebf1c,XDA,7580302_01,7580302_01,Quản lý xây dựng/ Kinh tế và quản lý đô thị,100,tuyensinh247,443,true
+6b413116-990b-5797-ade4-b181923005ae,XDA,7580302_02,7580302_02,Quản lý xây dựng/ Kinh tế và quản lý bất động sản,100,tuyensinh247,443,true
+2e02ea82-140d-551a-85f5-6ed3b655715e,XDA,7580302_03,7580302_03,"Quản lý xây dựng/ Quản lý hạ tầng, đất đai đô thị (*)",100,tuyensinh247,443,true
+3731c9ca-6993-5a21-a6f7-6b84a9c7d5d8,XDA,7580302_04,7580302_04,Quản lý xây dựng/ Kiểm toán đầu tư xây dựng (*),50,tuyensinh247,443,true
+b43173b7-07d6-5806-bb87-ef87c1ddb0c5,YHB,7310401,7310401,Tâm lý học,88,tuyensinh247,448,true
+f92cf150-70db-5126-b1d2-1e6bec7137e4,YHB,7720101,7720101,Y khoa,440,tuyensinh247,448,true
+8b1b65ce-64fc-5789-b058-7ad1c0e9d28c,YHB,7720101YHT,7720101YHT,Y khoa Phân hiệu Thanh Hóa,150,tuyensinh247,448,true
+448188bc-c131-52b1-a4cb-bb2c64f01688,YHB,7720110,7720110,Y học dự phòng,100,tuyensinh247,448,true
+5d7f3729-c0f1-5261-972b-76ebc1f24a47,YHB,7720115,7720115,Y học cổ truyền,80,tuyensinh247,448,true
+ed957d1f-8c99-570a-af17-b006f086965d,YHB,7720301,7720301,Điều dưỡng Chương trình tiên tiến (*),130,tuyensinh247,448,true
+9ca06764-1388-5f95-8fc0-3e9a71d13e6e,YHB,7720301YHT,7720301YHT,Điều dưỡng Phân hiệu Thanh Hóa,100,tuyensinh247,448,true
+8c2af845-5717-5f4c-8bc9-35ac3f9fa698,YHB,7720302,7720302,Hộ sinh,70,tuyensinh247,448,true
+37f05319-fe2b-5162-8693-80bba7403adf,YHB,7720401,7720401,Dinh dưỡng,110,tuyensinh247,448,true
+7217f3c8-061e-5b6b-acb3-80b973244b31,YHB,7720501,7720501,Răng-Hàm-Mặt,120,tuyensinh247,448,true
+a3b929a1-ed50-5e9f-9337-77d9b122e8a8,YHB,7720502,7720502,Kĩ thuật phục hình răng,50,tuyensinh247,448,true
+1ea4cf3b-2ba3-51e4-b6ac-f42e998ae781,YHB,7720601,7720601,Kĩ thuật xét nghiệm y học,80,tuyensinh247,448,true
+711a3be1-b11d-5edb-bd97-1953fd9c6e8b,YHB,7720601YHT,7720601YHT,Kĩ thuật xét nghiệm y học Phân hiệu Thanh Hóa,80,tuyensinh247,448,true
+bdac30c9-663c-5a0c-8d8b-7b91179388ed,YHB,7720602,7720602,Kĩ thuật hình ảnh y học (**),100,tuyensinh247,448,true
+17aafacc-1d09-5ab4-93c6-ccec28930b56,YHB,7720602YHT,7720602YHT,Kĩ thuật hình ảnh y học Phân hiệu Thanh Hóa,50,tuyensinh247,,true
+6ba62e58-83d0-5ff8-b7af-f9fa92d55bb3,YHB,7720603,7720603,Kĩ thuật phục hồi chức năng,70,tuyensinh247,448,true
+d9db58ae-82c9-539d-aafb-9964e2e5b1d0,YHB,7720603YHT,7720603YHT,Kĩ thuật phục hồi chức năng Phân hiệu Thanh Hóa,70,tuyensinh247,448,true
+28cd49fb-aed3-5ab8-a526-8ea02560da1d,YHB,7720609,7720609,Khúc xạ nhãn khoa,80,tuyensinh247,,true
+957df61d-6e25-5407-9575-7d8ff7ee3a0e,YHB,7720701,7720701,Y tế công cộng,80,tuyensinh247,448,true
+e5a81633-62ba-5ee9-95aa-dd2c14bbb36a,YHB,7760101,7760101,Công tác xã hội,60,tuyensinh247,448,true
+a7609784-5b3d-554c-ae1b-22f31783f074,YTC,7460108,7460108,Khoa học dữ liệu,70,tuyensinh247,452,true
+9bf86c6b-afd7-5e4b-9861-b072bc1aab2e,YTC,7720401,7720401,Dinh dưỡng,160,tuyensinh247,452,true
+53e180d4-a917-5f74-8e9c-575efc668455,YTC,7720601,7720601,Kỹ thuật xét nghiệm y học,230,tuyensinh247,452,true
+08d97b08-4f14-5d24-a9e7-7ffbc136dbfe,YTC,7720603,7720603,Kỹ thuật phục hồi chức năng,165,tuyensinh247,452,true
+ffc7156f-86e7-5dc5-8461-b6e9ab94304a,YTC,7720701,7720701,Y tế công cộng,220,tuyensinh247,452,true
+297a2b15-b8b3-50a8-a5ef-67743a3b99fd,YTC,7760101,7760101,Công tác xã hội,105,tuyensinh247,452,true
