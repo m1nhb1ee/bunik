@@ -1,0 +1,202 @@
+﻿id,university_short_name,major_code,program_source_code,program_name,quota,missing_reason,base_program_code,source,source_school_id,is_active
+d1ec4afa-3f7e-5997-b1be-f886ac2cb177,ANH,7720101,7720101,Y khoa,,program_code không có trong course_catalog,,tuyensinh247,221,false
+6c024fa1-e7ea-584a-a56e-51e7a8cf2426,ANH,7720101,7720101_Nam,Ngành Y khoa (gửi đào tạo tại Học viện Quân y),,program_code không có trong course_catalog,,tuyensinh247,221,false
+90d2531d-e8f7-5476-aac7-99949174512b,ANH,7720101,7720101_Nu,Ngành Y khoa (gửi đào tạo tại Học viện Quân y),,program_code không có trong course_catalog,,tuyensinh247,221,false
+ad52afe3-fcb2-5eed-bcf4-bc42a5a598b9,ANH,7860100,7860100_Nam_1,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+ba41c773-892c-5f67-a341-37a751f5cb4f,ANH,7860100,7860100_Nam_2,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+617f8b1a-f422-5250-8894-ddf055cab0a4,ANH,7860100,7860100_Nam_3,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+b7c6304d-6631-54b3-b981-08cf086f9332,ANH,7860100,7860100_Nam_8,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+1791793f-56cd-53fa-a384-fa950cc7b46a,ANH,7860100,7860100_Nu_1,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+17292546-3f48-5f65-8034-b90a76f42df4,ANH,7860100,7860100_Nu_2,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+40c7c556-8058-5497-963e-106de7826a82,ANH,7860100,7860100_Nu_3,"Ngành Nghiệp vụ an ninh (Thí sinh Nam, miền Bắc)",,program_code không có trong course_catalog,7860100_Nam_B,tuyensinh247,221,false
+35739d76-7b9f-50b1-9dec-1146e80ecb53,ANH,7860100,7860100_Nu_8,"Ngành Nghiệp vụ an ninh (Thí sinh Nữ, vùng 8)",,program_code không có trong course_catalog,,tuyensinh247,221,false
+635ac80e-d2a2-5e48-8e86-b5f3ef903358,BKA,EE-Epx,EE-Epx,Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV),,suffix code không khớp catalog (base code tồn tại),,tuyensinh247,302,false
+5ec41538-de10-5b8a-89c3-f84b8a906d7a,BKA,EE-Epy,EE-Epy,Tin học công nghiệp và Tự động hóa (Chương trình Việt - Pháp PFIEV),,suffix code không khớp catalog (base code tồn tại),,tuyensinh247,302,false
+a1f58559-c479-509b-b48d-7d41c7843bac,BKA,ME-Gux,ME-Gux,Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc),,suffix code không khớp catalog (base code tồn tại),,tuyensinh247,302,false
+accc04a1-9a6e-5cf4-92b1-2ad7a4f34ca2,BKA,ME-Guy,ME-Guy,Cơ khí - Chế tạo máy - hợp tác với ĐH Griffith (Úc),,suffix code không khớp catalog (base code tồn tại),,tuyensinh247,302,false
+f6c7f30e-0095-5b42-a81a-035e8fd37c17,BKA,TE-Epx,TE-Epx,Cơ khí hàng không (Chương trình Việt - Pháp PFIEV),,suffix code không khớp catalog (base code tồn tại),,tuyensinh247,302,false
+36398a9a-5c4e-5928-9a4a-c7bb51939e2f,BKA,TE-Epy,TE-Epy,Cơ khí hàng không (Chương trình Việt - Pháp PFIEV),,suffix code không khớp catalog (base code tồn tại),,tuyensinh247,302,false
+db11760f-8612-50e6-80a9-8b541a26e242,CMC,7210404,7210404,Thiết kế Thời trang,,program_code không có trong course_catalog,,tuyensinh247,557,false
+546355d0-2730-585b-b6f4-869807609b3b,CMC,7220209,7220209,Ngôn ngữ Nhật,,program_code không có trong course_catalog,,tuyensinh247,557,false
+f2376093-cfa9-5960-8e37-e2db3013d94d,CMC,7580108,7580108,Thiết kế Nội thất,,program_code không có trong course_catalog,,tuyensinh247,557,false
+27082c7c-0dfa-5587-81e0-84ebfcd466f2,CMC,ET,ET,Công nghệ Kỹ thuật Điện tử - Viễn thông (IC Design),,program_code không có trong course_catalog,,tuyensinh247,557,false
+43aa9839-12ea-5ab3-a479-15db0eb2279b,CMC,JL,JL,Tiếng Nhật thương mại,,program_code không có trong course_catalog,,tuyensinh247,557,false
+fd632c4c-4267-578c-bab5-4419a80866a6,DCQ,7220202,7220202,Ngôn ngữ Nga,,program_code không có trong course_catalog,,tuyensinh247,434,false
+563a33e5-2f50-5c47-bb1f-00bf9811acb4,DDL,7340201,7340201,Tài chính - Ngân hàng,,program_code không có trong course_catalog,,tuyensinh247,455,false
+da069e27-2bb0-58d6-ac81-230f10993f2d,DDL,7340205,7340205,Công nghệ tài chính,,program_code không có trong course_catalog,,tuyensinh247,455,false
+7879bf5c-dee0-58e2-a4e6-e9eff7502d7f,DDL,7460108,7460108,Khoa học dữ liệu,,program_code không có trong course_catalog,,tuyensinh247,455,false
+1ac2db95-3a80-58a9-9929-c8ebd44f3cb6,DDL,7510605,7510605,Logistics và Quản lý chuỗi cung ứng,,program_code không có trong course_catalog,,tuyensinh247,455,false
+fdb8d7df-dfdd-5e34-9dc1-59c2a9c95b6d,DDU,7510406,7510406,Công nghệ kỹ thuật môi trường,,program_code không có trong course_catalog,,tuyensinh247,327,false
+abbce00e-b062-5796-bd4f-581627d91490,DDU,7580101,7580101,Kiến trúc,,program_code không có trong course_catalog,,tuyensinh247,327,false
+cffeb197-693a-54e4-9614-02d1022828a2,DDU,7580201,7580201,Kỹ thuật xây dựng,,program_code không có trong course_catalog,,tuyensinh247,327,false
+619933e8-c21a-5b9d-9340-c546ea00b7e1,DKK,7540202,7540202,"Ngành Công nghệ sợi, dệt",,program_code không có trong course_catalog,,tuyensinh247,356,false
+2fbca1fe-d0e2-5ce8-902e-684c05381220,DKK,7540202DKD,7540202DKD,"Công nghệ sợi, dệt",,program_code không có trong course_catalog,,tuyensinh247,356,false
+871355ad-9e25-5ac0-b00e-5618df511a2d,DKK,7540202DKK,7540202DKK,"Công nghệ sợi, dệt",,program_code không có trong course_catalog,,tuyensinh247,356,false
+9ba13e59-e8ff-58b0-8a69-0fc07e97b628,DKS,7380101,7380101,"Luật, chuyên ngành Kiểm sát",,program_code không có trong course_catalog,,tuyensinh247,548,false
+31d29efd-102e-560d-97f4-577a1fdd63f0,DMT,7420203,7420203,Sinh học ứng dụng,,program_code không có trong course_catalog,,tuyensinh247,171,false
+7ef01566-ded4-507a-a924-22f0f5da6111,DPD,7340301,7340301,Kế toán,,program_code không có trong course_catalog,,tuyensinh247,325,false
+f2e4f241-6c1c-5d04-a30b-ce4dac2925d2,DPD,7420201,7420201,Công nghệ sinh học,,program_code không có trong course_catalog,,tuyensinh247,325,false
+e65fc853-365e-5065-9e94-4b3dfd9082be,DPD,7510301,7510301,Công nghệ kỹ thuật Điện - Điện điện tử,,program_code không có trong course_catalog,,tuyensinh247,325,false
+f57f8e27-2f49-5750-a9a5-ac9e17ccceac,DQK,7210402,7210402,Thiết kế công nghiệp,,program_code không có trong course_catalog,,tuyensinh247,350,false
+ff9c9a91-e000-5f5f-9a97-d00213699243,DTL,7480102,7480102,Mạng máy tính và truyền thông dữ liệu,,program_code không có trong course_catalog,,tuyensinh247,425,false
+e96ea07f-eafe-5aa9-b53f-ddc8cbffb8d7,DTL,7720401,7720401,Dinh dưỡng,,program_code không có trong course_catalog,,tuyensinh247,425,false
+bb3c3a03-0e33-5270-bea9-82fe9333a0fd,DTL,7760101,7760101,Công tác xã hội,,program_code không có trong course_catalog,,tuyensinh247,425,false
+8f30afeb-774b-563b-8af3-51425c84f9fe,ETU,7210404,7210404,Thiết kế thời trang,,program_code không có trong course_catalog,,tuyensinh247,339,false
+982c146c-984f-5c58-bf20-aa6481cd656f,ETU,7320106,7320106,Công nghệ truyền thông,,program_code không có trong course_catalog,,tuyensinh247,339,false
+7835d002-47c7-5dee-89a7-ce93001c7c8b,ETU,7520207,7520207,Kỹ thuật điện tử - viễn thông,,program_code không có trong course_catalog,,tuyensinh247,339,false
+e4fd7a24-a74a-5ed9-a9ee-385ad228f993,ETU,7580101,7580101,Kiến trúc,,program_code không có trong course_catalog,,tuyensinh247,339,false
+b6c425cb-7186-50fe-9a37-f4ef867beb5e,ETU,7580201,7580201,Kỹ thuật xây dựng,,program_code không có trong course_catalog,,tuyensinh247,339,false
+56c23bbe-cf8e-58d5-9250-6caa8c7c35a1,ETU,7760101,7760101,Công tác xã hội,,program_code không có trong course_catalog,,tuyensinh247,339,false
+70190e72-e8f4-54ae-ba1f-0f0c86d38c66,GHA,7510104,7510104,Công nghệ kỹ thuật giao thông,,program_code không có trong course_catalog,,tuyensinh247,330,false
+dfa0a200-d045-5818-9461-2c45a616ca43,GHA,7520219,7520219,Hệ thống giao thông thông minh,,program_code không có trong course_catalog,,tuyensinh247,330,false
+a48a5769-7b2d-5c62-a542-5184e4653767,GTA,7340101,7340101,Quản trị kinh doanh,,program_code không có trong course_catalog,,tuyensinh247,58,false
+648522ed-bf40-5fb8-82e7-51dcac6bfaaa,GTA,7340201,7340201,Tài chính - Ngân hàng,,program_code không có trong course_catalog,,tuyensinh247,58,false
+4e627c1b-c33f-59aa-906a-687fe0598896,GTA,7340301VP,7340301VP,Kế toán (học tại cơ sở VP),,program_code không có trong course_catalog,,tuyensinh247,58,false
+ada90069-f44a-50d8-93d5-e07825a2d398,GTA,7480102,7480102,Mạng máy tính và truyền thông dữ liệu,,program_code không có trong course_catalog,,tuyensinh247,58,false
+60f80126-1533-5f50-9bc7-79e3bb64d0c7,GTA,7510102,7510102,Công nghệ kỹ thuật Công trình xây dựng,,program_code không có trong course_catalog,,tuyensinh247,58,false
+7f0e081d-66c2-5bd4-8dac-7ab19979e589,GTA,7510102TN,7510102TN,CNKT Công trình xây dựng (học tại cơ sở TN),,program_code không có trong course_catalog,,tuyensinh247,58,false
+17a9c2db-f82e-513c-bf1b-f3d81c73b2b3,GTA,7510102VP,7510102VP,CNKT Công trình xây dựng (học tại cơ sở VP),,program_code không có trong course_catalog,,tuyensinh247,58,false
+ecdadb75-656e-5f3a-82d2-b9cc897e78db,GTA,7510104,7510104,Công nghệ kỹ thuật Giao thông,,program_code không có trong course_catalog,,tuyensinh247,58,false
+8d5629be-502a-530f-8487-1d25984e8b1b,GTA,7510104TN,7510104TN,CNKT Giao thông (học tại cơ sở TN),,program_code không có trong course_catalog,,tuyensinh247,58,false
+a1f0436e-cbff-5920-ad4d-96df2c476bf4,GTA,7510104VP,7510104VP,CNKT Giao thông (học tại cơ sở VP),,program_code không có trong course_catalog,,tuyensinh247,58,false
+4df838ab-46b0-5a31-bb54-975b474d500b,GTA,7510201,7510201,Công nghệ kỹ thuật Cơ khí,,program_code không có trong course_catalog,,tuyensinh247,58,false
+76428532-5429-509d-8401-b970bdbb7106,GTA,7510205TN,7510205TN,CNKT Ô tô (học tại cơ sở TN),,program_code không có trong course_catalog,,tuyensinh247,58,false
+0ac92182-f0a6-593f-aa98-6f4dc5122eb3,GTA,7510205VP,7510205VP,CNKT Ô tô (học tại cơ sở VP),,program_code không có trong course_catalog,,tuyensinh247,58,false
+a85ad61e-aa28-5c7f-b6c1-d98fe22dfb11,GTA,7510302VP,7510302VP,CNKT Điện tử - viễn thông (học tại cơ sở VP),,program_code không có trong course_catalog,,tuyensinh247,58,false
+f85cda20-9e1f-50b0-827e-20b221b18d6b,GTA,7510406,7510406,Công nghệ kỹ thuật Môi trường,,program_code không có trong course_catalog,,tuyensinh247,58,false
+e206063d-8b26-52e3-bb1c-0f742b8aa809,GTA,7840101,7840101,Khai thác vận tải,,program_code không có trong course_catalog,,tuyensinh247,58,false
+421efbc5-c702-5ad8-8e82-cc67f813f6c2,GTA,7840101TN,7840101TN,Khai thác vận tải (TN),,program_code không có trong course_catalog,,tuyensinh247,58,false
+169cc48a-eb6e-5208-929b-ee49f318d0eb,GTA,GTADCBM2,GTADCBM2,Mô hình thông tin công trình (BIM) trong dự án HTGT,,program_code không có trong course_catalog,,tuyensinh247,58,false
+3d5d8b11-9764-54cc-8887-fd3016016a0e,GTA,GTADCCD3,GTADCCD3,CNKT XD Cầu đường bộ (học tại Thái Nguyên),,program_code không có trong course_catalog,,tuyensinh247,58,false
+0a8cd096-7c44-5dff-952d-04f7f4506fac,GTA,GTADCCK2,GTADCCK2,Công nghệ kỹ thuật Cơ khí,,program_code không có trong course_catalog,,tuyensinh247,58,false
+eed15b88-7d2a-5eea-bd46-70372a6232af,GTA,GTADCCS2,GTADCCS2,CNKT xây dựng Đường sắt - Metro,,program_code không có trong course_catalog,,tuyensinh247,58,false
+ecac25d5-daed-523d-8566-de13c343079f,GTA,GTADCDD1,GTADCDD1,Công nghệ kỹ thuật XDCT DD&CN (học tại Vĩnh Phúc),,program_code không có trong course_catalog,,tuyensinh247,58,false
+5101eb01-7bb5-5ecb-95e2-7f6d9a3a3740,GTA,GTADCDD3,GTADCDD3,Công nghệ kỹ thuật XDCT DD&CN (học tại Thái Nguyên),,program_code không có trong course_catalog,,tuyensinh247,58,false
+0f2217c3-ec61-5b13-b78d-a551d421172d,GTA,GTADCDS2,GTADCDS2,Xây dựng Cầu – đường sắt,,program_code không có trong course_catalog,,tuyensinh247,58,false
+f048d6f4-b752-5996-b970-6a81c85609e6,GTA,GTADCDT1,GTADCDT1,CNKT Điện tử - viễn thông (học tại Vĩnh Phúc),,program_code không có trong course_catalog,,tuyensinh247,58,false
+f6628953-cbe2-55df-8697-56074bd61e00,GTA,GTADCDX2,GTADCDX2,CNKT công trình XD dân dụng và công nghiệp,,program_code không có trong course_catalog,,tuyensinh247,58,false
+28b57142-70ea-593b-8de4-b420b75207f7,GTA,GTADCSS2,GTADCSS2,Xây dựng Cầu - Đường sắt,,program_code không có trong course_catalog,,tuyensinh247,58,false
+68229cb2-f994-5956-bfa5-c243cae6bd77,GTA,GTADCTM2,GTADCTM2,Mạng máy tính và truyền thông dữ liệu,,program_code không có trong course_catalog,,tuyensinh247,58,false
+8a63d0a0-9114-5a9f-98ec-502b18e9a73d,HBT,528,528,"Kinh tế, chuyên ngành Kinh tế và Quản lý (chất lượng cao)",,program_code không có trong course_catalog,,tuyensinh247,224,false
+a8719837-b814-5bf8-a8cf-9379821be2ee,HBT,528,"528, 528M","Kinh tế, chuyên ngành Kinh tế và Quản lý (chất lượng cao)",,program_code không có trong course_catalog,,tuyensinh247,224,false
+019d6d39-bd9a-5ebb-afb0-03a297c06fd9,HBT,529,529,"Kinh tế, chuyên ngành Kinh tế và Quản lý",,program_code không có trong course_catalog,,tuyensinh247,224,false
+2516bd17-dfa2-5363-857f-39731270e9e8,HBT,529,"529, 529M","Kinh tế, chuyên ngành Kinh tế và Quản lý",,program_code không có trong course_catalog,,tuyensinh247,224,false
+dc46cd59-034a-510e-83a0-36a38197b9ca,HBT,535,535,"Chính trị học, chuyên ngành Văn hóa phát triển",,program_code không có trong course_catalog,,tuyensinh247,224,false
+c20f04e3-316c-5191-9b75-169303c263d1,HBT,535,"535, 535M","Chính trị học, chuyên ngành Văn hóa phát triển",,program_code không có trong course_catalog,,tuyensinh247,224,false
+5a2b1f95-423b-5533-835d-c33fc1ab0745,HBT,536,536,"Chính trị học, chuyên ngành Chính sách công",,program_code không có trong course_catalog,,tuyensinh247,224,false
+d4e15656-3c94-500a-b2df-8155b252d70d,HBT,536,"536, 536M","Chính trị học, chuyên ngành Chính sách công",,program_code không có trong course_catalog,,tuyensinh247,224,false
+ecc2bb4e-be7a-5cc3-afe6-7e994ff85dfa,HCP,7310112,7310112,Kinh tế số,,program_code không có trong course_catalog,,tuyensinh247,479,false
+7bf65872-f994-5fab-ac3b-4c15c3a31c17,HCP,7310206,7310206,Ngành Quản lý nhà nước,,program_code không có trong course_catalog,,tuyensinh247,479,false
+a4c18516-db0f-54a1-9fbb-b7348b739f6c,HEH,7860218_,7860218_Nu_B,Ngành Hậu cần Quân sự,,program_code không có trong course_catalog,,tuyensinh247,236,false
+b6ed802a-feaa-5b0b-9586-c2fb21f42b65,HEH,7860218,7860218_Nu_B_A00,Ngành Hậu cần Quân sự,,program_code không có trong course_catalog,,tuyensinh247,236,false
+4fc5ccda-ec2c-5bf3-aada-6297811d8a5a,HEH,7860218,7860218_Nu_B_A01,Ngành Hậu cần Quân sự,,program_code không có trong course_catalog,,tuyensinh247,236,false
+e02c5166-4aae-51fb-b8a9-519bfcb6b7b9,HEH,7860218,7860218_Nu_N,Ngành Hậu cần Quân sự,,program_code không có trong course_catalog,,tuyensinh247,236,false
+b6f71dfa-b3d3-5699-9411-0f95adecfb48,HEH,7860218,7860218_Nu_N_A00,Ngành Hậu cần Quân sự,,program_code không có trong course_catalog,,tuyensinh247,236,false
+1006957c-5da5-5294-98c1-fbddf33d7664,HEH,7860218,7860218_Nu_N_A01,Ngành Hậu cần Quân sự,,program_code không có trong course_catalog,,tuyensinh247,236,false
+2571cbaa-478a-51fe-bf69-9a768d2ef00c,HNM,7850201,7850201,Bảo hộ lao động,,program_code không có trong course_catalog,,tuyensinh247,126,false
+09dff67d-8027-52b9-aae7-92e23f636c04,HPN,7310301,7310301,Xã hội học,,program_code không có trong course_catalog,,tuyensinh247,556,false
+d77b3c7f-4db3-585d-bc6f-532e13fac2d7,HTC,73402011,73402011,Tài chính - Ngân hàng 1,,program_code không có trong course_catalog,,tuyensinh247,258,false
+4cdd1469-f171-5e02-8cda-2f0937e550e8,HTC,73402012,73402012,Tài chính - Ngân hàng 2,,program_code không có trong course_catalog,,tuyensinh247,258,false
+175e2ec1-7291-58e8-b35b-fa292cccc8c7,HTC,73402013,73402013,Tài chính - Ngân hàng 3,,program_code không có trong course_catalog,,tuyensinh247,258,false
+48002be3-b766-5029-b9be-260b6d048223,HTC,7340201C06,7340201C06,Hải quan & Logistics,,program_code không có trong course_catalog,,tuyensinh247,258,false
+891f33f8-36f0-5f30-893e-50cc693b5f14,HTC,7340201C09,7340201C09,Phân tích tài chính (Theo định hướng ICAEW CFAB),,program_code không có trong course_catalog,HC0109QT,tuyensinh247,258,false
+648de4a9-a0d5-5bf1-933c-4af6aa7668c4,HTC,7340201C11,7340201C11,Tài chính doanh nghiệp (Theo định hướng ACCA),,program_code không có trong course_catalog,HC0111QT,tuyensinh247,258,false
+f5178618-7aa7-5259-af89-fe92c7904864,HTC,7340301C21,7340301C21,Kế toán doanh nghiệp (Theo định hướng ACCA),,program_code không có trong course_catalog,HC0201QT,tuyensinh247,258,false
+ec9ebef2-fbe2-56c5-aedb-87903ed21207,HTC,7340405,7340405,Hệ thống thông tin quản lý,,program_code không có trong course_catalog,,tuyensinh247,258,false
+cee3738e-1070-5a8c-bc3f-09ff9ee7bd66,HVN,HVN24,HVN24,Chăn nuôi thú y - Thuỷ sản,,program_code không có trong course_catalog,HVN02,tuyensinh247,562,false
+60e937b2-88d1-590a-ae0b-c4c95a35092d,KHA,CT2,CT2,Tài chính công,,program_code không có trong course_catalog,,tuyensinh247,357,false
+4167ed3f-849d-5dae-997d-8f6ceb615b57,KHA,POHE,POHE,Các chương trình định hướng ứng dụng (POHE - tiếng Anh hệ số 2),,program_code không có trong course_catalog,,tuyensinh247,357,false
+f449ecd4-5ac0-5dbd-a085-971d9ab92db4,KMA,7520207,7520207,Kỹ thuật điện tử - viễn thông,,program_code không có trong course_catalog,,tuyensinh247,245,false
+e89b8c1b-1875-5894-bd37-d2882a897d34,LAH,7860222,7860222_QK1,Quân sự cơ sở - Quân khu 1,,program_code không có trong course_catalog,,tuyensinh247,280,false
+c32061a1-33d7-59a9-a358-dd901b541f9b,LAH,7860222,7860222_QK2,Quân sự cơ sở - Quân khu 2,,program_code không có trong course_catalog,,tuyensinh247,280,false
+6d85a3d5-15c9-51bf-8e8e-9cead1bbfe0f,LAH,7860222,7860222_QK3,Quân sự cơ sở - Quân khu 3,,program_code không có trong course_catalog,,tuyensinh247,280,false
+66b65027-05c0-5367-a15e-69958093c49a,LAH,7860222,7860222_QK4,Quân sự cơ sở - Quân khu 4,,program_code không có trong course_catalog,,tuyensinh247,280,false
+6f00eccf-621b-58e2-b94f-0761c3754548,LNH,7440301,7440301,Khoa học môi trường,,program_code không có trong course_catalog,,tuyensinh247,370,false
+386f0d15-c37b-53ad-a2f9-de8184838faa,LNH,7580302,7580302,Quản lý xây dựng,,program_code không có trong course_catalog,,tuyensinh247,370,false
+d93576cc-0018-578f-ac04-bcf892732e82,LNH,7620201,7620201,Lâm học,,program_code không có trong course_catalog,,tuyensinh247,370,false
+43b8161f-21a9-5416-8461-c70b14a5ac64,MDA,7340101,7340101,Quản trị kinh doanh,,program_code không có trong course_catalog,,tuyensinh247,375,false
+4e8890e0-0151-5d0c-8847-2bb069b8b879,MHN,7210402,7210402,Thiết kế đồ họa,,program_code không có trong course_catalog,7210403,tuyensinh247,296,false
+01338430-54ac-53f1-97a8-812409b281da,NQH,7220204,7220204,Ngôn ngữ Trung Quốc,,program_code không có trong course_catalog,,tuyensinh247,239,false
+780c29d7-6672-5658-aecb-39e57994883f,NQH,7220204,7220204_Nam,Ngôn ngữ Trung Quốc (Thí sinh Nam),,program_code không có trong course_catalog,,tuyensinh247,239,false
+19dcbda2-5bd8-5080-98c9-463b9f898e85,NQH,7220204,7220204_Nu,Ngôn ngữ Trung Quốc (Thí sinh Nữ),,program_code không có trong course_catalog,,tuyensinh247,239,false
+ef8cdba1-21b5-55e7-9528-68741672234e,NQH,7310206,7310206,Quan hệ quốc tế,,program_code không có trong course_catalog,,tuyensinh247,239,false
+7b498f84-89cf-539f-a584-722708f7e056,NQH,7310206,7310206_Nam,Quan hệ quốc tế (Thí sinh Nam),,program_code không có trong course_catalog,,tuyensinh247,239,false
+53d59b3d-a7a7-58f1-b5fd-c234b4fe2748,NQH,7310206,7310206_Nu,Quan hệ quốc tế (Thí sinh Nữ),,program_code không có trong course_catalog,,tuyensinh247,239,false
+2e3ad387-4075-5848-b745-6ff26e357ffa,NTH,KDQH1,KDQH1.1,Chương trình tiêu chuẩn Kinh doanh quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+01d7de22-5d3f-5708-bb0b-258b0a98d84c,NTH,KDQH2,KDQH2.1,Chương trình CLC Kinh doanh quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+10a8005b-e8be-5195-94a5-c8e15477e522,NTH,KDQH2,KDQH2.2,Chương trình ĐHNNQT Logistics và Quản lý chuỗi cung ứng,,program_code không có trong course_catalog,,tuyensinh247,382,false
+6b857ce2-8003-555e-b836-3141fc008782,NTH,KDQH2,KDQH2.3,Chương trình ĐHNNQT Kinh doanh quốc tế theo mô hình tiên tiến Nhật Bản,,program_code không có trong course_catalog,,tuyensinh247,382,false
+ec67bf85-5870-5c7b-b67f-a7872fa8804f,NTH,KDQH2,KDQH2.4,Chương trình ĐHNNQT Kinh doanh số,,program_code không có trong course_catalog,,tuyensinh247,382,false
+022fc367-ad75-5d6f-8609-3a0d676b367a,NTH,KDQH4,KDQH4.1,Chương trình tiên tiến i-Hons hợp tác với Đại học Queensland về Kinh doanh quốc tế và Phân tích dữ liệu kinh doanh,,program_code không có trong course_catalog,,tuyensinh247,382,false
+8e7f3bbe-8bc3-5cd8-9b42-6cdbba8e4553,NTH,KDQQ1,KDQQ1.1,Chương trình tiêu chuẩn Kinh doanh quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+9df8d2c9-ff7f-532a-ae19-bf6cea954328,NTH,KHMH2,KHMH2 .1,Chương trình Khoa học máy tính và dữ liệu trong kinh tế và kinh doanh,,program_code không có trong course_catalog,,tuyensinh247,382,false
+c8639aee-4595-5dd8-aec8-a78184129e09,NTH,KHMH2,KHMH2.1,Chương trình ĐHNNQT Khoa học máy tính và dữ liệu trong kinh tế và kinh doanh,,program_code không có trong course_catalog,,tuyensinh247,382,false
+715451a3-387a-5962-aa40-622d152c03fa,NTH,KTCH2,KTCH2.1,Chương trình ĐHPTQT Kinh tế chính trị quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+02fbc844-63cb-503c-a741-458f14383b26,NTH,KTEH1,KTEH1.1,CT TC Kinh tế đối ngoại,,program_code không có trong course_catalog,NT.KT.H02_2,tuyensinh247,382,false
+52c14d97-a1dd-5c82-beae-4e1144b4b156,NTH,KTEH1,KTEH1.2,Chương trình tiêu chuẩn Thương mại quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+8e99f966-e661-5a49-99ac-90a7b3708065,NTH,KTEH2,KTEH2.1,Chương trình CLC Kinh tế đối ngoại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+b0926fae-9e3a-521b-85b5-cd68b77357f6,NTH,KTEH4,KTEH4.1,Chương trình tiên tiến Kinh tế đối ngoại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+2ca0d351-0a57-5345-866a-8d559bc561b8,NTH,KTKH1,KTKH1.1,Chương trình tiêu chuẩn Kế toán - Kiểm toán,,program_code không có trong course_catalog,,tuyensinh247,382,false
+729a3109-2ff3-5e23-bd97-18f4478317cf,NTH,KTKH2,KTKH2.1,Chương trình ĐHNNQT Kế toán - Kiểm toán theo định hướng ACCA,,program_code không có trong course_catalog,,tuyensinh247,382,false
+8eaf7ff3-a464-5779-a679-315c255a239e,NTH,KTKQ1,KTKQ1.1,Chương trình tiêu chuẩn Kế toán - Kiểm toán,,program_code không có trong course_catalog,,tuyensinh247,382,false
+211bd0d5-f1a6-51d1-9a0c-d5a22c157406,NTH,KTQH1,KTQH1.1,Chương trình tiêu chuẩn Kinh tế quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+815f2e7d-88a7-5a10-8af0-e86b0df78609,NTH,KTQH1,KTQH1.2,Chương trình tiêu chuẩn Kinh tế và Phát triển quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+d3c183e6-6c71-532d-938f-4aefacffe2b5,NTH,KTQH2,KTQH2.1,Chương trình CLC Kinh tế quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+8c0f6656-48f1-577f-b51e-ae9606284f38,NTH,LAWH1,LAWH1.1,Chương trình tiêu chuẩn Luật thương mại quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+715ec736-4e32-5e24-8fa6-1950496e7b5a,NTH,LAWH2,LAWH2.1,Chương trình ĐHNNQT Luật Kinh doanh quốc tế theo mô hình thực hành nghề nghiệp,,program_code không có trong course_catalog,,tuyensinh247,382,false
+ef58de31-1b3b-56fd-befb-771dccfbbb8d,NTH,MKTH2,MKTH2.1,Chương trình ĐHNNQT Marketing số,,program_code không có trong course_catalog,,tuyensinh247,382,false
+70bc03bb-7b57-5761-b343-3317d2fb2571,NTH,NNAH1,NNAH1.1,CT TC Tiếng Anh thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+ac05e01d-74ec-56aa-aa3a-3603ae65db0e,NTH,NNAH2,NNAH2.1,Chương trình CLC Tiếng Anh Thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+b9933242-c9d5-5493-b2e6-af6609ed06d2,NTH,NNNH1,NNNH1.1,Chương trình tiêu chuẩn Tiếng Nhật thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+6ebbd23d-61a2-5f2c-bc51-e9328a634254,NTH,NNNH2,NNNH2.1,Chương trình CLC ngành Tiếng Nhật thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+9b4bc9ca-e05b-5a4c-bb1d-1971fbd3b7b3,NTH,NNPH1,NNPH1.1,CT Tích hợp tiếng Pháp thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+0fd19c73-5dc8-5ff9-bce4-e748b06c4078,NTH,NNPH2,NNPH2.1,Chương trình CLC Tiếng Pháp thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+10848d27-a73f-526a-bb13-409c2d0088df,NTH,NNTH1,NNTH1.1,Chương trình tiêu chuẩn Tiếng Trung Thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+40cb81ad-b13f-5f40-9881-e42b0dfeb060,NTH,NNTH2,NNTH2.1,CT CLC Tiếng Trung thương mại,,program_code không có trong course_catalog,,tuyensinh247,382,false
+165433f6-9ac8-53a1-a22f-032be109708e,NTH,NTH01-01,NTH01-01,Ngành Luật,,program_code không có trong course_catalog,,tuyensinh247,382,false
+8ab62d9f-cf7d-5ef2-b1fb-4495d2f6fd10,NTH,NTH01-02,NTH01-02,Ngành Kinh tế; Kinh tế Quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+608906bf-6e33-5867-aca5-548173cce6bb,NTH,NTH02,NTH02,"Quản trị kinh doanh, Kinh doanh quốc tế, Quản trị khách sạn",,program_code không có trong course_catalog,,tuyensinh247,382,false
+4cc88f26-6945-5fc2-bb81-ac8fb7df1150,NTH,NTH03,NTH03,Nhóm ngành (Tài chính - Ngân Hàng; Kế toán),,program_code không có trong course_catalog,,tuyensinh247,382,false
+ecf3663e-6f23-5c9f-98a0-1aab5e24701c,NTH,NTH04,NTH04,Ngôn ngữ Anh,,program_code không có trong course_catalog,,tuyensinh247,382,false
+31849404-f786-5f6e-9386-4e1da0a83411,NTH,NTH05,NTH05,Ngôn Ngữ Pháp,,program_code không có trong course_catalog,,tuyensinh247,382,false
+cdf3abaa-6249-54e6-905e-a2108ca526b1,NTH,NTH06,NTH06,Ngôn ngữ Trung,,program_code không có trong course_catalog,,tuyensinh247,382,false
+50804ba5-70f5-5028-be1e-ec5061adb271,NTH,NTH07,NTH07,Ngôn ngữ Nhật,,program_code không có trong course_catalog,,tuyensinh247,382,false
+461aaab3-dd82-5f99-8aa9-e77b87b8db6f,NTH,NTH08,NTH08,"Kế toán, Kinh doanh quốc tế",,program_code không có trong course_catalog,,tuyensinh247,382,false
+7b97e458-066e-5bd3-8f25-a28d4cabe097,NTH,NTH09,NTH09,Ngành Kinh tế chính trị,,program_code không có trong course_catalog,,tuyensinh247,382,false
+07dabe41-dea6-5030-99b6-356574b2d61d,NTH,NTH10,NTH10,Ngành Khoa học máy tính,,program_code không có trong course_catalog,,tuyensinh247,382,false
+e9d78a6d-beb6-5199-bc34-a0dd0b8004fd,NTH,QKSH2,QKSH2.1,Chương trình ĐHNNQT Quản trị khách sạn,,program_code không có trong course_catalog,,tuyensinh247,382,false
+504a10a1-9a0c-57c8-8462-ff31309efebb,NTH,QTKH1,QTKH1.1,Chương trình tiêu chuẩn Quản trị kinh doanh quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+53b8c992-b682-5460-b314-3f9223fbd4e4,NTH,QTKH2,QTKH2.1,Chương trình CLC Quản trị kinh doanh quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+88900d17-afd7-539a-9815-606f9839a16a,NTH,QTKH4,QTKH4.1,Chương trình tiên tiến Quản trị kinh doanh quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+d55efebb-4f5d-5bd2-b5ee-fb4a298f6f66,NTH,TCHH1,TCHH1.1,Chương trình tiêu chuẩn Tài chính quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+1e0b1bfe-b943-5965-99d4-af236970a19c,NTH,TCHH1,TCHH1.2,Chương trình tiêu chuẩn Ngân hàng,,program_code không có trong course_catalog,,tuyensinh247,382,false
+c1fedd82-102f-56ed-a187-69d65d314a91,NTH,TCHH1,TCHH1.3,Chương trình tiêu chuẩn Phân tích và đầu tư tài chính,,program_code không có trong course_catalog,,tuyensinh247,382,false
+d62df768-7f6a-5eb3-a000-0a292775e43e,NTH,TCHH2,TCHH2.1,Chương trình CLC Ngân hàng và Tài chính quốc tế,,program_code không có trong course_catalog,,tuyensinh247,382,false
+717b6b74-4fe7-53b0-92d0-8a82bc9a4769,NTH,TCHH4,TCHH4.1,Chương trình tiên tiến Tài chính - Ngân hàng,,program_code không có trong course_catalog,,tuyensinh247,382,false
+7f5e36a3-0e8e-55d5-99ab-bb32e933ae21,NTU,7510102,7510102,Công nghệ kỹ thuật công trình xây dựng,,program_code không có trong course_catalog,,tuyensinh247,384,false
+f8768f1e-5727-5f6b-a247-d2f54605a0f7,NTU,7520320,7520320,Kỹ thuật môi trường,,program_code không có trong course_catalog,,tuyensinh247,384,false
+8dd83e31-1475-58b7-af8c-f6268a8c870e,PKA,ENV1,ENV1,KHOA HỌC MÔI TRƯỜNG (SỨC KHOẺ MÔI TRƯỜNG VÀ PHÁT TRIỂN BỀN VỮNG),,program_code không có trong course_catalog,,tuyensinh247,423,false
+1b60201d-ffd7-5366-a141-3e921d3a0432,PKA,FSP1,FSP1,Vật lý tài năng,,program_code không có trong course_catalog,,tuyensinh247,423,false
+b4086c37-e975-5bd3-b4cf-00afbca8b78e,PKH,7520120,7520120,Ngành Kỹ thuật Hàng không,,program_code không có trong course_catalog,,tuyensinh247,252,false
+50695534-6572-545d-9c80-68ca2b9e8dd8,PKH,7520120,7520120_B,Ngành Kỹ thuật Hàng không (Thí sinh miền Bắc),,program_code không có trong course_catalog,,tuyensinh247,252,false
+a82c3b36-5e75-516b-ad24-ca7575d6c6e4,PKH,7520120,7520120_N,Ngành Kỹ thuật Hàng không (Thí sinh miền Nam),,program_code không có trong course_catalog,,tuyensinh247,252,false
+88afef4e-0300-5fe3-9f2b-73dfcb923315,QHE,QHE80,QHE80,"Quản trị kinh doanh (do Đại học Troy, Hoa Kỳ cấp bằng)",,program_code không có trong course_catalog,,tuyensinh247,352,false
+68e2b635-4e13-579e-861d-4323948ee327,QHE,QHE89,QHE89,"Quản trị kinh doanh (do Đại học St.Francis, Hoa Kỳ cấp bằng)",,program_code không có trong course_catalog,,tuyensinh247,352,false
+db818f9e-79dd-5738-90fa-7c29bd6f5f80,QHF,7903124,7903124,Kinh tế - Tài chính,,program_code không có trong course_catalog,,tuyensinh247,380,false
+21de9726-f41c-57d4-9f4f-2253c23f977a,QHF,7903124QT,7903124QT,Kinh tế – Tài chính**,,program_code không có trong course_catalog,,tuyensinh247,380,false
+7d24e016-419f-52a5-84ef-3fb1efee4d6f,QHQ,7340108,7340108,Quản lí (song bằng VNU-Keuka),,program_code không có trong course_catalog,,tuyensinh247,268,false
+56b320d7-1cdd-5160-88dd-3a7e492ae10b,QHQ,7340115,7340115,Marketing (song bằng VNU-HELP),,program_code không có trong course_catalog,,tuyensinh247,268,false
+7120cd83-d986-514c-81e6-f348e81fba75,QHS,GD1,GD1,Sư phạm Toán học,,program_code không có trong course_catalog,QHS01,tuyensinh247,533,false
+432485af-dfff-520f-a719-3201b10bfc6a,QHT,QHT97,QHT97,Công nghệ quan trắc và giám sát tài nguyên môi trường,,program_code không có trong course_catalog,,tuyensinh247,346,false
+6082a9f8-d175-5c52-9af5-0bfa9df234d7,TDD,7380107,7380107,Luật kinh tế,,program_code không có trong course_catalog,,tuyensinh247,29,false
+d3269980-a30b-5fc3-b4b7-32088924b157,VHH,7220112A,7220112A,Văn hoá các DTTS Việt Nam - Tổ chức và quản lý văn hóa vùng DTTS,,program_code không có trong course_catalog,,tuyensinh247,441,false
+89e51c1d-50dd-5cb3-ae5c-d02fc7c08e0f,VHH,7220112B,7220112B,Văn hoá các DTTS Việt Nam - Tổ chức và quản lý du lịch vùng DTTS,,program_code không có trong course_catalog,,tuyensinh247,441,false
+750088c0-d1c5-5226-9913-c760a7a5b2ce,YQH,7720110,7720110,Y học dự phòng,,program_code không có trong course_catalog,,tuyensinh247,254,false
+3ea0d76f-bc92-572a-9e1e-710fc95a4c4a,YQH,7720110,7720110_Nam_B,Y học dự phòng,,program_code không có trong course_catalog,,tuyensinh247,254,false
+4bf7a520-11c5-5583-bdb8-c4b6cac94fb7,YQH,7720110,7720110_Nam_N,Y học dự phòng,,program_code không có trong course_catalog,,tuyensinh247,254,false
+3a331680-f73e-5967-b909-241808b22d9c,YQH,7720201,7720201,Dược học,,program_code không có trong course_catalog,,tuyensinh247,254,false
+ed2456b8-6cf1-58ac-b4eb-15f999e6df36,YQH,7720201,7720201_Nam_B,Dược học,,program_code không có trong course_catalog,,tuyensinh247,254,false
+4184387e-a5c6-55ca-aab2-5563d450f661,YQH,7720201,7720201_Nam_N,Dược học,,program_code không có trong course_catalog,,tuyensinh247,254,false
+a3257f6f-5c62-52bd-bf27-eae0d64bdd7c,YQH,7720201,7720201_Nu_B,Dược học,,program_code không có trong course_catalog,,tuyensinh247,254,false
+5c56381c-d71b-5922-8b84-79e0fc58cec3,YQH,7720201,7720201_Nu_N,Dược học,,program_code không có trong course_catalog,,tuyensinh247,254,false
+f3666d5a-8e5a-5d35-9e49-18b3c9dea6fe,YTC,7510406,7510406,Công nghệ kỹ thuật môi trường,,program_code không có trong course_catalog,,tuyensinh247,452,false
