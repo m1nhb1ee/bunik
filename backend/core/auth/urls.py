@@ -6,6 +6,7 @@ from core.auth.views import (
     AwardCatalogView,
     CertificateDeleteView,
     CertificateListCreateView,
+    FinalizeProfileView,
     LoginView,
     LogoutView,
     ProfileView,
@@ -15,6 +16,7 @@ from core.auth.views import (
 
 urlpatterns = [
     path('api/auth/register/', RegisterView.as_view()),
+    path('api/auth/finalize-profile/', FinalizeProfileView.as_view()),
     path('api/auth/login/', LoginView.as_view()),
     path('api/auth/me/', ProfileView.as_view()),
     path('api/auth/me/achievements/', AchievementListCreateView.as_view()),

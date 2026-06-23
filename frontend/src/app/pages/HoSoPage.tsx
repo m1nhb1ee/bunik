@@ -22,6 +22,7 @@ import {
   type ProfileUpdatePayload,
 } from "../services/api";
 import type { ApiAchievement, ApiAward } from "../types/api";
+import { B, CenterNote, SketchHeading, cardStyle } from "../components/bunik";
 
 type SubjectKey = "toan" | "van" | "anh" | "ly" | "hoa" | "sinh" | "su" | "dia";
 type SpecialSubject = "toan" | "ly" | "hoa" | "sinh" | "tin" | "ngoai_ngu" | "van" | "su" | "dia";
@@ -34,46 +35,39 @@ type SelectedAchievement = {
 };
 
 const dotBg = {
-  backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
-  backgroundSize: "24px 24px",
-  backgroundColor: "#FAFAF8",
+  backgroundColor: B.paper,
 };
 
-const handCard = {
-  background: "#fff",
-  borderRadius: 20,
-  border: "2px solid rgba(91,79,207,0.12)",
-  boxShadow: "4px 4px 0px rgba(91,79,207,0.09)",
-};
+const handCard = cardStyle();
 
-const SUBJECTS: Array<{ key: SubjectKey; label: string; icon: string }> = [
-  { key: "toan", label: "Toan", icon: "📐" },
-  { key: "van", label: "Van", icon: "📖" },
-  { key: "anh", label: "Anh", icon: "🌍" },
-  { key: "ly", label: "Ly", icon: "⚡" },
-  { key: "hoa", label: "Hoa", icon: "🧪" },
-  { key: "sinh", label: "Sinh", icon: "🌱" },
-  { key: "su", label: "Su", icon: "📜" },
-  { key: "dia", label: "Dia", icon: "🗺️" },
+const SUBJECTS: Array<{ key: SubjectKey; label: string }> = [
+  { key: "toan", label: "Toán" },
+  { key: "van", label: "Văn" },
+  { key: "anh", label: "Anh" },
+  { key: "ly", label: "Lý" },
+  { key: "hoa", label: "Hóa" },
+  { key: "sinh", label: "Sinh" },
+  { key: "su", label: "Sử" },
+  { key: "dia", label: "Địa" },
 ];
 
 const SPECIAL_SUBJECTS: Array<{ key: SpecialSubject; label: string }> = [
-  { key: "toan", label: "Toan" },
-  { key: "ly", label: "Ly" },
-  { key: "hoa", label: "Hoa" },
+  { key: "toan", label: "Toán" },
+  { key: "ly", label: "Lý" },
+  { key: "hoa", label: "Hóa" },
   { key: "sinh", label: "Sinh" },
   { key: "tin", label: "Tin" },
-  { key: "ngoai_ngu", label: "Ngoai Ngu" },
-  { key: "van", label: "Van" },
-  { key: "su", label: "Su" },
-  { key: "dia", label: "Dia" },
+  { key: "ngoai_ngu", label: "Ngoại ngữ" },
+  { key: "van", label: "Văn" },
+  { key: "su", label: "Sử" },
+  { key: "dia", label: "Địa" },
 ];
 
 const PRIZE_OPTIONS: Array<{ value: PrizeType; label: string }> = [
-  { value: "Khuyen Khich", label: "Khuyen khich" },
-  { value: "Ba", label: "Giai Ba" },
-  { value: "Nhi", label: "Giai Nhi" },
-  { value: "Nhat", label: "Giai Nhat" },
+  { value: "Khuyen Khich", label: "Khuyến khích" },
+  { value: "Ba", label: "Giải Ba" },
+  { value: "Nhi", label: "Giải Nhì" },
+  { value: "Nhat", label: "Giải Nhất" },
 ];
 
 function normalizeText(value: string): string {
@@ -118,7 +112,7 @@ function getAwardBonus(level?: string | null, prize?: PrizeType): number {
 
 function formatSpecialLabel(subject: SpecialSubject): string {
   const item = SPECIAL_SUBJECTS.find((value) => value.key === subject);
-  return item ? `Chuyen ${item.label}` : "Mon chuyen";
+  return item ? `Chuyên ${item.label}` : "Môn chuyên";
 }
 
 function createClientId(): string {
@@ -144,13 +138,13 @@ export default function HoSoPage() {
   const [saving, setSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [userName, setUserName] = useState("Hoc sinh cua toi");
+  const [userName, setUserName] = useState("Học sinh của tôi");
 
   useEffect(() => {
     const fetchUserProfile = async () => {
       const token = localStorage.getItem("gr1_access_token");
       if (!token) {
-        setError("Vui long dang nhap de xem ho so cua ban");
+        setError("Vui lòng đăng nhập để xem hồ sơ của bạn");
         setLoading(false);
         return;
       }
@@ -175,7 +169,7 @@ export default function HoSoPage() {
         setIsChuyenClass(Boolean(user.is_special));
         setSpecialSubject((user.special_subject as SpecialSubject) || "toan");
         setSpecialScore(user.special_score || 0);
-        setUserName(user.full_name || "Hoc sinh cua toi");
+        setUserName(user.full_name || "Học sinh của tôi");
         setAwardsCatalog(awardResponse.results || []);
         setSavedAchievements(achievementResponse.results || []);
         setSelectedAchievements(
@@ -192,12 +186,12 @@ export default function HoSoPage() {
         setSatScore(sat);
         setError(null);
       } catch (err) {
-        const errorMsg = err instanceof Error ? err.message : "Khong the tai du lieu ho so";
+        const errorMsg = err instanceof Error ? err.message : "Không thể tải dữ liệu hồ sơ";
         if (errorMsg.includes("401")) {
           localStorage.removeItem("gr1_access_token");
           localStorage.removeItem("gr1_refresh_token");
           localStorage.removeItem("gr1_user");
-          setError("Phien dang nhap da het han. Vui long dang nhap lai");
+          setError("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại");
         } else {
           setError(errorMsg);
         }
@@ -255,11 +249,11 @@ export default function HoSoPage() {
     const sorted = [...SUBJECTS].sort((a, b) => (scores[b.key] || 0) - (scores[a.key] || 0));
     const top3 = sorted.slice(0, 3).map((item) => item.label);
     const recs = [];
-    if (top3.includes("Toan") && top3.includes("Ly")) recs.push({ block: "A00", name: "Toan - Ly - Hoa", match: 95 });
-    if (top3.includes("Toan") && top3.includes("Anh")) recs.push({ block: "A01", name: "Toan - Ly - Anh", match: 88 });
-    if (top3.includes("Van") && top3.includes("Su")) recs.push({ block: "C00", name: "Van - Su - Dia", match: 82 });
-    if (top3.includes("Anh")) recs.push({ block: "D01", name: "Toan - Van - Anh", match: 79 });
-    if (top3.includes("Sinh") || top3.includes("Hoa")) recs.push({ block: "B00", name: "Toan - Hoa - Sinh", match: 77 });
+    if (top3.includes("Toán") && top3.includes("Lý")) recs.push({ block: "A00", name: "Toán - Lý - Hóa", match: 95 });
+    if (top3.includes("Toán") && top3.includes("Anh")) recs.push({ block: "A01", name: "Toán - Lý - Anh", match: 88 });
+    if (top3.includes("Văn") && top3.includes("Sử")) recs.push({ block: "C00", name: "Văn - Sử - Địa", match: 82 });
+    if (top3.includes("Anh")) recs.push({ block: "D01", name: "Toán - Văn - Anh", match: 79 });
+    if (top3.includes("Sinh") || top3.includes("Hóa")) recs.push({ block: "B00", name: "Toán - Hóa - Sinh", match: 77 });
     return recs.slice(0, 3);
   }, [scores]);
 
@@ -283,7 +277,7 @@ export default function HoSoPage() {
   const handleSave = async () => {
     const token = localStorage.getItem("gr1_access_token");
     if (!token) {
-      setError("Vui long dang nhap de luu ho so");
+      setError("Vui lòng đăng nhập để lưu hồ sơ");
       return;
     }
     setSaving(true);
@@ -291,7 +285,7 @@ export default function HoSoPage() {
     setError(null);
     try {
       const payload: ProfileUpdatePayload = {
-        full_name: userName.trim() || "Hoc sinh cua toi",
+        full_name: userName.trim() || "Học sinh của tôi",
         math: scores.toan,
         literature: scores.van,
         english: scores.anh,
@@ -322,37 +316,27 @@ export default function HoSoPage() {
           prize: normalizePrize(item.prize),
         })),
       );
-      setSaveMessage("Da luu thong tin ho so");
+      setSaveMessage("Đã lưu thông tin hồ sơ");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Khong the luu ho so");
+      setError(err instanceof Error ? err.message : "Không thể lưu hồ sơ");
     } finally {
       setSaving(false);
     }
   };
 
   return (
-    <div style={dotBg} className="min-h-screen">
-      <div
-        className="py-10 px-6 text-center"
-        style={{
-          background: "linear-gradient(135deg, rgba(91,79,207,0.08) 0%, rgba(255,179,71,0.06) 100%)",
-          borderBottom: "2px solid rgba(91,79,207,0.08)",
-        }}
-      >
-        <h1 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "clamp(1.8rem,4vw,2.5rem)" }}>
-          Ho So & Tinh Diem Hoc Luc
-        </h1>
-        <p style={{ color: "#4A4A6A", marginTop: 6 }}>Nhap diem de tinh tong diem hoc luc va xep tier cua ban</p>
-      </div>
+    <div style={dotBg} className="bunik-page">
+      <header className="bunik-container bunik-page-intro" style={{ textAlign: "center" }}>
+        <SketchHeading kicker="góc của bạn —" color={B.plum} width="82%">
+          Hồ sơ & tính điểm học lực
+        </SketchHeading>
+        <p className="bunik-note-text" style={{ fontSize: 19, margin: "22px auto 0", maxWidth: 620 }}>Nhập điểm, lưu thành tích và xem bức tranh học lực của riêng bạn.</p>
+      </header>
 
-      {loading && (
-        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
-          <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Dang tai du lieu ho so...</p>
-        </div>
-      )}
+      {loading && <CenterNote title="Đang mở hồ sơ của bạn…" />}
 
       {!loading && (
-        <div className="max-w-6xl mx-auto px-6 py-10">
+        <div className="bunik-container" style={{ paddingBottom: 54 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div style={handCard} className="p-6">
@@ -360,8 +344,8 @@ export default function HoSoPage() {
                   <div
                     className="w-16 h-16 rounded-[20px] flex items-center justify-center text-white flex-shrink-0"
                     style={{
-                      background: "linear-gradient(135deg, #5B4FCF 0%, #FF6B6B 100%)",
-                      boxShadow: "4px 4px 0px rgba(91,79,207,0.2)",
+                      background: `linear-gradient(135deg, ${B.terracotta} 0%, ${B.honey} 100%)`,
+                      boxShadow: `4px 4px 0 ${B.ink}`,
                     }}
                   >
                     HS
@@ -373,34 +357,34 @@ export default function HoSoPage() {
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
                         className="outline-none bg-transparent w-full"
-                        style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 18, border: "none", borderBottom: "2px dashed rgba(91,79,207,0.2)" }}
+                        style={{ fontWeight: 800, color: B.ink, fontSize: 18, border: "none", borderBottom: `2px dashed ${B.muted}` }}
                       />
                       <button
                         onClick={handleSave}
                         disabled={saving}
                         className="w-9 h-9 rounded-xl flex items-center justify-center"
-                        style={{ background: "#5B4FCF", color: "#fff", fontWeight: 700, opacity: saving ? 0.7 : 1 }}
-                        title={saving ? "Dang luu" : "Luu thong tin"}
+                        style={{ background: B.terracotta, color: B.paperLight, border: `1.5px solid ${B.ink}`, fontWeight: 700, opacity: saving ? 0.7 : 1 }}
+                        title={saving ? "Đang lưu" : "Lưu thông tin"}
                       >
                         <Save size={14} />
                       </button>
                     </div>
-                    <p style={{ color: "#9090AA", fontSize: 13, marginTop: 4 }}>Nhan de doi ten</p>
+                    <p style={{ color: B.muted, fontSize: 13, marginTop: 4 }}>Nhấn để đổi tên</p>
                   </div>
                 </div>
-                {saveMessage && <p style={{ color: "#166534", fontSize: 13, fontWeight: 700 }}>{saveMessage}</p>}
-                {error && <p style={{ color: "#B91C1C", fontSize: 13, fontWeight: 700 }}>{error}</p>}
+                {saveMessage && <p role="status" style={{ color: B.olive, fontSize: 13, fontWeight: 700 }}>{saveMessage}</p>}
+                {error && <p role="alert" style={{ color: B.rust, fontSize: 13, fontWeight: 700 }}>{error}</p>}
 
                 <div
                   className="flex items-center justify-between p-4 rounded-2xl mt-4"
-                  style={{ background: "rgba(91,79,207,0.05)", border: "2px dashed rgba(91,79,207,0.15)" }}
+                  style={{ background: "rgba(206,155,78,.08)", border: `2px dashed ${B.muted}` }}
                 >
                   <div>
-                    <p style={{ fontWeight: 700, color: "#1A1A2E", fontSize: 14 }}>Truong chuyen?</p>
-                    <p style={{ fontSize: 12, color: "#9090AA" }}>Dung mon chuyen va diem TB mon chuyen rieng</p>
+                    <p style={{ fontWeight: 700, color: B.ink, fontSize: 14 }}>Trường chuyên?</p>
+                    <p style={{ fontSize: 12, color: B.muted }}>Dùng môn chuyên và điểm trung bình môn chuyên riêng</p>
                   </div>
                   <button onClick={() => setIsChuyenClass(!isChuyenClass)}>
-                    {isChuyenClass ? <ToggleRight size={36} color="#5B4FCF" /> : <ToggleLeft size={36} color="#9090AA" />}
+                    {isChuyenClass ? <ToggleRight size={36} color={B.terracotta} /> : <ToggleLeft size={36} color={B.muted} />}
                   </button>
                 </div>
 
@@ -409,7 +393,7 @@ export default function HoSoPage() {
                     <div style={{ position: "relative" }}>
                       <button
                         className="w-full px-3 py-2 rounded-xl flex items-center justify-between"
-                        style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#1A1A2E", fontWeight: 700, background: "#fff" }}
+                        style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                         onClick={() => setShowSpecialDropdown((value) => !value)}
                       >
                         <span>{formatSpecialLabel(specialSubject)}</span>
@@ -424,8 +408,8 @@ export default function HoSoPage() {
                             left: 0,
                             right: 0,
                             zIndex: 20,
-                            border: "2px solid rgba(91,79,207,0.15)",
-                            background: "#fff",
+                            border: `2px solid ${B.ink}`,
+                            background: B.paperLight,
                             boxShadow: "0 12px 30px rgba(26,26,46,0.12)",
                           }}
                         >
@@ -435,8 +419,8 @@ export default function HoSoPage() {
                                 key={item.key}
                                 className="px-2 py-1.5 rounded-lg text-sm text-left"
                                 style={{
-                                  background: item.key === specialSubject ? "rgba(91,79,207,0.12)" : "transparent",
-                                  color: "#1A1A2E",
+                                  background: item.key === specialSubject ? "rgba(194,96,63,.14)" : "transparent",
+                                  color: B.ink,
                                   fontWeight: item.key === specialSubject ? 800 : 600,
                                 }}
                                 onClick={() => {
@@ -452,7 +436,7 @@ export default function HoSoPage() {
                       )}
                     </div>
                     <div>
-                      <label style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 700 }}>Diem TB mon chuyen</label>
+                      <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>Điểm trung bình môn chuyên</label>
                       <input
                         type="number"
                         min={0}
@@ -461,7 +445,7 @@ export default function HoSoPage() {
                         value={specialScore}
                         onChange={(e) => setSpecialScore(Math.min(10, Math.max(0, Number(e.target.value))))}
                         className="mt-1 w-full px-3 py-2 rounded-xl text-sm outline-none"
-                        style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#1A1A2E", fontWeight: 700 }}
+                        style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                       />
                     </div>
                   </div>
@@ -469,14 +453,14 @@ export default function HoSoPage() {
               </div>
 
               <div style={handCard} className="p-6">
-                <h3 style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 16, marginBottom: 16 }}>
-                  Diem TB 8 mon (0-10)
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 16 }}>
+                  Điểm trung bình 8 môn (0–10)
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {SUBJECTS.map((subject) => (
                     <div key={subject.key}>
-                      <label className="flex items-center gap-2 mb-1.5" style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 700 }}>
-                        {subject.icon} {subject.label}
+                      <label className="flex items-center gap-2 mb-1.5" style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>
+                        {subject.label}
                       </label>
                       <input
                         type="number"
@@ -486,7 +470,7 @@ export default function HoSoPage() {
                         value={scores[subject.key]}
                         onChange={(e) => setScores((prev) => ({ ...prev, [subject.key]: Math.min(10, Math.max(0, Number(e.target.value))) }))}
                         className="w-full px-3 py-2 rounded-xl text-sm outline-none"
-                        style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#1A1A2E", fontWeight: 700, background: "#fff" }}
+                        style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                       />
                     </div>
                   ))}
@@ -494,11 +478,11 @@ export default function HoSoPage() {
               </div>
 
               <div style={handCard} className="p-6">
-                <h3 style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 16, marginBottom: 12 }}>Thanh tich</h3>
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 12 }}>Thành tích</h3>
                 <div style={{ position: "relative" }}>
                   <button
                     className="w-full px-3 py-2 rounded-xl flex items-center justify-between"
-                    style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#1A1A2E", fontWeight: 700, background: "#fff" }}
+                    style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                     onClick={() => setShowAwardsDropdown((value) => !value)}
                   >
                     <span>Chon thanh tich hop le</span>
@@ -513,8 +497,8 @@ export default function HoSoPage() {
                         left: 0,
                         right: 0,
                         zIndex: 30,
-                        border: "2px solid rgba(91,79,207,0.15)",
-                        background: "#fff",
+                        border: `2px solid ${B.ink}`,
+                        background: B.paperLight,
                         boxShadow: "0 14px 35px rgba(26,26,46,0.16)",
                       }}
                     >
@@ -523,7 +507,7 @@ export default function HoSoPage() {
                           <button
                             key={award.id}
                             className="w-full px-3 py-2 rounded-lg text-left"
-                            style={{ background: "transparent", color: "#1A1A2E", fontWeight: 700 }}
+                            style={{ background: "transparent", color: B.ink, fontWeight: 700 }}
                             onClick={() => addAward(award.id)}
                           >
                             {award.name} ({award.level})
@@ -560,7 +544,7 @@ export default function HoSoPage() {
                                 style={{
                                   border: "1px solid rgba(146,64,14,0.25)",
                                   color: "#92400E",
-                                  background: "linear-gradient(180deg, #fffaf2 0%, #fff 100%)",
+                                  background: `linear-gradient(180deg, ${B.paper} 0%, ${B.paperLight} 100%)`,
                                   fontWeight: 700,
                                   boxShadow: "inset 0 1px 0 rgba(255,255,255,0.75)",
                                 }}
@@ -577,7 +561,7 @@ export default function HoSoPage() {
                                     left: 0,
                                     right: 0,
                                     zIndex: 40,
-                                    background: "#fffdf8",
+                                    background: B.paperLight,
                                     border: "1px solid rgba(146,64,14,0.2)",
                                     boxShadow: "0 10px 24px rgba(146,64,14,0.14)",
                                   }}
@@ -615,12 +599,12 @@ export default function HoSoPage() {
               </div>
 
               <div style={handCard} className="p-6">
-                <h3 style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 16, marginBottom: 16 }}>
-                  Chung chi quoc te
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 16 }}>
+                  Chứng chỉ quốc tế
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 700 }}>IELTS (x2): +{(ieltScore * 2).toFixed(1)}</label>
+                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>IELTS (×2): +{(ieltScore * 2).toFixed(1)}</label>
                     <input
                       type="number"
                       min={0}
@@ -629,11 +613,11 @@ export default function HoSoPage() {
                       value={ieltScore}
                       onChange={(e) => setIeltScore(Math.min(9, Math.max(0, Number(e.target.value))))}
                       className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
-                      style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#1A1A2E", fontWeight: 700 }}
+                      style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                     />
                   </div>
                   <div>
-                    <label style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 700 }}>SAT (/100): +{(satScore / 100).toFixed(2)}</label>
+                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>SAT (÷100): +{(satScore / 100).toFixed(2)}</label>
                     <input
                       type="number"
                       min={0}
@@ -642,7 +626,7 @@ export default function HoSoPage() {
                       value={satScore}
                       onChange={(e) => setSatScore(Math.min(1600, Math.max(0, Number(e.target.value))))}
                       className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
-                      style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#1A1A2E", fontWeight: 700 }}
+                      style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                     />
                   </div>
                 </div>
@@ -654,35 +638,35 @@ export default function HoSoPage() {
                 className="p-8 text-center"
                 style={{ ...handCard, border: `2.5px solid ${tierColor}40`, boxShadow: `6px 6px 0px ${tierColor}25` }}
               >
-                <p style={{ color: "#9090AA", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Tong diem hoc luc</p>
-                <div style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 900, fontSize: 72, color: tierColor, lineHeight: 1 }}>
+                <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Tổng điểm học lực</p>
+                <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: tierColor, lineHeight: 1 }}>
                   {totalScore}
                 </div>
                 <div className="flex items-center justify-center mt-4">
                   <span
                     className="px-6 py-2 rounded-2xl text-xl"
-                    style={{ fontWeight: 900, fontFamily: "'Baloo 2', cursive", fontSize: 24, background: `${tierColor}20`, color: tierColor }}
+                    style={{ fontWeight: 700, fontFamily: "'Shantell Sans', cursive", fontSize: 24, background: `${tierColor}20`, color: tierColor, border: `1.5px solid ${B.ink}` }}
                   >
                     Tier {tier}
                   </span>
                 </div>
                 <div className="grid grid-cols-4 gap-3 mt-6">
                   {[
-                    { label: "Diem co so", value: baseScore.toFixed(1) },
-                    { label: "Mon chuyen", value: `+${(isChuyenClass ? specialScore : 0).toFixed(1)}` },
-                    { label: "Thanh tich", value: `+${awardBonus.toFixed(0)}` },
-                    { label: "Chung chi", value: `+${certBonus.toFixed(1)}` },
+                    { label: "Điểm cơ sở", value: baseScore.toFixed(1) },
+                    { label: "Môn chuyên", value: `+${(isChuyenClass ? specialScore : 0).toFixed(1)}` },
+                    { label: "Thành tích", value: `+${awardBonus.toFixed(0)}` },
+                    { label: "Chứng chỉ", value: `+${certBonus.toFixed(1)}` },
                   ].map((item) => (
-                    <div key={item.label} className="p-3 rounded-2xl text-center" style={{ background: "rgba(91,79,207,0.05)" }}>
-                      <p style={{ fontSize: 10, color: "#9090AA", fontWeight: 700 }}>{item.label}</p>
-                      <p style={{ fontWeight: 900, color: "#5B4FCF", fontSize: 16 }}>{item.value}</p>
+                    <div key={item.label} className="p-3 rounded-2xl text-center" style={{ background: "rgba(206,155,78,.09)", border: `1px dashed ${B.muted}` }}>
+                      <p style={{ fontSize: 10, color: B.muted, fontWeight: 700 }}>{item.label}</p>
+                      <p style={{ fontWeight: 900, color: B.terracotta, fontSize: 16 }}>{item.value}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div style={handCard} className="p-5">
-                <h3 style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 14, marginBottom: 12 }}>Bang Tier</h3>
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 12 }}>Bảng tier</h3>
                 <div className="grid grid-cols-4 gap-2">
                   {[
                     { tier: "F", label: "< 45", color: "#3F3F46" },
@@ -696,39 +680,39 @@ export default function HoSoPage() {
                     <div
                       key={item.tier}
                       className="p-2 rounded-xl text-center"
-                      style={{ background: tier === item.tier ? `${item.color}20` : "rgba(91,79,207,0.04)", border: `2px solid ${tier === item.tier ? item.color : "transparent"}` }}
+                      style={{ background: tier === item.tier ? `${item.color}20` : B.paper, border: `2px solid ${tier === item.tier ? item.color : "transparent"}` }}
                     >
                       <p style={{ fontWeight: 900, color: item.color, fontSize: 14 }}>{item.tier}</p>
-                      <p style={{ fontSize: 10, color: "#9090AA" }}>{item.label}</p>
+                      <p style={{ fontSize: 10, color: B.muted }}>{item.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               <div style={handCard} className="p-6">
-                <h3 style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 15, marginBottom: 16 }}>Stats Graph</h3>
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 16 }}>Bản đồ học lực</h3>
                 <ResponsiveContainer width="100%" height={260}>
                   <RadarChart data={radarData}>
-                    <PolarGrid stroke="rgba(91,79,207,0.12)" strokeDasharray="3 3" />
-                    <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: "#4A4A6A", fontWeight: 700 }} />
+                    <PolarGrid stroke={B.muted} strokeDasharray="3 3" />
+                    <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: B.body, fontWeight: 700 }} />
                     <PolarRadiusAxis domain={[5, 10]} tick={{ fontSize: 9 }} />
                     <Radar
-                      name="Diem"
+                      name="Điểm"
                       dataKey="score"
-                      stroke="#5B4FCF"
-                      fill="#5B4FCF"
+                      stroke={B.terracotta}
+                      fill={B.terracotta}
                       fillOpacity={0.2}
                       strokeWidth={2.5}
-                      dot={{ r: 5, fill: "#5B4FCF", strokeWidth: 0 }}
+                      dot={{ r: 5, fill: B.terracotta, strokeWidth: 0 }}
                     />
-                    <Tooltip contentStyle={{ borderRadius: 12, border: "2px solid rgba(91,79,207,0.15)", fontSize: 13 }} formatter={(value: number) => [`${value}/10`, "Diem"]} />
+                    <Tooltip contentStyle={{ borderRadius: 12, border: `2px solid ${B.ink}`, background: B.paperLight, fontSize: 13 }} formatter={(value: number) => [`${value}/10`, "Điểm"]} />
                   </RadarChart>
                 </ResponsiveContainer>
               </div>
 
               {blocks.length > 0 && (
                 <div style={handCard} className="p-6">
-                  <h3 style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 15, marginBottom: 16 }}>Khoi hoc phu hop</h3>
+                  <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 16 }}>Khối học phù hợp</h3>
                   <div className="space-y-3">
                     {blocks.map((block, index) => (
                       <Link
@@ -736,22 +720,22 @@ export default function HoSoPage() {
                         to={`/nganh?block=${block.block}`}
                         className="flex items-center justify-between p-4 rounded-2xl"
                         style={{
-                          background: index === 0 ? "rgba(91,79,207,0.08)" : "rgba(91,79,207,0.04)",
-                          border: `2px solid ${index === 0 ? "rgba(91,79,207,0.2)" : "rgba(91,79,207,0.08)"}`,
+                          background: index === 0 ? "rgba(206,155,78,.14)" : B.paper,
+                          border: `2px solid ${index === 0 ? B.honey : "rgba(43,39,34,.12)"}`,
                           textDecoration: "none",
                         }}
                       >
                         <div>
-                          <span className="px-2.5 py-1 rounded-xl text-sm mr-3" style={{ background: "#5B4FCF", color: "#fff", fontWeight: 800 }}>
+                          <span className="px-2.5 py-1 rounded-xl text-sm mr-3" style={{ background: B.terracotta, color: B.paperLight, border: `1.5px solid ${B.ink}`, fontWeight: 800 }}>
                             {block.block}
                           </span>
-                          <span style={{ fontWeight: 700, color: "#1A1A2E", fontSize: 14 }}>{block.name}</span>
+                          <span style={{ fontWeight: 700, color: B.ink, fontSize: 14 }}>{block.name}</span>
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="px-2.5 py-1 rounded-xl text-sm" style={{ background: "rgba(67,217,163,0.15)", color: "#16A34A", fontWeight: 800 }}>
                             {block.match}%
                           </div>
-                          <ChevronRight size={14} color="#9090AA" />
+                          <ChevronRight size={14} color={B.muted} />
                         </div>
                       </Link>
                     ))}

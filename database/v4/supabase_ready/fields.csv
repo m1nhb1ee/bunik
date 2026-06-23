@@ -1,0 +1,25 @@
+﻿id,code,description
+1,an_ninh,"An ninh, quốc phòng"
+2,cntt,Máy tính và công nghệ thông tin
+3,dien_tu,"Công nghệ kỹ thuật điện, điện tử và viễn thông"
+4,du_lich,"Du lịch, khách sạn, thể thao và dịch vụ cá nhân"
+5,giao_duc,Khoa học giáo dục và đào tạo giáo viên
+6,khac,Khác / chưa phân loại
+7,khoa_hoc_su_song,Khoa học sự sống
+8,khoa_hoc_tu_nhien,Khoa học tự nhiên
+9,khoa_hoc_xa_hoi,Khoa học xã hội và hành vi
+10,kinh_te,Kinh doanh và quản lý
+11,ky_thuat,Kỹ thuật
+12,moi_truong,Môi trường và bảo vệ môi trường
+13,nghe_thuat,Nghệ thuật
+14,nhan_van,Nhân văn
+15,nong_lam,"Nông, lâm nghiệp và thủy sản"
+16,phap_luat,Pháp luật
+17,san_xuat_che_bien,Sản xuất và chế biến
+18,thu_y,Thú y
+19,toan_va_thong_ke,Toán và thống kê
+20,truyen_thong,Báo chí và thông tin
+21,van_tai,Dịch vụ vận tải
+22,xa_hoi,Dịch vụ xã hội
+23,xay_dung,Kiến trúc và xây dựng
+24,y_te,Sức khỏe

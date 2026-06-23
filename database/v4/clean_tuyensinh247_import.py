@@ -200,23 +200,80 @@ def load_course_catalog(
     if not catalog_path.exists():
         return {}
 
-    catalog: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    aggregates: dict[tuple[str, str], dict[str, Any]] = {}
     for row in read_csv(catalog_path):
         uni_code     = clean_text(row.get("university_short_name"))
         program_code = clean_text(row.get("program_source_code"))
         if not uni_code or not program_code:
             continue
 
+        key = (uni_code, program_code)
+        aggregate = aggregates.setdefault(key, {
+            "names": Counter(),
+            "quotas": set(),
+            "admission_methods": set(),
+            "subject_groups": set(),
+            "options": {},
+            "is_verified": False,
+        })
+        major_name = clean_text(row.get("major_name"))
+        if major_name:
+            aggregate["names"][major_name] += 1
         quota_raw = clean_text(row.get("quota", ""))
-        catalog[uni_code][program_code] = {
-            "program_source_code": program_code, # LƯU MÃ GỐC ĐỂ DÙNG TRONG LOOKUP
-            "major_name":          clean_text(row.get("major_name")),
-            "quota":               int(quota_raw) if quota_raw.isdigit() else None,
-            "admission_methods":   [m for m in row.get("admission_methods", "").split(",") if m],
-            "subject_groups":      [g for g in row.get("subject_groups", "").split(",") if g],
-            "is_verified":         row.get("is_verified", "false").lower() == "true",
+        quota = int(quota_raw) if quota_raw.isdigit() else None
+        if quota is not None:
+            aggregate["quotas"].add(quota)
+        methods = {
+            clean_text(method).upper()
+            for method in row.get("admission_methods", "").split(",")
+            if clean_text(method)
         }
-    return dict(catalog)
+        subject_groups = {
+            clean_text(group).upper()
+            for group in row.get("subject_groups", "").split(",")
+            if clean_text(group)
+        }
+        aggregate["admission_methods"].update(methods)
+        aggregate["subject_groups"].update(subject_groups)
+        aggregate["is_verified"] = (
+            aggregate["is_verified"]
+            or row.get("is_verified", "false").lower() == "true"
+        )
+        for method in methods:
+            option = aggregate["options"].setdefault(method, {
+                "quotas": set(),
+                "subject_groups": set(),
+            })
+            if quota is not None:
+                option["quotas"].add(quota)
+            option["subject_groups"].update(subject_groups)
+
+    catalog: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
+    for (uni_code, program_code), aggregate in sorted(aggregates.items()):
+        names = aggregate["names"]
+        major_name = (
+            sorted(names.items(), key=lambda item: (-item[1], len(item[0]), item[0]))[0][0]
+            if names else ""
+        )
+        quotas = aggregate["quotas"]
+        options = []
+        for method, raw_option in sorted(aggregate["options"].items()):
+            option_quotas = raw_option["quotas"]
+            options.append({
+                "admission_method_code": method,
+                "quota": next(iter(option_quotas)) if len(option_quotas) == 1 else None,
+                "subject_groups": sorted(raw_option["subject_groups"]),
+            })
+        catalog[uni_code][program_code] = {
+            "program_source_code": program_code,
+            "major_name": major_name,
+            "quota": next(iter(quotas)) if len(quotas) == 1 else None,
+            "admission_methods": sorted(aggregate["admission_methods"]),
+            "subject_groups": sorted(aggregate["subject_groups"]),
+            "options": options,
+            "is_verified": aggregate["is_verified"],
+        }
+    return {uni_code: dict(programs) for uni_code, programs in catalog.items()}
 
 # ── Hệ thống Khớp dữ liệu Nâng cao ───────────────────────────────────────────
 
@@ -497,6 +554,9 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
         }
         for code, name in sorted(major_names.items())
     ]
+    for major in major_catalog_rows:
+        if major["code"] == "5248020":
+            major["field_code"] = "cntt"
 
     # ── University programs ───────────────────────────────────────────────────
     program_map:          dict[tuple[str, str], str] = {}
@@ -557,15 +617,13 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
             if base_code == program_code:
                 cat_quota = catalog_entry.get("quota")
                 
-                # --- BẢN VÁ: Vượt rào cho Quota = 0 hoặc Trống ---
                 if cat_quota == 0 or cat_quota is None or cat_quota == "":
-                    quota = 0  # Gán mặc định là 0 để DB không bị Null
-                    status, is_active = "canonical", "true"  # Ép thành dữ liệu CHUẨN
-                    missing_reason = "Thiếu Quota (Được ân xá)"
+                    quota = ""
+                    status, is_active = "canonical", "true"
+                    missing_reason = "Thiếu quota trong course_catalog"
                 else:
                     quota = cat_quota
                     status, is_active = "canonical", "true"
-                # -------------------------------------------------
             else:
                 missing_reason, status, is_active = "Dữ liệu quá khứ (Mã nhánh/Biến thể)", "historical", "false"
         else:
@@ -589,6 +647,7 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
     score_import_rows: list[dict[str, Any]] = []
     for row in clean_scores:
         program_id = program_map[(row["university_short_name"], row["program_source_code"])]
+        source_id = source_int(row["source_id"])
         score_import_rows.append({
             "id":                   stable_uuid(SOURCE, row["source_id"]),
             "university_program_id": program_id,
@@ -597,10 +656,45 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
             "score":                row["score"],
             "note":                 row["note"],
             "source":               SOURCE,
-            "source_id":            source_int(row["source_id"]),
+            "source_id":            source_id,
             "source_method_id":     row.get("source_method_id", ""),
             "source_method_name":   row["admission_method_name"],
+            "variant_key":          f"source:{source_id}",
+            "source_program_code":  row["program_source_code"],
+            "variant_label":        row["note"],
+            "gender":               "",
+            "region_code":          "",
+            "subject_group_code":   "",
+            "normalized_score":     "",
+            "normalized_scale":     "",
         })
+
+    # ── Catalog options (program + admission method grain) ────────────────
+    catalog_year = max((row["year"] for row in clean_scores), default=0) + 1
+    catalog_option_rows: list[dict[str, Any]] = []
+    catalog_option_subject_rows: list[dict[str, Any]] = []
+    for uni_code_cat, uni_programs_cat in sorted(catalog.items()):
+        for program_code_cat, cat_entry in sorted(uni_programs_cat.items()):
+            program_id = program_map[(uni_code_cat, program_code_cat)]
+            for option in cat_entry.get("options", []):
+                method_code = option["admission_method_code"]
+                option_id = stable_uuid(
+                    SOURCE, "catalog_option", uni_code_cat, program_code_cat,
+                    method_code, catalog_year,
+                )
+                catalog_option_rows.append({
+                    "id": option_id,
+                    "university_program_id": program_id,
+                    "admission_method_code": method_code,
+                    "effective_year": catalog_year,
+                    "quota": option.get("quota") if option.get("quota") is not None else "",
+                    "source": SOURCE,
+                })
+                for subject_code in option.get("subject_groups", []):
+                    catalog_option_subject_rows.append({
+                        "admission_option_id": option_id,
+                        "subject_group_code": subject_code,
+                    })
 
     # ── Subject groups ────────────────────────────────────────────────────────
     valid_programs = set(program_map)
@@ -749,7 +843,8 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
     # Ghi file chứa các ngành ĐẦY ĐỦ thông tin
     write_csv(output_dir / "university_programs_complete.csv",
               ["id", "university_short_name", "major_code", "program_source_code",
-               "program_name", "quota", "source", "source_school_id", "is_active"],
+               "program_name", "quota", "missing_reason", "base_program_code",
+               "source", "source_school_id", "is_active"],
               program_rows_complete)
 
     # Ghi file chứa các ngành BỊ THIẾU thông tin (Có thêm lý do và truy vết mã gốc)
@@ -762,9 +857,19 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
               ["university_program_id", "subject_group_code"],
               program_subject_rows)
 
+    write_csv(output_dir / "university_program_admission_options.csv",
+              ["id", "university_program_id", "admission_method_code", "effective_year", "quota", "source"],
+              catalog_option_rows)
+
+    write_csv(output_dir / "university_program_admission_option_subject_groups.csv",
+              ["admission_option_id", "subject_group_code"],
+              catalog_option_subject_rows)
+
     write_csv(output_dir / "admission_scores.csv",
               ["id", "university_program_id", "admission_method_code", "year",
-               "score", "note", "source", "source_id", "source_method_id", "source_method_name"],
+               "score", "note", "source", "source_id", "source_method_id", "source_method_name",
+               "variant_key", "source_program_code", "variant_label", "gender", "region_code",
+               "subject_group_code", "normalized_score", "normalized_scale"],
               score_import_rows)
 
     write_csv(output_dir / "review_unresolved_major_fields.csv",
@@ -780,6 +885,8 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
     print(f"Programs (Complete): {len(program_rows_complete)} → university_programs_complete.csv")
     print(f"Programs (Missing) : {len(program_rows_missing)} → university_programs_missing.csv")
     print(f"Program-subject    : {len(program_subject_rows)}")
+    print(f"Catalog options    : {len(catalog_option_rows)}")
+    print(f"Option-subject     : {len(catalog_option_subject_rows)}")
     print(f"Major-subject      : {len(major_subject_rows)}")
     print(f"Subject groups     : {len(subject_group_rows)}")
     print(f"Unresolved fields  : {len(unresolved_majors)}  → review_unresolved_major_fields.csv")

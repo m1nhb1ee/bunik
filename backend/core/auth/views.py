@@ -2,6 +2,7 @@ import logging
 from datetime import date
 
 from rest_framework import status
+from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -12,13 +13,21 @@ from core.auth.serializers import (
     AwardSerializer,
     CertificateCreateSerializer,
     CertificateSerializer,
+    FinalizeProfileSerializer,
     LoginSerializer,
     ProfileUpdateSerializer,
     RegisterSerializer,
     UserProfileSerializer,
 )
 from core.auth.supabase_auth import SupabaseAuthentication
-from core.supabase_client import get_client, get_user_client
+from core.errors.classification import (
+    is_duplicate_error,
+    is_invalid_credentials_error,
+    is_missing_column_error,
+    is_rate_limited_error,
+    is_rls_error,
+)
+from core.supabase_client import get_client, get_service_client, get_user_client, revoke_session
 
 
 logger = logging.getLogger(__name__)
@@ -78,29 +87,40 @@ def _enrich_achievements_with_awards(client, achievements):
     return result
 
 
-def _is_duplicate_error(exc):
-    msg = str(exc).lower()
-    return 'duplicate' in msg or 'already' in msg or 'unique' in msg
+def _profile_conflict_exists(client, *, user_name: str, gmail: str, exclude_user_id=None) -> bool:
+    response = (
+        client
+        .table('users')
+        .select('id')
+        .or_(f'user_name.eq.{user_name},gmail.eq.{gmail}')
+        .limit(2 if exclude_user_id is not None else 1)
+        .execute()
+    )
+    rows = response.data or []
+    if exclude_user_id is None:
+        return bool(rows)
+    return any(str(row.get('id')) != str(exclude_user_id) for row in rows)
 
 
-def _is_invalid_credentials_error(exc):
-    msg = str(exc).lower()
-    return 'invalid login' in msg or 'invalid credentials' in msg or 'email not confirmed' in msg
+def _profile_payload(user_id, data, gmail=None):
+    return {
+        'id': user_id,
+        'user_name': data['user_name'],
+        'full_name': data['full_name'],
+        'grade': data['grade'],
+        'dob': data['dob'].isoformat(),
+        'gender': data['gender'],
+        'gmail': gmail or data['gmail'],
+    }
 
 
-def _is_rate_limited_error(exc):
-    msg = str(exc).lower()
-    return 'too many requests' in msg or 'after 5 seconds' in msg or '429' in msg
-
-
-def _is_rls_error(exc):
-    msg = str(exc).lower()
-    return 'row-level security policy' in msg or 'violates row-level security' in msg
-
-
-def _is_missing_column_error(exc, column_name: str) -> bool:
-    msg = str(exc).lower()
-    return column_name.lower() in msg and ('column' in msg or 'schema cache' in msg)
+def _delete_auth_user_if_possible(user_id):
+    if not user_id:
+        return
+    try:
+        get_service_client().auth.admin.delete_user(user_id)
+    except Exception as exc:
+        logger.warning('Could not clean up Supabase auth user %s: %s', user_id, exc)
 
 
 class RegisterView(APIView):
@@ -111,28 +131,28 @@ class RegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
 
+        user_id = None
         try:
             auth_client = get_client()
+            if _profile_conflict_exists(auth_client, user_name=data['user_name'], gmail=data['gmail']):
+                return Response({'message': 'gmail hoac user_name da ton tai'}, status=status.HTTP_409_CONFLICT)
+
             auth_resp = auth_client.auth.sign_up({'email': data['gmail'], 'password': data['password']})
             user_id = auth_resp.user.id if auth_resp and auth_resp.user else None
             if not user_id:
                 logger.error('Supabase sign_up did not return user id.')
                 return Response({'message': 'Dang ky that bai'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-            profile_payload = {
-                'id': user_id,
-                'user_name': data['user_name'],
-                'full_name': data['full_name'],
-                'grade': data['grade'],
-                'dob': data['dob'].isoformat(),
-                'gender': data['gender'],
-                'gmail': data['gmail'],
-            }
+            profile_payload = _profile_payload(user_id, data)
             access_token = auth_resp.session.access_token if auth_resp and auth_resp.session else None
             if not access_token:
                 return Response(
-                    {'message': 'Can xac minh email truoc khi tao ho so nguoi dung.'},
-                    status=status.HTTP_400_BAD_REQUEST,
+                    {
+                        'message': 'Can xac minh email truoc khi tao ho so nguoi dung.',
+                        'user_id': user_id,
+                        'requires_email_confirmation': True,
+                    },
+                    status=status.HTTP_202_ACCEPTED,
                 )
             get_user_client(access_token).table('users').insert(profile_payload).execute()
             user_data = UserProfileSerializer(profile_payload).data
@@ -142,14 +162,52 @@ class RegisterView(APIView):
             )
         except Exception as exc:
             logger.exception('Register failed.')
-            if _is_duplicate_error(exc):
+            _delete_auth_user_if_possible(user_id)
+            if is_duplicate_error(exc):
                 return Response({'message': 'gmail hoac user_name da ton tai'}, status=status.HTTP_409_CONFLICT)
-            if _is_rate_limited_error(exc):
+            if is_rate_limited_error(exc):
                 return Response(
                     {'message': 'Ban thao tac qua nhanh. Vui long thu lai sau vai giay.'},
                     status=status.HTTP_429_TOO_MANY_REQUESTS,
                 )
-            if _is_rls_error(exc):
+            if is_rls_error(exc):
+                return Response(
+                    {'message': 'Khong the tao ho so nguoi dung do cau hinh quyen du lieu.'},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                )
+            return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class FinalizeProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [SupabaseAuthentication]
+
+    def post(self, request):
+        serializer = FinalizeProfileSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        data = serializer.validated_data
+        user_id = getattr(request.user, 'id', None)
+        gmail = getattr(request.user, 'email', None)
+        access_token = request.auth
+        if not user_id or not gmail or not access_token:
+            return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        try:
+            client = get_user_client(access_token)
+            if _profile_conflict_exists(client, user_name=data['user_name'], gmail=gmail, exclude_user_id=user_id):
+                return Response({'message': 'gmail hoac user_name da ton tai'}, status=status.HTTP_409_CONFLICT)
+            payload = _profile_payload(user_id, data, gmail=gmail)
+            response = client.table('users').upsert(payload, on_conflict='id').execute()
+            user_data = (response.data or [payload])[0]
+            return Response(
+                {'message': 'Tao ho so nguoi dung thanh cong', 'user': UserProfileSerializer(user_data).data},
+                status=status.HTTP_201_CREATED,
+            )
+        except Exception as exc:
+            logger.exception('Finalize profile failed.')
+            if is_duplicate_error(exc):
+                return Response({'message': 'gmail hoac user_name da ton tai'}, status=status.HTTP_409_CONFLICT)
+            if is_rls_error(exc):
                 return Response(
                     {'message': 'Khong the tao ho so nguoi dung do cau hinh quyen du lieu.'},
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -191,7 +249,7 @@ class LoginView(APIView):
             )
         except Exception as exc:
             logger.exception('Login failed.')
-            if _is_invalid_credentials_error(exc):
+            if is_invalid_credentials_error(exc):
                 return Response({'message': 'Sai tai khoan hoac mat khau'}, status=status.HTTP_401_UNAUTHORIZED)
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -260,7 +318,7 @@ class ProfileView(APIView):
                 except Exception as exc:
                     # Let profile saves continue on environments where the DB column
                     # has not been added yet, instead of hard-failing the whole form.
-                    if 'special_subject' in user_fields and _is_missing_column_error(exc, 'special_subject'):
+                    if 'special_subject' in user_fields and is_missing_column_error(exc, 'special_subject'):
                         fallback_fields = {key: value for key, value in user_fields.items() if key != 'special_subject'}
                         if not fallback_fields:
                             raise
@@ -296,9 +354,14 @@ class AwardCatalogView(APIView):
 
     def get(self, request):
         try:
-            auth_header = request.headers.get('Authorization', '')
-            token = auth_header[7:] if auth_header.lower().startswith('bearer ') else None
-            client = get_user_client(token) if token else get_client()
+            client = get_client()
+            try:
+                auth_result = SupabaseAuthentication().authenticate(request)
+            except AuthenticationFailed:
+                auth_result = None
+            if auth_result:
+                _user, token = auth_result
+                client = get_user_client(token)
             resp = client.table('awards').select('*').order('id').execute()
             rows = []
             for row in (resp.data or []):
@@ -310,7 +373,7 @@ class AwardCatalogView(APIView):
             return Response({'results': AwardSerializer(rows, many=True).data}, status=status.HTTP_200_OK)
         except Exception as exc:
             logger.exception('Award catalog lookup failed.')
-            if _is_rls_error(exc):
+            if is_rls_error(exc):
                 return Response({'message': 'Khong co quyen truy cap danh muc giai thuong'}, status=status.HTTP_403_FORBIDDEN)
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -475,10 +538,10 @@ class LogoutView(APIView):
         if not access_token:
             return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
         try:
-            get_user_client(access_token).auth.sign_out()
+            revoke_session(access_token)
             return Response({'message': 'Dang xuat thanh cong'}, status=status.HTTP_200_OK)
         except Exception as exc:
             logger.exception('Logout failed.')
-            if _is_invalid_credentials_error(exc):
+            if is_invalid_credentials_error(exc):
                 return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

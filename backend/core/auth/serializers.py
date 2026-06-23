@@ -43,6 +43,29 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField()
 
 
+class FinalizeProfileSerializer(serializers.Serializer):
+    user_name = serializers.CharField(min_length=3, max_length=30)
+    full_name = serializers.CharField()
+    grade = serializers.IntegerField(min_value=10, max_value=12)
+    dob = serializers.DateField()
+    gender = serializers.ChoiceField(choices=['MALE', 'FEMALE'])
+
+    def validate_user_name(self, value):
+        if not re.fullmatch(r'^\w+$', value):
+            raise serializers.ValidationError('user_name must contain only alphanumeric characters and underscore.')
+        return value
+
+    def validate_full_name(self, value):
+        if not value.strip():
+            raise serializers.ValidationError('full_name is required.')
+        return value.strip()
+
+    def validate_dob(self, value):
+        if value >= date.today():
+            raise serializers.ValidationError('dob must be in the past.')
+        return value
+
+
 class UserProfileSerializer(serializers.Serializer):
     id = serializers.CharField()
     user_name = serializers.CharField()
@@ -68,7 +91,7 @@ class UserProfileSerializer(serializers.Serializer):
 class ProfileUpdateSerializer(serializers.Serializer):
     user_name = serializers.CharField(required=False, min_length=3, max_length=30)
     full_name = serializers.CharField(required=False)
-    grade = serializers.IntegerField(required=False, min_value=1, max_value=12)
+    grade = serializers.IntegerField(required=False, min_value=10, max_value=12)
     dob = serializers.DateField(required=False)
     gender = serializers.ChoiceField(required=False, choices=['MALE', 'FEMALE'])
     math = serializers.FloatField(required=False, min_value=0, max_value=10)
@@ -82,7 +105,7 @@ class ProfileUpdateSerializer(serializers.Serializer):
     is_special = serializers.BooleanField(required=False)
     special_subject = serializers.ChoiceField(required=False, choices=SPECIAL_SUBJECT_CHOICES)
     special_score = serializers.FloatField(required=False, min_value=0, max_value=10)
-    base_score = serializers.FloatField(required=False, min_value=0)
+    base_score = serializers.FloatField(required=False, min_value=0, max_value=80)
 
     def validate_user_name(self, value):
         if not re.fullmatch(r'^\w+$', value):

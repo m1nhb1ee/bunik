@@ -1,49 +1,20 @@
-﻿import { createBrowserRouter } from "react-router";
+import { Link, createBrowserRouter } from "react-router";
 import { Layout } from "./components/Layout";
-import HomePage from "./pages/HomePage";
-import TruongPage from "./pages/TruongPage";
-import TruongDetailPage from "./pages/TruongDetailPage";
-import NganhPage from "./pages/NganhPage";
-import NganhDetailPage from "./pages/NganhDetailPage";
-import XepHangPage from "./pages/XepHangPage";
-import SoSanhPage from "./pages/SoSanhPage";
-import HoSoPage from "./pages/HoSoPage";
-import BXHPage from "./pages/BXHPage";
-import TimNganhPage from "./pages/TimNganhPage";
-import AuthPage from "./pages/AuthPage";
+import { B, CenterNote, SketchHeading, cardStyle } from "./components/bunik";
+
+function RouteFallback() {
+  return <CenterNote title="Đang mở trang…" />;
+}
 
 function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6">
-      <div className="text-7xl mb-6">404</div>
-      <h1
-        style={{
-          fontFamily: "'Baloo 2', cursive",
-          fontWeight: 800,
-          color: "#1A1A2E",
-          fontSize: "2rem",
-          marginBottom: 8,
-        }}
-      >
-        404 - Khong tim thay trang
-      </h1>
-      <p style={{ color: "#4A4A6A", marginBottom: 24 }}>
-        Trang ban tim kiem khong ton tai hoac da bi di chuyen
-      </p>
-      <a
-        href="/"
-        style={{
-          background: "#ff947a",
-          color: "#fff",
-          padding: "12px 28px",
-          borderRadius: 16,
-          fontWeight: 700,
-          textDecoration: "none",
-          boxShadow: "3px 3px 0px rgba(255,148,122,0.32)",
-        }}
-      >
-        Ve trang chu
-      </a>
+    <div className="bunik-page bunik-container" style={{ minHeight: "65vh", display: "grid", placeItems: "center", paddingBlock: 42 }}>
+      <section style={{ ...cardStyle({ shadow: `7px 7px 0 ${B.terracotta}` }), width: "min(100%,540px)", boxSizing: "border-box", padding: "clamp(28px,6vw,48px)", textAlign: "center" }}>
+        <p className="bunik-note-text" style={{ fontSize: 24, margin: "0 0 4px" }}>trang giấy này đang trống —</p>
+        <SketchHeading color={B.honey} width="90%" size="clamp(2.2rem,8vw,4.5rem)">404</SketchHeading>
+        <p style={{ color: B.body, lineHeight: 1.7, margin: "24px 0" }}>Trang bạn tìm kiếm không tồn tại hoặc đã được chuyển sang một địa chỉ khác.</p>
+        <Link to="/" className="bunik-button">Về trang chủ</Link>
+      </section>
     </div>
   );
 }
@@ -52,19 +23,20 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+    HydrateFallback: RouteFallback,
     children: [
-      { index: true, Component: HomePage },
-      { path: "truong", Component: TruongPage },
-      { path: "truong/:id", Component: TruongDetailPage },
-      { path: "nganh", Component: NganhPage },
-      { path: "nganh/:id", Component: NganhDetailPage },
-      { path: "xep-hang", Component: XepHangPage },
-      { path: "so-sanh", Component: SoSanhPage },
-      { path: "ho-so", Component: HoSoPage },
-      { path: "bxh", Component: BXHPage },
-      { path: "tim-nganh", Component: TimNganhPage },
-      { path: "dang-nhap", Component: AuthPage },
-      { path: "dang-ky", Component: AuthPage },
+      { index: true, lazy: () => import("./pages/HomePage").then((module) => ({ Component: module.default })) },
+      { path: "truong", lazy: () => import("./pages/TruongPage").then((module) => ({ Component: module.default })) },
+      { path: "truong/:id", lazy: () => import("./pages/TruongDetailPage").then((module) => ({ Component: module.default })) },
+      { path: "nganh", lazy: () => import("./pages/NganhPage").then((module) => ({ Component: module.default })) },
+      { path: "nganh/:id", lazy: () => import("./pages/NganhDetailPage").then((module) => ({ Component: module.default })) },
+      { path: "xep-hang", lazy: () => import("./pages/XepHangPage").then((module) => ({ Component: module.default })) },
+      { path: "so-sanh", lazy: () => import("./pages/SoSanhPage").then((module) => ({ Component: module.default })) },
+      { path: "ho-so", lazy: () => import("./pages/HoSoPage").then((module) => ({ Component: module.default })) },
+      { path: "bxh", lazy: () => import("./pages/BXHPage").then((module) => ({ Component: module.default })) },
+      { path: "tim-nganh", lazy: () => import("./pages/TimNganhPage").then((module) => ({ Component: module.default })) },
+      { path: "dang-nhap", lazy: () => import("./pages/AuthPage").then((module) => ({ Component: module.default })) },
+      { path: "dang-ky", lazy: () => import("./pages/AuthPage").then((module) => ({ Component: module.default })) },
       { path: "*", Component: NotFound },
     ],
   },

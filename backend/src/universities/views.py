@@ -1,3 +1,5 @@
+import re
+
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import status
 from rest_framework.response import Response
@@ -5,6 +7,12 @@ from rest_framework.viewsets import ViewSet
 
 from core.api.cache import get_or_set_api_payload
 from core.supabase_client import apply_ordering, get_client, paginate, parse_bool_param
+
+
+def _sanitize_postgrest_search(value):
+    text = re.sub(r'[,()*]', ' ', (value or '').strip())
+    text = text.replace('%', '').replace('_', '')
+    return re.sub(r'\s+', ' ', text).strip()
 
 
 class ProvinceViewSet(ViewSet):
@@ -62,7 +70,9 @@ class UniversityViewSet(ViewSet):
             if province := request.query_params.get('province'):
                 query = query.eq('province_id', province)
             if search := request.query_params.get('search'):
-                query = query.or_(f'name.ilike.%{search}%,code.ilike.%{search}%')
+                safe_search = _sanitize_postgrest_search(search)
+                if safe_search:
+                    query = query.or_(f'name.ilike.%{safe_search}%,code.ilike.%{safe_search}%')
 
             query = apply_ordering(
                 query,

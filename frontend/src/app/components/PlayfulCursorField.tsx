@@ -7,7 +7,12 @@ type Particle = {
   vy: number;
   size: number;
   phase: number;
+  color: string;
+  cross: boolean;
 };
+
+// mực nâu · đất nung · ghi chú lề
+const BUNIK_COLORS = ["43,39,34", "194,96,63", "148,128,106"];
 
 function createParticle(width: number, height: number): Particle {
   return {
@@ -17,6 +22,8 @@ function createParticle(width: number, height: number): Particle {
     vy: (Math.random() - 0.5) * 0.5,
     size: 1.1 + Math.random() * 2,
     phase: Math.random() * Math.PI * 2,
+    color: BUNIK_COLORS[Math.floor(Math.random() * BUNIK_COLORS.length)],
+    cross: Math.random() < 0.24,
   };
 }
 
@@ -140,16 +147,28 @@ export function PlayfulCursorField() {
           p.vy = replacement.vy;
           p.size = replacement.size;
           p.phase = replacement.phase;
+          p.color = replacement.color;
+          p.cross = replacement.cross;
         }
 
         const screenY = p.y - scrollY;
         if (screenY < -10 || screenY > viewportHeight + 10) continue;
 
-        const alpha = 0.35 + (Math.sin(p.phase) + 1) * 0.15;
-        ctx.beginPath();
-        ctx.arc(p.x, screenY, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59,130,246,${alpha.toFixed(3)})`;
-        ctx.fill();
+        const alpha = (0.16 + (Math.sin(p.phase) + 1) * 0.11).toFixed(3);
+        ctx.strokeStyle = ctx.fillStyle = `rgba(${p.color},${alpha})`;
+        if (p.cross) {
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.moveTo(p.x - p.size, screenY);
+          ctx.lineTo(p.x + p.size, screenY);
+          ctx.moveTo(p.x, screenY - p.size);
+          ctx.lineTo(p.x, screenY + p.size);
+          ctx.stroke();
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, screenY, p.size * 0.7, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
 
       rafId = window.requestAnimationFrame(tick);

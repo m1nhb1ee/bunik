@@ -2,34 +2,46 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+
+  /* ===== bunik sketchbook palette ===== */
+  --bunik-paper: #F4EEE1;       /* giấy ngà — page background */
+  --bunik-paper-light: #FBF7EE; /* giấy nhạt — cards */
+  --bunik-ink: #2B2722;         /* mực nâu — text & lines */
+  --bunik-terracotta: #C2603F;  /* đất nung — primary accent */
+  --bunik-honey: #CE9B4E;       /* mật ong */
+  --bunik-teal: #2E6A62;        /* rêu xanh */
+  --bunik-olive: #7E8F5E;       /* lá già */
+  --bunik-plum: #9B6A78;        /* mận khô */
+  --bunik-muted: #94806A;       /* ghi chú lề */
+
+  --background: #F4EEE1;
+  --foreground: #2B2722;
+  --card: #FBF7EE;
+  --card-foreground: #2B2722;
+  --popover: #FBF7EE;
+  --popover-foreground: #2B2722;
+  --primary: #C2603F;
+  --primary-foreground: #FBF7EE;
+  --secondary: #CE9B4E;
+  --secondary-foreground: #2B2722;
+  --muted: #EDE4D2;
+  --muted-foreground: #94806A;
+  --accent: #CE9B4E;
+  --accent-foreground: #2B2722;
+  --destructive: #A84B30;
+  --destructive-foreground: #FBF7EE;
+  --border: rgba(43, 39, 34, 0.18);
   --input: transparent;
-  --input-background: #f3f3f5;
+  --input-background: #FBF7EE;
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: #C2603F;
+  --chart-1: #C2603F;
+  --chart-2: #2E6A62;
+  --chart-3: #CE9B4E;
+  --chart-4: #9B6A78;
+  --chart-5: #7E8F5E;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);

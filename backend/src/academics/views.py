@@ -1,3 +1,7 @@
+import logging
+import re
+import unicodedata
+from statistics import median
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import status
 from rest_framework.decorators import action
@@ -6,8 +10,10 @@ from rest_framework.viewsets import ViewSet
 from datetime import date
 
 from core.api.cache import get_or_set_api_payload
-from core.supabase_client import get_client, paginate, parse_bool_param, parse_float_param, parse_int_param
+from core.supabase_client import MAX_PAGE_SIZE, get_client, paginate, parse_bool_param, parse_float_param, parse_int_param
 
+
+logger = logging.getLogger(__name__)
 
 EXAM_BLOCKS = [
     {'code': 'A00', 'name': 'Toan - Ly - Hoa', 'subjects': ['Toan', 'Ly', 'Hoa']},
@@ -44,10 +50,10 @@ def _static_paginated_payload(rows):
     }
 
 
-def _fetch_all_rows(query_factory, page_size=1000):
+def _fetch_all_rows(query_factory, page_size=1000, max_pages=50):
     rows = []
     start = 0
-    while True:
+    for _page in range(max_pages):
         end = start + page_size - 1
         response = query_factory().range(start, end).execute()
         batch = response.data or []
@@ -55,20 +61,45 @@ def _fetch_all_rows(query_factory, page_size=1000):
         if len(batch) < page_size:
             break
         start += page_size
+    else:
+        logger.error('Supabase fetch exceeded max_pages=%s page_size=%s', max_pages, page_size)
+        raise RuntimeError('Supabase fetch exceeded maximum page count')
     return rows
+
+
+_DSTROKE_TRANSLATE = str.maketrans({'\u0111': 'd', '\u0110': 'd', '\u00d0': 'd'})
+
+
+def _normalize_vietnamese_text(value):
+    translated = (value or '').translate(_DSTROKE_TRANSLATE)
+    return unicodedata.normalize('NFD', translated).encode('ascii', 'ignore').decode('ascii').lower()
 
 
 def _is_scale_40(score_value, note):
     if score_value is None:
         return False
+    if 'thang diem 40' in _normalize_vietnamese_text(note):
+        return True
     try:
-        numeric_score = float(score_value)
+        return float(score_value) > 30.0
     except (TypeError, ValueError):
         return False
-    if numeric_score >= 30:
-        return True
-    note_text = (note or '').lower()
-    return 'thang diem 40' in note_text or 'thang điểm 40' in note_text
+
+
+def _normalized_thpt_score(score_row):
+    normalized = score_row.get('normalized_score')
+    if normalized is not None:
+        return float(normalized)
+    numeric_score = float(score_row.get('score'))
+    if _is_scale_40(numeric_score, score_row.get('note')):
+        return round((numeric_score * 30.0) / 40.0, 2)
+    return numeric_score
+
+
+def _sanitize_postgrest_search(value):
+    text = re.sub(r'[,()*]', ' ', (value or '').strip())
+    text = text.replace('%', '').replace('_', '')
+    return re.sub(r'\s+', ' ', text).strip()
 
 
 def _last_year():
@@ -83,6 +114,7 @@ def _thpt_last_year_program_ids(client):
             .select('university_program_id')
             .eq('admission_method_code', 'THPT')
             .eq('year', last_year)
+            .gt('score', 0)
         )
     )
     return {row.get('university_program_id') for row in rows if row.get('university_program_id')}
@@ -124,26 +156,12 @@ def _major_overview_rows():
     scores = _fetch_all_rows(
         lambda: (
             client.table('admission_scores')
-            .select('score, note, year, university_program_id')
+            .select('score, normalized_score, note, year, university_program_id')
             .eq('admission_method_code', 'THPT')
             .eq('year', last_year)
+            .gt('score', 0)
         )
     )
-
-    program_by_id = {program.get('id'): program for program in programs if program.get('id')}
-
-    scores_by_program = {}
-    for score in scores:
-        score_value = score.get('score')
-        program = program_by_id.get(score.get('university_program_id'))
-        if score_value is None or not program:
-            continue
-        program_id = program.get('id')
-        year = str(score.get('year'))
-        if not program_id or year != str(last_year):
-            continue
-        year_scores = scores_by_program.setdefault(program_id, {})
-        year_scores[year] = max(year_scores.get(year, score_value), score_value)
 
     normalized_scores_by_program = {}
     for score_row in scores:
@@ -151,17 +169,7 @@ def _major_overview_rows():
         score_value = score_row.get('score')
         if not program_id or score_value is None:
             continue
-        numeric_score = float(score_value)
-        if _is_scale_40(numeric_score, score_row.get('note')):
-            score_40 = numeric_score
-            score_30 = round((numeric_score * 30.0) / 40.0, 2)
-        else:
-            score_30 = numeric_score
-            score_40 = round((numeric_score * 40.0) / 30.0, 2)
-        bucket = normalized_scores_by_program.setdefault(program_id, {'score_30': None, 'score_40': None, 'raw': None})
-        bucket['score_30'] = max(bucket['score_30'], score_30) if bucket['score_30'] is not None else score_30
-        bucket['score_40'] = max(bucket['score_40'], score_40) if bucket['score_40'] is not None else score_40
-        bucket['raw'] = max(bucket['raw'], numeric_score) if bucket['raw'] is not None else numeric_score
+        normalized_scores_by_program.setdefault(program_id, []).append(_normalized_thpt_score(score_row))
 
     rows = []
     for program in programs:
@@ -174,10 +182,9 @@ def _major_overview_rows():
             for item in major.get('major_subject_groups') or []
             if item.get('subject_group_code')
         ]
-        normalized = normalized_scores_by_program.get(program.get('id')) or {}
-        best_score_30 = normalized.get('score_30')
-        best_score_40 = normalized.get('score_40')
-        best_raw_score = normalized.get('raw')
+        program_scores = normalized_scores_by_program.get(program.get('id')) or []
+        score_30 = round(float(median(program_scores)), 2) if program_scores else None
+        score_40 = round((score_30 * 40.0) / 30.0, 2) if score_30 is not None else None
 
         rows.append({
             'id': program.get('id'),
@@ -188,9 +195,9 @@ def _major_overview_rows():
             'blocks': blocks,
             'university_short_name': program.get('university_short_name') or '',
             'university_name': (program.get('universities') or {}).get('name') or '',
-            'scores': {str(last_year): best_raw_score} if best_raw_score is not None else {},
-            'score_30': best_score_30,
-            'score_40': best_score_40,
+            'scores': {str(last_year): score_30} if score_30 is not None else {},
+            'score_30': score_30,
+            'score_40': score_40,
         })
     rows.sort(key=lambda item: ((item.get('code') or ''), (item.get('university_short_name') or '')))
     return rows
@@ -215,7 +222,9 @@ class FieldViewSet(ViewSet):
         def load():
             query = get_client().table('fields').select('*', count='exact').order('code')
             if search := request.query_params.get('search'):
-                query = query.or_(f'code.ilike.%{search}%,description.ilike.%{search}%')
+                safe_search = _sanitize_postgrest_search(search)
+                if safe_search:
+                    query = query.or_(f'code.ilike.%{safe_search}%,description.ilike.%{safe_search}%')
             return paginate(request, query)
 
         return Response(get_or_set_api_payload(request, 'fields:list', load, timeout=300))
@@ -241,12 +250,14 @@ class SubjectGroupViewSet(ViewSet):
         def load():
             query = get_client().table('subject_groups').select('*', count='exact').order('code')
             if search := request.query_params.get('search'):
-                query = query.or_(
-                    f'code.ilike.%{search}%,'
-                    f'subject_1.ilike.%{search}%,'
-                    f'subject_2.ilike.%{search}%,'
-                    f'subject_3.ilike.%{search}%'
-                )
+                safe_search = _sanitize_postgrest_search(search)
+                if safe_search:
+                    query = query.or_(
+                        f'code.ilike.%{safe_search}%,'
+                        f'subject_1.ilike.%{safe_search}%,'
+                        f'subject_2.ilike.%{safe_search}%,'
+                        f'subject_3.ilike.%{safe_search}%'
+                    )
             return paginate(request, query)
 
         return Response(get_or_set_api_payload(request, 'subject-groups:list', load, timeout=300))
@@ -283,7 +294,7 @@ class MajorCatalogViewSet(ViewSet):
             search = (request.query_params.get('search') or '').strip()
             field = (request.query_params.get('field') or '').strip()
             page = parse_int_param(request.query_params.get('page'), default=1, minimum=1)
-            page_size = parse_int_param(request.query_params.get('page_size'), default=20, minimum=1, maximum=200)
+            page_size = parse_int_param(request.query_params.get('page_size'), default=20, minimum=1, maximum=MAX_PAGE_SIZE)
             thpt_last_year_program_ids = _thpt_last_year_program_ids(client)
             if not thpt_last_year_program_ids:
                 return _static_paginated_payload([])
@@ -302,11 +313,13 @@ class MajorCatalogViewSet(ViewSet):
                 .order('university_short_name')
             )
             if search:
-                query = query.or_(
-                    f'major_code.ilike.%{search}%,'
-                    f'program_name.ilike.%{search}%,'
-                    f'major_catalog.name.ilike.%{search}%'
-                )
+                safe_search = _sanitize_postgrest_search(search)
+                if safe_search:
+                    query = query.or_(
+                        f'major_code.ilike.%{safe_search}%,'
+                        f'program_name.ilike.%{safe_search}%,'
+                        f'major_catalog.name.ilike.%{safe_search}%'
+                    )
             if field:
                 query = query.eq('major_catalog.field_code', field)
 
@@ -345,7 +358,7 @@ class MajorCatalogViewSet(ViewSet):
             rows = _major_overview_rows()
             return _static_paginated_payload(rows)
 
-        return Response(get_or_set_api_payload(request, 'majors:overview:v3', load, timeout=600))
+        return Response(get_or_set_api_payload(request, 'majors:overview:v5', load, timeout=600))
 
     @extend_schema(
         parameters=[
@@ -397,16 +410,29 @@ class MajorCatalogViewSet(ViewSet):
             scores = _fetch_all_rows(
                 lambda: (
                     client.table('admission_scores')
-                    .select('score, year, university_program_id')
+                    .select('score, normalized_score, note, year, university_program_id')
+                    .eq('admission_method_code', 'THPT')
+                    .gte('year', _last_year() - 1)
+                    .gt('score', 0)
                     .order('year', desc=True)
                 )
             )
-            latest_score_by_program = {}
+            scores_by_program_year = {}
             for row in scores:
                 program_id = row.get('university_program_id')
                 score_value = row.get('score')
-                if program_id and score_value is not None and program_id not in latest_score_by_program:
-                    latest_score_by_program[program_id] = float(score_value)
+                year = row.get('year')
+                if program_id and year and score_value is not None:
+                    scores_by_program_year.setdefault((program_id, int(year)), []).append(
+                        _normalized_thpt_score(row)
+                    )
+            latest_year_by_program = {}
+            for program_id, year in scores_by_program_year:
+                latest_year_by_program[program_id] = max(latest_year_by_program.get(program_id, year), year)
+            latest_score_by_program = {
+                program_id: round(float(median(scores_by_program_year[(program_id, year)])), 2)
+                for program_id, year in latest_year_by_program.items()
+            }
 
             target_score = (score_min + score_max) / 2
             recommendations = []
@@ -464,7 +490,7 @@ class MajorCatalogViewSet(ViewSet):
             recommendations.sort(key=lambda item: item['match_score'], reverse=True)
             return recommendations[:limit]
 
-        return Response(get_or_set_api_payload(request, 'majors:recommendations:v3', load, timeout=600))
+        return Response(get_or_set_api_payload(request, 'majors:recommendations:v5', load, timeout=600))
 
     @extend_schema(summary='Chi tiet nganh dao tao (kem to hop mon)')
     def retrieve(self, request, pk=None):

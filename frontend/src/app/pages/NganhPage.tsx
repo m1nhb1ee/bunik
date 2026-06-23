@@ -1,315 +1,289 @@
-﻿import { useState, useMemo, useEffect } from "react";
+import { type Dispatch, type SetStateAction, useEffect, useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import { Link, useSearchParams } from "react-router";
-import { Search, ChevronRight, X } from "lucide-react";
+import { B, CenterNote, SketchHeading, accentFor, cardStyle, spark } from "../components/bunik";
 import { getAllMajors } from "../services/api";
 import type { UiMajor } from "../types/api";
 
-const dotBg = {
-  backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
-  backgroundSize: "24px 24px",
-  backgroundColor: "#FAFAF8",
-  animation: "dotDrift 24s linear infinite",
-};
-
-const handCard = {
-  background: "#fff",
-  borderRadius: 20,
-  border: "2px solid rgba(91,79,207,0.12)",
-  boxShadow: "4px 4px 0px rgba(91,79,207,0.09)",
-};
-
-const PAGE_SIZE = 10;
-
-const groupColors: { [k: string]: string } = {
-  "Kỹ thuật - Công nghệ": "#5B4FCF",
-  "Kinh tế - Quản trị": "#43D9A3",
-  "Sức khỏe": "#5B4FCF",
-  "Ngôn ngữ - Văn hóa": "#FFB347",
-  "Luật - Chính trị": "#9C27B0",
-  "Kiến trúc - Xây dựng": "#2196F3",
-};
+const PAGE_SIZE = 9;
+const MIN_SCORE = 14;
+const MAX_SCORE = 30;
 
 export default function NganhPage() {
-  const lastYear = String(new Date().getFullYear() - 1);
-  const MIN_SCORE = 0;
-  const MAX_SCORE = 30;
-  const scoreRange = MAX_SCORE - MIN_SCORE;
   const [searchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
   const [selectedBlocks, setSelectedBlocks] = useState<string[]>([]);
-  const [showBlockFilters, setShowBlockFilters] = useState(false);
+  const [blocksDropdownOpen, setBlocksDropdownOpen] = useState(false);
   const [compareList, setCompareList] = useState<string[]>([]);
   const [majors, setMajors] = useState<UiMajor[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const [scoreSort, setScoreSort] = useState<"desc" | "asc">("desc");
   const [scoreMin, setScoreMin] = useState(MIN_SCORE);
   const [scoreMax, setScoreMax] = useState(MAX_SCORE);
 
   useEffect(() => {
+    let active = true;
     getAllMajors()
-      .then(setMajors)
-      .catch(console.error)
-      .finally(() => setLoading(false));
+      .then((data) => {
+        if (active) setMajors(data);
+      })
+      .catch((reason) => {
+        if (active) setError(reason instanceof Error ? reason.message : "Không thể tải danh sách ngành.");
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
   }, []);
 
-  const toggleGroup = (g: string) => setSelectedGroups((p) => p.includes(g) ? p.filter((x) => x !== g) : [...p, g]);
-  const toggleBlock = (b: string) => setSelectedBlocks((p) => p.includes(b) ? p.filter((x) => x !== b) : [...p, b]);
-  const toggleCompare = (id: string) => setCompareList((p) => (p.includes(id) ? p.filter((x) => x !== id) : p.length < 5 ? [...p, id] : p));
+  const majorGroups = useMemo(() => Array.from(new Set(majors.map((major) => major.group).filter(Boolean))), [majors]);
+  const examBlocks = useMemo(() => Array.from(new Set(majors.flatMap((major) => major.blocks?.length ? major.blocks : [major.block]).filter(Boolean))).sort((a, b) => a.localeCompare(b)), [majors]);
+  const groupedExamBlocks = useMemo(() => {
+    const groups = new Map<string, string[]>();
 
-  const majorGroups = useMemo(() => Array.from(new Set(majors.map((m) => m.group).filter(Boolean))), [majors]);
-  const examBlocks = useMemo(
-    () => Array.from(new Set(majors.flatMap((m) => m.blocks || []).filter(Boolean))).sort((a, b) => a.localeCompare(b)),
-    [majors],
-  );
+    for (const block of examBlocks) {
+      const groupKey = block === "-" ? "-" : block[0].toUpperCase();
+      if (!groups.has(groupKey)) groups.set(groupKey, []);
+      groups.get(groupKey)!.push(block);
+    }
+
+    return Array.from(groups.entries())
+      .map(([label, blocks]) => ({ label, blocks: blocks.sort((left, right) => left.localeCompare(right)) }))
+      .sort((left, right) => {
+        if (left.label === "-") return -1;
+        if (right.label === "-") return 1;
+        return left.label.localeCompare(right.label);
+      });
+  }, [examBlocks]);
 
   const filtered = useMemo(() => {
-    let list = [...majors];
-    if (search) list = list.filter((m) => m.name.toLowerCase().includes(search.toLowerCase()) || m.code.includes(search));
-    if (selectedGroups.length > 0) list = list.filter((m) => selectedGroups.includes(m.group));
-    if (selectedBlocks.length > 0) list = list.filter((m) => (m.blocks || []).some((block) => selectedBlocks.includes(block)));
-    list = list.filter((m) => {
-      const score = m.score30;
-      if (typeof score !== "number") return false;
-      return score >= scoreMin && score <= scoreMax;
-    });
-    list.sort((a, b) => {
-      const av = a.score30;
-      const bv = b.score30;
-      const aVal = typeof av === "number" ? av : (scoreSort === "desc" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY);
-      const bVal = typeof bv === "number" ? bv : (scoreSort === "desc" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY);
-      return scoreSort === "desc" ? bVal - aVal : aVal - bVal;
-    });
-    return list;
-  }, [search, selectedGroups, selectedBlocks, majors, scoreSort, lastYear, scoreMin, scoreMax]);
+    const normalizedSearch = search.trim().toLocaleLowerCase("vi");
+    return majors
+      .filter((major) => !normalizedSearch || major.name.toLocaleLowerCase("vi").includes(normalizedSearch) || major.code.toLocaleLowerCase("vi").includes(normalizedSearch))
+      .filter((major) => selectedGroups.length === 0 || selectedGroups.includes(major.group))
+      .filter((major) => selectedBlocks.length === 0 || (major.blocks?.length ? major.blocks : [major.block]).some((block) => selectedBlocks.includes(block)))
+      .filter((major) => typeof major.score30 === "number" && major.score30 >= scoreMin && major.score30 <= scoreMax)
+      .sort((a, b) => {
+        const left = a.score30 ?? (scoreSort === "desc" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY);
+        const right = b.score30 ?? (scoreSort === "desc" ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY);
+        return scoreSort === "desc" ? right - left : left - right;
+      });
+  }, [majors, scoreMax, scoreMin, scoreSort, search, selectedBlocks, selectedGroups]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  const paginatedMajors = useMemo(() => filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE), [filtered, page]);
-  const minPct = ((scoreMin - MIN_SCORE) / scoreRange) * 100;
-  const maxPct = ((scoreMax - MIN_SCORE) / scoreRange) * 100;
+  const pageItems = useMemo(() => filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE), [filtered, page]);
 
   useEffect(() => {
     setPage(1);
-  }, [search, selectedGroups, selectedBlocks, scoreMin, scoreMax]);
+  }, [scoreMax, scoreMin, search, selectedBlocks, selectedGroups]);
 
   useEffect(() => {
     if (page > totalPages) setPage(totalPages);
   }, [page, totalPages]);
 
-  return (
-    <div style={dotBg} className="min-h-screen">
-      <style>{`
-        .score-range {
-          pointer-events: none;
-        }
-        .score-range::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          pointer-events: auto;
-          width: 18px;
-          height: 18px;
-          border-radius: 999px;
-          background: #ffffff;
-          border: 3px solid #5B4FCF;
-          box-shadow: 0 2px 8px rgba(91,79,207,0.25);
-          cursor: pointer;
-        }
-        .score-range::-moz-range-thumb {
-          pointer-events: auto;
-          width: 18px;
-          height: 18px;
-          border-radius: 999px;
-          background: #ffffff;
-          border: 3px solid #5B4FCF;
-          box-shadow: 0 2px 8px rgba(91,79,207,0.25);
-          cursor: pointer;
-        }
-      `}</style>
-      <div className="py-10 px-6 text-center" style={{ background: "linear-gradient(135deg, rgba(67,217,163,0.08) 0%, rgba(91,79,207,0.06) 100%)", borderBottom: "2px solid rgba(91,79,207,0.08)" }}>
-        <h1 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "clamp(1.8rem,4vw,2.5rem)" }}>Danh Sách Ngành Học</h1>
-        <p style={{ color: "#4A4A6A", marginTop: 6, fontSize: 15 }}>Tra cứu điểm THPT và trường đào tạo theo từng ngành</p>
-      </div>
+  const toggle = (value: string, setValues: Dispatch<SetStateAction<string[]>>) => {
+    setValues((current) => current.includes(value) ? current.filter((item) => item !== value) : [...current, value]);
+  };
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        <div className="flex items-center gap-2 mb-6 px-4 py-3 rounded-2xl" style={{ background: "#fff", border: "2px solid rgba(91,79,207,0.15)", boxShadow: "3px 3px 0px rgba(91,79,207,0.08)" }}>
-          <Search size={18} color="#9090AA" />
-          <input type="text" placeholder="Tìm ngành học, mã ngành..." value={search} onChange={(e) => setSearch(e.target.value)} className="flex-1 outline-none bg-transparent text-sm" style={{ color: "#1A1A2E" }} />
+  const toggleCompare = (id: string) => {
+    setCompareList((current) => current.includes(id) ? current.filter((item) => item !== id) : current.length < 5 ? [...current, id] : current);
+  };
+
+  const clearFilters = () => {
+    setSearch("");
+    setSelectedGroups([]);
+    setSelectedBlocks([]);
+    setScoreMin(MIN_SCORE);
+    setScoreMax(MAX_SCORE);
+  };
+
+  return (
+    <div className="bunik-page">
+      <header className="bunik-container bunik-page-intro">
+        <SketchHeading kicker="tra cứu ngành —" color={B.teal} width="70%">Danh sách ngành học</SketchHeading>
+        <p className="bunik-note-text" style={{ fontSize: 19, margin: "21px 0 0", maxWidth: 620 }}>Tìm ngành theo nhóm, khối xét tuyển và vùng điểm chuẩn phù hợp với bạn.</p>
+      </header>
+
+      <main className="bunik-container" style={{ paddingBottom: compareList.length > 0 ? 122 : 56 }}>
+        <section className="bunik-panel" style={{ padding: "clamp(16px,3vw,24px)", marginBottom: 28 }} aria-label="Bộ lọc ngành học">
+          <label style={{ position: "relative", display: "block" }}>
+            <span className="bunik-sr-only">Tìm ngành học</span>
+            <Search size={19} style={{ position: "absolute", left: 15, top: 14, color: B.muted }} />
+            <input className="bunik-field" style={{ paddingLeft: 44 }} value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Tìm tên hoặc mã ngành…" />
+          </label>
+
+          <div style={{ marginTop: 20 }}>
+            <p className="bunik-note-text" style={{ fontSize: 17, margin: "0 0 9px" }}>nhóm ngành</p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {majorGroups.map((group) => <button key={group} type="button" className="bunik-chip" data-active={selectedGroups.includes(group)} onClick={() => toggle(group, setSelectedGroups)}>{group}</button>)}
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1.4fr) minmax(220px,.6fr)", gap: 22, marginTop: 20 }} className="nganh-filter-grid">
+            <div>
+              <p className="bunik-note-text" style={{ fontSize: 17, margin: "0 0 9px" }}>khối xét tuyển</p>
+              <div style={{ position: "relative" }}>
+                <button
+                  type="button"
+                  className="bunik-field"
+                  onClick={() => setBlocksDropdownOpen((current) => !current)}
+                  aria-expanded={blocksDropdownOpen}
+                  aria-controls="exam-block-dropdown"
+                  style={{
+                    width: "100%",
+                    minHeight: 46,
+                    padding: "10px 14px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 12,
+                    cursor: "pointer",
+                  }}
+                >
+                  <span style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, textAlign: "left" }}>
+                    <strong style={{ color: B.ink, fontSize: 13 }}>Chọn khối xét tuyển</strong>
+                    <span style={{ color: B.muted, fontSize: 12 }}>{selectedBlocks.length > 0 ? `${selectedBlocks.length} khối đã chọn` : "Nhấn để mở danh sách khối theo chữ cái"}</span>
+                  </span>
+                  <span aria-hidden="true" style={{ color: B.muted, fontSize: 18, lineHeight: 1 }}>{blocksDropdownOpen ? "▴" : "▾"}</span>
+                </button>
+
+                {blocksDropdownOpen ? (
+                  <div
+                    id="exam-block-dropdown"
+                    className="hide-scrollbar"
+                    style={{
+                      position: "absolute",
+                      zIndex: 20,
+                      top: "calc(100% + 8px)",
+                      left: 0,
+                      right: 0,
+                      maxHeight: 320,
+                      overflowY: "auto",
+                      padding: 12,
+                      border: `2px solid ${B.ink}`,
+                      borderRadius: 18,
+                      background: B.paperLight,
+                      boxShadow: `6px 8px 0 ${B.ink}`,
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 10 }}>
+                      <strong style={{ color: B.ink, fontSize: 13 }}>Chọn khối theo nhóm chữ cái</strong>
+                      <button type="button" className="bunik-chip" onClick={() => setSelectedBlocks([])} style={{ minHeight: 28, padding: "3px 8px" }}>
+                        Bỏ chọn
+                      </button>
+                    </div>
+
+                    <div style={{ display: "grid", gap: 14 }}>
+                      {groupedExamBlocks.map((group) => (
+                        <section key={group.label}>
+                          <p className="bunik-note-text" style={{ fontSize: 12, margin: "0 0 8px", textTransform: "uppercase", letterSpacing: 0.8 }}>
+                            {group.label === "-" ? "Khác" : `Nhóm ${group.label}`}
+                          </p>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                            {group.blocks.map((block) => (
+                              <button
+                                key={block}
+                                type="button"
+                                className="bunik-chip"
+                                data-active={selectedBlocks.includes(block)}
+                                onClick={() => toggle(block, setSelectedBlocks)}
+                              >
+                                {block}
+                              </button>
+                            ))}
+                          </div>
+                        </section>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+            <div>
+              <p className="bunik-note-text" style={{ fontSize: 17, margin: "0 0 9px" }}>vùng điểm chuẩn</p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 9 }}>
+                <label style={{ color: B.body, fontSize: 11, fontWeight: 700 }}>Từ<input className="bunik-field" style={{ minHeight: 40, marginTop: 4, padding: "7px 9px" }} type="number" min={MIN_SCORE} max={scoreMax} value={scoreMin} onChange={(event) => setScoreMin(Math.min(scoreMax, Math.max(MIN_SCORE, Number(event.target.value))))} /></label>
+                <label style={{ color: B.body, fontSize: 11, fontWeight: 700 }}>Đến<input className="bunik-field" style={{ minHeight: 40, marginTop: 4, padding: "7px 9px" }} type="number" min={scoreMin} max={MAX_SCORE} value={scoreMax} onChange={(event) => setScoreMax(Math.max(scoreMin, Math.min(MAX_SCORE, Number(event.target.value))))} /></label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, flexWrap: "wrap", marginBottom: 18 }}>
+          <p className="bunik-note-text" style={{ fontSize: 18, margin: 0 }}>{loading ? "đang tìm…" : `${filtered.length} ngành phù hợp`}</p>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <button className="bunik-chip" type="button" data-active={scoreSort === "desc"} onClick={() => setScoreSort("desc")}>Điểm cao → thấp</button>
+            <button className="bunik-chip" type="button" data-active={scoreSort === "asc"} onClick={() => setScoreSort("asc")}>Điểm thấp → cao</button>
+            {(search || selectedGroups.length || selectedBlocks.length || scoreMin !== MIN_SCORE || scoreMax !== MAX_SCORE) ? <button className="bunik-chip" type="button" onClick={clearFilters}><X size={14} /> Xóa lọc</button> : null}
+          </div>
         </div>
 
-        <div className="mb-4">
-          <p style={{ fontSize: 13, color: "#9090AA", fontWeight: 700, marginBottom: 10 }}>Nhóm ngành:</p>
-          <div className="flex flex-wrap gap-2">
-            {majorGroups.map((g) => {
-              const active = selectedGroups.includes(g);
-              const color = groupColors[g] || "#5B4FCF";
+        {loading ? <CenterNote title="Đang vẽ danh sách ngành…" /> : null}
+        {!loading && error ? <CenterNote title="Chưa tải được danh sách ngành" sub={error} /> : null}
+        {!loading && !error && pageItems.length === 0 ? <CenterNote title="Không tìm thấy ngành phù hợp" sub="Thử nới vùng điểm hoặc bỏ bớt bộ lọc" /> : null}
+
+        {!loading && !error && pageItems.length > 0 ? (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(290px,1fr))", gap: 20 }}>
+            {pageItems.map((major, index) => {
+              const accent = accentFor(major.group || major.id);
+              const values = Object.entries(major.scores).sort(([left], [right]) => Number(left) - Number(right)).map(([, value]) => value);
+              const chart = spark(values);
+              const selected = compareList.includes(major.id);
               return (
-                <button key={g} className="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl text-sm transition-all" style={{ background: active ? color : "rgba(91,79,207,0.06)", color: active ? "#fff" : color, border: `2px solid ${active ? color : `${color}30`}`, fontWeight: 700 }} onClick={() => toggleGroup(g)}>
-                  {g}
-                  {active && <X size={12} />}
-                </button>
+                <article key={major.id} className="bunik-lift" style={{ ...cardStyle({ shadow: `5px 6px 0 ${accent}`, rot: `${index % 2 === 0 ? "-.25" : ".25"}deg` }), position: "relative", padding: 20 }}>
+                  <button type="button" aria-pressed={selected} onClick={() => toggleCompare(major.id)} style={{ position: "absolute", right: 14, top: 14, minWidth: 34, height: 34, padding: "0 8px", border: `1.5px solid ${B.ink}`, borderRadius: "10px 8px 9px 11px/11px 9px 8px 10px", background: selected ? B.ink : B.paper, color: selected ? B.paperLight : B.ink, fontSize: 12, fontWeight: 800 }}>{selected ? "✓" : "+"}</button>
+                  <div style={{ paddingRight: 48 }}>
+                    <span style={{ color: accent, fontSize: 11, fontWeight: 800 }}>{major.group || "Nhóm ngành đang cập nhật"}</span>
+                    <h2 style={{ color: B.ink, fontSize: 16, lineHeight: 1.4, margin: "5px 0 2px" }}><Link to={`/nganh/${major.id}`} style={{ color: "inherit", textDecoration: "none" }}>{major.name}</Link></h2>
+                    <p className="bunik-note-text" style={{ fontSize: 15, margin: 0 }}>{major.universityName || major.universityShortName || "Nhiều trường đào tạo"}</p>
+                  </div>
+
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 132px", gap: 14, alignItems: "end", marginTop: 17 }}>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+                      {(major.blocks?.length ? major.blocks : [major.block]).slice(0, 3).filter(Boolean).map((block) => <span key={block} className="bunik-chip" style={{ minHeight: 27, padding: "2px 8px" }}>{block}</span>)}
+                      {major.method ? <span className="bunik-chip" style={{ minHeight: 27, padding: "2px 8px", borderStyle: "dashed" }}>{major.method}</span> : null}
+                    </div>
+                    <svg viewBox="0 0 128 46" style={{ width: 128, height: 46, overflow: "visible" }} aria-label="Xu hướng điểm chuẩn">
+                      <path d={chart.path} fill="none" stroke={accent} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" filter="url(#inkrough2)" />
+                      {chart.dots.map((dot, dotIndex) => <circle key={dotIndex} cx={dot.x} cy={dot.y} r="2.5" fill={B.paperLight} stroke={accent} strokeWidth="1.7" />)}
+                    </svg>
+                  </div>
+
+                  <div style={{ display: "flex", alignItems: "end", justifyContent: "space-between", gap: 14, marginTop: 16, paddingTop: 13, borderTop: `1px dashed ${B.muted}` }}>
+                    <div><span className="bunik-note-text" style={{ display: "block", fontSize: 14 }}>điểm gần nhất</span><strong style={{ fontFamily: "'Shantell Sans', cursive", color: accent, fontSize: 24 }}>{major.score30?.toFixed(2) ?? "—"}</strong></div>
+                    <Link to={`/nganh/${major.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 5, color: B.terracotta, fontSize: 13, fontWeight: 750, textDecoration: "none" }}>Xem chi tiết <ChevronRight size={15} /></Link>
+                  </div>
+                </article>
               );
             })}
           </div>
-        </div>
+        ) : null}
 
-        <div className="mb-6 relative z-20 flex items-center gap-2">
-          <button className="px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(232,93,117,0.08)", color: "#E85D75", border: "2px solid rgba(232,93,117,0.25)", fontWeight: 700 }} onClick={() => setScoreSort((prev) => (prev === "desc" ? "asc" : "desc"))}>
-            Điểm chuẩn quy đổi: {scoreSort === "desc" ? "Cao → Thấp" : "Thấp → Cao"}
-          </button>
-          <button className="px-4 py-2 rounded-xl text-sm" style={{ background: "rgba(232,93,117,0.08)", color: "#E85D75", border: "2px solid rgba(232,93,117,0.25)", fontWeight: 700 }} onClick={() => setShowBlockFilters((v) => !v)}>
-            Khối xét tuyển ({selectedBlocks.length}) {showBlockFilters ? "Ẩn" : "Hiện"}
-          </button>
-          {showBlockFilters && (
-            <div className="absolute left-0 top-full mt-2 p-3 rounded-2xl z-30 w-[min(760px,90vw)]" style={{ background: "#fff", border: "2px solid rgba(91,79,207,0.2)", boxShadow: "0 10px 24px rgba(91,79,207,0.14)" }}>
-              <div className="flex flex-wrap gap-2">
-                {examBlocks.map((b) => {
-                  const active = selectedBlocks.includes(b);
-                  return (
-                    <button key={b} className="px-3 py-1.5 rounded-xl text-sm transition-all" style={{ background: active ? "#5B4FCF" : "rgba(91,79,207,0.06)", color: active ? "#fff" : "#5B4FCF", border: `2px solid ${active ? "#5B4FCF" : "rgba(91,79,207,0.2)"}`, fontWeight: 700 }} onClick={() => toggleBlock(b)}>
-                      {b}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
+        {!loading && !error && totalPages > 1 ? (
+          <nav aria-label="Phân trang ngành học" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginTop: 30 }}>
+            <button className="bunik-button bunik-button-secondary" type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={page === 1}><ChevronLeft size={17} /></button>
+            <span className="bunik-note-text" style={{ fontSize: 18 }}>trang {page} / {totalPages}</span>
+            <button className="bunik-button bunik-button-secondary" type="button" onClick={() => setPage((current) => Math.min(totalPages, current + 1))} disabled={page === totalPages}><ChevronRight size={17} /></button>
+          </nav>
+        ) : null}
+      </main>
 
-        <div className="mb-6 px-4 py-3 rounded-2xl" style={{ background: "#fff", border: "2px solid rgba(91,79,207,0.15)", boxShadow: "3px 3px 0px rgba(91,79,207,0.08)" }}>
-          <div className="flex items-center justify-between mb-2">
-            <p style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 700 }}>Ngưỡng điểm THPT quy đổi (/30)</p>
-            <p style={{ fontSize: 13, color: "#5B4FCF", fontWeight: 800 }}>{scoreMin.toFixed(1)} - {scoreMax.toFixed(1)}</p>
+      {compareList.length > 0 ? (
+        <aside style={{ position: "fixed", left: "50%", bottom: 18, zIndex: 60, width: "min(calc(100% - 24px),720px)", transform: "translateX(-50%)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, padding: "12px 14px", ...cardStyle({ shadow: `5px 5px 0 ${B.teal}` }) }}>
+          <div><strong style={{ display: "block", color: B.ink, fontSize: 13 }}>{compareList.length}/5 ngành đã chọn</strong><span className="bunik-note-text" style={{ fontSize: 14 }}>chọn thêm hoặc mở bảng so sánh</span></div>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button className="bunik-chip" type="button" onClick={() => setCompareList([])}>Xóa</button>
+            <Link className="bunik-button" to={`/so-sanh?type=nganh&ids=${compareList.join(",")}`}>So sánh</Link>
           </div>
-          <div className="relative pt-6 pb-3">
-            <div
-              style={{
-                height: 8,
-                borderRadius: 999,
-                background: "rgba(91,79,207,0.12)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                top: 24,
-                left: `${minPct}%`,
-                width: `${Math.max(maxPct - minPct, 0)}%`,
-                height: 8,
-                borderRadius: 999,
-                background: "linear-gradient(90deg, #5B4FCF 0%, #43D9A3 100%)",
-              }}
-            />
-            <input
-              type="range"
-              min={MIN_SCORE}
-              max={MAX_SCORE}
-              step={0.1}
-              value={scoreMin}
-              onChange={(e) => {
-                const next = Number(e.target.value);
-                setScoreMin(Math.min(next, scoreMax));
-              }}
-              className="score-range absolute left-0 top-0 w-full h-8 appearance-none bg-transparent"
-              style={{ zIndex: scoreMin > MAX_SCORE - 3 ? 5 : 4 }}
-            />
-            <input
-              type="range"
-              min={MIN_SCORE}
-              max={MAX_SCORE}
-              step={0.1}
-              value={scoreMax}
-              onChange={(e) => {
-                const next = Number(e.target.value);
-                setScoreMax(Math.max(next, scoreMin));
-              }}
-              className="score-range absolute left-0 top-0 w-full h-8 appearance-none bg-transparent"
-              style={{ zIndex: 6 }}
-            />
-            <div className="flex justify-between mt-2" style={{ fontSize: 11, color: "#9090AA", fontWeight: 700 }}>
-              <span>{MIN_SCORE}</span>
-              <span>{MAX_SCORE}</span>
-            </div>
-          </div>
-        </div>
+        </aside>
+      ) : null}
 
-        {loading ? (
-          <div className="text-center py-20"><p style={{ color: "#4A4A6A", fontWeight: 700 }}>Đang tải dữ liệu...</p></div>
-        ) : (
-          <>
-            <p style={{ color: "#9090AA", fontSize: 13, marginBottom: 16, fontWeight: 600 }}>Hiển thị {filtered.length} ngành</p>
-
-            <div style={{ ...handCard, overflow: "hidden" }}>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr style={{ background: "rgba(91,79,207,0.05)", borderBottom: "2px solid rgba(91,79,207,0.1)" }}>
-                      <th className="px-4 py-3 text-left w-8"><span style={{ fontSize: 11, color: "#9090AA" }}>CH</span></th>
-                      <th className="px-4 py-3 text-left" style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 800 }}>Tên ngành</th>
-                      <th className="px-4 py-3 text-left" style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 800 }}>Nhóm ngành</th>
-                      <th className="px-4 py-3 text-center" style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 800 }}>Điểm THPT {lastYear}</th>
-                      <th className="px-4 py-3 text-center" style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 800 }}>Trường</th>
-                      <th className="px-4 py-3 text-center" style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 800 }}></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {paginatedMajors.map((m, i) => {
-                      const color = groupColors[m.group] || "#5B4FCF";
-                      const inCompare = compareList.includes(m.id);
-                      return (
-                        <tr key={m.id} style={{ borderBottom: i < paginatedMajors.length - 1 ? "1px solid rgba(91,79,207,0.06)" : "none", background: inCompare ? "rgba(67,217,163,0.04)" : "transparent" }}>
-                          <td className="px-4 py-3">
-                            <div className="w-5 h-5 rounded-lg flex items-center justify-center cursor-pointer" style={{ border: `2px solid ${inCompare ? "#43D9A3" : "#D0D0E0"}`, background: inCompare ? "#43D9A3" : "#fff" }} onClick={() => toggleCompare(m.id)}>
-                              {inCompare && <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L4 7L9 1" stroke="white" strokeWidth="2" strokeLinecap="round"/></svg>}
-                            </div>
-                          </td>
-                          <td className="px-4 py-3">
-                            <Link
-                              to={`/nganh/${m.id}`}
-                              style={{
-                                fontWeight: 700,
-                                color: "#1A1A2E",
-                                fontSize: 14,
-                                textDecoration: "none",
-                                display: "inline-block",
-                                maxWidth: 280,
-                                overflow: "hidden",
-                                whiteSpace: "nowrap",
-                                textOverflow: "ellipsis",
-                              }}
-                              title={m.name}
-                            >
-                              {m.name}
-                            </Link>
-                            <p style={{ fontSize: 11, color: "#9090AA" }}>{m.code}</p>
-                          </td>
-                          <td className="px-4 py-3"><span className="px-2.5 py-1 rounded-xl text-xs" style={{ background: `${color}15`, color, fontWeight: 700 }}>{m.group}</span></td>
-                          <td className="px-4 py-3 text-center" style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 15 }}>
-                            {m.score30 ?? "—"}
-                          </td>
-                          <td className="px-4 py-3 text-center" style={{ color: "#4A4A6A", fontWeight: 700 }}>{m.universityName || m.universityShortName || "—"}</td>
-                          <td className="px-4 py-3">
-                            <Link to={`/nganh/${m.id}`} className="flex items-center gap-1 text-xs" style={{ color: "#5B4FCF", fontWeight: 700, textDecoration: "none", whiteSpace: "nowrap" }}>Chi tiết <ChevronRight size={12} /></Link>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {filtered.length > 0 && (
-              <div className="flex items-center justify-between mt-4">
-                <p style={{ fontSize: 12, color: "#9090AA", fontWeight: 600 }}>Trang {page}/{totalPages}</p>
-                <div className="flex items-center gap-2">
-                  <button className="px-3 py-1.5 rounded-xl text-sm" style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#5B4FCF", fontWeight: 700, opacity: page === 1 ? 0.4 : 1 }} disabled={page === 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>Trước</button>
-                  <button className="px-3 py-1.5 rounded-xl text-sm" style={{ border: "2px solid rgba(91,79,207,0.2)", color: "#5B4FCF", fontWeight: 700, opacity: page === totalPages ? 0.4 : 1 }} disabled={page === totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>Sau</button>
-                </div>
-              </div>
-            )}
-          </>
-        )}
-      </div>
+      <style>{`@media (max-width:760px){.nganh-filter-grid{grid-template-columns:1fr!important}}`}</style>
     </div>
   );
 }

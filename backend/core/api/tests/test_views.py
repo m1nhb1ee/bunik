@@ -23,6 +23,26 @@ class TableStub:
     def lte(self, *_args, **_kwargs):
         return self
 
+    def order(self, field, desc=False):
+        self.rows = sorted(self.rows, key=lambda row: row.get(field) or 0, reverse=desc)
+        return self
+
+    def limit(self, value):
+        self.rows = self.rows[:value]
+        return self
+
+    def range(self, start, end):
+        self.rows = self.rows[start:end + 1]
+        return self
+
+    def eq(self, field, value):
+        self.rows = [row for row in self.rows if row.get(field) == value]
+        return self
+
+    def gt(self, field, value):
+        self.rows = [row for row in self.rows if row.get(field) is not None and row.get(field) > value]
+        return self
+
     def execute(self):
         return Obj(data=self.rows)
 
@@ -68,8 +88,8 @@ class TestAnalyticsEndpoints:
                 },
             ],
             score_rows=[
-                {'user_id': 'u1', 'base_score': 120, 'math': 9, 'literature': 7, 'english': 8},
-                {'user_id': 'u2', 'base_score': 90, 'math': 8, 'literature': 9, 'english': 7},
+                {'user_id': 'u1', 'base_score': 80, 'math': 9, 'literature': 7, 'english': 8},
+                {'user_id': 'u2', 'base_score': 70, 'math': 8, 'literature': 9, 'english': 7},
             ],
         )
         monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
@@ -91,14 +111,16 @@ class TestAnalyticsEndpoints:
                 {'code': 'MED', 'name': 'Y da khoa'},
             ],
             scores=[
-                {'year': current_year - 4, 'score': 25, 'university_programs': {'major_code': 'CS'}},
-                {'year': current_year - 3, 'score': 26, 'university_programs': {'major_code': 'CS'}},
-                {'year': current_year - 2, 'score': 27, 'university_programs': {'major_code': 'CS'}},
-                {'year': current_year - 1, 'score': 28, 'university_programs': {'major_code': 'CS'}},
-                {'year': current_year, 'score': 29, 'university_programs': {'major_code': 'CS'}},
-                {'year': current_year - 2, 'score': 28.5, 'university_programs': {'major_code': 'MED'}},
-                {'year': current_year - 1, 'score': 29.0, 'university_programs': {'major_code': 'MED'}},
-                {'year': current_year, 'score': 29.5, 'university_programs': {'major_code': 'MED'}},
+                {'year': current_year - 4, 'score': 25, 'admission_method_code': 'THPT', 'university_program_id': 'cs1', 'university_programs': {'major_code': 'CS'}},
+                {'year': current_year - 3, 'score': 26, 'admission_method_code': 'THPT', 'university_program_id': 'cs1', 'university_programs': {'major_code': 'CS'}},
+                {'year': current_year - 2, 'score': 27, 'admission_method_code': 'THPT', 'university_program_id': 'cs1', 'university_programs': {'major_code': 'CS'}},
+                {'year': current_year - 1, 'score': 28, 'admission_method_code': 'THPT', 'university_program_id': 'cs1', 'university_programs': {'major_code': 'CS'}},
+                {'year': current_year, 'score': 28, 'admission_method_code': 'THPT', 'university_program_id': 'cs1', 'university_programs': {'major_code': 'CS'}},
+                {'year': current_year, 'score': 30, 'admission_method_code': 'THPT', 'university_program_id': 'cs1', 'university_programs': {'major_code': 'CS'}},
+                {'year': current_year - 2, 'score': 28.5, 'admission_method_code': 'THPT', 'university_program_id': 'med1', 'university_programs': {'major_code': 'MED'}},
+                {'year': current_year - 1, 'score': 29.0, 'admission_method_code': 'THPT', 'university_program_id': 'med1', 'university_programs': {'major_code': 'MED'}},
+                {'year': current_year, 'score': 29.5, 'admission_method_code': 'THPT', 'university_program_id': 'med1', 'university_programs': {'major_code': 'MED'}},
+                {'year': current_year, 'score': 1500, 'admission_method_code': 'SAT', 'university_program_id': 'med1', 'university_programs': {'major_code': 'MED'}},
             ],
         )
         monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
@@ -110,3 +132,4 @@ class TestAnalyticsEndpoints:
         assert response.data['results'][0]['name'] == 'Y da khoa'
         assert response.data['results'][0]['scores'][-1] == 29.5
         assert response.data['results'][1]['name'] == 'Cong nghe thong tin'
+        assert response.data['results'][1]['scores'][-1] == 29.0

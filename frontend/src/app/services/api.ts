@@ -215,9 +215,14 @@ export async function getMajorDetail(code: string): Promise<ApiMajorDetail> {
   return get(`/majors/${code}/`);
 }
 
+export async function getProgramDetail(programId: string): Promise<ApiUniversityProgram> {
+  return get(`/programs/${programId}/`);
+}
+
 export async function getUniversityPrograms(params: {
   university_code?: string;
   major_code?: string;
+  major_name?: string;
   is_active?: boolean;
   page?: number;
   page_size?: number;
@@ -228,6 +233,7 @@ export async function getUniversityPrograms(params: {
 export async function getAdmissionScores(params: {
   university_code?: string;
   major_code?: string;
+  program_ids?: string;
   admission_method?: string;
   year?: number;
   year_min?: number;
@@ -236,10 +242,6 @@ export async function getAdmissionScores(params: {
   page_size?: number;
 } = {}): Promise<PaginatedResponse<ApiAdmissionScore>> {
   return get('/scores/', params);
-}
-
-export async function getProgramScores(programId: number): Promise<PaginatedResponse<ApiAdmissionScore>> {
-  return get(`/programs/${programId}/scores/`);
 }
 
 export async function getExamBlocks(): Promise<PaginatedResponse<ApiExamBlock>> {
@@ -305,7 +307,7 @@ export function toUiUniversity(api: ApiUniversity, index: number): UiUniversity 
     abbr: api.code,
     color: codeToColor(api.code),
     city: api.provinces?.name ?? '',
-    region: api.provinces?.region ?? 'Mien Bac',
+    region: api.provinces?.region ?? '',
     address: api.address ?? '',
     website: api.website ?? '',
     ranking: index + 1,
@@ -343,30 +345,80 @@ export function toUiMajor(api: ApiMajorCatalog): UiMajor {
   };
 }
 
+export function normalizeVietnamese(value: string | null | undefined): string {
+  return (value || "")
+    .replace(/[\u0111\u0110\u00D0]/g, "d")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+export function normalizeScoreTo30(score: number, note: string | null): number {
+  const normalizedNote = normalizeVietnamese(note);
+  const isScale40 =
+    normalizedNote.includes("thang diem 40") ||
+    normalizedNote.includes("thang 40") ||
+    normalizedNote.includes("40 diem");
+  return isScale40 ? +((score * 30) / 40).toFixed(2) : score;
+}
+
+export async function fetchAllPaginated<T>(
+  fetchPage: (page: number, pageSize: number) => Promise<PaginatedResponse<T>>,
+  pageSize = 100,
+): Promise<T[]> {
+  const firstPage = await fetchPage(1, pageSize);
+  let results = firstPage.results;
+  const actualPageSize = firstPage.page_size || pageSize;
+  const totalPages = Math.max(1, Math.ceil((firstPage.count || 0) / actualPageSize));
+
+  for (let page = 2; page <= totalPages; page += 1) {
+    const nextPage = await fetchPage(page, pageSize);
+    results = results.concat(nextPage.results);
+  }
+
+  return results;
+}
+
+function chunkArray<T>(items: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) chunks.push(items.slice(i, i + size));
+  return chunks;
+}
+
+export async function getAllUniversityPrograms(params: { major_code?: string; major_name?: string; university_code?: string }): Promise<ApiUniversityProgram[]> {
+  return fetchAllPaginated((page, page_size) => getUniversityPrograms({ ...params, page, page_size }));
+}
+
+export async function getAllAdmissionScores(params: Parameters<typeof getAdmissionScores>[0]): Promise<ApiAdmissionScore[]> {
+  return fetchAllPaginated((page, page_size) => getAdmissionScores({ ...params, page, page_size }));
+}
+
+export async function getAllAdmissionScoresByProgramIds(programIds: string[]): Promise<ApiAdmissionScore[]> {
+  const batches = chunkArray(programIds, 50);
+  let results: ApiAdmissionScore[] = [];
+
+  for (const batch of batches) {
+    const program_ids = batch.join(",");
+    const batchScores = await getAllAdmissionScores({ program_ids });
+    results = results.concat(batchScores);
+  }
+
+  return results;
+}
+
 // ---------------------------------------------------------------------------
 // Composite fetches used by pages
 // ---------------------------------------------------------------------------
 
 export async function getAllUniversities(): Promise<UiUniversity[]> {
-  const first = await getUniversities({ page_size: 100, ordering: 'name' });
-  const total = first.count;
-  let results = first.results;
-  if (total > 100) {
-    const pages = Math.ceil(total / 100);
-    const rest = await Promise.all(
-      Array.from({ length: pages - 1 }, (_, i) =>
-        getUniversities({ page_size: 100, page: i + 2, ordering: 'name' }),
-      ),
-    );
-    for (const r of rest) results = results.concat(r.results);
-  }
+  const results = await fetchAllPaginated((page, page_size) => getUniversities({ page, page_size, ordering: 'name' }));
   return results.map(toUiUniversity);
 }
 
 export async function getAllMajors(): Promise<UiMajor[]> {
   const overview = await getMajorOverview();
   return overview.results.map((major) => ({
-    id: major.id,
+    id: String(major.id),
     name: major.program_name || major.name,
     code: major.code,
     group: major.group,

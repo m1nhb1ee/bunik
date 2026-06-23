@@ -1,0 +1,5 @@
+﻿id,source_id,method,year,original_score,fixed_score,reason
+79f08ac4-f891-593d-8712-f9b114b94a07,148424,KH,2024,2600,26,Combined graduation score missing decimal
+581f8528-7d52-502d-a27d-5b1053fa97c2,134489,THPT,2023,2337,23.37,THPT missing decimal after two digits
+7c056e06-f869-5c0c-9850-efc4fba526ce,134490,THPT,2023,193,19.3,THPT missing decimal after two digits
+c6c2f798-d7ce-5ee5-a5bd-5fb9ed2e573b,194887,HBA,2025,2333,23.33,HBA missing decimal after two digits

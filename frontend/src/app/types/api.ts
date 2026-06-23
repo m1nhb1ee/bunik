@@ -53,10 +53,12 @@ export type ApiAdmissionMethod = {
 };
 
 export type ApiUniversityProgram = {
-  id: number;
+  id: string;
   university_short_name: string;
   major_code: string;
   is_active: boolean;
+  program_name?: string | null;
+  program_source_code?: string | null;
   universities: ApiUniversity | null;
   major_catalog: {
     code: string;
@@ -66,15 +68,15 @@ export type ApiUniversityProgram = {
 };
 
 export type ApiAdmissionScore = {
-  id: number;
+  id: string;
   year: number;
   score: number | null;
   note: string | null;
   admission_method_code: string;
   admission_methods: ApiAdmissionMethod | null;
-  university_program_id: number;
+  university_program_id: string;
   university_programs?: {
-    id: number;
+    id: string;
     university_short_name: string;
     major_code: string;
     universities: { id: string; name: string; code: string } | null;
@@ -97,7 +99,7 @@ export type ApiExamBlock = {
 
 export type ApiUserRanking = {
   rank: number;
-  id: number;
+  id: string;
   name: string;
   tier: 'F' | 'E' | 'D' | 'C' | 'B' | 'A' | 'S';
   score: number;
@@ -132,15 +134,16 @@ export type ApiAward = {
   id: number;
   name: string;
   level: string;
-  prize?: string | null;
 };
 
 export type ApiAchievement = {
   id: number;
   user_id: string;
   award_id: number;
-  prize?: 'Khuyen Khich' | 'Ba' | 'Nhi' | 'Nhat' | null;
-  created_at?: string;
+  name?: string | null;
+  prize?: 'Khuyen Khich' | 'Ba' | 'Nhi' | 'Nhat' | 'Khuyến Khích' | 'Nhì' | 'Nhất' | null;
+  date?: string | null;
+  is_verified?: boolean | null;
   awards?: ApiAward;
 };
 

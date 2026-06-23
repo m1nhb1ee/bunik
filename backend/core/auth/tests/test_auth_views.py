@@ -28,6 +28,7 @@ class TestAuthEndpoints:
             ),
         )
         self._mock_clients(monkeypatch, fake_client)
+        monkeypatch.setattr('core.auth.views.revoke_session', lambda _token: None)
         response = self.client.post('/api/auth/register/', {
             'user_name': 'm1nhb1e',
             'full_name': 'Nguyen Trong Minh',
@@ -44,7 +45,9 @@ class TestAuthEndpoints:
         fake_client = Obj(
             auth=Obj(sign_up=lambda _: Obj(user=Obj(id='u1'), session=Obj(access_token='a1'))),
             table=lambda name: Obj(
-                insert=lambda *_a, **_k: Obj(execute=lambda: (_ for _ in ()).throw(Exception('duplicate key value violates unique constraint')))
+                select=lambda *_args, **_kwargs: Obj(
+                    or_=lambda *_a, **_k: Obj(limit=lambda *_l, **_lk: Obj(execute=lambda: Obj(data=[{'id': 'u1'}])))
+                )
             ),
         )
         self._mock_clients(monkeypatch, fake_client)
@@ -72,6 +75,15 @@ class TestAuthEndpoints:
         response = self.client.get('/api/auth/me/')
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
+    def test_auth_transient_error_returns_503(self, monkeypatch):
+        def bad_get_user(_token):
+            raise Exception('RemoteProtocolError: server disconnected')
+
+        fake_client = Obj(auth=Obj(get_user=bad_get_user), table=lambda name: Obj())
+        self._mock_clients(monkeypatch, fake_client)
+        response = self.client.get('/api/auth/me/', HTTP_AUTHORIZATION='Bearer a1')
+        assert response.status_code == status.HTTP_503_SERVICE_UNAVAILABLE
+
     def test_login_me_logout_success(self, monkeypatch):
         def table(_name):
             return Obj(
@@ -97,6 +109,7 @@ class TestAuthEndpoints:
             table=table,
         )
         self._mock_clients(monkeypatch, fake_client)
+        monkeypatch.setattr('core.auth.views.revoke_session', lambda _token: None)
 
         login_response = self.client.post('/api/auth/login/', {'gmail': 'minh@example.com', 'password': 'securepassword123'}, format='json')
         assert login_response.status_code == status.HTTP_200_OK
@@ -110,6 +123,7 @@ class TestAuthEndpoints:
         assert logout_response.status_code == status.HTTP_200_OK
 
     def test_logout_uses_user_scoped_client(self, monkeypatch):
+        revoked = []
         global_client = Obj(auth=Obj(sign_out=lambda: (_ for _ in ()).throw(Exception('must not call global sign_out'))))
         user_client = Obj(
             auth=Obj(sign_out=lambda: None, get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
@@ -117,10 +131,22 @@ class TestAuthEndpoints:
         )
         monkeypatch.setattr('core.auth.views.get_client', lambda: global_client)
         monkeypatch.setattr('core.auth.views.get_user_client', lambda _token: user_client)
+        monkeypatch.setattr('core.auth.views.revoke_session', lambda token: revoked.append(token))
         monkeypatch.setattr('core.auth.supabase_auth.get_client', lambda: user_client)
 
         response = self.client.post('/api/auth/logout/', HTTP_AUTHORIZATION='Bearer a1')
         assert response.status_code == status.HTTP_200_OK
+        assert revoked == ['a1']
+
+    def test_profile_patch_rejects_grade_below_registration_range(self, monkeypatch):
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda _name: Obj(),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+
+        response = self.client.patch('/api/auth/me/', {'grade': 1}, format='json', HTTP_AUTHORIZATION='Bearer a1')
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     def test_profile_patch_success(self, monkeypatch):
         class UsersTable:

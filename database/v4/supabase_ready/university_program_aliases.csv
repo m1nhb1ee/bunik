@@ -1,0 +1,678 @@
+﻿university_short_name,old_program_id,old_program_code,canonical_program_id,effective_from_year,effective_to_year,reason,is_verified
+ANH,7d12022c-1206-5b0f-bddb-de1fed9d451a,7480202,bd54c85a-79d3-503c-a17a-484ac9f81d81,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+ANH,eb8599a4-b679-5ad6-a587-cb9677c9b7b5,7860100,c4de9de9-0422-51ac-b4a3-34da7c363ee8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,b3f5f257-69fc-5b51-b208-52b5dd39e9d1,BF-E12x,96c3d097-7e14-557f-b4c8-ee15ff57a63f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6fd373ce-0b23-564e-ba08-dd207e4d6848,BF-E12y,96c3d097-7e14-557f-b4c8-ee15ff57a63f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,a8e5d8e3-9e41-594a-92ca-2d71362a0950,BF1x,df290692-8b06-5125-b8f5-96c7a2fba6ab,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f19be27f-e548-52fb-a027-5085a687f488,BF1y,df290692-8b06-5125-b8f5-96c7a2fba6ab,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,0a8860f6-fe28-5d3d-9162-be9016f6e3f5,BF2x,0a9b0a80-ea8c-58bb-8871-c9b82309b3c8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,33a82925-e0a0-5eab-8b59-39b8e91a2d33,BF2y,0a9b0a80-ea8c-58bb-8871-c9b82309b3c8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,5b4c7467-adbf-5eb4-857f-1512d1c751a9,CH-E11x,659f873a-d3a5-5b47-8468-6c09168f56a0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,d5ba6897-a3a0-51dd-a399-f2a0f48c17cf,CH-E11y,659f873a-d3a5-5b47-8468-6c09168f56a0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6597ae2a-de39-5b42-bc89-bfdbd3d894df,CH1Y,3242531a-ec0f-5de6-940c-3f801877dd9e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6cec242a-153e-5fe0-af06-7d519d018bb1,CH1x,3242531a-ec0f-5de6-940c-3f801877dd9e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,a7c9e3c9-731e-5329-a8d5-68046eb81cf2,CH2x,c3c3e4a3-fa08-5881-b290-33ed42a1b4dc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,120817e2-3011-5ff0-b2cc-5a173a4728f5,CH2y,c3c3e4a3-fa08-5881-b290-33ed42a1b4dc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,8a15cf55-498c-5935-80a1-1cbca92fbbfe,CH3,4ae06dd5-3be7-59ee-a0cb-8e791379668a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,c3b4aba8-fe15-56b3-a5e4-6c90538851b5,CH3x,4ae06dd5-3be7-59ee-a0cb-8e791379668a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6f151169-56a3-58d5-9226-df05fcda7ce4,CH3y,4ae06dd5-3be7-59ee-a0cb-8e791379668a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,1be5cfb0-bce7-5010-86c6-fc1be6f001a6,ED2x,86c69125-926a-5a4c-b7f8-643c1d9e3be3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,aa1dd761-0dc2-5fe0-a6dc-042632c2292f,ED2y,86c69125-926a-5a4c-b7f8-643c1d9e3be3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,dc072043-005d-5b64-a75e-83659fdb36a8,EE-E18x,b077c2b6-8be9-5b7e-a026-4c055e6abc9c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f5f0622d-c174-598f-a8cc-c2ce3c55463a,EE-E18y,b077c2b6-8be9-5b7e-a026-4c055e6abc9c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7a0e9217-bd0f-5a54-b9d5-5ad2c7d6ee22,EE-E8x,4f27a172-e609-5803-803d-4c0dcfd2adf8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,503ad278-66e1-52c1-997c-48a7393cbc21,EE-E8y,4f27a172-e609-5803-803d-4c0dcfd2adf8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,4c828cf2-5615-552e-8306-986b60e0e3d4,EE1x,8cca808e-8b2d-5b17-a358-3f02f0cb9cd4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,4084f252-fd19-54d9-8bcb-3272d76c07a2,EE1y,8cca808e-8b2d-5b17-a358-3f02f0cb9cd4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,287d7f67-9a5c-533e-9919-cab8b8099b40,EE2X,f4ac0426-4dec-5365-aaea-3860e0f4c987,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,4c529156-f02a-5284-a227-dc0f316a11c0,EE2y,f4ac0426-4dec-5365-aaea-3860e0f4c987,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,e8350870-858f-540c-bef1-212cf57d0311,EM-E13x,55bd8c3d-a7ac-54e6-9744-24263e87e0b2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,289912c6-2f4f-5ebd-92ed-cfbc29d84372,EM-E13y,55bd8c3d-a7ac-54e6-9744-24263e87e0b2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,c9b1190c-28dc-5f6b-a875-8723cde3a245,EM-E14x,b15a4b01-6577-5105-a08e-e01e4444ba37,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,35c73e2b-ca98-5984-8787-4c76899ee674,EM-E14y,b15a4b01-6577-5105-a08e-e01e4444ba37,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,8d348a61-5dbd-5ad0-9499-bc60e5e280d6,EM1x,dd18edfd-b78c-5d43-9d32-0c161d04b36d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,47ad5d81-d9c1-5106-9aa5-90335551f726,EM1y,dd18edfd-b78c-5d43-9d32-0c161d04b36d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,ed424a82-d602-5021-9d8b-3a9869fc9d81,EM2x,14f40c67-150b-5621-ab96-4b8f3f8f3d0e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,4abfe38c-32d3-50c2-9209-121c0c547833,EM2y,14f40c67-150b-5621-ab96-4b8f3f8f3d0e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,ec318003-b8c5-513e-899b-e21044893ead,EM3x,80cd47b7-cea3-5814-aabb-6776a8b76b15,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,1e6868d0-193c-5cc8-a4eb-bf58117e2e74,EM3y,80cd47b7-cea3-5814-aabb-6776a8b76b15,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,9df6c3c9-6c71-56fb-9c4c-2fa844c5dbdc,EM4,2abec823-fd20-5513-9e5f-fff36c513cd1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,1dbf9300-e672-5df3-9e7b-9f80592928ff,EM4x,2abec823-fd20-5513-9e5f-fff36c513cd1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,cc2edd99-b483-5a81-9bf0-1700cb02aca4,EM4y,2abec823-fd20-5513-9e5f-fff36c513cd1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6085ed58-987e-5217-a795-9ae3f00109fe,EM5x,dec2e16a-7a7f-5f69-b837-e604c604091e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,42f52399-7de8-5585-bf51-df831b40f043,EM5y,dec2e16a-7a7f-5f69-b837-e604c604091e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,be4c3071-81cf-5955-871c-a0e60a15e7d3,ET-E16x,63739aee-ed6c-50fe-844f-df91a0a05f1e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7656fbce-5a55-5d1f-924e-690e15d80024,ET-E16y,63739aee-ed6c-50fe-844f-df91a0a05f1e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,c2cfcd82-2c10-56ee-8515-eba59e616cc0,ET-E4x,c6fd3f45-48b7-5428-9382-4d8da34d3311,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,eed3cc14-8cd8-51df-a932-5db1c6b2e96f,ET-E4y,c6fd3f45-48b7-5428-9382-4d8da34d3311,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,cf0e5f19-7129-5b78-8ee8-dfd0f0ebd9fd,ET-E5x,1122c5ae-124b-55e3-8044-3aab4f1cab29,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,a6c22b68-bc0b-553e-a743-caaa0d0a3c04,ET-E5y,1122c5ae-124b-55e3-8044-3aab4f1cab29,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,bcbf17fc-1073-55f7-929d-368e507f7dc4,ET-E9x,34c9c0b5-319a-5c6d-8343-7f072bea0c6f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7adc0808-8b54-5ae0-b11e-225c9a89f6e5,ET-E9y,34c9c0b5-319a-5c6d-8343-7f072bea0c6f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,b38235a8-c677-5db9-903f-a569e20de62e,ET-LUHX,9c3d32ba-5ef5-59e3-9abf-8209e44b06de,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,4b56aeb4-a5ce-5575-88c3-c7333bdf3006,ET-LUHY,9c3d32ba-5ef5-59e3-9abf-8209e44b06de,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,96dfd6f0-4cea-51be-a80a-4637fae88ffe,ET1x,cc6b4ceb-9396-5344-88aa-45536abb8a92,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,c542680a-2038-57ec-ad4f-babfe2faab15,ET1y,cc6b4ceb-9396-5344-88aa-45536abb8a92,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,610d6f08-08ab-5426-b572-8a20d6c6bb95,ET2x,7d4ae544-b6ac-5774-be81-67385cadd8c6,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,1e92f4e6-425e-5047-baa0-f72bb055c570,ET2y,7d4ae544-b6ac-5774-be81-67385cadd8c6,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,0d1c4f4f-9498-5847-a598-394b5f63684e,EV1x,3ee7e108-0f12-5526-aa0c-9d98e853443f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,b92a6c80-2f19-5749-920a-9529863898c2,EV1y,3ee7e108-0f12-5526-aa0c-9d98e853443f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6bd25b59-f349-5cc7-ae73-7d9550c9c2b8,EV2x,27f6d74e-bd56-5416-8621-33f18177ccf8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,e88e1791-d920-5a89-ad66-07bf5312bb8e,EV2y,27f6d74e-bd56-5416-8621-33f18177ccf8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f89aecab-9302-509d-9395-c86c01600716,FL1x,d55efb80-dbf7-503d-bcd5-b56a90376f72,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,1bef31db-341a-563a-adb9-52f26d466c30,FL1y,d55efb80-dbf7-503d-bcd5-b56a90376f72,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,e0c415dd-7d08-5250-9f27-84ffe238507d,FL2x,18d42dcb-4ab0-5152-8df2-50681fe75c6c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,ad961b00-a876-595c-b743-76c82238bcb8,FL2y,18d42dcb-4ab0-5152-8df2-50681fe75c6c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,13c4e368-019b-5132-93a1-097f28f3cb77,HE1x,79baf835-2e47-5f05-b0f2-e8513962171d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7318a13a-fc7c-5fa7-a273-2e23dec35448,HE1y,79baf835-2e47-5f05-b0f2-e8513962171d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,36a3ef45-df2c-509d-a897-1edbf599a754,IT-E10x,873473f9-de51-5357-9b31-6209df1671ff,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,271ce317-4278-540f-bf55-0fbb2a3a2cdf,IT-E15x,39be5a18-2e0e-58c8-9c62-214c9af71462,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f54a4f0a-358c-554c-b3f6-0ed01df85e5b,IT-E6x,e2f39d4f-face-50d6-8da8-65a078f357b2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,43c61649-a53f-5669-9e09-2542e19ea671,IT-E6y,e2f39d4f-face-50d6-8da8-65a078f357b2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,fad76f6a-431b-57b8-bd32-0aa0a2114ba4,IT-E7x,69688848-6850-591d-88cd-9d8fd09de60c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,10fbcc24-d075-5363-8b45-c84aabf7569e,IT-Epx,202dfc34-5a2c-5b5c-8181-3744b943641d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,b60b6925-1915-5b2b-b6ff-827efe1ecb9d,IT1x,951ec60c-e9de-5777-a102-db51088af9a6,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,4fc1e9f0-db1b-5b70-a037-b5c173164420,IT2x,08dd2f4c-e1c5-5bf8-b81d-c0b770a60a83,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f299e13b-c94c-510d-8ba4-546dbd4d2457,IT2y,08dd2f4c-e1c5-5bf8-b81d-c0b770a60a83,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,9827e2e7-df5a-579c-a02a-1b1acc89055a,ME-E1x,39a2b6d3-4529-5afb-86a2-66ab0b695e63,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,05eb0044-9615-55f4-ab60-2f9dd98efedc,ME-E1y,39a2b6d3-4529-5afb-86a2-66ab0b695e63,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,034783d5-01b3-511a-bef4-68f0e44e17f1,ME-LUHx,1301195c-d702-5223-9abf-5aeb4abdac5e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,d18da9e5-b5bf-5a89-893a-19b97f5d64fe,ME-LUHy,1301195c-d702-5223-9abf-5aeb4abdac5e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,287274fc-39c8-5a64-b726-cc0ab91afd4a,ME-NUTx,d846f8fd-17e0-5575-902e-f473fdefb9b7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,10a17ef1-fe80-5f76-a654-bd700714843e,ME-NUTy,d846f8fd-17e0-5575-902e-f473fdefb9b7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,9a101642-d650-58e0-b604-e9243cd37f45,ME1x,30ae3985-f5bf-5bb8-88f5-8839359338b4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,d97e6ea2-2173-5161-a461-932ddb5c01a4,ME1y,30ae3985-f5bf-5bb8-88f5-8839359338b4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,c9a59150-e038-5672-a2dd-38948652dbf8,ME2x,d87ac3c3-196b-59d8-bb43-b9702e92150f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,d87f3457-1d92-5cfd-a0bc-d0e517ac87c3,ME2y,d87ac3c3-196b-59d8-bb43-b9702e92150f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6ff45063-dd23-5c1b-bba8-638247d495f8,MI1x,64c10856-1ba3-524c-b626-80cbe8e45b42,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,3c074b14-9ddb-50bf-8aa6-486524b9f809,MI1y,64c10856-1ba3-524c-b626-80cbe8e45b42,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,74fafd3c-8e5b-5565-b388-71d07ffd7889,MI2x,7476a86b-0441-5f20-bcac-f9517aff5bb7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,701f3478-f576-5380-b581-190506f33df6,MI2y,7476a86b-0441-5f20-bcac-f9517aff5bb7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7af61b29-c607-5e30-96d6-3e0d00120b7d,MS-E3x,39369f61-9978-5fcd-8af6-42dafe41457c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7cc61526-4ed2-58b1-98c2-cb759bbe900a,MS-E3y,39369f61-9978-5fcd-8af6-42dafe41457c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,a9f926ff-785a-5cdb-9a16-2a57e8539ef2,MS1x,cfa9b495-459d-554c-bd13-a000b155a470,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,fa084775-9026-541f-8987-6d44749ddcad,MS1y,cfa9b495-459d-554c-bd13-a000b155a470,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,85e38b66-4413-5bb4-ac75-f3d62d5091d1,PH1x,5ba166f4-f3b7-5971-93b1-46821d73a9f4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f2df8a32-1bc9-5c16-836b-6aef9c51cc7f,PH1y,5ba166f4-f3b7-5971-93b1-46821d73a9f4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,5070d29b-878b-54c0-bd17-557aad97f385,PH2x,974caaf9-11d3-53ab-8a46-a9dd6e493d7a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,0d69e060-f566-5a37-8648-54186fecac24,PH2y,974caaf9-11d3-53ab-8a46-a9dd6e493d7a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,fd64b3fe-e98e-5e52-91ae-b64a5085dad6,PH3x,b46bd8b1-6331-50af-a12d-f98fcda30041,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,14936033-0ce7-59d7-91e6-6ef5367b7557,PH3y,b46bd8b1-6331-50af-a12d-f98fcda30041,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,bc15f7ac-93fa-58a6-ac23-958e0c83dc43,TE-E2x,d013dae4-52d0-597e-8908-eb1b84149e6e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,43fdbec3-cf31-536b-8cda-52ca0efe2bc5,TE-E2y,d013dae4-52d0-597e-8908-eb1b84149e6e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,7e672fd3-a393-5f32-abef-1439102c4ec4,TE1x,18b6eca0-3954-5a3d-a3b3-a81f3a0f48d3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,333f0551-293d-525a-8b7d-1d1d44edb021,TE1y,18b6eca0-3954-5a3d-a3b3-a81f3a0f48d3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,6b1c8660-3bf7-505b-833b-0efc38ea5e22,TE2x,554e0a67-7ef0-5965-879e-0f3f23cbd997,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,1f4adc01-7b86-5bcc-8a49-e998da896c94,TE2y,554e0a67-7ef0-5965-879e-0f3f23cbd997,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,85c5c82e-0d78-5441-bea3-788bc1ba093f,TE3x,d1e3caf4-d412-501c-b37c-7b401d26b5e3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,06dc7a8b-13f2-5efb-841c-24b7b2d4d7f0,TE3y,d1e3caf4-d412-501c-b37c-7b401d26b5e3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,8f26a80c-b5bd-51b2-b3e0-17da3368595a,TROY-BA,80cd47b7-cea3-5814-aabb-6776a8b76b15,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,01c12bd8-5476-5edb-a78a-1600222ca966,TROY-Bax,80cd47b7-cea3-5814-aabb-6776a8b76b15,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,f65f337f-edaa-5844-8ef5-f1fc2a174a83,TROY-Bay,80cd47b7-cea3-5814-aabb-6776a8b76b15,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,136c3890-bf16-5380-bece-48965bd136e4,TROY-ITx,b49a88fa-494a-56b0-8f72-ac77e15eb40c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,5be7e0ea-3307-5b72-8cc8-deba0eddb7b9,TROY-ITy,b49a88fa-494a-56b0-8f72-ac77e15eb40c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,32b07aa7-aeb4-5053-8134-237f8a6e7de6,TX1x,a031bb80-e129-578e-9002-5febe10ae14a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BKA,5695d8f9-ed44-5f7f-b39e-038490583a12,TX1y,a031bb80-e129-578e-9002-5febe10ae14a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,85d281d6-7bb3-5d11-a28c-00a80797d464,7380101,3b8ca53f-1cf0-5513-8ca2-c01a35be7211,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,e221729f-a825-5db7-8371-8a3a98142f84,7380101_B_C00,3b8ca53f-1cf0-5513-8ca2-c01a35be7211,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,605859f4-cbb3-5120-a992-28ec96539deb,7380101_B_C01,3b8ca53f-1cf0-5513-8ca2-c01a35be7211,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,e19319e7-ab11-5057-9ebc-8a3087d2835f,7380101_B_C03,3b8ca53f-1cf0-5513-8ca2-c01a35be7211,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,0659ab2d-f491-59fe-a4b1-2c3c3351a14e,7380101_N_C01,ca618bde-b6cb-55c9-b3a3-45e20798502b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,580710ae-ebe6-5710-8a5d-005165c7b473,7380101_N_C03,ca618bde-b6cb-55c9-b3a3-45e20798502b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,b30f0ca2-4eea-5155-9ea5-5f4d95eb90e1,7860214,77a1f7bb-f414-5f2c-9af8-69c2cc897173,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,6961339b-e511-5bec-9cdf-2a2531d5e860,7860214_A01_4,74c9467c-bd1c-572c-a2da-c2cfe7f4d403,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,831fe59b-4c9b-5698-9ef2-96efa61643ac,7860214_A01_5,d3127809-327e-5f7f-8494-294bc370ce14,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,b87cd785-1099-5b2e-80f0-008606a44ce7,7860214_A01_7,f1154186-5738-58c1-a666-5138f7579444,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,f4b26d33-aeeb-5134-a978-17dc10ebea68,7860214_A01_9,94b8eae3-b5c5-5964-ba08-03d738274ff0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,3efdfddc-7e17-5017-b6e3-0a629583e14a,7860214_B_A01,77a1f7bb-f414-5f2c-9af8-69c2cc897173,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,ff72939e-860d-5b3c-9e53-9ef48baf1f90,7860214_B_C00,77a1f7bb-f414-5f2c-9af8-69c2cc897173,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,cf51b43b-3417-5fcd-b32c-3381e1be4d4f,7860214_B_C01,77a1f7bb-f414-5f2c-9af8-69c2cc897173,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,33ae586a-e55e-5f76-8a9c-5f5414dfe576,7860214_C00_4,74c9467c-bd1c-572c-a2da-c2cfe7f4d403,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,22ca1ed6-1794-5c4d-8bef-c1b28578e6c4,7860214_C00_5,d3127809-327e-5f7f-8494-294bc370ce14,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,f9363cbc-1c24-593b-8ce0-980b8a837117,7860214_C00_7,f1154186-5738-58c1-a666-5138f7579444,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,ddbd236c-2c17-529c-838f-a9dfee65ae64,7860214_C00_9,94b8eae3-b5c5-5964-ba08-03d738274ff0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,597c6301-0973-5a8e-b69d-8da04c25adcf,7860214_C01_4,74c9467c-bd1c-572c-a2da-c2cfe7f4d403,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,211fd6c3-32d6-5b8d-8be4-173faa0552ee,7860214_C01_5,d3127809-327e-5f7f-8494-294bc370ce14,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,3a364dce-324e-51ec-b596-1b57b1c43cd3,7860214_C01_7,f1154186-5738-58c1-a666-5138f7579444,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BPH,e3696e18-4432-5de5-abf3-242dd44c65cb,7860214_C01_9,94b8eae3-b5c5-5964-ba08-03d738274ff0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,d6798c38-59bc-5efc-a631-491e4debcc32,7340101-LOG,5b2eaeed-afe3-5014-bf5d-f75c36728ff2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,2a88d902-c35b-5050-a1ee-73db3df667eb,7340115_CLC,6f8097b3-6ceb-5cf6-88aa-991326d4fc70,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,621a1cf0-f767-53ba-bd07-2244477c6455,7340208,adbf2cd0-e3e0-5385-92b9-d74b173d08af,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,e68ddce1-3f6a-51dc-b6eb-d2bcf81ea317,7340301-CLC,0a2fed13-1f06-58de-8b28-d34c137042d5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,c8a03501-b96a-58d8-a863-775e65032640,7480201 _CLC,e9eb684d-d533-5574-b17c-24003c8fa52d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,d9c628d8-2fb0-5f38-a601-b09add92f038,7480201-VNH,e9eb684d-d533-5574-b17c-24003c8fa52d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,907af31d-8c20-51ab-a4f3-178209a9402f,7480201_UDU,e9eb684d-d533-5574-b17c-24003c8fa52d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+BVH,34105aea-3fce-52c5-9c3d-3ae2a76c2509,7520207_AIoT,e1048c2e-c498-5425-b095-bdad7a6591e4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,5119a890-ed89-5372-9a2b-da468090e916,7210403,6bea1152-e87a-5e3d-8740-60ff3309b205,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,68a75a10-caa9-5a19-a46a-acad82f10e95,7220210,5a557648-1118-55e9-81eb-28401daea212,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,b71535eb-55f9-5592-8b05-8191fe7cf4d7,7340101,b17a0b08-0878-56f0-b291-a9704ebb3cbd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,a0a080b3-d9ef-597c-9c6d-dce2830fffa9,7480101,84a74714-4be9-557b-aa7c-5e61f12ab08b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,57993e64-feb0-5d61-a6fa-92dcc09ee4d1,7480201,420acca6-dd21-5076-b6ca-f79cacbfc6ea,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,82728615-477c-54cb-900f-ceba7abf995b,IT-VJ,420acca6-dd21-5076-b6ca-f79cacbfc6ea,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CMC,511649bf-a7cc-56af-beb3-98ae624b3b42,IT-VK,420acca6-dd21-5076-b6ca-f79cacbfc6ea,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,454bce7c-eaa3-5a0b-97b3-ecaa430083ac,7860100,ee33d4eb-4ca0-5c1e-8f56-131286a3b3c2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,38cbaf5b-00a9-5426-a9fe-e4f636f19cac,7860100_Nam_1,ee33d4eb-4ca0-5c1e-8f56-131286a3b3c2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,8886e94a-9072-5992-8427-916ea25a8146,7860100_Nam_2,ee33d4eb-4ca0-5c1e-8f56-131286a3b3c2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,b156b2dc-7c8d-5292-ac45-7defd6915a21,7860100_Nam_3,ee33d4eb-4ca0-5c1e-8f56-131286a3b3c2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,1a07f67d-d6fa-551f-b6b6-28157d22b88f,7860100_Nam_8,ee33d4eb-4ca0-5c1e-8f56-131286a3b3c2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,ce8c914a-4eb7-5e94-bb21-fbb069d6cd32,7860100_Nu_1,68583cf6-51e0-594d-a936-fa2492d05a8a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,394c3268-1d90-5a3a-b765-55148fca8949,7860100_Nu_2,68583cf6-51e0-594d-a936-fa2492d05a8a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,f820ab04-3fe9-5039-9b2e-5ebd794ddf37,7860100_Nu_3,68583cf6-51e0-594d-a936-fa2492d05a8a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+CSH,52bf3df8-8bb7-515a-9486-cf94205515fd,7860100_Nu_8,68583cf6-51e0-594d-a936-fa2492d05a8a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCH,08df91c4-0807-55f7-9f40-ba21a258a192,7860207,f1cebae8-ac6f-5dc1-8f63-37e42eef3f52,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,676f7eb1-73c3-53bb-a473-05937ef3386e,7320113,1b66392f-e40e-5a13-9e28-5bac7d2578fe,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,bec61acc-0425-55b5-9237-49c694a8c81d,7329001,1b66392f-e40e-5a13-9e28-5bac7d2578fe,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,355a2260-69c7-5eb6-8861-723ccb976864,7340125,a386bc74-f236-5426-a671-5af8678007d4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,d6a40612-39b2-5036-b68e-e272952905d6,74802021,f57725a4-7330-5594-b424-c4e9ea4a03e2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,43192637-1c4f-5585-9df4-10915addf21d,7510204,8592a6b0-b12b-5116-884e-06c5ba5bd725,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,ad0a0f87-2847-5134-964a-1ccf4a61c59b,7510209,206ffcd0-4046-5956-b094-a2dc165c493b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,9e3ac959-26bb-50de-b44a-5a45907a68d9,7510213,812143d4-11c8-5387-93f9-eb173653dd11,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,7d441f5b-1d5b-5542-9432-a0601c97ada5,7519003,18aaa143-eb1d-5443-82f6-4ae9754818c5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,ba4dd652-5dfe-5e12-8b35-7d1ef77377aa,7519004,812143d4-11c8-5387-93f9-eb173653dd11,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,e5d0bf31-c77b-5c90-a9e5-eec189cf0dba,7519005,8592a6b0-b12b-5116-884e-06c5ba5bd725,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCN,33e58a73-67a4-585e-8d41-11db76091f99,7519007,0dd59373-7e2d-5ecf-9e0d-b8f1f56b8ec5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DCQ,9530fd11-ff43-529e-8432-d171d44939a3,7340202,044e1f16-1733-52a9-9a1b-b760bec0ec3d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DDU,8e659135-dc63-598b-b52a-fc22041c8c49,7240301,304552f4-2d00-5bc4-95c7-d40aa1c21d4f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKH,87839443-0c0b-51b5-85f3-126862ca7e9d,7720201​,716b400d-b42e-593e-9d9c-2452c37b3fa9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKH,4abebd41-10c5-56ac-8049-fa5fb4cc0913,7720203​,9918e1b5-dae0-52e5-a609-7ef03bc6042f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,3cdbf242-3827-5cf7-99d8-9e183ead9d71,7220201,e25ff552-4cc0-5c51-801e-8c62ea0566a5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,37e3041e-d36d-5d60-b41c-c5a140e157db,7340101,93914edb-1a71-5b66-abca-a6d01f413f64,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,e316db51-af9d-5813-abe7-48afa21005a8,7340121,2108f961-085f-50e3-9aa7-1829989ca3ad,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,1823f28a-a3b3-50ac-97cb-fa89f0122742,7340201,50f6d371-81d0-5235-b20d-08585f4cb699,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,ef6b5901-3706-519a-9c77-b0cf30c60243,7340204,0ac9c928-8dd9-53eb-8eb9-25d5b8847029,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,8e30af4c-2a43-5362-9162-444013a7eeb8,7340301,e0bc6c69-7138-56c2-bc30-33dadb30a207,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,4fe4dc00-374b-54a8-8ac2-a73e09129814,7460108,94b3123a-a8ce-54aa-885e-44039231a1a7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,bbe1d80b-1315-52c5-b431-ad2d848e5c8d,7460108DKD,94b3123a-a8ce-54aa-885e-44039231a1a7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,39e22826-ee35-5293-b840-eba4d9d35b82,7480102,83d7a343-414f-5ebd-9e43-0c5ee21cd02d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,8b7d2b04-750f-58e7-b99a-765c253a332f,7480108,ad5bcba0-2dfa-57c7-b6e0-a3f84180089f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,9e28590a-89ef-5e7e-b96d-6cd75194550d,7480201,82e9ff69-97d6-5d0d-8213-3e4c08e72426,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,dc94c2b2-02b1-51d2-9482-0c64e0c18c27,7510201,cc8ade27-f487-5ba3-8d60-fa16c1045a5a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,76a0fc80-cb46-5659-b64a-fcef9536d1c0,7510203,c5cdb555-5cad-5d25-9fe0-5c5568ebcf10,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,1b46d591-0398-53e7-b7d6-3da7b961b0d9,7510205,eb6c94fc-fd9c-5f3c-a433-113da4d6269c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,6eb69e63-1c8f-5fce-8323-b80e74fdac44,7510301,4f557594-a2d6-5b5e-895a-770a75118892,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,a054c727-474c-5c91-9451-5a1ae8ff3fbc,7510302,e780a8ae-d68e-5a10-beda-19e361e69a3c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,57ed8acb-0941-5cc0-a8f9-da28d680e5a1,7510303,483cfff8-c14f-5345-98bc-8f56b9044a83,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,a6d50730-ceea-5bae-9c2e-690b233c5b8d,7540101,28328d4e-0d2e-59b8-bc92-272cfc9a9092,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,7ae47bb6-8c92-5ce3-8edd-df1980b221fd,7540106DKD,77510d7d-39dd-5190-8a66-273a1dd9e046,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,23f5a888-aafe-5a0a-9042-8fffa9b5a2ae,7540203DKD,98b36038-2670-5cd0-a849-6ce2b5e616e6,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,af279776-4c39-5624-a8d8-171148c448eb,7540204,4ba65fee-7423-528d-9702-c95afd92b34b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,c60242f7-aebd-5c81-a98b-02414a03a3bb,7810103,d3c445d8-ea4c-5cbe-a1f9-a413f7ad5efa,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKK,7c232342-431e-5288-851e-ea360fe2a2f4,7810201DKD,c7c7281f-96db-5891-aaee-466d12a7240a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DKS,7bee8a5a-623a-5a93-af22-386a374a0fa8,DKS-LUAT,9a1f2031-72a9-5254-bcab-26eee08e4334,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,27a7b0f3-c9fe-5033-988f-e2ed9b5c4ee1,7310101,9b91326a-fa81-565d-a8a4-f6ef754b19e1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,ce92c8b3-9821-5473-a1c5-24bc35843947,7310401,6f55a2e8-d7a2-501b-8c82-b4074e54eda9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,d2b7297d-36cd-5056-ad69-25444f819d26,7340101,cc231296-1e7d-5ecd-a5d6-0032364722fa,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,3d8839ea-aa4b-54e5-b5ed-d82de830abbf,7340201,5d02f01a-1845-57de-8deb-65048420191a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,aa85bf5d-44f4-54f9-b1d8-a2903e43056f,7340204,3921eff6-12b2-5386-9ab3-9323f7171ff4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,140a1ca9-5a44-58c6-8dca-75b528e11351,7340301,ae6bf92f-f834-5723-a697-6396ab190871,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,0ef6df3b-5674-5f6e-aa6f-c637aed00874,7340404,04c23b4c-fadf-5bdf-9d49-0327d971f185,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,e4d4ae45-a5e2-5713-9bdd-89d8388a6471,7760101,d8ee5759-ff78-5d0f-bf66-0441ed43edcd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DLX,36f9e4b4-1271-5480-9288-f66b2712b1a8,7810103,8dd03ee6-ab44-541b-95b2-6b3c0ec32034,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,3fc25450-4043-55a4-a893-9df53f89fd8f,7340301PH,200cd99f-5e17-5e8c-b728-fac57812ee7a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,ee3fba6a-f61a-525e-ae79-22a582175b1a,7440221,590f17f7-22b9-50de-84a9-f9458b4d0a64,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,c659dcb2-a453-51fa-a489-69ede8b7a425,7480201PH,8cc4397e-1a91-5c5b-b8d4-67f372ed298f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,b2b3ff1c-6fc2-5e5b-8374-e41fcffc1c92,7510406PH,23d03536-f2f9-552e-b1b2-b826845b38c4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,c49b39b0-b13b-5474-96ba-195b5ec6d35b,75I0406PH,23d03536-f2f9-552e-b1b2-b826845b38c4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,8e000a5e-b5a2-58d6-b7bc-5a7a6ed8defe,7810103PH,ac96c761-fe86-5269-b7bd-e1ffa04f0634,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DMT,8ae375ba-48d6-5ecf-8644-21e4eb8096e0,7850101PH,9af965cb-f083-57fe-8e83-2ddaef36b404,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DQK,114b87a1-762c-5b38-a896-eac7eed34000,7340201,001963a4-e072-56ef-8e50-8b5fcdd83a3c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+DTL,29755a20-e649-5cda-a3e9-1e27dbdae6e0,7340106,ea880270-711a-5b11-8d8c-16db48e1f1ca,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+ETU,c0de1ce2-67ff-56b2-9ad5-f2451c66efac,7329001,efeb421c-2ed2-5084-93e1-e6111826e02f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,3a9626ca-3017-5813-9c33-a424ef318638,7340101 LK,6cb85193-3966-5a95-9b11-d1a29b276b90,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,a20cae3a-6224-5bb8-87e4-322f4afc4683,7340101 QT,6cb85193-3966-5a95-9b11-d1a29b276b90,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,4b9183a6-2726-52aa-9f02-36e4b75f8464,7340101LK,6cb85193-3966-5a95-9b11-d1a29b276b90,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,5a0048e7-285d-5991-b14b-0cf059141748,7340101QT,6cb85193-3966-5a95-9b11-d1a29b276b90,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,199216f3-45a6-53d2-aa10-55a945c011c4,7340110QT,6cb85193-3966-5a95-9b11-d1a29b276b90,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,f534bbf6-99f0-5f93-ad46-fe577efbc7b7,7340301 QT,6dff9275-860a-5ae5-9de7-b5b2b8298d78,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,912d3a5e-a50d-5102-b434-2ab55710db4e,7340301QT,6dff9275-860a-5ae5-9de7-b5b2b8298d78,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,e095f70e-6ebc-5882-951d-4fc0e4682514,7480201 QT,39da0434-24bd-5a9f-8a13-176f9445ccbd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,5bf4ce1e-4543-5d91-94d5-321a6da05485,7480201QT,39da0434-24bd-5a9f-8a13-176f9445ccbd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,3894788b-8ac3-5e97-93fc-a3e6a114f3a6,7520103 QT,930fe249-3705-572a-99cb-94939c4cbaf9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,3f61dac2-93d5-58d5-900e-d681da950f8c,7520103QT,930fe249-3705-572a-99cb-94939c4cbaf9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,652693d7-04a9-58cf-8650-3e80e2432ffb,7520116 DS,1819e604-2ab1-5829-977c-606e624a6f61,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,c1364600-afd8-527c-8e19-fdc06648fd2f,7520201 DS,622ac01c-23a9-5a41-b5e1-939c5d14a5c6,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,b5e33dd4-1e39-50c3-a72b-3e9b149c4b5b,7520216 DS,11c6409e-0f6b-5694-b601-0ee4e5478e9d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,3a44b9e2-e940-550d-a302-4bfd81247df4,7520216-GTTM,11c6409e-0f6b-5694-b601-0ee4e5478e9d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,f1b033eb-be02-5799-80c1-acd5bb603db5,7520218,02c14520-2400-58a3-8706-78a1ae3cead7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,d78ad56e-f995-570b-a4fb-0769194f7f63,7580201 QT,17afa26f-fc3a-592f-b864-fdc630c86ea2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,c00a2e8a-eeb0-54eb-8696-6d69e1329a55,7580201QT,17afa26f-fc3a-592f-b864-fdc630c86ea2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,cbe71e28-d967-5b92-8985-c707e3fd611d,7580201QT-01,17afa26f-fc3a-592f-b864-fdc630c86ea2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,1823140b-5762-5566-93e4-3ca977a39aea,7580201QT-02,17afa26f-fc3a-592f-b864-fdc630c86ea2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,e9ea7d8a-ef9b-5e0c-9b32-ffedaafddca1,7580205 DS,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,10a43f9c-c208-5f4e-a9e3-9841aae1ceda,7580205 LK,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,fb288832-12bc-5d46-9210-a14307c3700d,7580205 QT,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,dff47227-d526-5c1a-b2b9-c4575937459f,7580205 QT1,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,9dd20490-30b9-5dbd-849c-2f0314614aa4,7580205 QT2,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,e6b25f31-99ce-5d68-8825-1010573b95ff,7580205 QT3,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,8520622f-9da9-5ce9-8b30-9bba9d518559,7580205QT,561decfd-a83e-5790-94fc-99f06547024a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,2b495c0c-7bfb-5812-9b02-ebfc03dd5249,7580301 QT,41773888-13cb-5403-bf9c-d9eb0c6f021f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,ce002e19-962a-5a84-b92e-cfaee74e8010,7580301QT,41773888-13cb-5403-bf9c-d9eb0c6f021f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,1405ee31-04cd-51a7-b70f-cfd496384d01,7580302 LK,a441b886-b8eb-5f46-9005-44b89a10a6f5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,8408b11f-7d2a-52ae-82a3-473e9d267516,7580302 QT,a441b886-b8eb-5f46-9005-44b89a10a6f5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,1ca15617-05d8-5b8e-a45d-d453e2a89e25,7580302LK,a441b886-b8eb-5f46-9005-44b89a10a6f5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,8134198d-88b2-5be7-a661-02fd32b040f4,7580302QT,a441b886-b8eb-5f46-9005-44b89a10a6f5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GHA,86d8d43c-784f-581b-ab83-a80f0606ef5a,7840101 DS,e3bc4a70-157a-594c-a4db-7ba359346d4d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,019decc7-8c4e-5e53-9095-0e7687af1fdc,7340122,e8ba6852-0ccc-5730-afb8-a6c072294efa,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,da5d36a1-9342-50b7-89f0-86843198ab38,7340301,cce98bf3-9d22-59a1-bcd8-e385536526e9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,21dd40cb-dce8-5d3b-bf7c-4b261aedf63d,7340301TN,61bf0e57-0d0d-501e-a702-884ae36f65e3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,7b824af1-c299-5ec0-b1fc-a65c56998763,7480104,c164fc3d-e104-557d-ad04-6a82033cc997,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,b7e5e2a2-4c79-5656-85e8-f5af79db4e9d,7480201,8a9fb3a9-7d46-581e-9186-4101ea7fd0d7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,cad7b72c-043d-58c2-81e7-4d0b47caa773,7480201TN,8a9fb3a9-7d46-581e-9186-4101ea7fd0d7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,1fa9c35d-723a-5dd6-95a3-d5449fec4fe8,7480201VP,8a9fb3a9-7d46-581e-9186-4101ea7fd0d7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,fc87ccdd-584c-5962-a494-6cdfc7f34d0b,7510203,c5cc058a-7762-5a52-b711-03935cae655f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,daca1299-370f-5348-9c2a-8726c470f5ba,7510205,9997a161-eb9e-54b5-82cd-b572fe56234a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,079e72ce-7b40-5f06-bb62-7fcf5c266f11,7510302,89d380d6-27ec-5e1e-ab34-76f53510332e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,1553cbb2-9a03-5a56-97d0-24b746191739,7510605,0a9ce597-0a23-5492-8209-479a484fed03,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,d6ed32fe-1570-5ad7-a3fc-d5fa85694b28,7510605VP,0a9ce597-0a23-5492-8209-479a484fed03,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,3f8ff1bf-53e4-5193-83a4-77b1ce18b46d,7580301,a876da04-6b77-5812-83d4-8332a142ae3a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,daeab3e2-8098-5132-9e41-1e1a1df7e8a2,7580301TN,a876da04-6b77-5812-83d4-8332a142ae3a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,41d9f665-66eb-5058-a89b-7a8c1e344593,7580301VP,a876da04-6b77-5812-83d4-8332a142ae3a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,6669d4ad-85e6-56ad-8b8c-5be0334938ad,GTADATT2,2874afa3-55be-5212-8c0a-989f5e807cd8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,6ca62e44-53b1-5cd6-b34b-2ee9f192fd49,GTADCBG2,dd4b4aae-485b-54a3-beee-d36271664f08,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,3cef60cd-fba8-56e4-bc27-45252bbb9392,GTADCCM1,3c8452c1-d0a7-58ff-b12f-f3ab3c9ee304,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,93c88fe3-839e-5452-b6d6-e7eb82928a0a,GTADCCO2,c5cc058a-7762-5a52-b711-03935cae655f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,6d0d1021-97c1-5d00-9997-86fdd641c488,GTADCGO2,9997a161-eb9e-54b5-82cd-b572fe56234a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,c61b81ae-3e29-53ed-8a39-812db313cefa,GTADCH2,509c78d2-6eca-564e-a02a-091296a94674,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,abf48c31-8f12-5c29-b859-99561128a2b6,GTADCHL2,509c78d2-6eca-564e-a02a-091296a94674,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,3f854ef1-2fdc-50df-a9e5-31dc5bf29329,GTADCIT2,8a9fb3a9-7d46-581e-9186-4101ea7fd0d7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,3b4215eb-7eae-578c-aebf-cfecc13215e4,GTADCKQA2,4a646d29-0cb9-5f31-8f89-992a487d7c59,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,5d3ac98f-a2db-543f-a92e-fead229430cb,GTADCKT21,61bf0e57-0d0d-501e-a702-884ae36f65e3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,d6a96779-a515-572b-8db6-1d6942044bb2,GTADCKT3,61bf0e57-0d0d-501e-a702-884ae36f65e3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,1999270e-891b-5629-a48b-4835191cf7fa,GTADCKTI,61bf0e57-0d0d-501e-a702-884ae36f65e3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,2740d553-23d7-5d11-81be-97192aaeb3c4,GTADCKX1,a876da04-6b77-5812-83d4-8332a142ae3a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,e0f849f9-0381-5f3a-a243-fe03855f415e,GTADCKX3,a876da04-6b77-5812-83d4-8332a142ae3a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,ef11c1a8-dac4-53eb-85e0-1235dd3d661d,GTADCLG1,0a9ce597-0a23-5492-8209-479a484fed03,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,16a2f1c3-21e4-56e1-877b-d0c2c9211f71,GTADCOT3,9997a161-eb9e-54b5-82cd-b572fe56234a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,857f90f4-06d4-5fc8-9de9-fa20121cb6ae,GTADCOTI,9997a161-eb9e-54b5-82cd-b572fe56234a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,68f95ae3-0717-54cb-bace-5a531755dcd7,GTADCTTI,8a9fb3a9-7d46-581e-9186-4101ea7fd0d7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,a9a925dd-7a6e-56bd-89d3-e05aed3a8d4a,GTADNCD2,622c6b9b-c30a-5a88-9538-8c48bf058024,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,eb3bb9c6-b218-5dc2-b397-57632706895a,GTADNDT2,89d380d6-27ec-5e1e-ab34-76f53510332e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+GTA,760f1f63-1a15-5be2-8b36-cdad4648ef5c,GTADNLG2,0a9ce597-0a23-5492-8209-479a484fed03,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,e3bf8b85-0cec-570a-8608-5212214b8624,522,c4879f83-dcdf-52e5-9f93-50fb6e374c12,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,437c66f9-e9b1-5eaa-b998-20dfac264593,523,c4879f83-dcdf-52e5-9f93-50fb6e374c12,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,878808c2-9948-5cba-86bb-b25779ca17df,"527, 527M",dbe6e35c-3f8b-5add-b507-d070f104051b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,cdcf3692-075c-5c9a-b015-ccfd4fcfe405,"530, 530M",d6e690ba-6483-5bbb-8d3e-679b56636503,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,a860aeab-61c3-5761-a246-04a581910962,"531, 531M",dd637640-fc06-5d7b-aeff-dbe486630c8a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,737937ba-7b56-5c68-b698-f3bed798d4b9,532,81b45e19-8634-59c7-a338-68b96cecb7ff,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,a960bd9d-0599-5219-8505-6d6500ed7ce1,"532, 532M",81b45e19-8634-59c7-a338-68b96cecb7ff,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,5c8e2e53-b22d-506c-a913-8d220f5484b3,"533, 533M",21b3fdd9-9582-5b3b-a01f-7d429cceb739,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,31fa85a8-037b-5702-b712-671946de1d4f,537,81b45e19-8634-59c7-a338-68b96cecb7ff,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,675809ad-b528-5910-89d8-b5dbefc360c9,"537, 537M",81b45e19-8634-59c7-a338-68b96cecb7ff,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,e69ba208-de99-5b74-b5fd-4d85b9d675bf,"538, 538M",a4f35242-51bf-5e18-ac94-13e75534d59b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,9d8afb03-8d1f-5f3f-80b9-d65f86ae670f,"602, 602M",eefbc6d9-bde9-56d6-b233-1b83b2bc54fe,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,e708c87d-0efd-595a-9952-25933f58400a,"603, 603M",557b1dad-0ef2-5ad2-b07d-ff1a8bca7c16,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,e3ee474e-c2ab-53cd-8d68-588df6eeca62,"604, 604M",1a8f44e3-9cfe-5f78-9fdc-191d3214227b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,ec80d909-b08e-5cf7-8116-ca34b2da6d4c,"605, 605M",fa61e0b1-8fb6-58c9-819b-34328df97930,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,5bb863a9-3247-59a2-8201-e2095defc226,"606, 606M",5b9b63bc-4fa9-55ce-94c8-f5d79a6ade57,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,330f9bf3-c9c8-5275-a994-010af504753f,"607, 607M",1962a0de-2b8a-5234-be36-211054c6b9b0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,26012650-8bc1-5bb4-8cd4-b208d745a50d,608,fa61e0b1-8fb6-58c9-819b-34328df97930,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,4d60df31-4f64-5661-a88b-fd521c67ebc7,"608, 608M",fa61e0b1-8fb6-58c9-819b-34328df97930,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,a9b2277b-9d4e-582a-86c4-4b1f7ce73c55,609,1962a0de-2b8a-5234-be36-211054c6b9b0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,e3adfb59-65c9-5bc5-91d5-9367840e526b,"609, 609M",1962a0de-2b8a-5234-be36-211054c6b9b0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,858c2b4d-df35-5468-8e98-b50260951772,"610, 610M",f716582e-7b11-5874-91d1-6dc049688c53,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,a9b2009a-65f8-5049-817c-31b42bd1e04b,"611, 611M",b4e1aa0e-890b-5f81-9c8b-e0feb4b35f88,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,0380153c-0c59-51bb-9a93-e9fd915412c7,"614, 614M",42348794-013b-581d-8380-5681ed242e80,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,24546a14-a6cb-5e40-9fc9-45ff41dca4e5,"615, 615M",9c8b977e-b22a-535a-a39a-e31722783b64,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,705b2e2b-a49d-5d7e-9dbd-1a0201637061,"616, 616M",27fb7aad-d15c-5a55-aa7a-57b7d76797fc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,e8aea21b-4cec-5f13-b44f-205c92481a9c,"7220201, 7220201M",43483b76-9c5b-5ec6-8344-266bad248d6b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,dd883c0c-645d-5c95-9aa7-fe2ae3dd51a6,"7229001, 7229001M",2f8da6e8-f435-58e3-9799-3416597552f8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,2dde50b1-62ab-5f7d-b1c5-a823d701e101,"7229008, 7229008M",9427d170-0cf2-58ee-8024-228096977c31,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,6a97b3d3-b6f5-513d-81c5-a81f6ebbdd9d,"7229010, 7229010M",4cde5142-ecdd-5a6c-81f8-1d193c23f1ac,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,757fb6e1-3cc8-5d01-b0e5-a41affc14259,"7310102, 7310102M",ed198a24-7be8-575b-84d0-c41ed568bd50,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,1063aab6-f2eb-5075-88bb-2f8197b0d811,"7310202, 7310202M",c4879f83-dcdf-52e5-9f93-50fb6e374c12,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,f4b9c337-0982-5b45-91bf-63250870d10e,"7310301, 7310301M",a4140851-0f06-58e2-9615-963a4a05b073,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,bb89b462-7c56-510d-96b0-c133da7dddb7,"7320104, 7320104M",3519a5c4-cec9-592e-8695-7fa83d4c1718,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,95a0c790-1cb1-5658-9806-2dfaaa901d2b,"7320105, 7320105M",49884a9a-8626-584b-a9b6-c1721f080047,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,803f4f84-a2d1-5b05-aff1-b61f1dba018e,"7320107, 7320107M",3afb6535-c0c8-51c5-bec2-bfd99e0186d3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,28ca1403-e5df-5eeb-98a1-73e86ca746e9,7320110,fa1e7f3e-b167-5392-aa3f-7a4dd1e74d3f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,269545a4-d753-5222-a320-b22af7449180,"7320110, 7320110M",fa1e7f3e-b167-5392-aa3f-7a4dd1e74d3f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,b4b3a743-700a-5753-9822-116cbed4e5d4,"7340403, 7340403M",e71b60ac-4a27-5381-b342-1fbd2ce5a0cc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,681a236c-0cfa-568d-857d-67581a16c7a1,"7760101, 7760101M",cce686c1-1024-50e9-8787-1c7b21639aaf,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,04c4eb56-f0ce-5068-adc0-65021e386db7,"801, 801M",2eec2a74-982c-572d-9131-928d55160d1f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HBT,6fbb325d-00e4-531f-86a7-a0bb0bf8cc8b,"802, 802M",e2fca70e-af72-5c64-82b9-e39fe55fce6f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HCP,78c79f52-95fe-547b-8b64-cb317891f2ca,7310106_2,52546c13-5046-5477-8133-6402144ff96c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HCP,b0ce8d2d-1c5b-5622-b854-2fc9ae859eb5,7310106_CLC,52546c13-5046-5477-8133-6402144ff96c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HCP,f193ff7e-db12-5a95-b17f-43bcd4a9351d,7340115_2,d0aed71a-b363-5ebd-b786-6d13db616b9e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HCP,f5ba4688-ea0e-5708-8652-888564e10698,7340201_2,e1a5e593-2c5a-5c4c-895d-e8ec002b60f8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HCP,de01d514-283b-577b-96ff-a35cac04f1fc,7340201_CLC,e1a5e593-2c5a-5c4c-895d-e8ec002b60f8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HEH,f876c1e0-dd73-5239-9250-d866db7f455b,7860218,30417953-b283-5afb-a4b8-d1e45f5e20a2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HPN,e98ffc32-31b6-529a-b27f-4997cb7b119a,7340101 LC,36e11618-fdff-5bee-8731-fb80e0018eb1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HPN,d1649d53-df5a-5d24-a90b-7b79a98f091a,7340101CLC,36e11618-fdff-5bee-8731-fb80e0018eb1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HPN,5f4aa996-b46a-584c-986c-2612004f7c0a,7340101LK,36e11618-fdff-5bee-8731-fb80e0018eb1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HPN,faecd27e-d92b-51b5-9d18-1fff76ea8a82,7340101TA,36e11618-fdff-5bee-8731-fb80e0018eb1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HPN,ee5086a4-eb18-5d2a-93ab-0491c68264c0,7340102,36e11618-fdff-5bee-8731-fb80e0018eb1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HPN,26880401-3340-5e12-be2b-d0fb4329c58f,7420201,a3b684be-b442-562c-bc6c-1f559ef405b2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HQT,04dd8431-e3d9-568a-842e-da416500d78e,7220201,2d88597b-3509-57a1-9dc3-34aed3c2f235,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HQT,c9bd2c22-d26c-552b-bbbb-d9318484c23f,7310106,50ec57b1-9e30-562c-b4de-c9bb1f493b6a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HQT,66e61193-cc79-54af-b69a-7cbef148d17c,7310206,b286cd03-eafc-59fe-af99-dc3ae4c3dbdf,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HQT,efe410cc-4044-5a76-9940-b1911d0f4be9,7320107,16bbe1fa-d6f3-5f54-82e1-38acf2af9ae6,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HQT,9cfd23c5-581a-5223-b4ce-a1a943cfd0d5,7340120,6c3030fe-f109-500c-96d8-f745bdad3573,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HQT,5d8785ab-0d2e-5e2d-980e-393bfdc19587,7380108,f8752bcd-924a-56a3-b08c-57f651091901,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTA,6d67cc77-ba05-57bb-bcc7-33b8ca46af63,7380101_NAM_B,e89eaefd-b71b-5bda-a549-cfd9d5fb9d62,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTA,a60ed3c5-5596-59e5-90b7-a2c1f5e7422c,7380101_NAM_N,e89eaefd-b71b-5bda-a549-cfd9d5fb9d62,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTA,cc3f1706-ea09-5dcc-9234-c84ac77d601a,7380101_NU_B,e89eaefd-b71b-5bda-a549-cfd9d5fb9d62,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTA,d3f52def-37b4-5b88-967c-f0a44ec8629e,7380101_NU_N,e89eaefd-b71b-5bda-a549-cfd9d5fb9d62,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,c6a93e7f-6565-50cf-a0ab-49f944a63ebe,7220201,6e70d7f8-132e-50d0-a7ea-151b8f7692b1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,4394312a-9701-53b7-87ce-30fb0b4a0818,7310101,29034daf-3dd5-5984-9065-57f09fd2af33,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,812196c7-29d4-5052-bb9c-72bdd2b2e80d,7310102,b0fd64a4-8f8a-5f93-a601-99979209a24d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,8b6cc808-5f47-5089-bc78-82d722081b13,7310104,53a94883-7ed4-5adb-b0ee-7acfd346c209,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,92ef9e63-ed76-50b9-b313-5eed04ace57f,7310104QT12.01,0dc0575c-790c-582d-bc43-b3eb322e59c4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,b84b2e5c-221b-5efd-b249-584582b11823,7310108,c2be6aca-7254-5f97-a5a3-ed2cbe845c01,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,1966c9a5-7b73-5af5-bd7a-8b1fe5253e67,7340101,acb793e6-4677-5aee-ad44-14aa5d488723,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,52a1f35c-2094-5b04-bd9f-0741d6fd948a,7340101QT03.01,17ceb67f-aaf9-511d-bbe9-cd53c0823553,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,d87323b4-14c4-595c-80b8-75df3cf7671c,7340115,c5d7d225-4bff-5a08-9bd6-956ba4ef016a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,42ef3d9d-9cd9-5ecc-b603-c855663f2360,7340115QT11.02,ca940dc7-dfbf-5715-9e57-38b46b5a99d4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,7d702366-9886-59d7-ab24-06db78fa2e99,7340115QT11.02PH,ca940dc7-dfbf-5715-9e57-38b46b5a99d4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,b5bcb95a-ba9e-51d6-b504-a716bbee1f74,7340116,5382c665-c16d-5623-93a6-c24f4e45e258,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,3fcdf96d-05ff-5bfe-84ad-aafac5bdecd7,7340116QT09.01,7d3f640c-276b-553d-963f-0e9fa2238a2b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,42a39a2d-812e-5dde-984e-8c2127590f13,7340120QT15.01,82c56ef9-3b8f-520f-b935-31097e72b54d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,14452418-0ce5-5aa7-b5e1-7c30b0df0cfe,7340201,45fddaa4-fb0e-56a2-891e-591ef9e14ddd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,a09be5a2-5b14-5555-80e8-71ac0fcb8a0f,7340201D,45fddaa4-fb0e-56a2-891e-591ef9e14ddd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,55e97283-0638-54a9-967b-b189d50a61af,7340201QT01.01,a557e403-6212-52a8-add1-f365eafbfc08,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,bdfa5231-fc8f-5265-b19f-f8942f680896,7340201QT01.06,443a8a68-fab5-5e62-ad6e-5d65f0187cb0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,fb91fd34-c31f-5051-b6c4-73076025d95f,7340201QT01.09,7e88e7ad-f2b6-5d23-a4d0-a984ecd33000,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,e556f5f1-6a52-53bb-939e-b58862cae8db,7340201QT01.11,35e5214f-cd8e-5a4e-9c94-50fd95cc4070,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,3050b662-bfda-5eb4-a76f-a386a844506a,7340201QT01.15,9ef37e43-f479-5e22-9927-f603d3d30c90,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,37ad5091-6604-54b9-9216-aeae35ce7b1a,7340201QT01.19,3099bd3a-b8d7-572e-b774-d3bdf672b222,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,0a6181e8-5769-59e8-b79a-14c62de43761,7340204,87ddbb9e-f239-5a7c-9870-ff3368cd5600,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,744c55e3-f144-5492-be13-cdb693633d8d,7340301,dfac0317-0960-5f72-b569-6d5bfe489bd9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,41bee15f-0d14-5432-a173-6ca771cd64ed,7340301C22,141538fa-a4e0-577c-a64d-2c16afb1cbd8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,6798c741-5a62-5853-84a0-194652af10ef,7340301D,dfac0317-0960-5f72-b569-6d5bfe489bd9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,3750f2e7-c359-5f08-a1c5-1e377e9de8ef,7340301QT02.01,dfac0317-0960-5f72-b569-6d5bfe489bd9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,2792e900-6699-5447-8d93-95a81502e9f6,7340301QT02.01PH,dfac0317-0960-5f72-b569-6d5bfe489bd9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,494a5651-a554-5e99-be3b-05a5c07ba7b1,7340301QT02.02,5e27fa56-ef09-5b4e-b340-d0227a445b01,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,c8ddcd94-109a-5288-b5f7-f9e0beca628b,7340301QT02.03,e2a12c81-dd95-514a-be72-f892f069ba74,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,2ddaf627-5b0d-5505-b1cc-d5b94d6e354d,7340302,141538fa-a4e0-577c-a64d-2c16afb1cbd8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,ab7f8112-2e2f-54ec-a3c6-ba9ddea362a7,7340302C21,dfac0317-0960-5f72-b569-6d5bfe489bd9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,8adb00bb-2498-59cb-b547-ed497b936147,7340302C22,141538fa-a4e0-577c-a64d-2c16afb1cbd8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,a89dd906-e417-5862-8765-c7085ff2d263,7340302QT10.01,fa5f1b8c-4686-53fe-8a70-9edbbb9713e1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,b05b8992-5d04-5fcd-b1a9-27d634590ac7,7340302QT10.01PH,141538fa-a4e0-577c-a64d-2c16afb1cbd8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,c96b5c65-92f5-5db4-9be5-129f4cee6719,7340403,572d7fd4-35de-5084-a548-9fef91361992,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,5c6aac15-1731-5275-a5c3-fac1362f761f,7380101,a6824e99-5ff5-5392-869a-0cf0a50cbea9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,24e62589-49c1-5408-bc6e-bbc5c0e04fd7,7460108,e6c117d5-b3a1-528c-85e1-d018726256bf,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,bf0c7eab-0777-5f1a-852a-592e55aefd64,7480201,198b8454-bef0-5800-b661-5ecc92cd46b0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HVN,faea6d24-7d45-5cef-99b5-58c7a54ea747,HVN25,aed6cac7-757f-5377-b142-b79af495ed7b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HVQ,b5bbe42d-c71e-58cd-b2ac-35ef41474d51,7340101,2320ec9b-ce42-5d8b-987e-1314e9df6546,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KCN,9daa8234-fbfe-51fd-a9bf-92e13ed54a9f,7480109,6dea22f5-4500-5681-a677-9a4282ae2590,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KCN,ed714862-f5b4-5f68-bc3a-5adb0768928c,7480109 (7480109),6dea22f5-4500-5681-a677-9a4282ae2590,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,aa712c04-67cd-576d-8a0f-7e83db1f313b,7310101,49953b80-c47d-5f03-9a8e-503a3d4a9a0d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,1ff4da9b-dc05-5040-a986-53720f5caa18,73101011,49953b80-c47d-5f03-9a8e-503a3d4a9a0d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,b84c8a19-1ce0-5383-81f6-28e082ee36b1,73101012,487ebdad-de5b-5ab1-8cea-3b38645983fb,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,64199ee9-feb5-5504-a4dd-1d470a7dad8f,73101013,7ee811ca-0458-5320-a5c2-61acfe54f44a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,03be187b-0a77-59c1-a32b-9becb15c147d,7310104_CLC2,d6a261da-05c3-5206-9967-789a7bd6516d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,f1928c4f-48cc-57a7-aa4a-4d90d9f32644,7310105_CLC1,a6aa4980-cce8-5fc9-9a60-6b8a222154c3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,20b536c8-59d5-5868-b14a-d90e479e4257,7310106_CLC3,74996915-90bd-554d-a9f7-603bab3f38a8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,b3af90c8-68b9-57ef-9a04-6e1d67dc725b,7320108_CLC2,57e03b2e-a250-5776-a464-c320bc87ac6a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,27be2c96-1945-5634-a7de-af3a7014e870,7340101_CLC2,b7c9bf71-a441-5e8f-b468-81e4e6b67783,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,bc5ab685-6872-5434-93b8-5508196222b8,7340101_TT1,b7c9bf71-a441-5e8f-b468-81e4e6b67783,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,d38fa076-f8bb-5819-b0d4-41d13ff58f7a,7340115_CLC3,94d1f37c-8465-5453-b26c-d09ace3a454d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,966b434c-8fbf-5ba0-9678-d0854a1d330d,7340120_CLC3,f7bd921e-c3cc-55bf-9edd-29fd5d3fe6a7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,fe342ae2-b2bb-5d18-87c5-b44e85d5ccc7,7340120_TT2,f7bd921e-c3cc-55bf-9edd-29fd5d3fe6a7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,10469717-eee3-5951-bd5a-5d8b021cf5cd,7340122_CLC3,4625fd53-5903-5b27-85f7-4ca49dccb207,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,d9060a21-4646-55bd-9071-ea101f53f109,7340201_CLC1,56904c65-ff57-5eb0-a335-b89fa96a2f1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,d5748bf9-10ba-5bda-bc72-4a5eae0e5d9f,7340201_CLC3,56904c65-ff57-5eb0-a335-b89fa96a2f1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,b694f08e-1cc2-5aa7-9ea5-bc93e918d9d0,7340201_TT1,56904c65-ff57-5eb0-a335-b89fa96a2f1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,0a773fc7-34c7-578f-ba1f-8ebd2d5cb52b,7340201_TT2,56904c65-ff57-5eb0-a335-b89fa96a2f1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,90f35ddf-4283-54f4-b561-43bc8db7281b,7340204_CLC1,26445a3d-d392-5809-a01a-f08534e8af7c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,0c1ea674-ecb6-5c5d-8367-577542a2cfda,7340301_TT1,fb70777c-5d53-5ab7-aea5-ea1684071ccb,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,4c0e660d-5208-5130-aedd-e615d4de07a5,7340302_CLC3,3a098d43-9ead-5ee2-af26-07cd5d273b37,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,5a729095-8685-5cde-a5d9-eec83785c7e3,7340404_CLC2,f6343f04-428c-5914-a6b1-b1673e6a0662,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,c64958f8-a74d-5919-9eba-fe55afd34959,7480201_CLC1,f0039c39-f0ba-5bc7-8673-8b6c63fef7fe,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,8821c490-e793-55f8-ad48-a51e78fe4ada,7510605_CLC3,c0f8b0eb-a32a-5c57-b89b-0cc52ef59b3a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,d4223bd4-7f9a-504d-9a9c-5054ec5bbd46,CT1,56904c65-ff57-5eb0-a335-b89fa96a2f1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,a17ea75b-dfb8-5785-81e2-8c8e35e69d6e,CT3,e5d54189-7811-58f8-8428-f7506edc8737,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KHA,83cd6eb6-89ea-5c04-86c3-208c638e8082,POHEI,adb5fe98-703d-56ca-8e6e-a76721f9a963,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KMA,5131a5e5-8898-52c6-8124-e5aa32e8e864,7480201KMA,0eb1c653-bf92-5167-aece-089fc30eaac1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KMA,56379d74-d496-57ec-a696-1818e90f5b68,7480201KMP,0eb1c653-bf92-5167-aece-089fc30eaac1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KMA,ecb7333a-b414-5cc7-9bea-4ceaf9303ae3,7480202KMA,9694885a-59be-5178-8fca-bf3fa73bea5f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KMA,88458f6d-df4e-5220-95bf-519bb3f7b14e,7480202KMP,9694885a-59be-5178-8fca-bf3fa73bea5f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KQH,299c97be-22f8-5554-bcd8-41e7d0b5a9cf,7860220,fb4c6a70-253b-5532-8c2f-35fc5005d42c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,f909ffef-1ad5-5460-99bf-abc65134ed1a,7480201-1,57d8f106-ff81-5705-837a-3ea328761e31,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,ebbd60a7-8256-554b-99da-b08eb0eee9c2,75801011,dfd9c693-9b09-5f6c-a0d7-b92abbb96d2a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,48e75fd2-f16d-5f7f-9d66-92fe5d0bd584,75801051,547d001c-9a2f-58cf-903e-73f6b13e6adc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,3277c25f-900a-5ad9-891a-9e571a4c21fa,7580201-1,028fb885-5393-5396-9fb2-882f7576b48a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,8196116f-a027-52ce-b05a-add6ea35bf09,7580201-2,028fb885-5393-5396-9fb2-882f7576b48a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,964410d1-3347-54d5-9d04-049429a0d7e9,75802102,103087f4-7ba5-5e0f-b3af-86a4ee4c058e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,84d400ab-7784-52b7-8898-232bd79bc5a4,7580210_l,103087f4-7ba5-5e0f-b3af-86a4ee4c058e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,8d0d71b5-8415-529a-9434-1cb6397f05fc,7580301-1,9189cde4-bc7e-5ab7-aa15-9356cc82d3fd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,64e8eda8-25f9-54a9-bb72-34a7ee9ea9d9,7580301_1,9189cde4-bc7e-5ab7-aa15-9356cc82d3fd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,0c11d90d-1763-5fdc-9e1f-7bbf1c0cc575,7580302-1,709acd0d-58df-5957-b9ab-27d07d03a24b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,f63375fe-dbe8-5a29-a124-440d286edcd9,7580302-2,709acd0d-58df-5957-b9ab-27d07d03a24b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,896de0a1-63d5-5afd-b1fa-911166c26500,7580302-3,709acd0d-58df-5957-b9ab-27d07d03a24b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+KTA,fba82006-7c29-5d5e-9384-6ab14db6a169,7580302_3,709acd0d-58df-5957-b9ab-27d07d03a24b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+LNH,682baaa6-7a98-52c4-a71a-c41ee8b9a838,7620202,a2524a8c-a54c-57b2-ad5e-6e5ad3ecae0e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+LNH,c5312148-9a2f-5b33-bc0e-78db168081d0,7908532A,3f62d442-365e-53e5-90dc-93b355ba5ea5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+LPH,4b8e9fc7-9b00-5769-8d61-52f62418ad89,7380101LK,09cc797d-23a1-5e50-91f8-a7f7eb808b4b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+MDA,3f39d294-01b3-5b7f-8c29-c0c3bc64cbf4,7480109,d32b6c3a-f979-5cd4-b12e-280c0571eb13,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+MDA,3df8189b-5a4d-5d40-9da7-dde01ce97470,7480201_CLC,677af1a4-ddeb-5f53-b9b1-01cf83d2c89f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+MDA,5020fa12-434a-592a-96ae-cdb38fa034f2,7520218,1c3c411c-1c79-5c97-937e-cbd8f5dc4565,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+MHN,21b06250-9733-5f97-8bec-711bc54091b3,7380101_C00,00d0aa18-2710-561c-a5f1-541173fd94bd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+MHN,870633cb-56c0-5ada-9bed-66d42ea5e652,7380107_C00,65bf17a3-4ca4-5b54-bfa0-fb7950b8ba07,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+MHN,b551efe6-4d87-597a-bc5e-2d01d78214b9,7380108_C00,99fe8467-17b8-5397-86ac-2e89fd25f31e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHF,fb7645e1-e6e3-5da3-95ca-538033832f57,7220204 CLC,db952711-f377-50a7-9ef2-30b3d4a6ffde,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHF,9fd12c0f-e73d-57ce-868f-1c85f4e3b388,7220208 CLC,baf19859-73c4-5348-870e-f86c957ca4ae,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHF,d18d8040-864f-5e11-baf5-352225147882,7220210 CLC,780b287c-02e8-5c12-9702-7aace4d7fce7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHF,24f9932b-5bc1-5d3f-a74c-5ad88b1457cc,7480201 CLC,99173b57-48a2-5d7e-83fb-26d9fb6357b9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHF,a09e9726-2098-51cd-a5c9-8a81990c2a17,7810103 CLC,21b728e5-e26e-53a7-aa25-7b72c4a78fe1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,5be5e52d-1239-5f4d-8f58-a35b46b8b4a6,7220201,7454626b-79d1-5e11-839f-854a12635b7c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,368693d6-f9f3-5faf-8970-132e42ef8cdb,7310101,05898ab2-58db-55dd-b1fb-90abd15ace6c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,1eb69425-8be1-5d4c-9dd6-b747c1798a2b,7340101,fc3aa268-1379-584b-bae9-3f9cbe2f4db1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,ef57df0a-50b4-5b4e-9549-81eafcb1b2f1,7340101_AP,fc3aa268-1379-584b-bae9-3f9cbe2f4db1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,b1bc6f9d-e87c-5cd6-8234-56ed83234a9d,7340101_IU,fc3aa268-1379-584b-bae9-3f9cbe2f4db1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,028391c8-6559-59d4-9641-6cac6fc7a89a,7340101_IV,fc3aa268-1379-584b-bae9-3f9cbe2f4db1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,a185f298-8190-5235-9649-8a1ad6eb74f2,7340120,87a8ace7-37da-59a0-8875-bcd46f2eda67,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,b9475843-87cd-5ed9-aaaf-d02b00a8633f,7340201,98460437-9916-5d81-9992-7e6253d02570,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,1a83a21e-88fd-5eb3-9293-ef4ca7e9fb37,7340201_AP,98460437-9916-5d81-9992-7e6253d02570,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,79e08477-bcc0-546f-a505-2251613d82b2,7340201_AP_NH,98460437-9916-5d81-9992-7e6253d02570,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,24ab350c-ae72-5228-8fe3-01dcaa174e04,7340201_AP_TC,5ae24839-9e4f-5f0f-a228-bf88c32be8ee,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,56de33da-de18-5575-9eed-dec9a127a721,7340201_NH,98460437-9916-5d81-9992-7e6253d02570,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,a58de21c-8f9c-553b-b2ef-b3c2f0ae0d94,7340201_TC,5ae24839-9e4f-5f0f-a228-bf88c32be8ee,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,03214b89-6db6-582b-b6fb-2668644e9478,7340301,006dd7fb-b60e-50dd-9495-e60d45286c16,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,5f189252-212f-5e37-a001-752aff9caffa,7340301_AP,006dd7fb-b60e-50dd-9495-e60d45286c16,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,cdf4ae3d-c7c8-5c25-abcc-30e18d081a0a,7340301_I,006dd7fb-b60e-50dd-9495-e60d45286c16,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,572a5c8e-77bc-5684-8086-8b269189592e,7340301_J,006dd7fb-b60e-50dd-9495-e60d45286c16,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,64d6c011-f912-5899-a836-b04c4fd6d84f,7340405,fb856203-cd6b-57f2-995a-5fa736dadb0f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,0db96e9e-4a70-5190-9e76-afae613c9430,7340405_J,fb856203-cd6b-57f2-995a-5fa736dadb0f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,bcefc11c-8840-591f-9c3d-81ec638db847,7380107_A,82a9415e-f8f6-5ab4-83bf-6eec012e5e87,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,e488c87b-3c25-54cd-b331-5d6abf155985,7380107_C,82a9415e-f8f6-5ab4-83bf-6eec012e5e87,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,02418a64-5fc7-5fae-af6e-8037b2fb0226,7480201,8e196aaa-d2e8-5833-90c1-83b21a378205,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,6786e02c-2b7f-5879-8510-7961743458d2,7480201_J,8e196aaa-d2e8-5833-90c1-83b21a378205,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,0472374d-63a7-53b6-afd0-b7f72bb91df2,BANK05,98460437-9916-5d81-9992-7e6253d02570,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,5dc66dbf-a95c-58ef-b73f-54307e79ffb2,BANKK02,98460437-9916-5d81-9992-7e6253d02570,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,7f8321bd-d0ad-5b0b-8113-8fbd5d249513,BANKK03,44a0456d-ea76-5e17-8251-bb691165efe9,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,5e007896-8021-5cbf-9e3d-33c8a266f647,BUS05,3746200f-45b9-5d06-ae4a-3dc2eb1a7bdf,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,4380c26b-79c6-51aa-8a22-883ec4bd4a84,FIN03,925c9d50-9ffc-5f3d-a81e-14d0d84d35ac,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,187aae46-11dc-56c6-a0a1-ffef77bb5426,IB03,87a8ace7-37da-59a0-8875-bcd46f2eda67,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NHH,9ac0281b-4516-5506-8cca-0c9dea0949fd,LAW02,82a9415e-f8f6-5ab4-83bf-6eec012e5e87,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NQH,e25941dc-3b2c-5e34-8bda-c0293327f06e,7220201,28e5f858-a4f2-576b-a67b-9629e06ec52c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NQH,e6b307b6-7b03-5082-bb15-d9864faf1944,7220202,43d19976-9bd0-54b1-8faa-b56e9cf39e37,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NQH,601b3993-9019-51d7-be97-51bb06e9e1b5,7860231,34c992a0-e050-5eb4-87a3-42c55df30944,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NTH,ff4d6751-9848-5263-8206-94fc071e7c23,KTQH.1,b1775eaf-8180-56ed-b06f-d621de51d51f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+NTU,248bd398-7d80-5441-bc31-60b3502afc7d,7580108,f0e7cce2-bcbb-5070-bba9-b3fd0b3ed7ff,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,c2294445-27f7-54a6-9773-4f3f9143f3f1,B01,1d5159e3-74d4-5613-8d1f-d20d33f2f571,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,bc444f8e-92df-536b-a097-4202f4e33f74,BI01,1d5159e3-74d4-5613-8d1f-d20d33f2f571,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,ba9ae634-1700-5024-86c4-16d6f217ac3a,EEE-A1,7675fe49-6d1d-58b7-92c0-df5414923455,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,f0d4e5e6-016b-5aa8-9e11-b4bdc35ab7c7,F0L1,bc8e038b-b457-586e-99e6-193539ccfc05,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,2c3e60fc-df6c-5e87-9479-dcfdf629a15d,F0L2,5cd86835-f4a1-53d3-9594-460600d59a79,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,7a1c3fb3-3432-5dc1-a62d-e46802bd3095,F0L3,5a70ad90-48a6-5811-96c6-50967b912ed0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,8ef6f951-3df6-554e-a815-c8ad06056efb,F0L4,64854ecf-79db-5ae0-809a-9fb871d2117f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,057ff0f5-0d0c-56bd-bf24-4e8ea13b2b5c,F0L5,ed698edd-1741-5f9a-83c7-c5759516c166,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,4cb726e4-a341-51bb-b6d0-2624f6076477,F0S1,ac2f297f-c06a-551e-9f64-bc59253184e4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,fc00821f-1877-561a-8920-bf86faa9b65e,FBE9,24d8cc9f-4f86-52b4-94d7-6ae775af742a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,6e10528c-b634-5e61-a93f-cbd6be51075e,FBES,bc8e038b-b457-586e-99e6-193539ccfc05,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,2926a6b9-8941-54b9-bf09-8248c06625b1,ICT-AI,a0fd3053-aa92-58f8-a9eb-37217f49760f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,ca30a772-1c4d-5b55-8a68-5cdb9bdee519,ICT-V3,0d766252-6c05-513d-95c8-0af581adf657,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKA,0fe80e23-4ac8-52f8-b950-438830741941,NJR1,e3f1b674-5e9b-5f1e-8391-ea3c0e057bc1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKH,801d7b78-8030-54db-a574-9978e2f82860,7860226,10e4cd1f-32bd-555d-9b5a-d85c6ea7c14c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKH,50007cc3-2be5-5f3a-9a10-ffac9451cc0e,7860226_B_C01,10e4cd1f-32bd-555d-9b5a-d85c6ea7c14c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+PKH,7b3e9900-1fe6-54ed-8350-ee7b609ee057,7860226_N_C01,632142b7-0fb1-56c1-8115-0a295acb8776,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,6ce98223-871e-501c-bf1c-22aad961a416,734010101,18b6428e-39c5-5c71-9375-8bd21b3e940c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,84f74875-8adf-5a62-a1ad-e7fb9a44de44,QHE40,18b6428e-39c5-5c71-9375-8bd21b3e940c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,507900fd-231c-5c15-af6d-42d99afeaed1,QHE41,75da58a4-7376-5a8a-b6ea-5517175333fd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,4e5c6359-025f-5654-9a60-9d3df75f507f,QHE42,cfd503da-6a95-5c1d-8b7c-c9976a216b1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,660112b8-c0c3-5c96-8a62-6c53f774f38b,QHE43,97a20cf3-295b-519f-a03a-cf6e43a3d66a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,3e655f78-03f9-55b0-86ae-55b4e0bd810e,QHE44,3badafaa-3b14-585d-82cd-0cc07603e3ac,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHE,cd37c0ad-f24e-5349-a1f5-69d300aa59f2,QHE45,216a3088-981b-5cb8-8ac0-3c45a7f2cdf0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHF,08541048-3fb0-5c26-a047-7341fa997241,7220212QTD,bb932572-0ad3-5bda-a04b-44a5f70a414a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHI,292a424c-bdc3-5489-9b4e-63da875551b2,CN16,498c55ee-13b4-5d43-98ea-e347178179b0,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHL,3df71b0e-19f1-5df7-a96e-e614f89c770b,7380101CLC,4cb49e51-40f7-55db-afe9-2a56ed6dba97,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHL,24115577-801c-53a1-a43e-a8b916258b18,7380110,34238de9-9ae2-5a18-ade5-71d820e092df,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,6a24f1af-b4fd-57a9-8020-548eacd1a5a1,7220201,e17d8a99-1c37-5088-9b59-68bc81ce0c66,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,eef9cfd5-fd9e-50f0-b00e-028102dadd7a,7340120,3c8d777b-a66e-50e5-ac69-1d94420c8d01,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,d6b47f32-37af-582c-b3b9-a9d9fdfee333,7340125,cb232d09-2757-5087-a370-86f16811a002,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,372b9b36-7764-5428-8c64-15a0c451ca88,7340303,8c75a93b-2bbf-5a7a-9ec8-7968c85b005a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,4f82c1a4-f06a-5243-8069-003daf1dba7c,7340405,96dde947-bbe8-5849-8246-490c99544da3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,5a90c36b-7e13-57a6-ac65-787ffc92b121,7480111,fdd27dcb-e12c-5af0-9fce-c55f2ca06071,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,6dc6f64e-7cbb-536c-89e7-f5ba2b4c4f2d,7480209,ccbc13db-d103-517e-ac2a-e41663f7fd54,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,8d8f9f0b-8528-5b56-950b-c08c5086b0fb,7480210,acbb1aa2-5758-55be-9d95-ce5d1cdb9f8d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,511137aa-5d2e-5594-9784-96b05b9c232b,7510306,5be2cee0-4be3-5459-84e1-64c19eb7ab08,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHQ,19e197ea-87e3-51c0-8e2b-8cab1b6afcb9,7520139,165921cc-8ae7-5187-a08b-e774da381722,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHS,67608c7b-0c86-5690-a489-44594d895de4,GD2,8a7cab41-7b31-5264-a5d2-3f5ba637632f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHS,66f08b1f-db03-5a2a-b294-8e5bcd0113db,GD3,ceb600da-80cc-522a-b4e3-f848b8e4a823,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHS,86564eb4-99be-5d07-82eb-d1b49ba44b3e,GD4,dcfd1a0e-e184-5f0d-8bd1-9cf18c8eabec,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHS,9d79c56d-3805-5989-9447-c7dae1691ffe,GD5,60bb4cda-fa79-5fbb-896f-a1a1c13d2100,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHT,28fdc1d2-8393-5a25-973a-8d39f47f42f1,QHT40,e33c179d-e13b-5d12-9b04-1dfc211a4525,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHT,78556fc8-078c-5cce-8a70-9ec22bc7ddbf,QHT41,e33c179d-e13b-5d12-9b04-1dfc211a4525,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHT,38b46cc6-a50f-5aed-8eea-3a1a3d186e48,QHT42,e33c179d-e13b-5d12-9b04-1dfc211a4525,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHT,c8401d3a-ccbb-5624-b761-ef45a1944395,QHT44,4124ccb9-dcbd-5619-ba7c-546e1e1a60cd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHT,d232caa0-23f6-53b5-ad9b-ff2915b55872,QHT46,998b9bd7-75aa-5789-b662-08339fa4b1af,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,d725bbe0-71d1-507c-82ab-e0c6e1f83bfa,OHX07,8965d12d-4cc1-524d-88b2-9551475d47fa,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,42a13f0f-65fe-5344-ad0c-c0b437c44d9d,OHX09,39ee4ecf-5b70-5ae3-af28-cdebe8c8b100,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,eaafb3b5-eb5f-5f1c-9daa-0616ccf9e819,OHX21,aaf35b9a-e619-56f6-ab9d-8b4d37951b96,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,455d46da-eeec-5f50-9d9e-af4cb74f05bc,QHX40,4d6ec798-ba0a-55d6-bb0b-5d5007d3e7db,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,2e1c08a5-7625-5b05-961f-a59cacceffac,QHX41,8965d12d-4cc1-524d-88b2-9551475d47fa,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,cccd3072-e842-5a00-a103-9114c9c29de2,QHX42,1e9372c5-0b27-5542-974e-b745c8b767fd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+QHX,9e48c68c-d508-5271-a2b9-93d9b8df8390,QHX43,69c724cb-c437-5f15-b077-7ef9d93a692a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,611bb240-2411-58d9-93cd-9969b01db4b1,7140114C,1354b3fa-feab-5fc8-9d74-b9f565d5705d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,5ba379be-a605-5d68-a74a-be04dad63f37,7140114D,1354b3fa-feab-5fc8-9d74-b9f565d5705d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,32821d37-8057-5ec3-8deb-0eaad9baecff,7140201A,8587d7b9-fcce-57a5-93f6-a2dc353a7c5b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,70070a8f-a53c-5ddf-9179-51539ff25502,7140201B,8587d7b9-fcce-57a5-93f6-a2dc353a7c5b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,1ab65ab8-f921-5428-9ee5-e72bb86b88b1,7140201C,8587d7b9-fcce-57a5-93f6-a2dc353a7c5b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,2db1127d-ccc0-5062-9609-4c4cbfcc3cbf,7140202A,eb7d9a9f-30f2-5dba-b185-f61d1bcfd98e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,779d1c07-4a36-5d42-87a3-e206fec89501,7140202B,eb7d9a9f-30f2-5dba-b185-f61d1bcfd98e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,39cc3b98-ad02-58da-9bf7-1f74f2e5c2f1,7140202C,eb7d9a9f-30f2-5dba-b185-f61d1bcfd98e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,58fa5d11-7bae-5d23-9cbe-1f87a94795c3,7140202D,eb7d9a9f-30f2-5dba-b185-f61d1bcfd98e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,27b80557-3e89-56ea-a0f7-e9d36683b0c9,7140203C,84e6718a-4e33-5696-9833-8252006001a2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,54d28845-74bc-542f-af53-b7eb57be7d3d,7140203D,84e6718a-4e33-5696-9833-8252006001a2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,1f4ff3c8-84df-55b9-8099-1fd0b7570d9b,7140204B,16fa1a9f-06e4-5d9a-acc1-27f42046a2e1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,6cf81319-8ab8-53c9-aaf0-1ab0e89ad1f2,7140204C,16fa1a9f-06e4-5d9a-acc1-27f42046a2e1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,0cb58620-35d4-5426-80ee-e4de36032c38,7140205B,77da6a12-1a73-53b2-aa41-0762115d630f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,07a9cc2e-5e27-5c72-aaf8-ec507fb43b8e,7140205C,77da6a12-1a73-53b2-aa41-0762115d630f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,137cdf30-0fd8-5e9b-8e4e-b79a6f31ccbf,7140206A,797054aa-aebb-5db6-865a-3a2c6e34696c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,b59bc621-cee3-5393-a8d0-da05c3508ab7,7140208C,3c1481fe-3a0b-50f0-a66e-f2ece1767326,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,dc604d0a-a5dd-5bcf-9939-e6832d89ce30,7140208D,3c1481fe-3a0b-50f0-a66e-f2ece1767326,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,b618de94-d107-5b2e-aceb-00a53abfe3c5,7140209A,5174c18b-e779-521a-9103-e4e7ba1bc4d8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,8d69bed4-cee6-5f24-b92c-9b0ba052b6a5,7140209B,5174c18b-e779-521a-9103-e4e7ba1bc4d8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,8f5cddc0-6f82-5752-a68e-6ddac5bf4ef1,7140209C,5174c18b-e779-521a-9103-e4e7ba1bc4d8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,ba1f8988-cabf-58ee-8996-142a3dd1eb86,7140209D,5174c18b-e779-521a-9103-e4e7ba1bc4d8,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,af3d036e-e251-5f18-8f1d-125701b76cce,7140210A,1a3e6b58-7054-5835-8c48-9f6a40fb4317,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,1fb48029-feb4-5919-a955-44b6318b99db,7140210B,1a3e6b58-7054-5835-8c48-9f6a40fb4317,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,a1bbe804-432c-57ff-8fec-2b8f969d66a3,7140211A,c2a63d0c-8fc0-5222-bb6b-da029ca3c044,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,45417196-a624-5e2b-90de-5131282e51f8,7140211B,c2a63d0c-8fc0-5222-bb6b-da029ca3c044,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,fbec6f64-a3c5-5099-a1e4-34e3d08df600,7140211C,c2a63d0c-8fc0-5222-bb6b-da029ca3c044,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,56588e9c-250b-5572-9a04-2286ec1f66d8,7140211D,c2a63d0c-8fc0-5222-bb6b-da029ca3c044,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,524e24e1-9a29-5f83-a3fd-5d65ae039903,7140212A,b6330db4-ad89-5c26-8fab-6f4c26d9a26d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,7c615134-4559-59a8-a67a-17182e6eb700,7140212B,b6330db4-ad89-5c26-8fab-6f4c26d9a26d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,cca5a427-b75f-5777-b7b4-e13845b75bb2,7140212C,b6330db4-ad89-5c26-8fab-6f4c26d9a26d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,6790a25a-93d5-59fc-9572-aab7ae5d6329,7140213B,5524e492-e1be-5d74-b17c-d08d43054531,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,6fb9044f-0104-5496-be95-bc05ce1ca410,7140213D,5524e492-e1be-5d74-b17c-d08d43054531,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,41503c83-6abb-5736-8741-b303793ae9af,7140217C,84d275bf-0e28-5fe3-a4ff-6c4e400e8590,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,1bc48814-d2fb-58f9-8635-f48a9de83e2c,7140217D,84d275bf-0e28-5fe3-a4ff-6c4e400e8590,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,82e07af9-bd50-5e9d-b8a1-d9d492dddebb,7140218C,d665b005-9c2e-5f5a-941c-379d2628729b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,2348466e-60b0-54b9-bf68-d45cd90a5ba6,7140218D,d665b005-9c2e-5f5a-941c-379d2628729b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,95ddf981-284d-5814-9330-618a3562be5b,7140219B,af3ca499-b6b4-5e25-82b3-93c8a39a46bd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,c066f64a-8bad-5c6f-a0e8-ef4bedbd664c,7140219C,af3ca499-b6b4-5e25-82b3-93c8a39a46bd,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,79ab6cfb-05c3-5e04-96e4-69f5a685af2a,7140221A,d06eef1a-2019-516b-aeba-cc9525ddc28a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,9507d666-1702-5b27-9c62-e0d991495f55,7140221B,d06eef1a-2019-516b-aeba-cc9525ddc28a,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,31b7512b-0442-52e2-8552-2b4714ef5b1f,7140222A,fed35cfc-1758-5e0b-aa90-79fd2bf21563,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,27c0ce4e-7339-5527-874c-76f6e6fa5e69,7140222B,fed35cfc-1758-5e0b-aa90-79fd2bf21563,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,f3259f52-9823-5135-aa35-c62269927541,7140231A,4664dc3d-aac9-5e00-a7a4-3fa92781b887,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,d598acb2-221e-52f1-a093-fa860f0383b7,7140231B,4664dc3d-aac9-5e00-a7a4-3fa92781b887,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,5b1cd45d-97f2-5a44-87ba-7d8ad6290253,7140233C,1bf5d993-006a-529f-849a-5a97178f3bad,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,67cfbd92-37b0-5821-bb2c-ba17b524dc8a,7140233D,1bf5d993-006a-529f-849a-5a97178f3bad,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,11d9155c-68c1-5e37-9164-e4b07eb405c6,7140246A,087cdf91-fbc9-56ab-b69a-ade442c2500b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,a2fd9c33-70a5-5e6c-8f2c-a63950b4ee91,7140246C,087cdf91-fbc9-56ab-b69a-ade442c2500b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,2f3b41ad-cd5f-5d6f-82a1-c342db84497c,7220204A,82efb721-8c04-52c7-8c7d-ce2ad9273202,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,e14ac130-4178-5e47-90b3-22d5543304f0,7220204B,82efb721-8c04-52c7-8c7d-ce2ad9273202,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,09b1d3a1-9604-5103-adc4-6e59d532c860,7229001B,39fe483c-2db9-5b5e-9761-3c8b90518261,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,4500ee22-334c-5b2e-b6a9-9211c1ee35d1,7229001C,39fe483c-2db9-5b5e-9761-3c8b90518261,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,e07fecab-91de-5a2e-95b9-7d06157c40e9,7229030C,62c1616f-1384-5434-b148-fdab2431e307,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,090b7e7e-0bf7-580c-ab92-d7d51fc9f145,7229030D,62c1616f-1384-5434-b148-fdab2431e307,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,c82a55fd-7c67-57ff-b1b8-b2b89a96f7d5,7310201B,54c915ce-ab36-52c3-9c01-63e12f413f4b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,025215d5-f6c6-5cfb-a00d-034684134f08,7310201C,54c915ce-ab36-52c3-9c01-63e12f413f4b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,3a262fa6-cd05-5397-8c0f-2af3c5f14f5a,7310401C,93e53ad9-656f-58cb-bdb3-2a5f8db915d2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,2fa53856-39f8-5c6e-a3eb-3f70ec157cd5,7310401D,93e53ad9-656f-58cb-bdb3-2a5f8db915d2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,0f202d49-0a8b-508f-b167-1e21fc137e1c,7310403C,b16ba017-0d82-56be-8591-37ed837de6fe,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,ce3807f8-549e-521c-a11e-ea2e994b4e2e,7310403D,b16ba017-0d82-56be-8591-37ed837de6fe,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,46df5005-510a-5265-8642-e77ac85f6cc9,7310630C,014815f5-c395-5282-9ad3-818aa4b06e3c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,31294a35-e03d-5258-947b-63a4edd2feb7,7310630D,014815f5-c395-5282-9ad3-818aa4b06e3c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,58ed8715-9283-5d05-9cc8-9d213df2bcc1,7420101B,c7a10233-cf13-520e-98e0-7db724947ede,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,38d71285-fa8e-5e76-ad9a-0f91f8f8bbc3,7420101D,c7a10233-cf13-520e-98e0-7db724947ede,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,777b7982-a57f-56f5-b2b5-4f46c6cb5e98,7440112A,b41bfc6a-67bf-5e97-8718-f67f0600fc87,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,65ac9146-99bc-5596-b1cc-24bb70734139,7440112B,b41bfc6a-67bf-5e97-8718-f67f0600fc87,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,fef6a255-e10e-5862-898a-e3701b7250b4,7460101A,69d2ea5a-2c54-5b5d-a0d8-73e63809e294,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,2339510f-2a77-58ce-b29f-851ba3310c80,7460101B,69d2ea5a-2c54-5b5d-a0d8-73e63809e294,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,ed0ed294-fd59-59a8-9caf-adf63be8fb10,7460101D,69d2ea5a-2c54-5b5d-a0d8-73e63809e294,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,1bb20ddb-e5cb-59cd-bcd0-19c6ef8e5bf5,7480201A,82ff7ed0-80ff-538d-90c0-5dca0039d283,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,e4c0b2bf-885b-5bc8-b3e5-0b998c521ace,7480201B,82ff7ed0-80ff-538d-90c0-5dca0039d283,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,acf2eed1-88fb-5365-9ab5-bc95ad35eaa0,7760101C,b115d254-34d9-5dc1-b7da-49fad7d75dc3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,d5ef7b5c-fa21-5b0b-8635-217f5c95a13e,7760101D,b115d254-34d9-5dc1-b7da-49fad7d75dc3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,ff0765e6-4ddf-53f6-8606-5fbf8e2dca89,7760103C,9bb709b2-de96-55b3-a7e7-acbea4ca58fc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,d362e950-a5de-50c4-b713-aed93fec5682,7760103D,9bb709b2-de96-55b3-a7e7-acbea4ca58fc,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,9b58144b-0082-594b-bada-00fe80866ccf,7810103C,5e542de4-3f84-5c60-bb52-0dc399d809bb,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+SPH,eb002441-78c4-582e-9cbf-6b271d022aff,7810103D,5e542de4-3f84-5c60-bb52-0dc399d809bb,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+VHH,e2149c92-2354-5183-b78e-5d16cbc2c2e0,72202001,61a4f0d5-ae52-514c-9a32-68c1560400b3,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+VHH,e69304ad-7408-5677-9fa1-1003ba04e682,7229042E,93e95671-1e74-53f1-95fa-0d1772d355bf,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+VHH,adf3b55d-5bdf-5043-b26b-487a82fbbf40,7320201,38b23c4c-253f-51cc-8a91-78021fbf263e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+VHH,6060b41e-6a4e-5b76-9b19-f4ee2fede310,7810103,b4f630bc-a5f7-5408-a7c4-da264427e48b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,47aeb781-0a83-56b8-87ff-57ec57f78362,7520101_01,15dcb011-de93-5e2c-93c7-a8dd0af0be8b,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,52482be8-4dfd-5248-b577-1ee9ee6a5185,7520101_03,e0284918-de96-5902-8840-ca6a43b821b5,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,0ece60b2-cb3d-5c43-bce9-b6e1246b3f80,7520101_04,9931c89c-9add-5c31-8d58-d62ec333f0d2,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,09d96c1b-d1a4-5bc2-b06f-7ddb98c86ecf,7520103_02,6cca7d38-9533-5132-b1da-9d67c2637572,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,42885dc1-9e90-5bf1-8a48-78b069a1d85f,7580101_01,94ed4785-db5c-5682-8ae7-033f7a35cc34,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,6e7caf7a-b5dd-596a-bf9f-9c1c735dffd3,7580105_01,9d9586e9-86b4-5a8a-924e-e3f9c799ff01,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,70a86aeb-727c-547b-bcf7-7cf820200b5b,XDA01,94ed4785-db5c-5682-8ae7-033f7a35cc34,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,fd874257-f657-5cb8-abb9-c549661995b3,XDA02,94ed4785-db5c-5682-8ae7-033f7a35cc34,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,308efd61-e27e-5c13-9e8c-50b543167e7c,XDA03,94ed4785-db5c-5682-8ae7-033f7a35cc34,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,b233f832-0002-5ad6-9eff-2010392d1e08,XDA04,94ed4785-db5c-5682-8ae7-033f7a35cc34,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,3761cf16-b994-5b45-937b-c78d6793a559,XDA05,9d9586e9-86b4-5a8a-924e-e3f9c799ff01,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,a3bb1685-d57c-58b4-a77d-32d3caa8dc7f,XDA06,94ed4785-db5c-5682-8ae7-033f7a35cc34,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,8a8f38e5-06c1-596f-8f4f-1997764565d8,XDA07,161a3c94-2056-5d04-adbf-2182af730784,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,bc38abeb-1ac8-55de-b3a9-afccb6d4b876,XDA08,161a3c94-2056-5d04-adbf-2182af730784,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,b23f505f-4299-57ce-b2a3-2bd258a577d8,XDA09,161a3c94-2056-5d04-adbf-2182af730784,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,0732e9a8-d7c1-510b-93ec-3344bc0ec2aa,XDA10,ba035a44-0556-5ebf-bde9-50c3cdcaa227,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,cac1da61-1467-51b4-a932-c33e2665d7e6,XDA11,161a3c94-2056-5d04-adbf-2182af730784,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,fc1453e2-5494-5b07-9d3f-24f07940ffde,XDA12,493004b8-43dc-5c7d-a2e7-3d26ef80a3a4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,a8ce0475-1624-5e4e-a173-12071c558fba,XDA13,a416d316-e59f-5704-9c00-a6bc3223f600,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,10e108cf-681c-5b73-967c-005031657978,XDA14,552ed032-072a-5e7e-b086-1b09401ddb55,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,6d7d5bcc-2cdd-539a-8b20-1a4f64229a7a,XDA15,55b13e6a-684c-5840-95dd-29c0205e1eb4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,a62da6fc-a043-5356-be40-b1f499b29faa,XDA16,8c488fc9-4759-5b2b-bf1c-6a5021fb8735,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,a5144a78-7c0c-5a00-a0a8-0241f9df0a2e,XDA17,5b632f81-b722-5e2e-890c-8d71c5ec714f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,c7e5c9da-164b-5757-83df-5ee5e14360fd,XDA18,6cca7d38-9533-5132-b1da-9d67c2637572,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,6207146d-26e6-5d0a-b62d-ee43312fb28d,XDA19,6cca7d38-9533-5132-b1da-9d67c2637572,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,e461d1eb-695f-57a6-bcf2-bfddc25bf628,XDA20,6cca7d38-9533-5132-b1da-9d67c2637572,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,00c3fbea-c0ab-5094-88e0-0b42c3a68444,XDA21,6cca7d38-9533-5132-b1da-9d67c2637572,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,b1bcd5a8-5339-573e-8cd0-915b7107e416,XDA22,6cca7d38-9533-5132-b1da-9d67c2637572,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,4046cfc1-a09a-57d0-b368-99f4e4e0d6d6,XDA23,0ac6f2c9-a458-5208-81f9-06609edfbac1,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,9ebe63ba-e282-5f3a-a173-947ce7d7e404,XDA24,e798b587-5d16-56c0-a999-f64c842ebf1c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,0b158e93-8fe7-5f67-9f1d-d144671f30b2,XDA25,6b413116-990b-5797-ade4-b181923005ae,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,fb7bd2c8-fdae-5f90-b2c4-18ad1087472d,XDA26,2ba6761b-1535-5be6-a501-ba0408b5734c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,d984cdcb-1ef6-57fc-94a8-02fd08683a35,XDA27,161a3c94-2056-5d04-adbf-2182af730784,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,81f14fd6-b944-5c8f-b791-d0d179992a30,XDA28,5b632f81-b722-5e2e-890c-8d71c5ec714f,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+XDA,dd7f70ed-8ab0-5447-95d6-b299688d9888,XDA29,2e02ea82-140d-551a-85f5-6ed3b655715e,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,17c14dbc-d267-506c-90e7-241b19ebe3a1,7720101YHT_AP,8b1b65ce-64fc-5789-b058-7ad1c0e9d28c,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,0c45a689-8ce3-5d7f-981f-5cadc90a11f4,7720101_AP,f92cf150-70db-5126-b1d2-1e6bec7137e4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,4e770b69-4700-5d8f-b4b7-e42d0e78883f,7720101_YHT,f92cf150-70db-5126-b1d2-1e6bec7137e4,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,2987e3b6-e853-58e9-9086-1949b61eac6a,7720301_ AP,ed957d1f-8c99-570a-af17-b006f086965d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,6b1122b4-4fd4-51ce-b042-eddac2890413,7720301_YHT,ed957d1f-8c99-570a-af17-b006f086965d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,df1a96f5-27e0-5272-85b2-c27d1e9218ec,7720501_AP,7217f3c8-061e-5b6b-acb3-80b973244b31,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YHB,476ffcb9-2542-56ab-ac14-937eb2f02737,7720699,28cd49fb-aed3-5ab8-a526-8ea02560da1d,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YQH,938dec01-8400-503c-883c-d14adafc3caa,7720101,3fc59f8f-a13d-5afe-a6dc-66e271a9fee7,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+YTC,c223c930-cced-50f5-b92d-9d38aa162bc8,7480109,a7609784-5b3d-554c-ae1b-22f31783f074,,,Dữ liệu quá khứ (Mã nhánh/Biến thể),false
+HTC,891f33f8-36f0-5f30-893e-50cc693b5f14,7340201C09,7e88e7ad-f2b6-5d23-a4d0-a984ecd33000,,,program_code không có trong course_catalog,false
+HTC,648de4a9-a0d5-5bf1-933c-4af6aa7668c4,7340201C11,35e5214f-cd8e-5a4e-9c94-50fd95cc4070,,,program_code không có trong course_catalog,false
+HTC,f5178618-7aa7-5259-af89-fe92c7904864,7340301C21,dfac0317-0960-5f72-b569-6d5bfe489bd9,,,program_code không có trong course_catalog,false
+HVN,cee3738e-1070-5a8c-bc3f-09ff9ee7bd66,HVN24,2af82e8b-7fe3-56f6-97fc-2ea24d1178da,,,program_code không có trong course_catalog,false
+MHN,4e8890e0-0151-5d0c-8847-2bb069b8b879,7210402,b08c52d2-3e64-5de7-9fd6-a36977627947,,,program_code không có trong course_catalog,false
+NTH,02fbc844-63cb-503c-a741-458f14383b26,KTEH1.1,5a701c92-4c5d-5803-8f8f-507e469da6fb,,,program_code không có trong course_catalog,false
+QHS,7120cd83-d986-514c-81e6-f348e81fba75,GD1,336079fa-f3a1-5b16-aec0-68757a65b4db,,,program_code không có trong course_catalog,false

@@ -1,51 +1,52 @@
 import { useState, useMemo, useEffect } from "react";
-import { Link, useSearchParams } from "react-router";
-import { Search, Filter, Star, ChevronDown, BarChart3, Eye, SlidersHorizontal } from "lucide-react";
+import { useSearchParams, useNavigate } from "react-router";
 import { getAllUniversities } from "../services/api";
 import type { UiUniversity } from "../types/api";
+import { B, StarRow, SketchHeading, dashedRule, CenterNote } from "../components/bunik";
 
-const dotBg = {
-  backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
-  backgroundSize: "24px 24px",
-  backgroundColor: "#FAFAF8",
-  animation: "dotDrift 24s linear infinite",
-};
-
-const handCard = {
-  background: "#fff",
-  borderRadius: 20,
-  border: "2px solid rgba(91,79,207,0.12)",
-  boxShadow: "4px 4px 0px rgba(91,79,207,0.09)",
-};
-
-function ProgressBar({ value, max = 100, color }: { value: number; max?: number; color: string }) {
-  return (
-    <div className="h-2 rounded-full overflow-hidden" style={{ background: "#F0EEF8" }}>
-      <div
-        className="h-full rounded-full transition-all"
-        style={{ width: `${(value / max) * 100}%`, background: color }}
-      />
-    </div>
-  );
-}
-
-const sortOptions = [
-  { value: "ranking", label: "Xếp hạng (Cao → Thấp)" },
-  { value: "score_desc", label: "Điểm (Cao → Thấp)" },
-  { value: "score_asc", label: "Điểm (Thấp → Cao)" },
-  { value: "rating", label: "Đánh giá người dùng" },
+const sortChips = [
+  { value: "ranking", label: "Xếp hạng" },
+  { value: "score_desc", label: "Điểm chuẩn cao" },
+  { value: "score_asc", label: "Điểm chuẩn thấp" },
+  { value: "rating", label: "Yêu thích" },
   { value: "name", label: "Tên A→Z" },
 ];
 
-const regions = ["Miền Bắc", "Miền Trung", "Miền Nam"];
+const regionChips = [
+  { value: "", label: "Tất cả" },
+  { value: "Bắc", label: "Miền Bắc" },
+  { value: "Trung", label: "Miền Trung" },
+  { value: "Nam", label: "Miền Nam" },
+];
+
+function Chip({ active, label, accent, onClick }: { active: boolean; label: string; accent: string; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className="bunik-card"
+      style={{
+        background: active ? accent : B.paper,
+        color: active ? B.paperLight : B.ink,
+        border: `2px solid ${B.ink}`,
+        borderRadius: "15px 11px 14px 12px/12px 14px 11px 15px",
+        padding: "6px 14px",
+        fontFamily: "'Be Vietnam Pro'",
+        fontWeight: 600,
+        fontSize: 13,
+        ["--rot" as string]: "0deg",
+      }}
+    >
+      {label}
+    </button>
+  );
+}
 
 export default function TruongPage() {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [sortBy, setSortBy] = useState("ranking");
-  const [selectedRegions, setSelectedRegions] = useState<string[]>([]);
-  const [scoreRange, setScoreRange] = useState<[number, number]>([0, 30]);
-  const [showFilter, setShowFilter] = useState(false);
+  const [region, setRegion] = useState("");
   const [compareList, setCompareList] = useState<string[]>([]);
   const [universities, setUniversities] = useState<UiUniversity[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,10 +58,6 @@ export default function TruongPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  const toggleRegion = (r: string) => {
-    setSelectedRegions((prev) => (prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]));
-  };
-
   const toggleCompare = (id: string) => {
     setCompareList((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : prev.length < 5 ? [...prev, id] : prev
@@ -70,373 +67,159 @@ export default function TruongPage() {
   const filtered = useMemo(() => {
     let list = [...universities];
     if (search) {
-      list = list.filter(
-        (u) =>
-          u.name.toLowerCase().includes(search.toLowerCase()) ||
-          u.abbr.toLowerCase().includes(search.toLowerCase())
-      );
+      const q = search.toLowerCase();
+      list = list.filter((u) => u.name.toLowerCase().includes(q) || u.abbr.toLowerCase().includes(q));
     }
-    if (selectedRegions.length > 0) {
-      list = list.filter((u) => selectedRegions.includes(u.region));
-    }
-    if (scoreRange[1] < 30) {
-      list = list.filter(
-        (u) => u.avgAdmScore === 0 || (u.avgAdmScore >= scoreRange[0] && u.avgAdmScore <= scoreRange[1])
-      );
-    }
+    if (region) list = list.filter((u) => u.region === region);
     switch (sortBy) {
-      case "score_desc":
-        list.sort((a, b) => b.avgAdmScore - a.avgAdmScore);
-        break;
-      case "score_asc":
-        list.sort((a, b) => a.avgAdmScore - b.avgAdmScore);
-        break;
-      case "rating":
-        list.sort((a, b) => b.userRating - a.userRating);
-        break;
-      case "name":
-        list.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      default:
-        list.sort((a, b) => a.ranking - b.ranking);
+      case "score_desc": list.sort((a, b) => b.avgAdmScore - a.avgAdmScore); break;
+      case "score_asc": list.sort((a, b) => a.avgAdmScore - b.avgAdmScore); break;
+      case "rating": list.sort((a, b) => b.userRating - a.userRating); break;
+      case "name": list.sort((a, b) => a.name.localeCompare(b.name)); break;
+      default: list.sort((a, b) => a.ranking - b.ranking);
     }
     return list;
-  }, [search, sortBy, selectedRegions, scoreRange, universities]);
+  }, [search, sortBy, region, universities]);
 
   return (
-    <div style={dotBg} className="min-h-screen">
-      {/* Header */}
-      <div
-        className="py-10 px-6 text-center"
-        style={{
-          background: "linear-gradient(135deg, rgba(91,79,207,0.08) 0%, rgba(67,217,163,0.05) 100%)",
-          borderBottom: "2px solid rgba(91,79,207,0.08)",
-        }}
-      >
-        <h1
-          style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "clamp(1.8rem,4vw,2.5rem)" }}
-        >
-          🏛️ Danh Sách Trường Đại Học
-        </h1>
-        <p style={{ color: "#4A4A6A", marginTop: 6, fontSize: 15 }}>
-          Khám phá hơn 200 trường đại học trên cả nước với thông tin tuyển sinh đầy đủ
+    <section style={{ maxWidth: 1200, margin: "0 auto", padding: "42px 24px 60px" }}>
+      <div style={{ animation: "riseIn .6s both" }}>
+        <SketchHeading kicker="tra cứu —" width="72%">Danh sách trường đại học</SketchHeading>
+        <p style={{ color: B.body, fontSize: 15, margin: "20px 0 0" }}>
+          Hiện có <strong style={{ color: B.terracotta }}>{filtered.length}</strong> trường khớp bộ lọc — bấm vào để xem chi tiết.
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        {/* Search + sort bar */}
-        <div className="flex flex-col sm:flex-row gap-3 mb-6">
-          <div
-            className="flex items-center gap-2 flex-1 px-4 py-3 rounded-2xl"
-            style={{ background: "#fff", border: "2px solid rgba(91,79,207,0.15)", boxShadow: "3px 3px 0px rgba(91,79,207,0.08)" }}
-          >
-            <Search size={18} color="#9090AA" />
-            <input
-              type="text"
-              placeholder="Tìm theo tên trường, viết tắt..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="flex-1 outline-none bg-transparent text-sm"
-              style={{ color: "#1A1A2E" }}
-            />
-          </div>
-
-          <div className="flex gap-2">
-            <div
-              className="relative flex items-center gap-2 px-4 py-3 rounded-2xl cursor-pointer flex-shrink-0"
-              style={{ background: "#fff", border: "2px solid rgba(91,79,207,0.15)", minWidth: 200 }}
-            >
-              <select
-                className="appearance-none flex-1 outline-none bg-transparent text-sm cursor-pointer pr-4"
-                style={{ color: "#1A1A2E", fontWeight: 600 }}
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-              >
-                {sortOptions.map((o) => (
-                  <option key={o.value} value={o.value}>{o.label}</option>
-                ))}
-              </select>
-              <ChevronDown size={14} color="#9090AA" className="flex-shrink-0" />
-            </div>
-
-            <button
-              className="flex items-center gap-2 px-4 py-3 rounded-2xl flex-shrink-0 text-sm"
-              style={{
-                background: showFilter ? "rgba(91,79,207,0.1)" : "#fff",
-                border: `2px solid ${showFilter ? "rgba(91,79,207,0.4)" : "rgba(91,79,207,0.15)"}`,
-                color: "#5B4FCF",
-                fontWeight: 700,
-              }}
-              onClick={() => setShowFilter(!showFilter)}
-            >
-              <SlidersHorizontal size={16} />
-              Lọc
-            </button>
-          </div>
-        </div>
-
-        <div className="flex gap-6">
-          {/* Sidebar filter */}
-          {showFilter && (
-            <aside
-              className="w-64 flex-shrink-0 hidden md:block"
-              style={{ ...handCard, padding: 20, alignSelf: "flex-start", position: "sticky", top: 80 }}
-            >
-              <h3 style={{ fontWeight: 800, color: "#1A1A2E", marginBottom: 16, fontSize: 15 }}>
-                <Filter size={14} className="inline mr-1" /> Bộ lọc
-              </h3>
-
-              {/* Region filter */}
-              <div className="mb-5">
-                <p style={{ fontWeight: 700, color: "#4A4A6A", fontSize: 13, marginBottom: 10 }}>📍 Khu vực</p>
-                {regions.map((r) => (
-                  <label key={r} className="flex items-center gap-2 mb-2 cursor-pointer">
-                    <div
-                      className="w-5 h-5 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{
-                        border: `2px solid ${selectedRegions.includes(r) ? "#5B4FCF" : "#D0D0E0"}`,
-                        background: selectedRegions.includes(r) ? "#5B4FCF" : "#fff",
-                      }}
-                      onClick={() => toggleRegion(r)}
-                    >
-                      {selectedRegions.includes(r) && (
-                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                          <path d="M1 4L4 7L9 1" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
-                      )}
-                    </div>
-                    <span style={{ fontSize: 13, color: "#4A4A6A" }}>{r}</span>
-                  </label>
-                ))}
-              </div>
-
-              {/* Score range */}
-              <div className="mb-5">
-                <p style={{ fontWeight: 700, color: "#4A4A6A", fontSize: 13, marginBottom: 10 }}>
-                  📊 Điểm chuẩn TB: {scoreRange[0]} – {scoreRange[1]}
-                </p>
-                <input
-                  type="range"
-                  min={0}
-                  max={30}
-                  value={scoreRange[1]}
-                  onChange={(e) => setScoreRange([scoreRange[0], Number(e.target.value)])}
-                  className="w-full"
-                  style={{ accentColor: "#5B4FCF" }}
-                />
-              </div>
-
-              <button
-                className="w-full py-2 rounded-xl text-sm"
-                style={{ background: "rgba(91,79,207,0.08)", color: "#5B4FCF", fontWeight: 700 }}
-                onClick={() => { setSelectedRegions([]); setScoreRange([0, 30]); }}
-              >
-                Xóa bộ lọc
-              </button>
-            </aside>
-          )}
-
-          {/* Main grid */}
-          <div className="flex-1">
-            {loading ? (
-              <div className="text-center py-20">
-                <div className="text-4xl mb-4">⏳</div>
-                <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Đang tải dữ liệu...</p>
-              </div>
-            ) : (
-              <>
-                <p style={{ color: "#9090AA", fontSize: 13, marginBottom: 16, fontWeight: 600 }}>
-                  Hiển thị {filtered.length} trường
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                  {filtered.map((u) => (
-                    <div
-                      key={u.id}
-                      className="relative transition-all hover:-translate-y-1 duration-200"
-                      style={handCard}
-                    >
-                      {/* Compare checkbox */}
-                      <div
-                        className="absolute top-3 right-3 w-6 h-6 rounded-lg flex items-center justify-center cursor-pointer z-10"
-                        style={{
-                          border: `2px solid ${compareList.includes(u.id) ? "#43D9A3" : "#D0D0E0"}`,
-                          background: compareList.includes(u.id) ? "#43D9A3" : "#fff",
-                        }}
-                        onClick={() => toggleCompare(u.id)}
-                        title="Thêm vào so sánh"
-                      >
-                        {compareList.includes(u.id) && (
-                          <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                            <path d="M1 4L4 7L9 1" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                          </svg>
-                        )}
-                      </div>
-
-                      <div className="p-5">
-                        {/* Header */}
-                        <div className="flex items-start gap-3 mb-4 pr-6">
-                          <div
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center text-white flex-shrink-0"
-                            style={{
-                              background: `linear-gradient(135deg, ${u.color} 0%, ${u.color}88 100%)`,
-                              fontFamily: "'Baloo 2', cursive",
-                              fontWeight: 800,
-                              fontSize: 16,
-                              boxShadow: `3px 3px 0px ${u.color}30`,
-                            }}
-                          >
-                            {u.abbr.slice(0, 3)}
-                          </div>
-                          <div>
-                            <div className="flex items-center gap-2 mb-1">
-                              <span
-                                className="px-2 py-0.5 rounded-lg text-xs"
-                                style={{
-                                  background: u.ranking <= 3 ? "linear-gradient(135deg,#FFB347,#FF6B6B)" : "rgba(91,79,207,0.1)",
-                                  color: u.ranking <= 3 ? "#fff" : "#5B4FCF",
-                                  fontWeight: 800,
-                                }}
-                              >
-                                ★ #{u.ranking}
-                              </span>
-                              <span style={{ fontSize: 11, color: "#9090AA" }}>{u.city}</span>
-                            </div>
-                            <p style={{ fontWeight: 800, color: "#1A1A2E", fontSize: 14, lineHeight: 1.4 }}>{u.name}</p>
-                          </div>
-                        </div>
-
-                        {/* Progress bars */}
-                        <div className="space-y-2.5 mb-4">
-                          <div>
-                            <div className="flex justify-between text-xs mb-1" style={{ color: "#9090AA" }}>
-                              <span>Điểm chuẩn TB</span>
-                              <span style={{ fontWeight: 700, color: "#5B4FCF" }}>
-                                {u.avgAdmScore > 0 ? `${u.avgAdmScore}/30` : "Chưa có"}
-                              </span>
-                            </div>
-                            <ProgressBar value={u.avgAdmScore} max={30} color="#5B4FCF" />
-                          </div>
-                          <div>
-                            <div className="flex justify-between text-xs mb-1" style={{ color: "#9090AA" }}>
-                              <span>Mạng xã hội</span>
-                              <span style={{ fontWeight: 700, color: "#43D9A3" }}>
-                                {u.socialScore > 0 ? `${u.socialScore}/100` : "Chưa có"}
-                              </span>
-                            </div>
-                            <ProgressBar value={u.socialScore} color="#43D9A3" />
-                          </div>
-                          <div>
-                            <div className="flex justify-between text-xs mb-1" style={{ color: "#9090AA" }}>
-                              <span>Đánh giá ND</span>
-                              <span style={{ fontWeight: 700, color: "#FFB347" }}>
-                                {u.userRating > 0 ? `${(u.userRating * 20).toFixed(0)}/100` : "Chưa có"}
-                              </span>
-                            </div>
-                            <ProgressBar value={u.userRating * 20} color="#FFB347" />
-                          </div>
-                        </div>
-
-                        {/* Score + stars */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center gap-1">
-                            {[1, 2, 3, 4, 5].map((i) => (
-                              <Star
-                                key={i}
-                                size={13}
-                                fill={u.userRating > 0 && i <= Math.round(u.userRating) ? "#FFB347" : "none"}
-                                color={u.userRating > 0 && i <= Math.round(u.userRating) ? "#FFB347" : "#D0D0D0"}
-                              />
-                            ))}
-                            {u.userRating > 0 && (
-                              <span style={{ fontSize: 12, color: "#4A4A6A", marginLeft: 2, fontWeight: 700 }}>
-                                {u.userRating}
-                              </span>
-                            )}
-                          </div>
-                          {u.overallScore > 0 && (
-                            <div
-                              className="px-3 py-1 rounded-xl text-sm"
-                              style={{ background: "linear-gradient(135deg, #5B4FCF22, #5B4FCF11)", color: "#5B4FCF", fontWeight: 900, fontSize: 16 }}
-                            >
-                              {u.overallScore}đ
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Actions */}
-                        <div className="flex gap-2">
-                          <Link
-                            to={`/truong/${u.id}`}
-                            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-2xl text-sm"
-                            style={{
-                              background: "linear-gradient(135deg, #5B4FCF 0%, #7C6BE8 100%)",
-                              color: "#fff",
-                              fontWeight: 700,
-                              boxShadow: "2px 2px 0px rgba(91,79,207,0.25)",
-                              textDecoration: "none",
-                            }}
-                          >
-                            <Eye size={14} />
-                            Xem chi tiết
-                          </Link>
-                          <Link
-                            to={`/so-sanh?ids=${u.id}`}
-                            className="flex items-center justify-center gap-1 px-3 py-2.5 rounded-2xl text-sm"
-                            style={{
-                              border: "2px solid rgba(91,79,207,0.2)",
-                              color: "#5B4FCF",
-                              fontWeight: 700,
-                              textDecoration: "none",
-                            }}
-                          >
-                            <BarChart3 size={14} />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {filtered.length === 0 && !loading && (
-                  <div className="text-center py-20">
-                    <div className="text-5xl mb-4">🔍</div>
-                    <p style={{ color: "#4A4A6A", fontWeight: 700 }}>Không tìm thấy trường phù hợp</p>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
+      {/* Search */}
+      <div style={{ animation: "riseIn .6s both .05s", marginTop: 22, maxWidth: 520 }}>
+        <div
+          style={{
+            display: "flex", alignItems: "center", gap: 8,
+            background: B.paperLight, border: `2.5px solid ${B.ink}`,
+            borderRadius: "22px 16px 20px 17px/17px 20px 16px 22px",
+            boxShadow: `5px 5px 0 ${B.terracotta}`, padding: "7px 14px",
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" style={{ flex: "none", overflow: "visible" }}>
+            <circle cx="10.5" cy="10.5" r="7" fill="none" stroke={B.ink} strokeWidth="2.1" filter="url(#inkrough2)" />
+            <path d="M15.6 15.6 L21 21" stroke={B.ink} strokeWidth="2.4" strokeLinecap="round" filter="url(#inkrough2)" />
+          </svg>
+          <input
+            type="text"
+            placeholder="Tìm theo tên trường, viết tắt…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent", fontFamily: "'Be Vietnam Pro'", fontSize: 15, color: B.ink, padding: "6px 0" }}
+          />
         </div>
       </div>
+
+      {/* Filters */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 22, alignItems: "center", margin: "22px 0", animation: "riseIn .6s both .08s" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 9, flexWrap: "wrap" }}>
+          <span style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 18, color: B.muted }}>khu vực:</span>
+          {regionChips.map((r) => (
+            <Chip key={r.value} active={region === r.value} label={r.label} accent={B.terracotta} onClick={() => setRegion(r.value)} />
+          ))}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 9, flexWrap: "wrap" }}>
+          <span style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 18, color: B.muted }}>sắp xếp:</span>
+          {sortChips.map((s) => (
+            <Chip key={s.value} active={sortBy === s.value} label={s.label} accent={B.teal} onClick={() => setSortBy(s.value)} />
+          ))}
+        </div>
+      </div>
+
+      {loading ? (
+        <CenterNote title="Đang tải dữ liệu…" sub="lật từng trang sổ tay một chút nhé" />
+      ) : filtered.length === 0 ? (
+        <CenterNote title="Không tìm thấy trường phù hợp" sub="thử bỏ bớt bộ lọc xem sao" />
+      ) : (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))", gap: 22 }}>
+          {filtered.map((u) => {
+            const inCompare = compareList.includes(u.id);
+            return (
+              <div
+                key={u.id}
+                onClick={() => navigate(`/truong/${u.id}`)}
+                className="bunik-lift"
+                style={{
+                  position: "relative", cursor: "pointer",
+                  background: B.paperLight, border: `2px solid ${B.ink}`,
+                  borderRadius: "19px 23px 18px 22px/22px 18px 23px 19px",
+                  boxShadow: "5px 6px 0 rgba(43,39,34,0.13)", padding: 20,
+                }}
+              >
+                {/* Compare toggle */}
+                <button
+                  onClick={(e) => { e.stopPropagation(); toggleCompare(u.id); }}
+                  title="Thêm vào so sánh"
+                  style={{
+                    position: "absolute", top: 12, right: 12, width: 26, height: 26,
+                    display: "grid", placeItems: "center",
+                    borderRadius: "9px 7px 8px 10px/10px 8px 7px 9px",
+                    border: `2px solid ${B.ink}`, background: inCompare ? B.olive : B.paper,
+                  }}
+                >
+                  {inCompare && (
+                    <svg width="11" height="9" viewBox="0 0 11 9"><path d="M1 5 L4 8 L10 1" stroke={B.paperLight} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  )}
+                </button>
+
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 13, paddingRight: 26 }}>
+                  <span style={{ width: 54, height: 54, flex: "none", borderRadius: "15px 18px 13px 16px/16px 13px 18px 15px", border: `2px solid ${B.ink}`, background: u.color, display: "grid", placeItems: "center", fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 15, color: B.paperLight, boxShadow: "2px 2px 0 rgba(43,39,34,0.18)" }}>
+                    {u.abbr.slice(0, 4)}
+                  </span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <span style={{ display: "inline-block", fontFamily: "'Patrick Hand', cursive", fontSize: 16, color: B.muted, lineHeight: 1 }}>hạng #{u.ranking}</span>
+                    <p style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 17, lineHeight: 1.2, color: B.ink, margin: "3px 0 0" }}>{u.name}</p>
+                  </div>
+                </div>
+                <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 17, color: B.muted, margin: "12px 0 0" }}>
+                  {u.city}{u.region ? ` · ${u.region}` : ""}
+                </p>
+                <div style={{ ...dashedRule, margin: "13px 0" }} />
+                <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+                  <div>
+                    <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 15, color: B.muted, margin: 0, lineHeight: 1 }}>Điểm chuẩn TB</p>
+                    <p style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 23, color: u.color, margin: "2px 0 0", lineHeight: 1 }}>
+                      {u.avgAdmScore > 0 ? u.avgAdmScore : "—"}
+                    </p>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ display: "flex", justifyContent: "flex-end" }}><StarRow value={u.userRating} size={13} /></div>
+                    <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 15, color: B.muted, margin: "4px 0 0" }}>
+                      {u.ratingCount > 0 ? `${u.ratingCount.toLocaleString()} đánh giá` : "chưa có đánh giá"}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
       {/* Compare floating bar */}
       {compareList.length >= 2 && (
         <div
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 px-6 py-3 rounded-2xl"
           style={{
-            background: "#fff",
-            border: "2px solid rgba(91,79,207,0.2)",
-            boxShadow: "0 8px 32px rgba(91,79,207,0.2)",
+            position: "fixed", bottom: 24, left: "50%", transform: "translateX(-50%)", zIndex: 50,
+            display: "flex", alignItems: "center", gap: 16, padding: "12px 22px",
+            background: B.paperLight, border: `2.5px solid ${B.ink}`,
+            borderRadius: "18px 22px 16px 20px/20px 16px 22px 18px",
+            boxShadow: `6px 7px 0 ${B.terracotta}`,
           }}
         >
-          <span style={{ fontWeight: 700, color: "#1A1A2E", fontSize: 14 }}>
-            Đã chọn {compareList.length} trường
-          </span>
-          <Link
-            to={`/so-sanh?ids=${compareList.join(",")}`}
-            className="px-5 py-2 rounded-xl text-sm"
-            style={{
-              background: "linear-gradient(135deg, #5B4FCF 0%, #7C6BE8 100%)",
-              color: "#fff",
-              fontWeight: 700,
-              textDecoration: "none",
-            }}
+          <span style={{ fontWeight: 700, color: B.ink, fontSize: 14 }}>Đã chọn {compareList.length} trường</span>
+          <button
+            onClick={() => navigate(`/so-sanh?ids=${compareList.join(",")}`)}
+            className="bunik-press"
+            style={{ background: B.terracotta, color: B.paperLight, border: `2px solid ${B.ink}`, borderRadius: "13px 10px 12px 11px/11px 12px 10px 13px", padding: "9px 18px", fontWeight: 700, fontSize: 14, ["--sh" as string]: B.ink }}
           >
-            So sánh ngay ⚖️
-          </Link>
+            So sánh ngay
+          </button>
         </div>
       )}
-    </div>
+    </section>
   );
 }

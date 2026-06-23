@@ -2,21 +2,15 @@ from django.conf import settings
 from supabase import create_client, Client
 import logging
 import time
+from urllib import request as urlrequest
+
+from core.errors.classification import is_transient_error
 
 logger = logging.getLogger(__name__)
 
 _anon_client: Client | None = None
 DEFAULT_PAGE_SIZE = 20
 MAX_PAGE_SIZE = 100
-TRANSIENT_ERROR_MARKERS = (
-    'remoteprotocolerror',
-    'server disconnected',
-    'connection reset',
-    'connection aborted',
-    'connection refused',
-    'temporarily unavailable',
-    'timeout',
-)
 
 
 def get_client() -> Client:
@@ -30,6 +24,27 @@ def get_user_client(access_token: str) -> Client:
     client = create_client(settings.SUPABASE_URL, settings.SUPABASE_ANON_KEY)
     client.postgrest.auth(access_token)
     return client
+
+
+def get_service_client() -> Client:
+    service_key = getattr(settings, 'SUPABASE_SERVICE_ROLE_KEY', '')
+    if not service_key:
+        raise RuntimeError('SUPABASE_SERVICE_ROLE_KEY is not configured')
+    return create_client(settings.SUPABASE_URL, service_key)
+
+
+def revoke_session(access_token: str) -> None:
+    request = urlrequest.Request(
+        f'{settings.SUPABASE_URL}/auth/v1/logout',
+        method='POST',
+        headers={
+            'Authorization': f'Bearer {access_token}',
+            'apikey': settings.SUPABASE_ANON_KEY,
+            'Content-Length': '0',
+        },
+    )
+    with urlrequest.urlopen(request, timeout=5):
+        return
 
 
 def parse_int_param(value, default: int, minimum: int | None = None, maximum: int | None = None) -> int:
@@ -95,9 +110,7 @@ def execute_with_retry(operation, *, operation_name: str, max_retries: int = 3):
         try:
             return operation()
         except Exception as exc:
-            error_msg = str(exc).lower()
-            is_transient = any(marker in error_msg for marker in TRANSIENT_ERROR_MARKERS)
-            if is_transient and attempt < max_retries - 1:
+            if is_transient_error(exc) and attempt < max_retries - 1:
                 wait_time = 2 ** attempt
                 logger.warning(
                     'Transient Supabase error during %s, retrying in %ss: %s',

@@ -1,326 +1,236 @@
-import { useState, useMemo, useEffect } from "react";
-import { useSearchParams, Link } from "react-router";
-import { X, Plus, Search, TrendingUp, TrendingDown } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router";
+import { Check, Plus, Search, X } from "lucide-react";
 import {
-  RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
-  ResponsiveContainer, Tooltip
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
+  ResponsiveContainer,
+  Tooltip,
 } from "recharts";
-import { getAllUniversities, getAllMajors } from "../services/api";
-import type { UiUniversity, UiMajor } from "../types/api";
-
-const dotBg = {
-  backgroundImage: "radial-gradient(circle, #d0cef0 1px, transparent 1px)",
-  backgroundSize: "24px 24px",
-  backgroundColor: "#FAFAF8",
-  animation: "dotDrift 24s linear infinite",
-};
-
-const handCard = {
-  background: "#fff",
-  borderRadius: 20,
-  border: "2px solid rgba(91,79,207,0.12)",
-  boxShadow: "4px 4px 0px rgba(91,79,207,0.09)",
-};
-
-const COLORS = ["#5B4FCF", "#FF6B6B", "#43D9A3", "#FFB347", "#9C27B0"];
+import { getAllMajors, getAllUniversities } from "../services/api";
+import type { UiMajor, UiUniversity } from "../types/api";
+import { B, CenterNote, SketchHeading, accentFor, cardStyle } from "../components/bunik";
 
 type Item = UiUniversity | UiMajor;
+type Row = { label: string; key: string; best?: "max" | "min" };
+
+const universityRows: Row[] = [
+  { label: "Xếp hạng", key: "ranking", best: "min" },
+  { label: "Điểm chuẩn TB", key: "avgAdmScore", best: "max" },
+  { label: "Mạng xã hội", key: "socialScore", best: "max" },
+  { label: "Đánh giá", key: "userRating", best: "max" },
+  { label: "Điểm tổng hợp", key: "overallScore", best: "max" },
+  { label: "Thành phố", key: "city" },
+];
+
+const majorRows: Row[] = [
+  { label: "Nhóm ngành", key: "group" },
+  { label: "Khối thi", key: "block" },
+  { label: "Điểm 2023", key: "score2023", best: "max" },
+  { label: "Điểm 2024", key: "score2024", best: "max" },
+  { label: "Điểm 2025", key: "score2025", best: "max" },
+];
+
+const radarCriteria = [
+  "Cơ sở vật chất",
+  "Nghiên cứu KH",
+  "Chất lượng đào tạo",
+  "Chất lượng SV",
+  "Điểm đầu ra",
+  "Điểm đầu vào",
+];
 
 function isUniversity(item: Item): item is UiUniversity {
   return "abbr" in item;
 }
 
+function getValue(item: Item, key: string): string | number {
+  if (key === "score2023") return (item as UiMajor).scores?.["2023"] ?? "—";
+  if (key === "score2024") return (item as UiMajor).scores?.["2024"] ?? "—";
+  if (key === "score2025") return (item as UiMajor).scores?.["2025"] ?? "—";
+  const value = (item as unknown as Record<string, unknown>)[key];
+  return typeof value === "number" || typeof value === "string" ? value : "—";
+}
+
 export default function SoSanhPage() {
   const [searchParams] = useSearchParams();
+  const type = searchParams.get("type") === "nganh" ? "nganh" : "truong";
   const initialIds = searchParams.get("ids")?.split(",").filter(Boolean) ?? [];
-  const type = searchParams.get("type") || "truong";
-
   const [compareIds, setCompareIds] = useState<string[]>(initialIds.slice(0, 5));
-  const [searchQ, setSearchQ] = useState("");
-  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const [dataSource, setDataSource] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
+    let active = true;
     setLoading(true);
-    const load = type === "nganh" ? getAllMajors() : getAllUniversities();
-    load
-      .then((data) => setDataSource(data as Item[]))
-      .catch(console.error)
-      .finally(() => setLoading(false));
+    setError("");
+    const request = type === "nganh" ? getAllMajors() : getAllUniversities();
+    request
+      .then((data) => {
+        if (active) setDataSource(data as Item[]);
+      })
+      .catch((reason) => {
+        if (active) setError(reason instanceof Error ? reason.message : "Không thể tải dữ liệu so sánh.");
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
   }, [type]);
 
+  useEffect(() => {
+    if (!searchOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSearchOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [searchOpen]);
+
   const items = useMemo(
-    () => compareIds.map((id) => dataSource.find((d) => d.id === id)).filter(Boolean) as Item[],
-    [compareIds, dataSource]
+    () => compareIds.map((id) => dataSource.find((item) => item.id === id)).filter((item): item is Item => Boolean(item)),
+    [compareIds, dataSource],
   );
 
-  const removeItem = (id: string) => setCompareIds((p) => p.filter((x) => x !== id));
-  const addItem = (id: string) => {
-    if (!compareIds.includes(id) && compareIds.length < 5) {
-      setCompareIds((p) => [...p, id]);
-      setShowSearch(false);
-      setSearchQ("");
-    }
-  };
-
   const searchResults = useMemo(() => {
-    if (!searchQ) return dataSource.slice(0, 8);
-    return dataSource
-      .filter((d) => d.name.toLowerCase().includes(searchQ.toLowerCase()))
-      .slice(0, 8);
-  }, [searchQ, dataSource]);
+    const normalized = searchQuery.trim().toLocaleLowerCase("vi");
+    const source = normalized
+      ? dataSource.filter((item) => item.name.toLocaleLowerCase("vi").includes(normalized))
+      : dataSource;
+    return source.slice(0, 10);
+  }, [dataSource, searchQuery]);
 
-  const rows = type === "truong"
-    ? [
-        { label: "Xếp hạng", key: "ranking" },
-        { label: "Điểm chuẩn TB", key: "avgAdmScore" },
-        { label: "Mạng xã hội", key: "socialScore" },
-        { label: "Đánh giá ND", key: "userRating" },
-        { label: "Điểm tổng hợp", key: "overallScore" },
-        { label: "Thành phố", key: "city" },
-      ]
-    : [
-        { label: "Nhóm ngành", key: "group" },
-        { label: "Khối thi", key: "block" },
-        { label: "Điểm 2023", key: "score2023" },
-        { label: "Điểm 2024", key: "score2024" },
-        { label: "Điểm 2025", key: "score2025" },
-      ];
+  const radarData = useMemo(() => {
+    if (type !== "truong") return [];
+    return radarCriteria.map((criterion) => {
+      const row: Record<string, string | number> = { subject: criterion };
+      items.forEach((item, index) => {
+        if (!isUniversity(item)) return;
+        const match = item.radarScores?.find((score) => score.criteria === criterion);
+        row[`series${index}`] = match?.score ?? 0;
+      });
+      return row;
+    });
+  }, [items, type]);
 
-  const getValue = (item: Item, key: string) => {
-    if (key === "score2023") return (item as UiMajor).scores?.["2023"] || "—";
-    if (key === "score2024") return (item as UiMajor).scores?.["2024"] || "—";
-    if (key === "score2025") return (item as UiMajor).scores?.["2025"] || "—";
-    return (item as any)[key];
+  const rows = type === "truong" ? universityRows : majorRows;
+
+  const addItem = (id: string) => {
+    setCompareIds((current) => (current.includes(id) || current.length >= 5 ? current : [...current, id]));
+    setSearchOpen(false);
+    setSearchQuery("");
   };
-
-  const getNumericValues = (key: string) =>
-    items.map((item) => Number(getValue(item, key)));
-
-  const maxIdx = (arr: number[]) => arr.indexOf(Math.max(...arr));
-  const minIdx = (arr: number[]) => arr.indexOf(Math.min(...arr));
-
-  const radarData = type === "truong"
-    ? ["Cơ sở vật chất", "Nghiên cứu KH", "Chất lượng đào tạo", "Chất lượng SV", "Điểm đầu ra", "Điểm đầu vào"].map(
-        (criteria) => {
-          const entry: any = { subject: criteria.slice(0, 12) };
-          items.forEach((item, i) => {
-            if (isUniversity(item)) {
-              const radarScore = item.radarScores?.find((r) => r.criteria === criteria);
-              entry[item.abbr || `Item${i + 1}`] = radarScore?.score || 75;
-            }
-          });
-          return entry;
-        }
-      )
-    : [];
 
   return (
-    <div style={dotBg} className="min-h-screen">
-      {/* Header */}
-      <div
-        className="py-10 px-6 text-center"
-        style={{
-          background: "linear-gradient(135deg, rgba(67,217,163,0.08) 0%, rgba(91,79,207,0.06) 100%)",
-          borderBottom: "2px solid rgba(91,79,207,0.08)",
-        }}
-      >
-        <h1 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "clamp(1.8rem,4vw,2.5rem)" }}>
-          ⚖️ So Sánh {type === "truong" ? "Trường" : "Ngành"}
-        </h1>
-        <p style={{ color: "#4A4A6A", marginTop: 6, fontSize: 15 }}>
-          So sánh tối đa 5 {type === "truong" ? "trường" : "ngành"} cùng lúc
+    <div className="bunik-page">
+      <header className="bunik-container bunik-page-intro" style={{ textAlign: "center" }}>
+        <SketchHeading kicker="đặt cạnh nhau —" color={B.teal} width="88%">
+          So sánh {type === "truong" ? "trường đại học" : "ngành học"}
+        </SketchHeading>
+        <p className="bunik-note-text" style={{ fontSize: 19, margin: "22px auto 0", maxWidth: 620 }}>
+          Chọn tối đa 5 {type === "truong" ? "trường" : "ngành"} để nhìn rõ điểm mạnh của từng lựa chọn.
         </p>
-      </div>
+        <div style={{ display: "flex", justifyContent: "center", gap: 10, marginTop: 22, flexWrap: "wrap" }}>
+          <Link to="/so-sanh?type=truong" className="bunik-chip" data-active={type === "truong"}>
+            Trường đại học
+          </Link>
+          <Link to="/so-sanh?type=nganh" className="bunik-chip" data-active={type === "nganh"}>
+            Ngành học
+          </Link>
+        </div>
+      </header>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Breadcrumb + add button */}
-        <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-          <div className="flex items-center gap-2 text-sm" style={{ color: "#9090AA" }}>
-            <Link to="/" style={{ color: "#5B4FCF", fontWeight: 600, textDecoration: "none" }}>Trang chủ</Link>
-            <span>/</span>
-            <span style={{ color: "#4A4A6A" }}>So sánh</span>
-          </div>
-          {compareIds.length < 5 && (
-            <button
-              className="flex items-center gap-2 px-4 py-2.5 rounded-2xl text-sm"
-              style={{
-                background: "linear-gradient(135deg, #5B4FCF 0%, #7C6BE8 100%)",
-                color: "#fff",
-                fontWeight: 700,
-                boxShadow: "2px 2px 0px rgba(91,79,207,0.25)",
-              }}
-              onClick={() => setShowSearch(true)}
-            >
-              <Plus size={16} />
-              Thêm {type === "truong" ? "trường" : "ngành"}
+      <main className="bunik-container" style={{ paddingBottom: 52 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: 20 }}>
+          <p className="bunik-note-text" style={{ fontSize: 18, margin: 0 }}>
+            {items.length}/5 lựa chọn đang được so sánh
+          </p>
+          {compareIds.length < 5 ? (
+            <button className="bunik-button" type="button" onClick={() => setSearchOpen(true)}>
+              <Plus size={17} /> Thêm {type === "truong" ? "trường" : "ngành"}
             </button>
-          )}
+          ) : null}
         </div>
 
-        {/* Search modal */}
-        {showSearch && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.4)" }}>
-            <div style={{ ...handCard, padding: 24, width: "90%", maxWidth: 480 }}>
-              <div className="flex items-center justify-between mb-4">
-                <h3 style={{ fontWeight: 800, color: "#1A1A2E" }}>Thêm {type === "truong" ? "trường" : "ngành"}</h3>
-                <button onClick={() => setShowSearch(false)} style={{ color: "#9090AA" }}>
-                  <X size={20} />
-                </button>
-              </div>
-              <div
-                className="flex items-center gap-2 px-3 py-2 rounded-xl mb-4"
-                style={{ border: "2px solid rgba(91,79,207,0.15)" }}
-              >
-                <Search size={16} color="#9090AA" />
-                <input
-                  autoFocus
-                  type="text"
-                  placeholder="Tìm kiếm..."
-                  value={searchQ}
-                  onChange={(e) => setSearchQ(e.target.value)}
-                  className="flex-1 outline-none text-sm bg-transparent"
-                  style={{ color: "#1A1A2E" }}
-                />
-              </div>
-              {loading ? (
-                <p style={{ color: "#9090AA", textAlign: "center", fontSize: 13 }}>Đang tải...</p>
-              ) : (
-                <div className="space-y-2 max-h-64 overflow-y-auto">
-                  {searchResults.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center justify-between p-3 rounded-xl cursor-pointer transition-colors"
-                      style={{
-                        background: compareIds.includes(item.id) ? "rgba(67,217,163,0.1)" : "rgba(91,79,207,0.04)",
-                        opacity: compareIds.includes(item.id) ? 0.6 : 1,
-                      }}
-                      onClick={() => !compareIds.includes(item.id) && addItem(item.id)}
-                    >
-                      <span style={{ fontSize: 14, fontWeight: 700, color: "#1A1A2E" }}>{item.name}</span>
-                      {compareIds.includes(item.id) ? (
-                        <span style={{ fontSize: 12, color: "#43D9A3", fontWeight: 700 }}>Đã thêm</span>
-                      ) : (
-                        <Plus size={16} color="#5B4FCF" />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
+        {loading ? <CenterNote title="Đang mở sổ dữ liệu…" sub="Chỉ mất một chút thôi" /> : null}
+        {!loading && error ? <CenterNote title="Chưa tải được dữ liệu" sub={error} /> : null}
+
+        {!loading && !error && items.length === 0 ? (
+          <div className="bunik-panel">
+            <CenterNote title="Chưa có lựa chọn nào" sub={`Nhấn “Thêm ${type === "truong" ? "trường" : "ngành"}” để bắt đầu so sánh`} />
+            <div style={{ display: "flex", justifyContent: "center", padding: "0 20px 36px" }}>
+              <button className="bunik-button" type="button" onClick={() => setSearchOpen(true)}>
+                <Plus size={17} /> Bắt đầu so sánh
+              </button>
             </div>
           </div>
-        )}
+        ) : null}
 
-        {items.length === 0 ? (
-          <div className="text-center py-20" style={handCard}>
-            <div className="text-5xl mb-4">⚖️</div>
-            <p style={{ color: "#4A4A6A", fontWeight: 700, fontSize: 18 }}>Chưa có mục nào để so sánh</p>
-            <p style={{ color: "#9090AA", marginTop: 8 }}>Nhấn "Thêm trường" để bắt đầu so sánh</p>
-            <button
-              className="mt-6 px-6 py-3 rounded-2xl text-sm"
-              style={{
-                background: "linear-gradient(135deg, #5B4FCF 0%, #7C6BE8 100%)",
-                color: "#fff",
-                fontWeight: 700,
-                boxShadow: "2px 2px 0px rgba(91,79,207,0.25)",
-              }}
-              onClick={() => setShowSearch(true)}
-            >
-              Thêm {type === "truong" ? "trường" : "ngành"} +
-            </button>
-          </div>
-        ) : (
+        {!loading && !error && items.length > 0 ? (
           <>
-            {/* Comparison columns */}
-            <div style={{ ...handCard, overflow: "hidden" }}>
-              <div className="overflow-x-auto">
-                <table className="w-full">
+            <section className="bunik-panel" style={{ overflow: "hidden" }} aria-label="Bảng so sánh">
+              <div className="bunik-table-wrap">
+                <table className="bunik-table" style={{ minWidth: Math.max(660, 190 + items.length * 185) }}>
                   <thead>
-                    <tr style={{ borderBottom: "2px solid rgba(91,79,207,0.08)" }}>
-                      <th
-                        className="p-4 text-left text-sm sticky left-0 bg-white z-10"
-                        style={{ color: "#9090AA", fontWeight: 700, minWidth: 130 }}
-                      >
-                        Tiêu chí
-                      </th>
-                      {items.map((item, i) => (
-                        <th key={item.id} className="p-4 text-center" style={{ minWidth: 180 }}>
-                          <div className="relative flex flex-col items-center">
-                            <button
-                              className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center"
-                              style={{ background: "#FF6B6B", color: "#fff" }}
-                              onClick={() => removeItem(item.id)}
-                            >
-                              <X size={12} />
-                            </button>
-                            <div
-                              className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-sm mb-2"
-                              style={{
-                                background: `linear-gradient(135deg, ${COLORS[i]} 0%, ${COLORS[i]}99 100%)`,
-                                fontFamily: "'Baloo 2', cursive",
-                                fontWeight: 800,
-                                boxShadow: `2px 2px 0px ${COLORS[i]}40`,
-                              }}
-                            >
-                              {isUniversity(item)
-                                ? (item.abbr || item.name?.slice(0, 3) || "?").slice(0, 3)
-                                : item.name?.slice(0, 3) || "?"}
+                    <tr>
+                      <th style={{ width: 170, position: "sticky", left: 0, zIndex: 2, background: B.paperLight }}>Tiêu chí</th>
+                      {items.map((item, index) => {
+                        const accent = accentFor(item.id);
+                        return (
+                          <th key={item.id} style={{ minWidth: 185, textAlign: "center" }}>
+                            <div style={{ display: "grid", justifyItems: "center", gap: 7, position: "relative" }}>
+                              <button
+                                type="button"
+                                onClick={() => setCompareIds((current) => current.filter((id) => id !== item.id))}
+                                aria-label={`Bỏ ${item.name} khỏi so sánh`}
+                                style={{ position: "absolute", right: 1, top: -2, width: 28, height: 28, border: `1.5px solid ${B.ink}`, borderRadius: "50%", background: B.paper, color: B.rust, display: "grid", placeItems: "center" }}
+                              >
+                                <X size={14} />
+                              </button>
+                              <span style={{ width: 50, height: 50, display: "grid", placeItems: "center", border: `2px solid ${B.ink}`, borderRadius: "15px 11px 14px 12px/12px 14px 11px 15px", background: accent, color: B.paperLight, fontFamily: "'Shantell Sans', cursive", fontSize: 13, boxShadow: `3px 3px 0 ${B.ink}` }}>
+                                {isUniversity(item) ? item.abbr.slice(0, 4) : item.name.slice(0, 3)}
+                              </span>
+                              <span style={{ color: B.ink, fontSize: 12, lineHeight: 1.45, textTransform: "none", letterSpacing: 0 }}>{item.name}</span>
+                              {index === 0 ? <span className="bunik-sr-only">Lựa chọn đầu tiên</span> : null}
                             </div>
-                            <span style={{ fontSize: 12, fontWeight: 700, color: "#1A1A2E", textAlign: "center" }}>
-                              {item.name}
-                            </span>
-                          </div>
-                        </th>
-                      ))}
+                          </th>
+                        );
+                      })}
                     </tr>
                   </thead>
                   <tbody>
                     {rows.map((row) => {
-                      const numericValues = getNumericValues(row.key);
-                      const isNumeric = numericValues.every((v) => !isNaN(v) && v !== 0);
-                      const maxI = isNumeric ? maxIdx(numericValues) : -1;
-                      const minI = isNumeric ? minIdx(numericValues) : -1;
-
+                      const numeric = items.map((item) => Number(getValue(item, row.key)));
+                      const validNumeric = row.best && numeric.every((value) => Number.isFinite(value));
+                      const bestValue = validNumeric
+                        ? row.best === "min"
+                          ? Math.min(...numeric)
+                          : Math.max(...numeric)
+                        : null;
                       return (
-                        <tr key={row.key} style={{ borderTop: "1px solid rgba(91,79,207,0.06)" }}>
-                          <td
-                            className="p-4 sticky left-0 bg-white"
-                            style={{ fontSize: 13, color: "#4A4A6A", fontWeight: 700 }}
-                          >
-                            {row.label}
-                          </td>
-                          {items.map((item, i) => {
-                            const val = getValue(item, row.key);
-                            const isMax = isNumeric && i === maxI && numericValues.length > 1;
-                            const isMin = isNumeric && i === minI && numericValues.length > 1 && maxI !== minI;
-
+                        <tr key={row.key}>
+                          <td style={{ position: "sticky", left: 0, zIndex: 1, background: B.paperLight, color: B.body, fontWeight: 700 }}>{row.label}</td>
+                          {items.map((item, index) => {
+                            const value = getValue(item, row.key);
+                            const best = bestValue !== null && numeric[index] === bestValue && items.length > 1;
                             return (
-                              <td
-                                key={item.id}
-                                className="p-4 text-center"
-                                style={{
-                                  background: isMax
-                                    ? "rgba(67,217,163,0.1)"
-                                    : isMin
-                                    ? "rgba(255,107,107,0.06)"
-                                    : "transparent",
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    fontWeight: 800,
-                                    color: isMax ? "#16A34A" : isMin ? "#DC2626" : "#1A1A2E",
-                                    fontSize: 15,
-                                  }}
-                                >
-                                  {val || "—"}
-                                  {isMax && items.length > 1 && (
-                                    <TrendingUp size={12} className="inline ml-1" color="#16A34A" />
-                                  )}
-                                  {isMin && items.length > 1 && (
-                                    <TrendingDown size={12} className="inline ml-1" color="#DC2626" />
-                                  )}
+                              <td key={item.id} style={{ textAlign: "center", background: best ? "rgba(126,143,94,.15)" : "transparent" }}>
+                                <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: best ? B.olive : B.ink, fontFamily: typeof value === "number" ? "'Shantell Sans', cursive" : undefined, fontWeight: 750, fontSize: typeof value === "number" ? 18 : 14 }}>
+                                  {best ? <Check size={15} strokeWidth={3} /> : null}
+                                  {value || "—"}
                                 </span>
                               </td>
                             );
@@ -331,48 +241,66 @@ export default function SoSanhPage() {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </section>
 
-            {/* Radar chart overlay */}
-            {type === "truong" && radarData.length > 0 && items.length > 1 && (
-              <div style={handCard} className="p-6 mt-8">
-                <h2 style={{ fontFamily: "'Baloo 2', cursive", fontWeight: 800, color: "#1A1A2E", fontSize: "1.2rem", marginBottom: 20 }}>
-                  📡 Biểu đồ so sánh tổng hợp
-                </h2>
-                <ResponsiveContainer width="100%" height={350}>
-                  <RadarChart data={radarData}>
-                    <PolarGrid stroke="rgba(91,79,207,0.12)" strokeDasharray="4 4" />
-                    <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: "#4A4A6A", fontWeight: 600 }} />
-                    <PolarRadiusAxis domain={[60, 100]} tick={{ fontSize: 9 }} />
-                    {items.map((item, i) => {
-                      const abbr = isUniversity(item) ? item.abbr : item.name?.slice(0, 10);
-                      return (
-                        <Radar
-                          key={item.id}
-                          name={abbr || `Item${i + 1}`}
-                          dataKey={abbr || `Item${i + 1}`}
-                          stroke={COLORS[i]}
-                          fill={COLORS[i]}
-                          fillOpacity={0.15}
-                          strokeWidth={2}
-                          dot={{ r: 4, fill: COLORS[i], strokeWidth: 0 }}
-                        />
-                      );
-                    })}
-                    <Tooltip
-                      contentStyle={{
-                        borderRadius: 12,
-                        border: "2px solid rgba(91,79,207,0.15)",
-                        fontSize: 13,
-                      }}
-                    />
-                  </RadarChart>
-                </ResponsiveContainer>
-              </div>
-            )}
+            {type === "truong" && items.length >= 2 ? (
+              <section className="bunik-panel" style={{ marginTop: 28, padding: "24px clamp(12px,3vw,30px)" }}>
+                <h2 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 20, color: B.ink, margin: "0 0 6px" }}>Bản đồ thế mạnh</h2>
+                <p className="bunik-note-text" style={{ fontSize: 17, margin: "0 0 16px" }}>so sánh 6 tiêu chí trên cùng một nét vẽ</p>
+                <div style={{ width: "100%", height: 360 }}>
+                  <ResponsiveContainer>
+                    <RadarChart data={radarData} outerRadius="72%">
+                      <PolarGrid stroke={B.muted} strokeDasharray="4 5" />
+                      <PolarAngleAxis dataKey="subject" tick={{ fill: B.body, fontSize: 11, fontWeight: 600 }} />
+                      <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+                      {items.map((item, index) => {
+                        const accent = accentFor(item.id);
+                        return <Radar key={item.id} name={item.name} dataKey={`series${index}`} stroke={accent} fill={accent} fillOpacity={0.11} strokeWidth={2.4} />;
+                      })}
+                      <Tooltip contentStyle={{ border: `2px solid ${B.ink}`, borderRadius: 14, background: B.paperLight, boxShadow: `3px 3px 0 ${B.honey}`, fontSize: 12 }} />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </div>
+              </section>
+            ) : null}
           </>
-        )}
-      </div>
+        ) : null}
+      </main>
+
+      {searchOpen ? (
+        <div className="bunik-modal-backdrop" role="presentation" onMouseDown={() => setSearchOpen(false)}>
+          <section className="bunik-modal" style={{ ...cardStyle({ shadow: `6px 7px 0 ${B.terracotta}` }), padding: 22 }} role="dialog" aria-modal="true" aria-labelledby="compare-search-title" onMouseDown={(event) => event.stopPropagation()}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, marginBottom: 16 }}>
+              <div>
+                <h2 id="compare-search-title" style={{ fontFamily: "'Shantell Sans', cursive", fontSize: 20, color: B.ink, margin: 0 }}>Thêm {type === "truong" ? "trường" : "ngành"}</h2>
+                <p className="bunik-note-text" style={{ fontSize: 16, margin: "2px 0 0" }}>tìm trong dữ liệu hiện có</p>
+              </div>
+              <button type="button" aria-label="Đóng" onClick={() => setSearchOpen(false)} style={{ width: 38, height: 38, display: "grid", placeItems: "center", border: `2px solid ${B.ink}`, borderRadius: "50%", background: B.paper }}>
+                <X size={18} />
+              </button>
+            </div>
+            <label style={{ position: "relative", display: "block" }}>
+              <span className="bunik-sr-only">Tìm kiếm</span>
+              <Search size={18} style={{ position: "absolute", left: 14, top: 14, color: B.muted }} />
+              <input autoFocus className="bunik-field" style={{ paddingLeft: 42 }} value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Nhập tên để tìm…" />
+            </label>
+            <div style={{ display: "grid", gap: 9, marginTop: 14 }}>
+              {searchResults.map((item) => {
+                const selected = compareIds.includes(item.id);
+                return (
+                  <button key={item.id} type="button" disabled={selected} onClick={() => addItem(item.id)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, minHeight: 48, textAlign: "left", padding: "10px 12px", border: `1.5px ${selected ? "dashed" : "solid"} ${B.ink}`, borderRadius: "13px 10px 14px 11px/11px 14px 10px 13px", background: selected ? "rgba(126,143,94,.12)" : B.paper, color: B.ink, opacity: selected ? .68 : 1 }}>
+                    <span style={{ fontWeight: 700, fontSize: 13 }}>{item.name}</span>
+                    <span style={{ display: "inline-flex", alignItems: "center", gap: 5, flex: "none", color: selected ? B.olive : B.terracotta, fontSize: 12, fontWeight: 700 }}>
+                      {selected ? <><Check size={14} /> Đã thêm</> : <><Plus size={14} /> Thêm</>}
+                    </span>
+                  </button>
+                );
+              })}
+              {!loading && searchResults.length === 0 ? <p className="bunik-note-text" style={{ textAlign: "center", fontSize: 17 }}>Không tìm thấy lựa chọn phù hợp.</p> : null}
+            </div>
+          </section>
+        </div>
+      ) : null}
     </div>
   );
 }

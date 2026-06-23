@@ -8,7 +8,13 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 if not ALLOWED_HOSTS:
     raise ValueError('ALLOWED_HOSTS must be set in production')
 
+if not SECRET_KEY or SECRET_KEY == 'django-insecure-change-me':
+    raise ValueError('SECRET_KEY must be set in production')
+
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='', cast=Csv())
+
+if not CORS_ALLOW_ALL_ORIGINS and not CORS_ALLOWED_ORIGINS:
+    raise ValueError('CORS_ALLOWED_ORIGINS must be set in production')
 
 SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
 SESSION_COOKIE_SECURE = True

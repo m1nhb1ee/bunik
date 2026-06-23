@@ -1,122 +1,20 @@
-import { FormEvent, ReactNode, useMemo, useState } from "react";
+import { type FormEvent, type ReactNode, useMemo, useState } from "react";
+import { Eye, EyeOff, LockKeyhole, Mail, UserRound } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router";
-import {
-  ArrowRight,
-  AtSign,
-  BookOpen,
-  CalendarDays,
-  CheckCircle2,
-  Eye,
-  EyeOff,
-  LockKeyhole,
-  Map,
-  PencilLine,
-  ShieldCheck,
-  Sparkles,
-  UserRound,
-} from "lucide-react";
+import { B, SketchHeading, cardStyle } from "../components/bunik";
 import { login, register } from "../services/api";
 
-const paperBg = {
-  backgroundColor: "#FAFAF8",
-  backgroundImage:
-    "linear-gradient(rgba(2,82,89,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(2,82,89,0.06) 1px, transparent 1px), radial-gradient(circle at 16px 16px, rgba(255,148,122,0.22) 1.3px, transparent 1.4px)",
-  backgroundSize: "34px 34px, 34px 34px, 24px 24px",
-  animation: "dotDrift 24s linear infinite",
-};
-
-const sketchCard = {
-  background: "#fff",
-  border: "2.5px solid rgba(26,26,46,0.12)",
-  borderRadius: 28,
-  boxShadow: "7px 7px 0 rgba(2,82,89,0.14)",
-};
-
-const fieldStyle =
-  "h-12 w-full rounded-2xl border-2 bg-white px-11 text-[15px] font-semibold outline-none transition placeholder:text-[#9090AA] focus:border-[#ff947a] focus:shadow-[0_0_0_4px_rgba(255,148,122,0.28)]";
-
-function DoodleBadge({ children, color = "#025259" }: { children: ReactNode; color?: string }) {
-  return (
-    <span
-      className="inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-xs font-extrabold"
-      style={{
-        color,
-        background: `${color}14`,
-        border: `2px dashed ${color}55`,
-      }}
-    >
-      {children}
-    </span>
-  );
-}
-
-function AuthIllustration() {
-  return (
-    <div className="relative min-h-[430px] overflow-hidden rounded-[32px] p-7" style={sketchCard}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,148,122,0.22),transparent_27%),radial-gradient(circle_at_85%_28%,rgba(2,82,89,0.14),transparent_25%)]" />
-      <div className="relative z-10">
-        <DoodleBadge color="#ff947a">
-          <Sparkles size={14} />
-          GR1 Career Passport
-        </DoodleBadge>
-
-        <h1
-          className="mt-6 max-w-md text-[2.45rem] font-black leading-[1.05] text-[#1A1A2E] md:text-[3.2rem]"
-          style={{ fontFamily: "'Baloo 2', cursive", letterSpacing: 0 }}
-        >
-          Vao GR1 va mo ban do tuyen sinh cua ban
-        </h1>
-        <p className="mt-4 max-w-md text-[15px] leading-7 text-[#4A4A6A]">
-          Dang nhap de luu ho so hoc luc, theo doi nganh yeu thich va nhan goi y truong phu hop theo tung moc diem.
-        </p>
-
-        <div className="mt-8 grid max-w-md gap-3 sm:grid-cols-2">
-          {[
-            { icon: Map, text: "Ban do nganh nghe", color: "#025259" },
-            { icon: ShieldCheck, text: "Ho so bao mat", color: "#2f8a89" },
-            { icon: BookOpen, text: "Diem chuan ca nhan", color: "#ff947a" },
-            { icon: PencilLine, text: "Ghi chu xet tuyen", color: "#e17358" },
-          ].map((item, index) => (
-            <div
-              key={item.text}
-              className="flex items-center gap-3 rounded-3xl bg-white/85 p-3 text-sm font-extrabold text-[#1A1A2E]"
-              style={{
-                border: `2px solid ${item.color}33`,
-                boxShadow: `3px 3px 0 ${item.color}20`,
-                transform: `rotate(${index % 2 === 0 ? "-1deg" : "1deg"})`,
-              }}
-            >
-              <span className="flex h-9 w-9 items-center justify-center rounded-2xl" style={{ background: `${item.color}1f` }}>
-                <item.icon size={18} color={item.color} />
-              </span>
-              {item.text}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <svg className="absolute bottom-3 right-2 z-0 h-52 w-52 opacity-95" viewBox="0 0 220 220" aria-hidden="true">
-        <path d="M52 132c28-21 63-28 107-13" fill="none" stroke="#025259" strokeWidth="4" strokeLinecap="round" strokeDasharray="7 8" />
-        <rect x="54" y="58" width="112" height="86" rx="16" fill="#FFF8EE" stroke="#1A1A2E" strokeWidth="3" />
-        <path d="M72 84h76M72 102h54M72 120h66" stroke="#ff947a" strokeWidth="5" strokeLinecap="round" />
-        <circle cx="151" cy="132" r="18" fill="#2f8a89" stroke="#1A1A2E" strokeWidth="3" />
-        <path d="m143 132 6 6 12-15" fill="none" stroke="#fff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M41 61c10-13 22-14 35-3M155 42c14 2 23 9 28 22" fill="none" stroke="#ff947a" strokeWidth="4" strokeLinecap="round" />
-      </svg>
-    </div>
-  );
-}
+type Mode = "login" | "register";
 
 export default function AuthPage() {
   const location = useLocation();
   const navigate = useNavigate();
-  const initialMode = location.pathname.includes("dang-ky") ? "register" : "login";
-  const [mode, setMode] = useState<"login" | "register">(initialMode);
+  const initialMode: Mode = location.pathname.includes("dang-ky") ? "register" : "login";
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-
   const [form, setForm] = useState({
     user_name: "",
     full_name: "",
@@ -131,30 +29,30 @@ export default function AuthPage() {
     () =>
       mode === "login"
         ? {
-            title: "Dang nhap tai khoan",
-            subtitle: "Tiep tuc hanh trinh chon nganh, chon truong cua ban.",
-            button: "Dang nhap",
+            title: "Chào mừng tới bunik",
+            subtitle: "đăng nhập để lưu ngành và theo dõi điểm chuẩn",
+            submit: "Đăng nhập",
           }
         : {
-            title: "Tao tai khoan GR1",
-            subtitle: "Luu ho so hoc luc va nhan goi y tuyen sinh phu hop.",
-            button: "Dang ky",
+            title: "Tạo tài khoản bunik",
+            subtitle: "đăng ký để bắt đầu vẽ con đường của riêng bạn",
+            submit: "Đăng ký",
           },
     [mode],
   );
 
   const update = (key: keyof typeof form, value: string) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
+    setForm((current) => ({ ...current, [key]: value }));
   };
 
-  const switchMode = (next: "login" | "register") => {
+  const switchMode = (next: Mode) => {
     setMode(next);
     setError("");
     setMessage("");
     navigate(next === "login" ? "/dang-nhap" : "/dang-ky", { replace: true });
   };
 
-  const submit = async (event: FormEvent) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
     setError("");
@@ -162,7 +60,7 @@ export default function AuthPage() {
     try {
       const response =
         mode === "login"
-          ? await login({ gmail: form.gmail, password: form.password })
+          ? await login({ gmail: form.gmail.trim(), password: form.password })
           : await register({
               user_name: form.user_name.trim(),
               full_name: form.full_name.trim(),
@@ -178,182 +76,128 @@ export default function AuthPage() {
       localStorage.setItem("gr1_user", JSON.stringify(response.user));
       setMessage(response.message);
       navigate("/ho-so");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Khong the xu ly yeu cau. Vui long thu lai.");
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Không thể xử lý yêu cầu. Vui lòng thử lại.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen px-4 py-10 sm:px-6 lg:py-14" style={paperBg}>
-      <div className="mx-auto grid max-w-6xl items-center gap-7 lg:grid-cols-[1fr_440px]">
-        <AuthIllustration />
+    <div className="bunik-page" style={{ padding: "clamp(34px,7vw,76px) 16px 56px" }}>
+      <div style={{ width: "min(100%, 570px)", margin: "0 auto", position: "relative" }}>
+        <span aria-hidden="true" style={{ position: "absolute", left: -34, top: 80, zIndex: 2, color: B.honey, fontFamily: "'Shantell Sans', cursive", fontSize: 38, rotate: "-12deg", animation: "twinkle 3s ease-in-out infinite" }}>✦</span>
+        <span aria-hidden="true" style={{ position: "absolute", right: -28, top: 210, zIndex: 2, color: B.teal, fontFamily: "'Shantell Sans', cursive", fontSize: 30, rotate: "9deg", animation: "floaty2 5s ease-in-out infinite" }}>⌁</span>
 
-        <section className="relative p-5 sm:p-7" style={sketchCard}>
-          <div className="absolute -right-4 -top-4 hidden rotate-6 rounded-3xl bg-[#ff947a] px-4 py-2 text-sm font-black text-[#1A1A2E] shadow-[3px_3px_0_rgba(255,148,122,0.35)] sm:block">
-            Lop 10-12
+        <section style={{ ...cardStyle({ radius: "22px 17px 24px 19px/19px 24px 17px 22px", shadow: `8px 8px 0 ${B.terracotta}` }), position: "relative", overflow: "hidden", padding: "clamp(24px,5vw,42px)" }}>
+          <svg aria-hidden="true" viewBox="0 0 570 105" preserveAspectRatio="none" style={{ position: "absolute", inset: "0 0 auto", width: "100%", height: 90, opacity: .25 }}>
+            <path d="M-10 74 C 85 20, 160 96, 250 48 C 340 0, 430 92, 590 28 L590 -10 L-10 -10 Z" fill={B.honey} filter="url(#inkrough)" />
+            <path d="M-10 88 C 100 38, 180 105, 305 63 C 405 30, 480 76, 590 50" fill="none" stroke={B.ink} strokeWidth="2" filter="url(#inkrough2)" />
+          </svg>
+
+          <div style={{ position: "relative", textAlign: "center", marginBottom: 26 }}>
+            <SketchHeading color={mode === "login" ? B.terracotta : B.teal} width="82%" size="clamp(1.75rem,5vw,2.25rem)">
+              {copy.title}
+            </SketchHeading>
+            <p className="bunik-note-text" style={{ fontSize: 18, lineHeight: 1.45, margin: "20px auto 0", maxWidth: 390 }}>{copy.subtitle}</p>
           </div>
 
-          <div className="mb-6 flex rounded-[22px] bg-[#fff5f2] p-1.5" style={{ border: "2px solid rgba(255,148,122,0.26)" }}>
-            {[
-              { key: "login", label: "Dang nhap" },
-              { key: "register", label: "Dang ky" },
-            ].map((tab) => (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => switchMode(tab.key as "login" | "register")}
-                className="h-11 flex-1 rounded-2xl text-sm font-black transition"
-                style={{
-                  background: mode === tab.key ? "#ff947a" : "transparent",
-                  color: mode === tab.key ? "#fff" : "#4A4A6A",
-                  boxShadow: mode === tab.key ? "3px 3px 0 rgba(255,148,122,0.28)" : "none",
-                }}
-              >
-                {tab.label}
+          <div role="tablist" aria-label="Chọn chế độ tài khoản" style={{ position: "relative", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, padding: 5, marginBottom: 24, border: `2px solid ${B.ink}`, borderRadius: "16px 12px 15px 13px/13px 15px 12px 16px", background: B.paper }}>
+            {(["login", "register"] as const).map((tab) => (
+              <button key={tab} type="button" role="tab" aria-selected={mode === tab} onClick={() => switchMode(tab)} style={{ minHeight: 42, border: 0, borderRadius: "11px 8px 12px 9px/9px 12px 8px 11px", background: mode === tab ? B.ink : "transparent", color: mode === tab ? B.paperLight : B.body, fontWeight: 750 }}>
+                {tab === "login" ? "Đăng nhập" : "Đăng ký"}
               </button>
             ))}
           </div>
 
-          <div className="mb-6">
-            <DoodleBadge color={mode === "login" ? "#2f8a89" : "#ff947a"}>
-              <CheckCircle2 size={14} />
-              {mode === "login" ? "Tro lai GR1" : "Thanh vien moi"}
-            </DoodleBadge>
-            <h2 className="mt-4 text-3xl font-black leading-tight text-[#1A1A2E]" style={{ fontFamily: "'Baloo 2', cursive" }}>
-              {copy.title}
-            </h2>
-            <p className="mt-1 text-sm leading-6 text-[#4A4A6A]">{copy.subtitle}</p>
-          </div>
-
-          <form className="space-y-4" onSubmit={submit}>
-            {mode === "register" && (
+          <form onSubmit={submit} style={{ position: "relative", display: "grid", gap: 16 }}>
+            {mode === "register" ? (
               <>
-                <label className="block">
-                  <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Ten dang nhap</span>
-                  <div className="relative">
-                    <UserRound className="absolute left-4 top-3.5 text-[#9090AA]" size={18} />
-                    <input className={fieldStyle} value={form.user_name} onChange={(e) => update("user_name", e.target.value)} placeholder="m1nhb1e" required />
-                  </div>
-                </label>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 14 }}>
+                  <Field label="Tên đăng nhập" icon={<UserRound size={17} />}>
+                    <input className="bunik-field" style={{ paddingLeft: 42 }} value={form.user_name} onChange={(event) => update("user_name", event.target.value)} placeholder="bunik_2026" required />
+                  </Field>
+                  <Field label="Họ và tên" icon={<UserRound size={17} />}>
+                    <input className="bunik-field" style={{ paddingLeft: 42 }} value={form.full_name} onChange={(event) => update("full_name", event.target.value)} placeholder="Nguyễn Văn A" required />
+                  </Field>
+                </div>
 
-                <label className="block">
-                  <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Ho va ten</span>
-                  <div className="relative">
-                    <PencilLine className="absolute left-4 top-3.5 text-[#9090AA]" size={18} />
-                    <input className={fieldStyle} value={form.full_name} onChange={(e) => update("full_name", e.target.value)} placeholder="Nguyen Trong Minh" required />
-                  </div>
-                </label>
-
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                  <label className="block">
-                    <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Lop</span>
-                    <select className="h-12 w-full rounded-2xl border-2 bg-white px-4 text-sm font-extrabold outline-none focus:border-[#ff947a]" value={form.grade} onChange={(e) => update("grade", e.target.value)}>
-                      {Array.from({ length: 12 }, (_, i) => i + 1).map((grade) => (
-                        <option key={grade} value={grade}>
-                          {grade}
-                        </option>
-                      ))}
+                <div style={{ display: "grid", gridTemplateColumns: "minmax(100px,.65fr) minmax(180px,1.35fr)", gap: 14 }}>
+                  <label>
+                    <span style={labelStyle}>Lớp</span>
+                    <select className="bunik-field" value={form.grade} onChange={(event) => update("grade", event.target.value)}>
+                      {Array.from({ length: 12 }, (_, index) => index + 1).map((grade) => <option key={grade} value={grade}>{grade}</option>)}
                     </select>
                   </label>
-                  <label className="block sm:col-span-2">
-                    <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Ngay sinh</span>
-                    <div className="relative">
-                      <CalendarDays className="absolute left-4 top-3.5 text-[#9090AA]" size={18} />
-                      <input className={fieldStyle} type="date" value={form.dob} onChange={(e) => update("dob", e.target.value)} required />
-                    </div>
+                  <label>
+                    <span style={labelStyle}>Ngày sinh</span>
+                    <input className="bunik-field" type="date" value={form.dob} onChange={(event) => update("dob", event.target.value)} required />
                   </label>
                 </div>
 
-                <div>
-                  <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Gioi tinh</span>
-                  <div className="grid grid-cols-2 gap-3">
-                    {[
-                      { value: "MALE", label: "Nam", color: "#ff947a" },
-                      { value: "FEMALE", label: "Nu", color: "#ff947a" },
-                    ].map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => update("gender", option.value)}
-                        className="h-12 rounded-2xl border-2 text-sm font-black transition"
-                        style={{
-                          borderColor: form.gender === option.value ? option.color : "rgba(26,26,46,0.12)",
-                          color: form.gender === option.value ? option.color : "#4A4A6A",
-                          background: form.gender === option.value ? `${option.color}12` : "#fff",
-                        }}
-                      >
-                        {option.label}
-                      </button>
+                <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
+                  <legend style={labelStyle}>Giới tính</legend>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                    {[{ value: "MALE", label: "Nam" }, { value: "FEMALE", label: "Nữ" }].map((option) => (
+                      <button key={option.value} type="button" className="bunik-chip" data-active={form.gender === option.value} onClick={() => update("gender", option.value)}>{option.label}</button>
                     ))}
                   </div>
-                </div>
+                </fieldset>
               </>
-            )}
+            ) : null}
 
-            <label className="block">
-              <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Gmail</span>
-              <div className="relative">
-                <AtSign className="absolute left-4 top-3.5 text-[#9090AA]" size={18} />
-                <input className={fieldStyle} type="email" value={form.gmail} onChange={(e) => update("gmail", e.target.value)} placeholder="minh@example.com" required />
-              </div>
-            </label>
+            <Field label="Email" icon={<Mail size={17} />}>
+              <input className="bunik-field" style={{ paddingLeft: 42 }} type="email" value={form.gmail} onChange={(event) => update("gmail", event.target.value)} placeholder="ban@email.com" autoComplete="email" required />
+            </Field>
 
-            <label className="block">
-              <span className="mb-1.5 block text-sm font-extrabold text-[#1A1A2E]">Mat khau</span>
-              <div className="relative">
-                <LockKeyhole className="absolute left-4 top-3.5 text-[#9090AA]" size={18} />
-                <input
-                  className={`${fieldStyle} pr-12`}
-                  type={showPassword ? "text" : "password"}
-                  value={form.password}
-                  onChange={(e) => update("password", e.target.value)}
-                  placeholder="Toi thieu 8 ky tu"
-                  minLength={mode === "register" ? 8 : undefined}
-                  required
-                />
-                <button type="button" className="absolute right-4 top-3.5 text-[#9090AA]" onClick={() => setShowPassword((value) => !value)} aria-label="Toggle password visibility">
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                </button>
-              </div>
-            </label>
+            <Field label="Mật khẩu" icon={<LockKeyhole size={17} />}>
+              <input className="bunik-field" style={{ paddingLeft: 42, paddingRight: 46 }} type={showPassword ? "text" : "password"} value={form.password} onChange={(event) => update("password", event.target.value)} placeholder="Tối thiểu 8 ký tự" autoComplete={mode === "login" ? "current-password" : "new-password"} minLength={mode === "register" ? 8 : undefined} required />
+              <button type="button" onClick={() => setShowPassword((current) => !current)} aria-label={showPassword ? "Ẩn mật khẩu" : "Hiện mật khẩu"} style={{ position: "absolute", right: 12, bottom: 11, width: 30, height: 30, display: "grid", placeItems: "center", border: 0, background: "transparent", color: B.muted }}>
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </Field>
 
-            {error && <div className="rounded-2xl border-2 border-[#ff947a]/40 bg-[#fff3ef] px-4 py-3 text-sm font-bold text-[#b44f37]">{error}</div>}
-            {message && <div className="rounded-2xl border-2 border-[#2f8a89]/35 bg-[#ebf9f8] px-4 py-3 text-sm font-bold text-[#1c6a69]">{message}</div>}
+            {error ? <p role="alert" style={{ margin: 0, padding: "11px 13px", border: `1.5px solid ${B.rust}`, borderRadius: "12px 9px 13px 10px/10px 13px 9px 12px", background: "rgba(168,75,48,.08)", color: B.rust, fontSize: 13, fontWeight: 700 }}>{error}</p> : null}
+            {message ? <p role="status" style={{ margin: 0, padding: "11px 13px", border: `1.5px solid ${B.olive}`, borderRadius: "12px 9px 13px 10px/10px 13px 9px 12px", background: "rgba(126,143,94,.1)", color: B.olive, fontSize: 13, fontWeight: 700 }}>{message}</p> : null}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="flex h-13 w-full items-center justify-center gap-2 rounded-[22px] text-base font-black text-white transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
-              style={{
-                background: "#ff947a",
-                boxShadow: "4px 4px 0 rgba(255,148,122,0.32)",
-              }}
-            >
-              {loading ? "Dang xu ly..." : copy.button}
-              {!loading && <ArrowRight size={18} />}
+            <button type="submit" className="bunik-button" disabled={loading} style={{ width: "100%", minHeight: 50, marginTop: 2, fontSize: 15.5 }}>
+              {loading ? "Đang xử lý…" : copy.submit}
             </button>
           </form>
 
-          <p className="mt-5 text-center text-sm font-bold text-[#4A4A6A]">
-            {mode === "login" ? "Chua co tai khoan?" : "Da co tai khoan?"}{" "}
-            <button className="font-black text-[#ff947a]" onClick={() => switchMode(mode === "login" ? "register" : "login")}>
-              {mode === "login" ? "Dang ky ngay" : "Dang nhap"}
-            </button>
-          </p>
-
-          <div className="mt-6 rounded-3xl bg-[#FAFAF8] p-4" style={{ border: "2px dashed rgba(255,148,122,0.4)" }}>
-            <p className="text-center text-xs font-bold leading-5 text-[#9090AA]">
-              Bang cach tiep tuc, ban dong y de GR1 luu token dang nhap tren trinh duyet nay va su dung ho so cho cac tinh nang ca nhan hoa.
-            </p>
+          <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 12, margin: "22px 0 16px" }}>
+            <span style={{ flex: 1, height: 1, background: `repeating-linear-gradient(90deg,${B.muted} 0 6px,transparent 6px 11px)` }} />
+            <span className="bunik-note-text" style={{ fontSize: 16 }}>hoặc</span>
+            <span style={{ flex: 1, height: 1, background: `repeating-linear-gradient(90deg,${B.muted} 0 6px,transparent 6px 11px)` }} />
           </div>
 
-          <Link to="/" className="mt-5 block text-center text-sm font-extrabold text-[#ff947a]">
-            Quay ve trang chu
-          </Link>
+          <Link to="/" className="bunik-button bunik-button-secondary" style={{ width: "100%", boxSizing: "border-box" }}>Dạo quanh mà không cần đăng nhập</Link>
+          <p className="bunik-note-text" style={{ position: "relative", textAlign: "center", fontSize: 17, margin: "19px 0 0" }}>
+            {mode === "login" ? "chưa có tài khoản?" : "đã có tài khoản?"}{" "}
+            <button type="button" onClick={() => switchMode(mode === "login" ? "register" : "login")} style={{ border: 0, padding: 0, background: "none", color: B.terracotta, fontFamily: "inherit", fontSize: "inherit", fontWeight: 700 }}>
+              {mode === "login" ? "đăng ký ngay ✦" : "đăng nhập ✦"}
+            </button>
+          </p>
         </section>
       </div>
     </div>
+  );
+}
+
+const labelStyle = {
+  display: "block",
+  color: B.body,
+  fontSize: 13,
+  fontWeight: 750,
+  marginBottom: 6,
+} as const;
+
+function Field({ label, icon, children }: { label: string; icon: ReactNode; children: ReactNode }) {
+  return (
+    <label style={{ position: "relative", display: "block" }}>
+      <span style={labelStyle}>{label}</span>
+      <span aria-hidden="true" style={{ position: "absolute", left: 14, bottom: 14, color: B.muted, zIndex: 1 }}>{icon}</span>
+      {children}
+    </label>
   );
 }
