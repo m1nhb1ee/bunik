@@ -399,7 +399,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
-/* ===== bunik hand-drawn cursor (cloud → sun) ===== */
+/* ===== bunik hand-drawn cursor (sun → cloud) ===== */
 /* On fine-pointer devices hide every native cursor (including inline ones
    injected by recharts/inputs) so only the custom cursor shows. */
 @media (hover: hover) and (pointer: fine) {
@@ -438,15 +438,19 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: translate(-50%, -50%);
   transition: opacity .18s ease, scale .18s ease;
 }
+#bunik-cursor .bk-cur-cloud {
+  opacity: 0;
+  scale: .6;
+}
 #bunik-cursor .bk-cur-sun {
-  opacity: 0;
-  scale: .6;
-}
-#bunik-cursor.is-pointer .bk-cur-cloud {
-  opacity: 0;
-  scale: .6;
-}
-#bunik-cursor.is-pointer .bk-cur-sun {
   opacity: 1;
   scale: 1;
+}
+#bunik-cursor.is-pointer .bk-cur-cloud {
+  opacity: 1;
+  scale: 1;
+}
+#bunik-cursor.is-pointer .bk-cur-sun {
+  opacity: 0;
+  scale: .6;
 }

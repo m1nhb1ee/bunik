@@ -53,7 +53,8 @@ class TableStub:
 
 class FakeClient:
     def __init__(self, users=None, score_rows=None, majors=None, scores=None,
-                 achievements=None, awards=None, certificates=None):
+                 achievements=None, awards=None, certificates=None,
+                 elective_rows=None, subject_result_rows=None):
         self._users = users or []
         self._score_rows = score_rows or []
         self._majors = majors or []
@@ -61,6 +62,8 @@ class FakeClient:
         self._achievements = achievements or []
         self._awards = awards or []
         self._certificates = certificates or []
+        self._elective_rows = elective_rows or []
+        self._subject_result_rows = subject_result_rows or []
 
     def table(self, name):
         if name == 'users':
@@ -77,6 +80,10 @@ class FakeClient:
             return TableStub(self._awards)
         if name == 'certificates':
             return TableStub(self._certificates)
+        if name == 'user_elective_subjects':
+            return TableStub(self._elective_rows)
+        if name == 'user_subject_results':
+            return TableStub(self._subject_result_rows)
         raise AssertionError(f'Unexpected table: {name}')
 
 
@@ -128,6 +135,109 @@ class TestAnalyticsEndpoints:
         # base 80 + special 5 + repeated Khuyen Khich awards at Quoc gia (30 + 15) + IELTS 6×2 = 142
         assert response.data['results'][0]['score'] == 142.0
         assert response.data['results'][0]['tier'] == 'A'
+        assert response.data['results'][0]['topSubject'] == 'Toan'
+
+    def test_rankings_endpoint_caps_breakdown_components(self, monkeypatch):
+        fake_client = FakeClient(
+            users=[
+                {
+                    'id': 'u1',
+                    'full_name': 'Nguyen Van A',
+                    'user_name': 'nva',
+                    'special_score': 15,
+                },
+            ],
+            score_rows=[
+                {'user_id': 'u1', 'base_score': 92, 'math': 9, 'literature': 7, 'english': 8},
+            ],
+            achievements=[
+                {'id': 1, 'user_id': 'u1', 'award_id': 1, 'prize': 'Nhat'},
+                {'id': 2, 'user_id': 'u1', 'award_id': 1, 'prize': 'Nhat'},
+                {'id': 3, 'user_id': 'u1', 'award_id': 1, 'prize': 'Nhat'},
+                {'id': 4, 'user_id': 'u1', 'award_id': 1, 'prize': 'Nhat'},
+            ],
+            awards=[
+                {'id': 1, 'level': 'Quoc te'},
+            ],
+            certificates=[
+                {'user_id': 'u1', 'name': 'IELTS', 'score': 9},
+                {'user_id': 'u1', 'name': 'SAT', 'score': 1600},
+            ],
+        )
+        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+
+        response = self.client.get('/api/rankings/')
+
+        assert response.status_code == status.HTTP_200_OK
+        # 80 (base) + 10 (special) + 180 (awards capped) + 30 (certificates capped)
+        assert response.data['results'][0]['score'] == 300.0
+        assert response.data['results'][0]['tier'] == 'S'
+
+    def test_rankings_endpoint_uses_normalized_subject_profile(self, monkeypatch):
+        fake_client = FakeClient(
+            users=[
+                {
+                    'id': 'u1',
+                    'full_name': 'Nguyen Van A',
+                    'user_name': 'nva',
+                    'special_score': 4,
+                },
+            ],
+            elective_rows=[
+                {'user_id': 'u1', 'subject_code': 'physics'},
+                {'user_id': 'u1', 'subject_code': 'chemistry'},
+                {'user_id': 'u1', 'subject_code': 'biology'},
+                {'user_id': 'u1', 'subject_code': 'geography'},
+            ],
+            subject_result_rows=[
+                {'user_id': 'u1', 'subject_code': 'math', 'numeric_score': 10, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'literature', 'numeric_score': 9, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'english', 'numeric_score': 8, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'history', 'numeric_score': 7, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'physics', 'numeric_score': 6, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'chemistry', 'numeric_score': 7, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'biology', 'numeric_score': 8, 'assessment_status': None},
+                {'user_id': 'u1', 'subject_code': 'geography', 'numeric_score': 9, 'assessment_status': None},
+            ],
+        )
+        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+
+        response = self.client.get('/api/rankings/')
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['results'][0]['score'] == 68.0
+        assert response.data['results'][0]['tier'] == 'D'
+        assert response.data['results'][0]['topSubject'] == 'Toan'
+
+    def test_rankings_endpoint_keeps_partial_profiles_with_bonus_points(self, monkeypatch):
+        fake_client = FakeClient(
+            users=[
+                {
+                    'id': 'u1',
+                    'full_name': 'Nguyen Van A',
+                    'user_name': 'nva',
+                    'special_score': 0,
+                },
+            ],
+            elective_rows=[
+                {'user_id': 'u1', 'subject_code': 'physics'},
+                {'user_id': 'u1', 'subject_code': 'chemistry'},
+            ],
+            subject_result_rows=[
+                {'user_id': 'u1', 'subject_code': 'math', 'numeric_score': 9, 'assessment_status': None},
+            ],
+            certificates=[
+                {'user_id': 'u1', 'name': 'IELTS', 'score': 7.5},
+            ],
+        )
+        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+
+        response = self.client.get('/api/rankings/')
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['count'] == 1
+        assert response.data['results'][0]['score'] == 15.0
+        assert response.data['results'][0]['tier'] == 'F'
         assert response.data['results'][0]['topSubject'] == 'Toan'
 
     def test_major_trends_endpoint_aggregates_scores(self, monkeypatch):

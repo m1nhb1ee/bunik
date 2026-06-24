@@ -45,6 +45,24 @@ const dotBg = {
 const handCard = cardStyle();
 
 const CORE_SUBJECT_CODES = ['math', 'literature', 'english', 'history'];
+const TIER_RANGES = [
+  { tier: "S", min: 150, max: Number.POSITIVE_INFINITY, range: "150+" },
+  { tier: "A", min: 100, max: 149, range: "100-149" },
+  { tier: "B", min: 90, max: 99, range: "90-99" },
+  { tier: "C", min: 75, max: 89, range: "75-89" },
+  { tier: "D", min: 60, max: 74, range: "60-74" },
+  { tier: "E", min: 45, max: 59, range: "45-59" },
+  { tier: "F", min: 0, max: 44, range: "0-44" },
+] as const;
+const TIER_COLORS: Record<string, string> = {
+  S: B.terracotta,
+  A: B.plum,
+  B: B.indigo,
+  C: B.olive,
+  D: B.honey,
+  E: B.rust,
+  F: B.brown,
+};
 
 const SPECIAL_SUBJECTS: Array<{ key: SpecialSubject; label: string }> = [
   { key: "toan", label: "Toán" },
@@ -132,6 +150,15 @@ function formatSpecialLabel(subject: SpecialSubject): string {
 
 function createClientId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function clampScore(value: number, max: number) {
+  return Math.min(Math.max(value, 0), max);
+}
+
+function getTierMeta(score: number | null) {
+  if (score === null) return null;
+  return TIER_RANGES.find((item) => score >= item.min && score <= item.max) ?? TIER_RANGES[TIER_RANGES.length - 1];
 }
 
 export default function HoSoPage() {
@@ -298,6 +325,15 @@ export default function HoSoPage() {
     const score = raw >= 7 ? raw : 0;
     return { subject: subject.name, score, fullMark: 10 };
   });
+  const score80Value = scorePreview.score80 === null ? null : clampScore(scorePreview.score80, 80);
+  const specialBonusValue = clampScore(isChuyenClass ? specialScore : 0, 10);
+  const awardBonusValue = clampScore(awardBonus, 180);
+  const certBonusValue = clampScore(certBonus, 30);
+  const totalScore300 = score80Value === null
+    ? null
+    : Math.round((score80Value + specialBonusValue + awardBonusValue + certBonusValue) * 100) / 100;
+  const ratingScore = totalScore300 === null ? null : Math.round((totalScore300 / 100) * 100) / 100;
+  const tierMeta = getTierMeta(totalScore300);
 
   const blocks = useMemo(() => {
     const availableCodes = new Set(selectedSubjects.map((subject) => subject.code));
@@ -755,23 +791,60 @@ export default function HoSoPage() {
                 className="p-8 text-center"
                 style={{ ...handCard, border: `2.5px solid ${B.terracotta}`, boxShadow: `6px 6px 0px rgba(194,96,63,.18)` }}
               >
-                <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Điểm học lực 8 môn</p>
-                <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: B.terracotta, lineHeight: 1 }}>
-                  {scorePreview.score80?.toFixed(2) ?? '—'}
-                  <span style={{ fontSize: 20, color: B.muted }}>/80</span>
-                </div>
-                <div className="flex items-center justify-center mt-4">
-                  <span
-                    className="px-4 py-2 rounded-2xl"
-                    style={{
-                      fontWeight: 800,
-                      background: scorePreview.isComplete ? B.olive : B.honey,
-                      color: scorePreview.isComplete ? B.paperLight : B.ink,
-                      border: `1.5px solid ${B.ink}`,
-                    }}
+                <div
+                  className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between"
+                  style={{ textAlign: "left" }}
+                >
+                  <div style={{ flex: 1 }}>
+                    <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Rating học lực</p>
+                    <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: B.terracotta, lineHeight: 1 }}>
+                      {ratingScore?.toFixed(2) ?? '—'}
+                      <span style={{ fontSize: 20, color: B.muted }}>/3.0</span>
+                    </div>
+                    <p style={{ color: B.body, fontSize: 13, fontWeight: 700, margin: "10px 0 0" }}>
+                      {totalScore300 === null ? 'Cần đủ điểm học bạ để quy đổi thang 300' : ``}
+                    </p>
+                    <div className="mt-4">
+                      <span
+                        className="inline-flex px-4 py-2 rounded-2xl"
+                        style={{
+                          fontWeight: 800,
+                          background: scorePreview.isComplete ? B.olive : B.honey,
+                          color: scorePreview.isComplete ? B.paperLight : B.ink,
+                          border: `1.5px solid ${B.ink}`,
+                        }}
+                      >
+                        {scorePreview.isComplete ? 'Hồ sơ môn học đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div
+                    className="flex flex-row items-center gap-4 sm:flex-col sm:items-center sm:gap-2"
+                    style={{ minWidth: 112, textAlign: "center", alignSelf: "center" }}
                   >
-                    {scorePreview.isComplete ? 'Hồ sơ môn học đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
-                  </span>
+                    <p style={{ color: B.muted, fontSize: 11, fontWeight: 800, letterSpacing: ".08em", textTransform: "uppercase", margin: 0 }}>Tier</p>
+                    <span
+                      style={{
+                        width: 62,
+                        height: 54,
+                        display: "grid",
+                        placeItems: "center",
+                        border: `1.5px solid ${B.ink}`,
+                        borderRadius: "14px 11px 13px 15px/15px 13px 11px 14px",
+                        background: tierMeta ? TIER_COLORS[tierMeta.tier] : B.paper,
+                        color: tierMeta ? B.paperLight : B.muted,
+                        fontFamily: "'Shantell Sans', cursive",
+                        fontWeight: 700,
+                        fontSize: 28,
+                      }}
+                    >
+                      {tierMeta?.tier ?? "—"}
+                    </span>
+                    <p style={{ color: B.body, fontSize: 12, lineHeight: 1.4, margin: 0 }}>
+                      {tierMeta ? `${tierMeta.range} điểm` : 'Chưa có điểm'}
+                    </p>
+                  </div>
                 </div>
                 {!scorePreview.isComplete && (incompleteInfo.electivesRemaining > 0 || incompleteInfo.missingResultNames.length > 0) && (
                   <div className="mt-4 px-4 py-3 rounded-2xl text-left" style={{ background: "rgba(206,155,78,.12)", border: `1.5px dashed ${B.honey}` }}>
@@ -788,10 +861,10 @@ export default function HoSoPage() {
                 )}
                 <div className="grid grid-cols-4 gap-3 mt-6">
                   {[
-                    { label: "TB môn có điểm", value: scorePreview.numericAverage?.toFixed(2) ?? '—' },
-                    { label: "Môn Đạt", value: String(scorePreview.passedCount) },
-                    { label: "Môn Chưa đạt", value: String(scorePreview.failedCount) },
-                    { label: "Môn lựa chọn", value: `${selectedElectives.length}/4` },
+                    { label: "Điểm học bạ", value: score80Value === null ? '—' : `${score80Value.toFixed(2)}` },
+                    { label: "Điểm môn chuyên", value: `${specialBonusValue.toFixed(2)}` },
+                    { label: "Điểm thành tích", value: `${awardBonusValue.toFixed(2)}` },
+                    { label: "Điểm chứng chỉ", value: `${certBonusValue.toFixed(2)}` },
                   ].map((item) => (
                     <div key={item.label} className="p-3 rounded-2xl text-center" style={{ background: "rgba(206,155,78,.09)", border: `1px dashed ${B.muted}` }}>
                       <p style={{ fontSize: 10, color: B.muted, fontWeight: 700 }}>{item.label}</p>
@@ -799,13 +872,6 @@ export default function HoSoPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div style={handCard} className="p-5">
-                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 10 }}>Thành phần khác của hồ sơ</h3>
-                <p style={{ color: B.body, fontSize: 13, lineHeight: 1.7 }}>
-                  Môn chuyên (+{(isChuyenClass ? specialScore : 0).toFixed(1)}), thành tích (+{awardBonus.toFixed(2)}) và chứng chỉ (+{certBonus.toFixed(1)}) được lưu riêng, không cộng vào điểm học lực thang 80.
-                </p>
               </div>
 
               <div style={handCard} className="p-6">

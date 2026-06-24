@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Hand-drawn cursor from the bunik design: a little cloud that swaps to a sun
+ * Hand-drawn cursor from the bunik design: a little sun that swaps to a cloud
  * when hovering anything interactive. Follows the pointer via transform.
  * Hidden on touch / coarse-pointer devices (handled in CSS).
  */

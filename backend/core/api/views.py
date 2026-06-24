@@ -21,6 +21,7 @@ SUBJECT_LABELS = {
     'history': 'Su',
     'geography': 'Dia',
 }
+CORE_SUBJECT_CODES = ('math', 'literature', 'english', 'history')
 # Mirrors the frontend tier thresholds (mockData.getTierThreshold) so the
 # ranking tier matches what the Hồ sơ page shows.
 TIER_THRESHOLDS = (
@@ -31,6 +32,12 @@ TIER_THRESHOLDS = (
     (60, 'D'),
     (45, 'E'),
 )
+SCORE_CAPS = {
+    'base_score': 80.0,
+    'special_score': 10.0,
+    'award_bonus': 180.0,
+    'certificate_bonus': 30.0,
+}
 
 
 def _paginate_rows(request, rows):
@@ -62,6 +69,10 @@ def _score_to_tier(score: float) -> str:
         if score >= threshold:
             return tier
     return 'F'
+
+
+def _cap_score(value: float, limit: float) -> float:
+    return max(0.0, min(float(value or 0), limit))
 
 
 def _normalize_text(value) -> str:
@@ -150,6 +161,56 @@ def _normalized_thpt_score(row):
     return round(score * 30 / 40, 2) if score > 30 else score
 
 
+def _legacy_base_score(score_row) -> float:
+    if not score_row:
+        return 0.0
+    base_score = score_row.get('base_score')
+    if base_score is not None:
+        return _cap_score(base_score, SCORE_CAPS['base_score'])
+    return _cap_score(sum(float(score_row.get(key) or 0) for key in SUBJECT_LABELS), SCORE_CAPS['base_score'])
+
+
+def _academic_score_from_subject_profile(elective_codes, result_rows):
+    selected_codes = [*CORE_SUBJECT_CODES, *list(elective_codes)]
+    if len(elective_codes) != 4 or len(selected_codes) != 8:
+        return 0.0, {}
+
+    results_by_code = {row.get('subject_code'): row for row in result_rows if row.get('subject_code')}
+    selected_results = [results_by_code.get(code) for code in selected_codes]
+    if any(result is None for result in selected_results):
+        return 0.0, results_by_code
+
+    numeric_values = []
+    passed_count = 0
+    for code in selected_codes:
+        result = results_by_code.get(code) or {}
+        numeric_score = result.get('numeric_score')
+        assessment_status = result.get('assessment_status')
+        if numeric_score is not None:
+            numeric_values.append(float(numeric_score))
+            continue
+        if assessment_status == 'PASSED':
+            passed_count += 1
+            continue
+        if assessment_status == 'FAILED':
+            continue
+        return 0.0, results_by_code
+
+    if not numeric_values:
+        return 0.0, results_by_code
+
+    numeric_sum = sum(numeric_values)
+    numeric_average = numeric_sum / len(numeric_values)
+    return _cap_score(round(numeric_sum + numeric_average * passed_count, 2), SCORE_CAPS['base_score']), results_by_code
+
+
+def _top_subject_key(subject_scores):
+    non_zero_scores = {key: value for key, value in subject_scores.items() if value > 0}
+    if non_zero_scores:
+        return max(non_zero_scores, key=non_zero_scores.get)
+    return 'math'
+
+
 class RankingsListView(APIView):
     def get(self, request):
         def load():
@@ -173,6 +234,33 @@ class RankingsListView(APIView):
                 or []
             )
             score_by_user = {row.get('user_id'): row for row in scores if row.get('user_id')}
+            elective_rows = (
+                client
+                .table('user_elective_subjects')
+                .select('user_id, subject_code')
+                .execute()
+                .data
+                or []
+            )
+            elective_codes_by_user = defaultdict(list)
+            for elective_row in elective_rows:
+                user_id = elective_row.get('user_id')
+                subject_code = elective_row.get('subject_code')
+                if user_id and subject_code:
+                    elective_codes_by_user[user_id].append(subject_code)
+            subject_result_rows = (
+                client
+                .table('user_subject_results')
+                .select('user_id, subject_code, numeric_score, assessment_status')
+                .execute()
+                .data
+                or []
+            )
+            results_by_user = defaultdict(list)
+            for result_row in subject_result_rows:
+                user_id = result_row.get('user_id')
+                if user_id:
+                    results_by_user[user_id].append(result_row)
 
             # Achievements (with award level) + certificates, grouped per user, so
             # the ranking score includes the same bonuses as the Hồ sơ page.
@@ -195,33 +283,42 @@ class RankingsListView(APIView):
 
             rankings = []
             for row in users:
-                score_row = score_by_user.get(row.get('id')) or {}
-                if not score_row and row.get('special_score') is None:
-                    continue
-                subject_scores = {
-                    key: float(score_row.get(key) or 0)
-                    for key in SUBJECT_LABELS
-                }
-                base_score = score_row.get('base_score')
-                if base_score is None:
-                    base_score = sum(subject_scores.values())
+                user_id = row.get('id')
+                score_row = score_by_user.get(user_id) or {}
+                normalized_base_score, normalized_results = _academic_score_from_subject_profile(
+                    elective_codes_by_user.get(user_id, []),
+                    results_by_user.get(user_id, []),
+                )
+                base_score = normalized_base_score if normalized_base_score > 0 else _legacy_base_score(score_row)
+                subject_scores = {key: 0.0 for key in SUBJECT_LABELS}
+                if normalized_results:
+                    for subject_code, result in normalized_results.items():
+                        if subject_code in subject_scores and result.get('numeric_score') is not None:
+                            subject_scores[subject_code] = float(result.get('numeric_score') or 0)
+                if not any(subject_scores.values()) and score_row:
+                    subject_scores = {
+                        key: float(score_row.get(key) or 0)
+                        for key in SUBJECT_LABELS
+                    }
                 award_bonus = _award_bonus_total(
-                    achievements_by_user.get(row.get('id'), []),
+                    achievements_by_user.get(user_id, []),
                     award_level_by_id,
                 )
-                certificate_bonus = _certificate_bonus(certificates_by_user.get(row.get('id'), []))
+                certificate_bonus = _certificate_bonus(certificates_by_user.get(user_id, []))
                 total_score = round(
-                    float(base_score or 0)
-                    + float(row.get('special_score') or 0)
-                    + award_bonus
-                    + certificate_bonus,
+                    base_score
+                    + _cap_score(row.get('special_score') or 0, SCORE_CAPS['special_score'])
+                    + _cap_score(award_bonus, SCORE_CAPS['award_bonus'])
+                    + _cap_score(certificate_bonus, SCORE_CAPS['certificate_bonus']),
                     2,
                 )
-                top_subject_key = max(subject_scores, key=subject_scores.get, default='math')
+                if total_score <= 0:
+                    continue
+                top_subject_key = _top_subject_key(subject_scores)
                 full_name = row.get('full_name') or row.get('user_name') or 'Nguoi dung'
 
                 rankings.append({
-                    'id': row.get('id'),
+                    'id': user_id,
                     'name': full_name,
                     'tier': _score_to_tier(total_score),
                     'score': total_score,
