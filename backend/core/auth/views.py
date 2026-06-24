@@ -17,6 +17,7 @@ from core.auth.serializers import (
     LoginSerializer,
     ProfileUpdateSerializer,
     RegisterSerializer,
+    SubjectProfileUpdateSerializer,
     UserProfileSerializer,
 )
 from core.auth.supabase_auth import SupabaseAuthentication
@@ -304,7 +305,7 @@ class ProfileView(APIView):
             }
             score_fields = {
                 key: value for key, value in payload.items()
-                if key in {'math', 'literature', 'english', 'physics', 'chemistry', 'biology', 'history', 'geography', 'base_score'}
+                if key in {'math', 'literature', 'english', 'physics', 'chemistry', 'biology', 'history', 'geography'}
             }
 
             if user_fields:
@@ -348,6 +349,86 @@ class ProfileView(APIView):
             logger.exception('Profile update failed.')
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
+def _get_subject_profile(client, user_id):
+    subjects = (
+        client.table('school_subjects')
+        .select('*')
+        .eq('is_active', True)
+        .order('curriculum_group')
+        .order('code')
+        .execute()
+    )
+    selections = (
+        client.table('user_elective_subjects')
+        .select('subject_code')
+        .eq('user_id', user_id)
+        .execute()
+    )
+    results = (
+        client.table('user_subject_results')
+        .select('subject_code,numeric_score,assessment_status,updated_at')
+        .eq('user_id', user_id)
+        .execute()
+    )
+    academic_score_response = client.rpc('get_user_academic_score').execute()
+    academic_score = academic_score_response.data or {}
+    if isinstance(academic_score, list):
+        academic_score = academic_score[0] if academic_score else {}
+    return {
+        'subjects': subjects.data or [],
+        'selected_elective_codes': [item['subject_code'] for item in (selections.data or [])],
+        'results': results.data or [],
+        'academic_score': academic_score,
+    }
+
+
+class SubjectProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [SupabaseAuthentication]
+
+    def get(self, request):
+        user_id = getattr(request.user, 'id', None)
+        access_token = request.auth
+        if not user_id or not access_token:
+            return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            client = get_user_client(access_token)
+            return Response(_get_subject_profile(client, user_id), status=status.HTTP_200_OK)
+        except Exception:
+            logger.exception('Subject profile lookup failed.')
+            return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def patch(self, request):
+        user_id = getattr(request.user, 'id', None)
+        access_token = request.auth
+        if not user_id or not access_token:
+            return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        serializer = SubjectProfileUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        payload = serializer.validated_data
+        rpc_results = [
+            {
+                'subject_code': item['subject_code'],
+                'numeric_score': item.get('numeric_score'),
+                'assessment_status': item.get('assessment_status'),
+            }
+            for item in payload['results']
+        ]
+
+        try:
+            client = get_user_client(access_token)
+            client.rpc('save_user_subject_profile', {
+                'p_elective_codes': payload['elective_codes'],
+                'p_results': rpc_results,
+            }).execute()
+            return Response(_get_subject_profile(client, user_id), status=status.HTTP_200_OK)
+        except Exception as exc:
+            if '22023' in str(exc):
+                return Response({'message': str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+            logger.exception('Subject profile update failed.')
+            return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class AwardCatalogView(APIView):
     permission_classes = [AllowAny]

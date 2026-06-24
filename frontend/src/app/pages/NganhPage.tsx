@@ -2,6 +2,7 @@ import { type Dispatch, type SetStateAction, useEffect, useMemo, useState } from
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 import { Link, useSearchParams } from "react-router";
 import { B, CenterNote, SketchHeading, accentFor, cardStyle, spark } from "../components/bunik";
+import { NumberField } from "../components/NumberField";
 import { getAllMajors } from "../services/api";
 import type { UiMajor } from "../types/api";
 
@@ -142,7 +143,6 @@ export default function NganhPage() {
                     alignItems: "center",
                     justifyContent: "space-between",
                     gap: 12,
-                    cursor: "pointer",
                   }}
                 >
                   <span style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, textAlign: "left" }}>
@@ -207,8 +207,8 @@ export default function NganhPage() {
             <div>
               <p className="bunik-note-text" style={{ fontSize: 17, margin: "0 0 9px" }}>vùng điểm chuẩn</p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 9 }}>
-                <label style={{ color: B.body, fontSize: 11, fontWeight: 700 }}>Từ<input className="bunik-field" style={{ minHeight: 40, marginTop: 4, padding: "7px 9px" }} type="number" min={MIN_SCORE} max={scoreMax} value={scoreMin} onChange={(event) => setScoreMin(Math.min(scoreMax, Math.max(MIN_SCORE, Number(event.target.value))))} /></label>
-                <label style={{ color: B.body, fontSize: 11, fontWeight: 700 }}>Đến<input className="bunik-field" style={{ minHeight: 40, marginTop: 4, padding: "7px 9px" }} type="number" min={scoreMin} max={MAX_SCORE} value={scoreMax} onChange={(event) => setScoreMax(Math.max(scoreMin, Math.min(MAX_SCORE, Number(event.target.value))))} /></label>
+                <label style={{ color: B.body, fontSize: 11, fontWeight: 700 }}>Từ<NumberField className="bunik-field" style={{ minHeight: 40, marginTop: 4, padding: "7px 9px" }} min={MIN_SCORE} max={scoreMax} step={0.5} decimals={1} ariaLabel="Điểm chuẩn từ" value={scoreMin} onChange={setScoreMin} /></label>
+                <label style={{ color: B.body, fontSize: 11, fontWeight: 700 }}>Đến<NumberField className="bunik-field" style={{ minHeight: 40, marginTop: 4, padding: "7px 9px" }} min={scoreMin} max={MAX_SCORE} step={0.5} decimals={1} ariaLabel="Điểm chuẩn đến" value={scoreMax} onChange={setScoreMax} /></label>
               </div>
             </div>
           </div>

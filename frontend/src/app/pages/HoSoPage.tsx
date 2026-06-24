@@ -10,7 +10,6 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { getTierColor, getTierThreshold } from "../data/mockData";
 import {
   addMyAchievement,
   deleteMyAchievement,
@@ -18,15 +17,20 @@ import {
   getMyAchievements,
   getMyCertificates,
   getMyProfile,
+  getMySubjectProfile,
   updateMyProfile,
+  updateMySubjectProfile,
   type ProfileUpdatePayload,
 } from "../services/api";
-import type { ApiAchievement, ApiAward } from "../types/api";
+import type { ApiAchievement, ApiAward, ApiSchoolSubject, ApiSubjectResult } from "../types/api";
 import { B, CenterNote, SketchHeading, cardStyle } from "../components/bunik";
+import { NumberField } from "../components/NumberField";
 
-type SubjectKey = "toan" | "van" | "anh" | "ly" | "hoa" | "sinh" | "su" | "dia";
 type SpecialSubject = "toan" | "ly" | "hoa" | "sinh" | "tin" | "ngoai_ngu" | "van" | "su" | "dia";
-type SubjectScores = Record<SubjectKey, number>;
+type SubjectResultDraft = {
+  numeric_score: number | null;
+  assessment_status: 'PASSED' | 'FAILED' | null;
+};
 type PrizeType = "Khuyen Khich" | "Ba" | "Nhi" | "Nhat";
 type SelectedAchievement = {
   clientId: string;
@@ -40,16 +44,7 @@ const dotBg = {
 
 const handCard = cardStyle();
 
-const SUBJECTS: Array<{ key: SubjectKey; label: string }> = [
-  { key: "toan", label: "Toán" },
-  { key: "van", label: "Văn" },
-  { key: "anh", label: "Anh" },
-  { key: "ly", label: "Lý" },
-  { key: "hoa", label: "Hóa" },
-  { key: "sinh", label: "Sinh" },
-  { key: "su", label: "Sử" },
-  { key: "dia", label: "Địa" },
-];
+const CORE_SUBJECT_CODES = ['math', 'literature', 'english', 'history'];
 
 const SPECIAL_SUBJECTS: Array<{ key: SpecialSubject; label: string }> = [
   { key: "toan", label: "Toán" },
@@ -87,7 +82,7 @@ function normalizePrize(prize?: string | null): PrizeType {
   return "Khuyen Khich";
 }
 
-function getAwardBonus(level?: string | null, prize?: PrizeType): number {
+function getAwardBaseBonus(level?: string | null, prize?: PrizeType): number {
   const normalizedLevel = normalizeText(level || "");
   if (normalizedLevel.includes("quoc te")) {
     if (prize === "Nhat") return 100;
@@ -110,6 +105,26 @@ function getAwardBonus(level?: string | null, prize?: PrizeType): number {
   return 0;
 }
 
+function buildAwardBonuses(items: Array<{ clientId: string; prize: PrizeType; award: ApiAward }>): Array<{ clientId: string; bonus: number }> {
+  const repeatedCounts = new Map<string, number>();
+
+  return items.map((item) => {
+    const normalizedLevel = normalizeText(item.award.level || "");
+    const key = `${normalizedLevel}::${item.prize}`;
+    const baseBonus = getAwardBaseBonus(item.award.level, item.prize);
+    const repeatIndex = repeatedCounts.get(key) ?? 0;
+    if (item.prize === "Khuyen Khich") {
+      repeatedCounts.set(key, repeatIndex + 1);
+    }
+    return {
+      clientId: item.clientId,
+      bonus: item.prize === "Khuyen Khich"
+        ? Math.round((baseBonus / (2 ** repeatIndex)) * 100) / 100
+        : baseBonus,
+    };
+  });
+}
+
 function formatSpecialLabel(subject: SpecialSubject): string {
   const item = SPECIAL_SUBJECTS.find((value) => value.key === subject);
   return item ? `Chuyên ${item.label}` : "Môn chuyên";
@@ -120,9 +135,9 @@ function createClientId(): string {
 }
 
 export default function HoSoPage() {
-  const [scores, setScores] = useState<SubjectScores>({
-    toan: 0, van: 0, anh: 0, ly: 0, hoa: 0, sinh: 0, su: 0, dia: 0,
-  });
+  const [subjectCatalog, setSubjectCatalog] = useState<ApiSchoolSubject[]>([]);
+  const [selectedElectives, setSelectedElectives] = useState<string[]>([]);
+  const [subjectResults, setSubjectResults] = useState<Record<string, SubjectResultDraft>>({});
   const [isChuyenClass, setIsChuyenClass] = useState(false);
   const [specialSubject, setSpecialSubject] = useState<SpecialSubject>("toan");
   const [specialScore, setSpecialScore] = useState(0);
@@ -149,23 +164,23 @@ export default function HoSoPage() {
         return;
       }
       try {
-        const [profileResponse, awardResponse, achievementResponse, certificateResponse] = await Promise.all([
+        const [profileResponse, subjectResponse, awardResponse, achievementResponse, certificateResponse] = await Promise.all([
           getMyProfile(token),
+          getMySubjectProfile(token),
           getAwardsCatalog(token),
           getMyAchievements(token),
           getMyCertificates(token),
         ]);
         const user = profileResponse.user;
-        setScores({
-          toan: user.math || 0,
-          van: user.literature || 0,
-          anh: user.english || 0,
-          ly: user.physics || 0,
-          hoa: user.chemistry || 0,
-          sinh: user.biology || 0,
-          su: user.history || 0,
-          dia: user.geography || 0,
-        });
+        setSubjectCatalog(subjectResponse.subjects);
+        setSelectedElectives(subjectResponse.selected_elective_codes);
+        setSubjectResults(Object.fromEntries(subjectResponse.results.map((result) => [
+          result.subject_code,
+          {
+            numeric_score: result.numeric_score,
+            assessment_status: result.assessment_status,
+          },
+        ])));
         setIsChuyenClass(Boolean(user.is_special));
         setSpecialSubject((user.special_subject as SpecialSubject) || "toan");
         setSpecialScore(user.special_score || 0);
@@ -212,56 +227,107 @@ export default function HoSoPage() {
       .filter((item): item is { clientId: string; prize: PrizeType; award: ApiAward } => Boolean(item))
   ), [selectedAchievements, awardsCatalog]);
 
+  const awardBonuses = useMemo(() => buildAwardBonuses(selectedAwards), [selectedAwards]);
   const awardBonus = useMemo(
-    () => selectedAwards.reduce((sum, item) => sum + getAwardBonus(item.award.level, item.prize), 0),
-    [selectedAwards],
+    () => awardBonuses.reduce((sum, item) => sum + item.bonus, 0),
+    [awardBonuses],
+  );
+  const awardBonusByClientId = useMemo(
+    () => new Map(awardBonuses.map((item) => [item.clientId, item.bonus])),
+    [awardBonuses],
   );
 
   const certBonus = ieltScore * 2 + satScore / 100;
-  const baseScore = useMemo(() => Object.values(scores).reduce((a, b) => a + b, 0), [scores]);
+  const coreSubjects = useMemo(
+    () => subjectCatalog.filter((subject) => subject.counts_as_core),
+    [subjectCatalog],
+  );
+  const electiveSubjects = useMemo(
+    () => subjectCatalog.filter((subject) => subject.curriculum_group === 'ELECTIVE'),
+    [subjectCatalog],
+  );
+  const selectedSubjects = useMemo(
+    () => [
+      ...coreSubjects,
+      ...electiveSubjects.filter((subject) => selectedElectives.includes(subject.code)),
+    ],
+    [coreSubjects, electiveSubjects, selectedElectives],
+  );
+  const scorePreview = useMemo(() => {
+    const results = selectedSubjects.map((subject) => subjectResults[subject.code]);
+    const numericValues = results
+      .map((result) => result?.numeric_score)
+      .filter((value): value is number => value !== null && value !== undefined);
+    const numericSum = numericValues.reduce((sum, value) => sum + value, 0);
+    const numericAverage = numericValues.length > 0 ? numericSum / numericValues.length : null;
+    const passedCount = results.filter((result) => result?.assessment_status === 'PASSED').length;
+    const failedCount = results.filter((result) => result?.assessment_status === 'FAILED').length;
+    const isComplete = selectedElectives.length === 4
+      && selectedSubjects.length === 8
+      && results.every((result) => (
+        result?.numeric_score !== null && result?.numeric_score !== undefined
+      ) || result?.assessment_status === 'PASSED' || result?.assessment_status === 'FAILED');
+    return {
+      isComplete,
+      numericAverage,
+      passedCount,
+      failedCount,
+      score80: isComplete && numericAverage !== null
+        ? Math.round((numericSum + numericAverage * passedCount) * 100) / 100
+        : null,
+    };
+  }, [selectedElectives.length, selectedSubjects, subjectResults]);
 
-  const totalScore = useMemo(() => {
-    const specialPart = isChuyenClass ? specialScore : 0;
-    return Math.round((baseScore + specialPart + awardBonus + certBonus) * 10) / 10;
-  }, [awardBonus, baseScore, certBonus, isChuyenClass, specialScore]);
+  const incompleteInfo = useMemo(() => {
+    const electivesRemaining = Math.max(0, 4 - selectedElectives.length);
+    const missingResultNames = selectedSubjects
+      .filter((subject) => {
+        const result = subjectResults[subject.code];
+        return !result || (result.numeric_score === null && result.assessment_status === null);
+      })
+      .map((subject) => subject.name);
+    return { electivesRemaining, missingResultNames };
+  }, [selectedElectives.length, selectedSubjects, subjectResults]);
 
-  const tier = getTierThreshold(totalScore);
-  const tierColor = getTierColor(tier);
-
-  const radarData = SUBJECTS.map((subject) => ({
-    subject: subject.label,
-    score: scores[subject.key] || 0,
-    fullMark: 10,
-  }));
-
-  const achievementColumns = useMemo(() => {
-    const columns: Array<{
-      top: { clientId: string; prize: PrizeType; award: ApiAward };
-      bottom?: { clientId: string; prize: PrizeType; award: ApiAward };
-    }> = [];
-    for (let i = 0; i < selectedAwards.length; i += 2) {
-      columns.push({ top: selectedAwards[i], bottom: selectedAwards[i + 1] });
-    }
-    return columns;
-  }, [selectedAwards]);
+  const radarData = selectedSubjects.map((subject) => {
+    const result = subjectResults[subject.code];
+    const raw = result?.numeric_score
+      ?? (result?.assessment_status === 'PASSED' ? scorePreview.numericAverage : 0)
+      ?? 0;
+    // The map emphasises the 7–10 band; anything below 7 collapses to the centre.
+    const score = raw >= 7 ? raw : 0;
+    return { subject: subject.name, score, fullMark: 10 };
+  });
 
   const blocks = useMemo(() => {
-    const sorted = [...SUBJECTS].sort((a, b) => (scores[b.key] || 0) - (scores[a.key] || 0));
-    const top3 = sorted.slice(0, 3).map((item) => item.label);
-    const recs = [];
-    if (top3.includes("Toán") && top3.includes("Lý")) recs.push({ block: "A00", name: "Toán - Lý - Hóa", match: 95 });
-    if (top3.includes("Toán") && top3.includes("Anh")) recs.push({ block: "A01", name: "Toán - Lý - Anh", match: 88 });
-    if (top3.includes("Văn") && top3.includes("Sử")) recs.push({ block: "C00", name: "Văn - Sử - Địa", match: 82 });
-    if (top3.includes("Anh")) recs.push({ block: "D01", name: "Toán - Văn - Anh", match: 79 });
-    if (top3.includes("Sinh") || top3.includes("Hóa")) recs.push({ block: "B00", name: "Toán - Hóa - Sinh", match: 77 });
-    return recs.slice(0, 3);
-  }, [scores]);
+    const availableCodes = new Set(selectedSubjects.map((subject) => subject.code));
+    const definitions = [
+      { block: 'A00', name: 'Toán - Vật lí - Hóa học', codes: ['math', 'physics', 'chemistry'] },
+      { block: 'A01', name: 'Toán - Vật lí - Tiếng Anh', codes: ['math', 'physics', 'english'] },
+      { block: 'B00', name: 'Toán - Hóa học - Sinh học', codes: ['math', 'chemistry', 'biology'] },
+      { block: 'C00', name: 'Ngữ văn - Lịch sử - Địa lí', codes: ['literature', 'history', 'geography'] },
+      { block: 'D01', name: 'Toán - Ngữ văn - Tiếng Anh', codes: ['math', 'literature', 'english'] },
+    ];
+    return definitions
+      .filter((definition) => definition.codes.every((code) => availableCodes.has(code)))
+      .map((definition) => {
+        const values = definition.codes
+          .map((code) => subjectResults[code]?.numeric_score)
+          .filter((value): value is number => value !== null && value !== undefined);
+        const match = values.length === definition.codes.length
+          ? Math.round(values.reduce((sum, value) => sum + value, 0) / values.length * 10)
+          : 0;
+        return { block: definition.block, name: definition.name, match };
+      })
+      .sort((a, b) => b.match - a.match);
+  }, [selectedSubjects, subjectResults]);
 
   const addAward = (awardId: number) => {
     setSelectedAchievements((prev) => [
       ...prev,
       { clientId: createClientId(), award_id: awardId, prize: "Khuyen Khich" },
     ]);
+    setShowAwardsDropdown(false);
   };
 
   const removeSelectedAward = (clientId: string) => {
@@ -274,6 +340,36 @@ export default function HoSoPage() {
     )));
   };
 
+  const toggleElective = (code: string) => {
+    setSelectedElectives((current) => {
+      if (current.includes(code)) return current.filter((item) => item !== code);
+      if (current.length >= 4) return current; // limit enforced by disabling in the UI
+      return [...current, code];
+    });
+  };
+
+  const setNumericResult = (code: string, value: number) => {
+    setSubjectResults((current) => ({
+      ...current,
+      [code]: { numeric_score: value, assessment_status: null },
+    }));
+  };
+
+  const setAssessmentResult = (code: string, value: 'PASSED' | 'FAILED') => {
+    setSubjectResults((current) => ({
+      ...current,
+      [code]: { numeric_score: null, assessment_status: value },
+    }));
+  };
+
+  const clearSubjectResult = (code: string) => {
+    setSubjectResults((current) => {
+      const next = { ...current };
+      delete next[code];
+      return next;
+    });
+  };
+
   const handleSave = async () => {
     const token = localStorage.getItem("gr1_access_token");
     if (!token) {
@@ -283,30 +379,51 @@ export default function HoSoPage() {
     setSaving(true);
     setSaveMessage(null);
     setError(null);
+
+    // The subject profile requires exactly four electives; the rest of the
+    // profile (name, lớp chuyên, thành tích) can always be saved. Keep them
+    // decoupled so a partial profile never blocks saving identity + achievements.
+    const canSaveSubjects = selectedElectives.length === 4;
+
     try {
-      const payload: ProfileUpdatePayload = {
+      const profilePayload: ProfileUpdatePayload = {
         full_name: userName.trim() || "Học sinh của tôi",
-        math: scores.toan,
-        literature: scores.van,
-        english: scores.anh,
-        physics: scores.ly,
-        chemistry: scores.hoa,
-        biology: scores.sinh,
-        history: scores.su,
-        geography: scores.dia,
         is_special: isChuyenClass,
         special_subject: specialSubject,
         special_score: isChuyenClass ? specialScore : 0,
-        base_score: baseScore,
       };
-      await updateMyProfile(token, payload);
 
-      for (const achievement of savedAchievements) {
-        await deleteMyAchievement(token, achievement.id);
+      // Independent writes run in parallel.
+      const [, subjectResponse] = await Promise.all([
+        updateMyProfile(token, profilePayload),
+        canSaveSubjects
+          ? updateMySubjectProfile(token, {
+              elective_codes: selectedElectives,
+              results: selectedSubjects.flatMap((subject) => {
+                const result = subjectResults[subject.code];
+                if (!result || (result.numeric_score === null && result.assessment_status === null)) return [];
+                return [{
+                  subject_code: subject.code,
+                  numeric_score: result.numeric_score,
+                  assessment_status: result.assessment_status,
+                }];
+              }),
+            })
+          : Promise.resolve(null),
+      ]);
+
+      if (subjectResponse) {
+        setSelectedElectives(subjectResponse.selected_elective_codes);
+        setSubjectResults(Object.fromEntries(subjectResponse.results.map((result: ApiSubjectResult) => [
+          result.subject_code,
+          { numeric_score: result.numeric_score, assessment_status: result.assessment_status },
+        ])));
       }
-      for (const item of selectedAchievements) {
-        await addMyAchievement(token, { award_id: item.award_id, prize: item.prize });
-      }
+
+      // Re-sync achievements: drop the saved set, recreate the current one.
+      // Each phase fans out in parallel instead of awaiting one at a time.
+      await Promise.all(savedAchievements.map((achievement) => deleteMyAchievement(token, achievement.id)));
+      await Promise.all(selectedAchievements.map((item) => addMyAchievement(token, { award_id: item.award_id, prize: item.prize })));
       const refreshed = await getMyAchievements(token);
       setSavedAchievements(refreshed.results || []);
       setSelectedAchievements(
@@ -316,12 +433,68 @@ export default function HoSoPage() {
           prize: normalizePrize(item.prize),
         })),
       );
-      setSaveMessage("Đã lưu thông tin hồ sơ");
+      setSaveMessage(
+        canSaveSubjects
+          ? "Đã lưu hồ sơ"
+          : "Đã lưu hồ sơ — chọn đủ 4 môn lựa chọn để lưu điểm học lực.",
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không thể lưu hồ sơ");
     } finally {
       setSaving(false);
     }
+  };
+
+  const renderSubjectResult = (subject: ApiSchoolSubject) => {
+    const result = subjectResults[subject.code];
+    return (
+      <div key={subject.code} className="p-3 rounded-2xl" style={{ background: B.paper, border: `1.5px solid ${B.ink}` }}>
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <label style={{ color: B.ink, fontSize: 13, fontWeight: 800 }}>{subject.name}</label>
+          {result && (
+            <button type="button" onClick={() => clearSubjectResult(subject.code)} style={{ color: B.muted, fontSize: 11, fontWeight: 700 }}>
+              Xóa kết quả
+            </button>
+          )}
+        </div>
+        {subject.assessment_type === 'NUMERIC' ? (
+          <NumberField
+            min={0}
+            max={10}
+            step={0.1}
+            decimals={2}
+            placeholder="Nhập điểm 0–10"
+            ariaLabel={`Điểm môn ${subject.name}`}
+            value={result?.numeric_score ?? 0}
+            onChange={(value) => setNumericResult(subject.code, value)}
+            className="w-full px-3 py-2 rounded-xl text-sm outline-none"
+            style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paperLight }}
+          />
+        ) : (
+          <div className="grid grid-cols-2 gap-2">
+            {([
+              ['PASSED', 'Đạt'],
+              ['FAILED', 'Chưa đạt'],
+            ] as const).map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setAssessmentResult(subject.code, value)}
+                className="px-3 py-2 rounded-xl text-sm"
+                style={{
+                  border: `2px solid ${B.ink}`,
+                  background: result?.assessment_status === value ? B.olive : B.paperLight,
+                  color: result?.assessment_status === value ? B.paperLight : B.ink,
+                  fontWeight: 800,
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
@@ -342,10 +515,15 @@ export default function HoSoPage() {
               <div style={handCard} className="p-6">
                 <div className="flex items-center gap-4 mb-3">
                   <div
-                    className="w-16 h-16 rounded-[20px] flex items-center justify-center text-white flex-shrink-0"
+                    className="w-16 h-16 flex items-center justify-center flex-shrink-0"
                     style={{
-                      background: `linear-gradient(135deg, ${B.terracotta} 0%, ${B.honey} 100%)`,
-                      boxShadow: `4px 4px 0 ${B.ink}`,
+                      background: B.terracotta,
+                      color: B.paperLight,
+                      border: `2.5px solid ${B.ink}`,
+                      borderRadius: "20px 24px 18px 22px/22px 18px 24px 20px",
+                      fontFamily: "'Shantell Sans', cursive",
+                      fontWeight: 800,
+                      boxShadow: `4px 4px 0 rgba(43,39,34,0.2)`,
                     }}
                   >
                     HS
@@ -362,11 +540,23 @@ export default function HoSoPage() {
                       <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="w-9 h-9 rounded-xl flex items-center justify-center"
-                        style={{ background: B.terracotta, color: B.paperLight, border: `1.5px solid ${B.ink}`, fontWeight: 700, opacity: saving ? 0.7 : 1 }}
-                        title={saving ? "Đang lưu" : "Lưu thông tin"}
+                        className="bunik-press inline-flex items-center gap-2 flex-shrink-0"
+                        style={{
+                          background: B.terracotta,
+                          color: B.paperLight,
+                          border: `2px solid ${B.ink}`,
+                          borderRadius: "13px 10px 12px 11px/11px 12px 10px 13px",
+                          padding: "8px 15px",
+                          fontWeight: 700,
+                          fontSize: 14,
+                          whiteSpace: "nowrap",
+                          opacity: saving ? 0.75 : 1,
+                          ["--sh" as string]: B.ink,
+                        }}
+                        title={saving ? "Đang lưu" : "Lưu thông tin hồ sơ"}
                       >
-                        <Save size={14} />
+                        <Save size={15} />
+                        {saving ? "Đang lưu…" : "Lưu hồ sơ"}
                       </button>
                     </div>
                     <p style={{ color: B.muted, fontSize: 13, marginTop: 4 }}>Nhấn để đổi tên</p>
@@ -428,7 +618,7 @@ export default function HoSoPage() {
                                   setShowSpecialDropdown(false);
                                 }}
                               >
-                                Chuyen {item.label}
+                                Chuyên {item.label}
                               </button>
                             ))}
                           </div>
@@ -437,13 +627,14 @@ export default function HoSoPage() {
                     </div>
                     <div>
                       <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>Điểm trung bình môn chuyên</label>
-                      <input
-                        type="number"
+                      <NumberField
                         min={0}
                         max={10}
                         step={0.1}
+                        decimals={2}
+                        ariaLabel="Điểm trung bình môn chuyên"
                         value={specialScore}
-                        onChange={(e) => setSpecialScore(Math.min(10, Math.max(0, Number(e.target.value))))}
+                        onChange={setSpecialScore}
                         className="mt-1 w-full px-3 py-2 rounded-xl text-sm outline-none"
                         style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                       />
@@ -454,26 +645,70 @@ export default function HoSoPage() {
 
               <div style={handCard} className="p-6">
                 <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 16 }}>
-                  Điểm trung bình 8 môn (0–10)
+                  Hồ sơ môn học GDPT 2018
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {SUBJECTS.map((subject) => (
-                    <div key={subject.key}>
-                      <label className="flex items-center gap-2 mb-1.5" style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>
-                        {subject.label}
-                      </label>
-                      <input
-                        type="number"
-                        min={0}
-                        max={10}
-                        step={0.1}
-                        value={scores[subject.key]}
-                        onChange={(e) => setScores((prev) => ({ ...prev, [subject.key]: Math.min(10, Math.max(0, Number(e.target.value))) }))}
-                        className="w-full px-3 py-2 rounded-xl text-sm outline-none"
-                        style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
-                      />
-                    </div>
-                  ))}
+                <p style={{ color: B.body, fontSize: 13, lineHeight: 1.6, marginBottom: 14 }}>
+                  Bốn môn cốt lõi được tính cố định. Chọn thêm đúng bốn môn lựa chọn đang học.
+                </p>
+
+                <p style={{ color: B.ink, fontSize: 13, fontWeight: 800, marginBottom: 10 }}>4 môn cốt lõi</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {coreSubjects.map(renderSubjectResult)}
+                </div>
+
+                <div className="flex items-center justify-between mt-6 mb-3">
+                  <p style={{ color: B.ink, fontSize: 13, fontWeight: 800 }}>Chọn 4 môn lựa chọn</p>
+                  <span
+                    className="px-2.5 py-1 rounded-xl text-xs"
+                    style={{
+                      background: selectedElectives.length === 4 ? B.olive : B.honey,
+                      color: selectedElectives.length === 4 ? B.paperLight : B.ink,
+                      border: `1.5px solid ${B.ink}`,
+                      fontWeight: 800,
+                    }}
+                  >
+                    {selectedElectives.length}/4 môn
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {electiveSubjects.map((subject) => {
+                    const selected = selectedElectives.includes(subject.code);
+                    const disabled = !selected && selectedElectives.length >= 4;
+                    return (
+                      <button
+                        key={subject.code}
+                        type="button"
+                        disabled={disabled}
+                        onClick={() => toggleElective(subject.code)}
+                        className="px-3 py-2 rounded-xl text-sm"
+                        title={disabled ? "Đã đủ 4 môn — bỏ chọn một môn khác để đổi" : undefined}
+                        style={{
+                          background: selected ? B.terracotta : B.paper,
+                          color: selected ? B.paperLight : B.ink,
+                          border: `2px solid ${B.ink}`,
+                          fontWeight: 700,
+                          opacity: disabled ? 0.4 : 1,
+                        }}
+                      >
+                        {selected ? '✓ ' : ''}{subject.name}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {selectedElectives.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                    {electiveSubjects
+                      .filter((subject) => selectedElectives.includes(subject.code))
+                      .map(renderSubjectResult)}
+                  </div>
+                )}
+
+                <div className="mt-5 p-4 rounded-2xl" style={{ background: "rgba(206,155,78,.09)", border: `2px dashed ${B.muted}` }}>
+                  <p style={{ color: B.ink, fontSize: 12, fontWeight: 800 }}>Cách quy đổi môn Đạt/Chưa đạt</p>
+                  <p style={{ color: B.body, fontSize: 12, lineHeight: 1.6, marginTop: 4 }}>
+                    Môn Đạt nhận điểm trung bình của các môn có điểm; môn Chưa đạt nhận 0. Tổng cuối luôn quy về thang 80.
+                  </p>
                 </div>
               </div>
 
@@ -485,7 +720,7 @@ export default function HoSoPage() {
                     style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                     onClick={() => setShowAwardsDropdown((value) => !value)}
                   >
-                    <span>Chon thanh tich hop le</span>
+                    <span>Chọn thành tích hợp lệ</span>
                     <ChevronDown size={16} />
                   </button>
                   {showAwardsDropdown && (
@@ -518,83 +753,117 @@ export default function HoSoPage() {
                   )}
                 </div>
                 <div className="mt-4">
-                  <div className="flex flex-wrap gap-3">
-                    {achievementColumns.map((column, index) => (
-                      <div key={`${column.top.clientId}-${index}`} className="w-56 space-y-2">
-                        {[column.top, column.bottom].filter(Boolean).map((item) => (
-                          <div
-                            key={item!.clientId}
-                            className="px-3 py-2 rounded-xl"
-                            style={{ background: "rgba(255,179,71,0.15)", border: "1px solid rgba(255,179,71,0.35)", position: "relative" }}
+                  {selectedAwards.length === 0 ? (
+                    <p className="bunik-note-text" style={{ fontSize: 15, margin: 0 }}>
+                      Chưa có thành tích nào — chọn từ danh sách phía trên nhé.
+                    </p>
+                  ) : (
+                    <div className="bunik-scroll flex gap-3 overflow-x-auto items-start" style={{ paddingBottom: 10 }}>
+                      {selectedAwards.map((item) => (
+                        <div
+                          key={item.clientId}
+                          className="w-56 flex-shrink-0"
+                          style={{
+                            background: B.paperLight,
+                            border: `2px solid ${B.ink}`,
+                            borderRadius: "16px 12px 15px 11px/11px 15px 12px 16px",
+                            boxShadow: "3px 4px 0 rgba(43,39,34,0.13)",
+                            padding: "12px 14px",
+                            position: "relative",
+                            animation: "achievementDraw .42s ease both",
+                          }}
+                        >
+                          <div className="flex items-start justify-between gap-2">
+                            <span style={{ color: B.ink, fontSize: 13.5, fontWeight: 800, lineHeight: 1.25 }}>
+                              {item.award.name}
+                            </span>
+                            <button
+                              onClick={() => removeSelectedAward(item.clientId)}
+                              className="flex-shrink-0"
+                              style={{ color: B.muted, lineHeight: 0 }}
+                              title="Xóa thành tích"
+                            >
+                              <X size={15} />
+                            </button>
+                          </div>
+                          <span
+                            className="inline-block mt-2"
+                            style={{
+                              background: "rgba(206,155,78,.16)",
+                              color: B.body,
+                              border: `1.5px solid ${B.honey}`,
+                              borderRadius: "9px 7px 8px 6px/6px 8px 7px 9px",
+                              padding: "1px 8px",
+                              fontSize: 11,
+                              fontWeight: 700,
+                            }}
                           >
-                            <div className="flex items-center justify-between gap-2">
-                              <span style={{ color: "#92400E", fontSize: 13, fontWeight: 700 }}>
-                                {item!.award.name}
-                              </span>
-                              <button onClick={() => removeSelectedAward(item!.clientId)} style={{ color: "#92400E" }}>
-                                <X size={14} />
-                              </button>
-                            </div>
-                            <p style={{ color: "#B45309", fontSize: 11, marginTop: 4 }}>{item!.award.level}</p>
-                            <div className="mt-2" style={{ position: "relative" }}>
-                              <button
-                                type="button"
-                                onClick={() => setActivePrizeDropdownId((prev) => prev === item!.clientId ? null : item!.clientId)}
-                                className="w-full px-3 py-2 rounded-lg text-xs flex items-center justify-between"
+                            {item.award.level}
+                          </span>
+                          <div className="mt-2.5" style={{ position: "relative" }}>
+                            <button
+                              type="button"
+                              onClick={() => setActivePrizeDropdownId((prev) => prev === item.clientId ? null : item.clientId)}
+                              className="w-full px-3 py-2 text-xs flex items-center justify-between"
+                              style={{
+                                border: `2px solid ${B.ink}`,
+                                color: B.ink,
+                                background: B.paper,
+                                fontWeight: 700,
+                                borderRadius: "11px 8px 10px 9px/9px 10px 8px 11px",
+                              }}
+                            >
+                              <span>{PRIZE_OPTIONS.find((option) => option.value === item.prize)?.label ?? "Chọn giải"}</span>
+                              <ChevronDown size={14} />
+                            </button>
+                            {activePrizeDropdownId === item.clientId && (
+                              <div
+                                className="p-1 mt-1.5"
                                 style={{
-                                  border: "1px solid rgba(146,64,14,0.25)",
-                                  color: "#92400E",
-                                  background: `linear-gradient(180deg, ${B.paper} 0%, ${B.paperLight} 100%)`,
-                                  fontWeight: 700,
-                                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.75)",
+                                  background: B.paperLight,
+                                  border: `2px solid ${B.ink}`,
+                                  borderRadius: "11px 9px 12px 10px/10px 12px 9px 11px",
                                 }}
                               >
-                                <span>{PRIZE_OPTIONS.find((option) => option.value === item!.prize)?.label ?? "Chon giai"}</span>
-                                <ChevronDown size={14} />
-                              </button>
-                              {activePrizeDropdownId === item!.clientId && (
-                                <div
-                                  className="rounded-xl p-1"
-                                  style={{
-                                    position: "absolute",
-                                    top: "calc(100% + 6px)",
-                                    left: 0,
-                                    right: 0,
-                                    zIndex: 40,
-                                    background: B.paperLight,
-                                    border: "1px solid rgba(146,64,14,0.2)",
-                                    boxShadow: "0 10px 24px rgba(146,64,14,0.14)",
-                                  }}
-                                >
-                                  {PRIZE_OPTIONS.map((option) => (
-                                    <button
-                                      key={option.value}
-                                      type="button"
-                                      onClick={() => {
-                                        changeAchievementPrize(item!.clientId, option.value);
-                                        setActivePrizeDropdownId(null);
-                                      }}
-                                      className="w-full px-3 py-2 rounded-lg text-left text-xs"
-                                      style={{
-                                        color: option.value === item!.prize ? "#7C2D12" : "#92400E",
-                                        background: option.value === item!.prize ? "rgba(251,191,36,0.18)" : "transparent",
-                                        fontWeight: option.value === item!.prize ? 800 : 600,
-                                      }}
-                                    >
-                                      {option.label}
-                                    </button>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                            <p style={{ color: "#92400E", fontSize: 11, fontWeight: 700, marginTop: 6 }}>
-                              +{getAwardBonus(item!.award.level, item!.prize)} diem
-                            </p>
+                                {PRIZE_OPTIONS.map((option) => (
+                                  <button
+                                    key={option.value}
+                                    type="button"
+                                    onClick={() => {
+                                      changeAchievementPrize(item.clientId, option.value);
+                                      setActivePrizeDropdownId(null);
+                                    }}
+                                    className="w-full px-3 py-2 rounded-lg text-left text-xs"
+                                    style={{
+                                      color: B.ink,
+                                      background: option.value === item.prize ? "rgba(194,96,63,.14)" : "transparent",
+                                      fontWeight: option.value === item.prize ? 800 : 600,
+                                    }}
+                                  >
+                                    {option.label}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
                           </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+                          <span
+                            className="inline-block mt-2.5"
+                            style={{
+                              background: B.honey,
+                              color: B.ink,
+                              border: `1.5px solid ${B.ink}`,
+                              borderRadius: 999,
+                              padding: "1px 11px",
+                              fontSize: 11,
+                              fontWeight: 800,
+                            }}
+                          >
+                            +{(awardBonusByClientId.get(item.clientId) ?? 0).toFixed(2)} điểm
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -605,26 +874,28 @@ export default function HoSoPage() {
                 <div className="space-y-4">
                   <div>
                     <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>IELTS (×2): +{(ieltScore * 2).toFixed(1)}</label>
-                    <input
-                      type="number"
+                    <NumberField
                       min={0}
                       max={9}
                       step={0.5}
+                      decimals={1}
+                      ariaLabel="Điểm IELTS"
                       value={ieltScore}
-                      onChange={(e) => setIeltScore(Math.min(9, Math.max(0, Number(e.target.value))))}
+                      onChange={setIeltScore}
                       className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
                       style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                     />
                   </div>
                   <div>
                     <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>SAT (÷100): +{(satScore / 100).toFixed(2)}</label>
-                    <input
-                      type="number"
+                    <NumberField
                       min={0}
                       max={1600}
                       step={10}
+                      decimals={0}
+                      ariaLabel="Điểm SAT"
                       value={satScore}
-                      onChange={(e) => setSatScore(Math.min(1600, Math.max(0, Number(e.target.value))))}
+                      onChange={setSatScore}
                       className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
                       style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
                     />
@@ -636,26 +907,45 @@ export default function HoSoPage() {
             <div className="space-y-6">
               <div
                 className="p-8 text-center"
-                style={{ ...handCard, border: `2.5px solid ${tierColor}40`, boxShadow: `6px 6px 0px ${tierColor}25` }}
+                style={{ ...handCard, border: `2.5px solid ${B.terracotta}`, boxShadow: `6px 6px 0px rgba(194,96,63,.18)` }}
               >
-                <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Tổng điểm học lực</p>
-                <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: tierColor, lineHeight: 1 }}>
-                  {totalScore}
+                <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Điểm học lực 8 môn</p>
+                <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: B.terracotta, lineHeight: 1 }}>
+                  {scorePreview.score80?.toFixed(2) ?? '—'}
+                  <span style={{ fontSize: 20, color: B.muted }}>/80</span>
                 </div>
                 <div className="flex items-center justify-center mt-4">
                   <span
-                    className="px-6 py-2 rounded-2xl text-xl"
-                    style={{ fontWeight: 700, fontFamily: "'Shantell Sans', cursive", fontSize: 24, background: `${tierColor}20`, color: tierColor, border: `1.5px solid ${B.ink}` }}
+                    className="px-4 py-2 rounded-2xl"
+                    style={{
+                      fontWeight: 800,
+                      background: scorePreview.isComplete ? B.olive : B.honey,
+                      color: scorePreview.isComplete ? B.paperLight : B.ink,
+                      border: `1.5px solid ${B.ink}`,
+                    }}
                   >
-                    Tier {tier}
+                    {scorePreview.isComplete ? 'Hồ sơ môn học đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
                   </span>
                 </div>
+                {!scorePreview.isComplete && (incompleteInfo.electivesRemaining > 0 || incompleteInfo.missingResultNames.length > 0) && (
+                  <div className="mt-4 px-4 py-3 rounded-2xl text-left" style={{ background: "rgba(206,155,78,.12)", border: `1.5px dashed ${B.honey}` }}>
+                    <p style={{ color: B.ink, fontSize: 12.5, fontWeight: 800, marginBottom: 4 }}>Để hoàn tất điểm học lực:</p>
+                    <ul style={{ margin: 0, paddingLeft: 18, color: B.body, fontSize: 12.5, lineHeight: 1.6 }}>
+                      {incompleteInfo.electivesRemaining > 0 && (
+                        <li>Chọn thêm {incompleteInfo.electivesRemaining} môn lựa chọn.</li>
+                      )}
+                      {incompleteInfo.missingResultNames.length > 0 && (
+                        <li>Nhập kết quả cho: {incompleteInfo.missingResultNames.join(", ")}.</li>
+                      )}
+                    </ul>
+                  </div>
+                )}
                 <div className="grid grid-cols-4 gap-3 mt-6">
                   {[
-                    { label: "Điểm cơ sở", value: baseScore.toFixed(1) },
-                    { label: "Môn chuyên", value: `+${(isChuyenClass ? specialScore : 0).toFixed(1)}` },
-                    { label: "Thành tích", value: `+${awardBonus.toFixed(0)}` },
-                    { label: "Chứng chỉ", value: `+${certBonus.toFixed(1)}` },
+                    { label: "TB môn có điểm", value: scorePreview.numericAverage?.toFixed(2) ?? '—' },
+                    { label: "Môn Đạt", value: String(scorePreview.passedCount) },
+                    { label: "Môn Chưa đạt", value: String(scorePreview.failedCount) },
+                    { label: "Môn lựa chọn", value: `${selectedElectives.length}/4` },
                   ].map((item) => (
                     <div key={item.label} className="p-3 rounded-2xl text-center" style={{ background: "rgba(206,155,78,.09)", border: `1px dashed ${B.muted}` }}>
                       <p style={{ fontSize: 10, color: B.muted, fontWeight: 700 }}>{item.label}</p>
@@ -666,27 +956,10 @@ export default function HoSoPage() {
               </div>
 
               <div style={handCard} className="p-5">
-                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 12 }}>Bảng tier</h3>
-                <div className="grid grid-cols-4 gap-2">
-                  {[
-                    { tier: "F", label: "< 45", color: "#3F3F46" },
-                    { tier: "E", label: ">= 45", color: "#F97316" },
-                    { tier: "D", label: ">= 60", color: "#EAB308" },
-                    { tier: "C", label: ">= 75", color: "#4CAF50" },
-                    { tier: "B", label: ">= 90", color: "#2196F3" },
-                    { tier: "A", label: ">= 100", color: "#9C27B0" },
-                    { tier: "S", label: ">= 150", color: "#E11D48" },
-                  ].map((item) => (
-                    <div
-                      key={item.tier}
-                      className="p-2 rounded-xl text-center"
-                      style={{ background: tier === item.tier ? `${item.color}20` : B.paper, border: `2px solid ${tier === item.tier ? item.color : "transparent"}` }}
-                    >
-                      <p style={{ fontWeight: 900, color: item.color, fontSize: 14 }}>{item.tier}</p>
-                      <p style={{ fontSize: 10, color: B.muted }}>{item.label}</p>
-                    </div>
-                  ))}
-                </div>
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 10 }}>Thành phần khác của hồ sơ</h3>
+                <p style={{ color: B.body, fontSize: 13, lineHeight: 1.7 }}>
+                  Môn chuyên (+{(isChuyenClass ? specialScore : 0).toFixed(1)}), thành tích (+{awardBonus.toFixed(2)}) và chứng chỉ (+{certBonus.toFixed(1)}) được lưu riêng, không cộng vào điểm học lực thang 80.
+                </p>
               </div>
 
               <div style={handCard} className="p-6">
@@ -695,7 +968,7 @@ export default function HoSoPage() {
                   <RadarChart data={radarData}>
                     <PolarGrid stroke={B.muted} strokeDasharray="3 3" />
                     <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: B.body, fontWeight: 700 }} />
-                    <PolarRadiusAxis domain={[5, 10]} tick={{ fontSize: 9 }} />
+                    <PolarRadiusAxis domain={[7, 10]} tick={{ fontSize: 9 }} />
                     <Radar
                       name="Điểm"
                       dataKey="score"
@@ -732,7 +1005,7 @@ export default function HoSoPage() {
                           <span style={{ fontWeight: 700, color: B.ink, fontSize: 14 }}>{block.name}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="px-2.5 py-1 rounded-xl text-sm" style={{ background: "rgba(67,217,163,0.15)", color: "#16A34A", fontWeight: 800 }}>
+                          <div className="px-2.5 py-1 rounded-xl text-sm" style={{ background: "rgba(46,106,98,.14)", color: B.teal, fontWeight: 800 }}>
                             {block.match}%
                           </div>
                           <ChevronRight size={14} color={B.muted} />

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
 import { MapPin, Globe, Star, ChevronRight, TrendingUp, TrendingDown, Minus, MessageSquare, Send } from "lucide-react";
 import {
@@ -6,9 +6,7 @@ import {
   ResponsiveContainer, Tooltip
 } from "recharts";
 import {
-  getUniversities,
-  getAllAdmissionScores,
-  normalizeScoreTo30,
+  getUniversityDetailByCode,
   toUiUniversity,
   codeToColor,
 } from "../services/api";
@@ -30,7 +28,7 @@ function StarRating({ value, onChange }: { value: number; onChange?: (v: number)
           size={20}
           fill={i <= value ? B.honey : "none"}
           color={B.ink}
-          className="cursor-pointer"
+          data-clk
           onClick={() => onChange && onChange(i)}
         />
       ))}
@@ -38,36 +36,98 @@ function StarRating({ value, onChange }: { value: number; onChange?: (v: number)
   );
 }
 
-type MajorRow = {
+type ScoreCell = {
+  value: number;
+  scale: number | null;
+};
+
+type VariantRow = {
+  key: string;
   programId: string;
   majorCode: string;
   majorName: string;
-  scores: { [year: string]: { [method: string]: number } };
+  variant: string;
+  scores: Record<string, ScoreCell>;
 };
 
-function buildMajorRows(scores: ApiAdmissionScore[]): MajorRow[] {
-  const map = new Map<string, MajorRow>();
+type MethodTable = {
+  code: string;
+  name: string;
+  years: string[];
+  rows: VariantRow[];
+};
+
+function getVariantIdentity(score: ApiAdmissionScore): string {
+  const sourceIndependentKey = score.variant_key?.startsWith("source:") ? "" : score.variant_key ?? "";
+  return [
+    score.university_program_id,
+    sourceIndependentKey,
+    score.variant_label ?? "",
+    score.subject_group_code ?? "",
+    score.gender ?? "",
+    score.region_code ?? "",
+  ].join("|");
+}
+
+function getVariantLabel(score: ApiAdmissionScore): string {
+  const details = [
+    score.variant_label,
+    score.subject_group_code ? `Tổ hợp ${score.subject_group_code}` : null,
+    score.gender ? `Giới tính ${score.gender}` : null,
+    score.region_code ? `Khu vực ${score.region_code}` : null,
+  ].filter(Boolean);
+  return details.join(" · ") || "Điểm chung";
+}
+
+export function buildMethodTables(scores: ApiAdmissionScore[]): MethodTable[] {
+  const methods = new Map<string, { name: string; rows: Map<string, VariantRow> }>();
+
   for (const s of scores) {
     const prog = s.university_programs;
-    if (!prog) continue;
-    const code = prog.major_code;
-    if (!map.has(code)) {
-      map.set(code, {
+    if (!prog || s.score === null) continue;
+
+    const methodCode = s.admission_method_code;
+    if (!methods.has(methodCode)) {
+      methods.set(methodCode, {
+        name: s.admission_methods?.name ?? methodCode,
+        rows: new Map(),
+      });
+    }
+
+    const method = methods.get(methodCode)!;
+    const rowKey = getVariantIdentity(s);
+    if (!method.rows.has(rowKey)) {
+      method.rows.set(rowKey, {
+        key: rowKey,
         programId: prog.id,
-        majorCode: code,
-        majorName: prog.major_catalog?.name ?? code,
+        majorCode: prog.major_code,
+        majorName: prog.major_catalog?.name ?? prog.major_code,
+        variant: getVariantLabel(s),
         scores: {},
       });
     }
-    const row = map.get(code)!;
+
+    const row = method.rows.get(rowKey)!;
     const yr = String(s.year);
-    if (!row.scores[yr]) row.scores[yr] = {};
-    if (s.score !== null) {
-      const method = s.admission_methods?.name ?? s.admission_method_code;
-      row.scores[yr][method] = normalizeScoreTo30(s.score, s.note);
+    const cell = {
+      value: s.normalized_score ?? s.score,
+      scale: s.normalized_score !== null ? s.normalized_scale : null,
+    };
+    const current = row.scores[yr];
+    if (!current || (current.scale === cell.scale && cell.value > current.value)) {
+      row.scores[yr] = cell;
     }
   }
-  return Array.from(map.values());
+
+  return Array.from(methods, ([code, method]) => {
+    const rows = Array.from(method.rows.values()).sort((a, b) =>
+      a.majorName.localeCompare(b.majorName, "vi") || a.variant.localeCompare(b.variant, "vi")
+    );
+    const years = Array.from(new Set(rows.flatMap((row) => Object.keys(row.scores))))
+      .sort((a, b) => Number(a) - Number(b))
+      .slice(-3);
+    return { code, name: method.name, years, rows };
+  }).sort((a, b) => a.name.localeCompare(b.name, "vi"));
 }
 
 const MOCK_REVIEWS = [
@@ -80,7 +140,7 @@ export default function TruongDetailPage() {
   const code = id ?? "";
 
   const [university, setUniversity] = useState<UiUniversity | null>(null);
-  const [majorRows, setMajorRows] = useState<MajorRow[]>([]);
+  const [methodTables, setMethodTables] = useState<MethodTable[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState(0);
   const [reviewRating, setReviewRating] = useState(5);
@@ -89,29 +149,18 @@ export default function TruongDetailPage() {
   useEffect(() => {
     if (!code) return;
     setLoading(true);
-    Promise.all([
-      getUniversities({ search: code, page_size: 1 }),
-      getAllAdmissionScores({ university_code: code }),
-    ])
-      .then(([uniRes, scoreRes]) => {
-        if (uniRes.results.length > 0) {
-          setUniversity(toUiUniversity(uniRes.results[0], 0));
-        }
-        setMajorRows(buildMajorRows(scoreRes));
+    getUniversityDetailByCode(code)
+      .then((response) => {
+        setUniversity(toUiUniversity(response.university, 0));
+        setMethodTables(buildMethodTables(response.scores));
       })
-      .catch(console.error)
+      .catch((error) => {
+        console.error(error);
+        setUniversity(null);
+        setMethodTables([]);
+      })
       .finally(() => setLoading(false));
   }, [code]);
-
-  const yearColumns = useMemo(
-    () =>
-      Array.from(new Set(majorRows.flatMap((row) => Object.keys(row.scores))))
-        .sort((a, b) => Number(a) - Number(b))
-        .slice(-3),
-    [majorRows],
-  );
-  const previousTrendYear = yearColumns.length >= 2 ? yearColumns[yearColumns.length - 2] : null;
-  const latestTrendYear = yearColumns.length >= 1 ? yearColumns[yearColumns.length - 1] : null;
 
   const tabs = ["Ngành & Điểm chuẩn", "Biểu đồ đánh giá", "Đánh giá"];
 
@@ -133,17 +182,12 @@ export default function TruongDetailPage() {
     <div style={dotBg} className="bunik-page">
       {/* Hero banner */}
       <div
-        className="relative overflow-hidden"
+        className="relative"
         style={{
-          background: `linear-gradient(135deg, ${university.color}22 0%, ${university.color}11 50%, rgba(206,155,78,.08) 100%)`,
+          background: `${university.color}14`,
           borderBottom: `2px dashed ${B.muted}`,
         }}
       >
-        <div
-          className="absolute -right-20 -top-20 w-80 h-80 rounded-full opacity-10 pointer-events-none"
-          style={{ background: `radial-gradient(circle, ${university.color} 0%, transparent 70%)` }}
-        />
-
         <div className="bunik-container py-12">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm mb-8" style={{ color: B.muted }}>
@@ -157,13 +201,16 @@ export default function TruongDetailPage() {
           <div className="flex flex-col md:flex-row items-start gap-8">
             {/* Logo */}
             <div
-              className="w-24 h-24 rounded-[28px] flex items-center justify-center text-white flex-shrink-0"
+              className="w-24 h-24 flex items-center justify-center flex-shrink-0"
               style={{
-                background: `linear-gradient(135deg, ${university.color} 0%, ${university.color}88 100%)`,
+                background: university.color,
+                color: B.paperLight,
+                border: `2.5px solid ${B.ink}`,
+                borderRadius: "24px 28px 20px 26px/26px 20px 28px 24px",
                 fontFamily: "'Shantell Sans', cursive",
                 fontWeight: 800,
                 fontSize: 24,
-                boxShadow: `6px 6px 0px ${university.color}30`,
+                boxShadow: `4px 4px 0 rgba(43,39,34,0.2)`,
               }}
             >
               {university.abbr.slice(0, 3)}
@@ -173,18 +220,28 @@ export default function TruongDetailPage() {
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-3 mb-2">
                 <span
-                  className="px-3 py-1 rounded-xl text-sm"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 text-sm"
                   style={{
-                    background: university.ranking <= 3 ? `linear-gradient(135deg,${B.honey},${B.terracotta})` : B.paper,
-                    color: university.ranking <= 3 ? B.paperLight : B.ink,
-                    border: `1.5px solid ${B.ink}`,
+                    background: university.ranking <= 3 ? B.honey : B.paper,
+                    color: B.ink,
+                    border: `2px solid ${B.ink}`,
+                    borderRadius: "13px 10px 12px 11px/11px 12px 10px 13px",
                     fontWeight: 800,
                   }}
                 >
-                  ★ Hạng #{university.ranking}
+                  <Star size={13} fill={B.honey} color={B.ink} strokeWidth={1.5} /> Hạng #{university.ranking}
                 </span>
                 {university.region && (
-                  <span className="px-3 py-1 rounded-xl text-sm" style={{ background: "rgba(67,217,163,0.15)", color: "#16A34A", fontWeight: 700 }}>
+                  <span
+                    className="px-3 py-1 text-sm"
+                    style={{
+                      background: B.paper,
+                      color: B.teal,
+                      border: `2px solid ${B.teal}`,
+                      borderRadius: "11px 13px 10px 12px/12px 10px 13px 11px",
+                      fontWeight: 700,
+                    }}
+                  >
                     {university.region}
                   </span>
                 )}
@@ -291,82 +348,66 @@ export default function TruongDetailPage() {
               Ngành đào tạo & Điểm chuẩn
             </h2>
 
-            {majorRows.length === 0 ? (
+            {methodTables.length === 0 ? (
               <div className="p-6 rounded-2xl text-center" style={handCard}>
                 <p style={{ color: B.body }}>Chưa có dữ liệu ngành cho trường này</p>
                 <p className="bunik-note-text" style={{ fontSize: 16, marginTop: 6 }}>Đang cập nhật dữ liệu từ Bộ GD&ĐT…</p>
               </div>
             ) : (
-              <div style={{ ...handCard, overflow: "hidden" }}>
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr style={{ background: "rgba(206,155,78,.09)", borderBottom: `2px dashed ${B.muted}` }}>
-                        {["Tên ngành", "Mã ngành", ...yearColumns, "Xu hướng"].map((h) => (
-                          <th
-                            key={h}
-                            className="px-4 py-3 text-left text-sm"
-                            style={{ color: B.body, fontWeight: 800 }}
-                          >
-                            {h}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {majorRows.map((m, i) => {
-                        const previousScore = previousTrendYear ? getLatestScoreByYear(m, previousTrendYear) : null;
-                        const latestScore = latestTrendYear ? getLatestScoreByYear(m, latestTrendYear) : null;
-                        const diff = latestScore !== null && previousScore !== null ? latestScore - previousScore : null;
-                        return (
-                          <tr
-                            key={m.majorCode}
-                            style={{ borderBottom: i < majorRows.length - 1 ? "1px dashed rgba(43,39,34,.18)" : "none" }}
-                          >
-                            <td className="px-4 py-3.5">
-                              <Link
-                                to={`/nganh/${m.programId}`}
-                                style={{ fontWeight: 700, color: B.terracotta, fontSize: 14, textDecoration: "none" }}
-                              >
-                                {m.majorName}
-                              </Link>
-                            </td>
-                            <td className="px-4 py-3.5">
-                              <p style={{ fontSize: 11, color: B.muted }}>{m.majorCode}</p>
-                            </td>
-                            {yearColumns.map((y) => {
-                              const s = getLatestScoreByYear(m, y);
-                              return (
-                                <td key={y} className="px-4 py-3.5" style={{ fontWeight: 700, color: B.ink, fontSize: 15 }}>
-                                  {s !== null ? s : "—"}
-                                </td>
-                              );
-                            })}
-                            <td className="px-4 py-3.5">
-                              {diff === null ? (
-                                <span className="flex items-center gap-1 text-sm" style={{ color: B.muted }}>
-                                  <Minus size={14} /> —
-                                </span>
-                              ) : diff > 0 ? (
-                                <span className="flex items-center gap-1 text-sm" style={{ color: "#16A34A", fontWeight: 700 }}>
-                                  <TrendingUp size={14} /> +{diff.toFixed(1)}
-                                </span>
-                              ) : diff < 0 ? (
-                                <span className="flex items-center gap-1 text-sm" style={{ color: "#DC2626", fontWeight: 700 }}>
-                                  <TrendingDown size={14} /> {diff.toFixed(1)}
-                                </span>
-                              ) : (
-                                <span className="flex items-center gap-1 text-sm" style={{ color: B.muted, fontWeight: 700 }}>
-                                  <Minus size={14} /> 0
-                                </span>
-                              )}
-                            </td>
+              <div className="space-y-8">
+                {methodTables.map((method) => (
+                  <section key={method.code} style={{ ...handCard, overflow: "hidden" }}>
+                    <div className="px-5 py-4" style={{ borderBottom: `2px dashed ${B.muted}` }}>
+                      <h3 style={{ color: B.ink, fontWeight: 800, fontSize: 17 }}>
+                        {method.name}
+                      </h3>
+                      <p style={{ color: B.muted, fontSize: 12, marginTop: 3 }}>
+                        Mã phương thức: {method.code} · {method.rows.length} dòng dữ liệu
+                      </p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead>
+                          <tr style={{ background: "rgba(206,155,78,.09)", borderBottom: `2px dashed ${B.muted}` }}>
+                            {["Tên ngành", "Mã ngành", "Biến thể", ...method.years, "Xu hướng"].map((heading) => (
+                              <th key={heading} className="px-4 py-3 text-left text-sm" style={{ color: B.body, fontWeight: 800 }}>
+                                {heading}
+                              </th>
+                            ))}
                           </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
+                        </thead>
+                        <tbody>
+                          {method.rows.map((row, index) => {
+                            const diff = getTrend(row, method.years);
+                            return (
+                              <tr
+                                key={row.key}
+                                style={{ borderBottom: index < method.rows.length - 1 ? "1px dashed rgba(43,39,34,.18)" : "none" }}
+                              >
+                                <td className="px-4 py-3.5">
+                                  <Link
+                                    to={`/nganh/${row.programId}`}
+                                    style={{ fontWeight: 700, color: B.terracotta, fontSize: 14, textDecoration: "none" }}
+                                  >
+                                    {row.majorName}
+                                  </Link>
+                                </td>
+                                <td className="px-4 py-3.5" style={{ color: B.muted, fontSize: 11 }}>{row.majorCode}</td>
+                                <td className="px-4 py-3.5" style={{ color: B.body, fontSize: 12 }}>{row.variant}</td>
+                                {method.years.map((year) => (
+                                  <td key={year} className="px-4 py-3.5" style={{ fontWeight: 700, color: B.ink, fontSize: 15 }}>
+                                    {row.scores[year]?.value ?? "—"}
+                                  </td>
+                                ))}
+                                <td className="px-4 py-3.5">{renderTrend(diff)}</td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                ))}
               </div>
             )}
           </div>
@@ -419,10 +460,10 @@ export default function TruongDetailPage() {
                       <span style={{ fontSize: 13, color: B.body, fontWeight: 600 }}>{s.criteria}</span>
                       <span style={{ fontSize: 14, color: university.color, fontWeight: 800 }}>{s.score}/100</span>
                     </div>
-                    <div className="h-2.5 rounded-full overflow-hidden" style={{ background: B.paper }}>
+                    <div className="h-2.5 rounded-full overflow-hidden" style={{ background: B.paper, border: `1px solid ${B.ink}22` }}>
                       <div
                         className="h-full rounded-full"
-                        style={{ width: `${s.score}%`, background: `linear-gradient(90deg, ${university.color}aa, ${university.color})` }}
+                        style={{ width: `${s.score}%`, background: university.color }}
                       />
                     </div>
                   </div>
@@ -553,9 +594,23 @@ export default function TruongDetailPage() {
   );
 }
 
-function getLatestScoreByYear(row: MajorRow, year: string): number | null {
-  const methods = row.scores[year];
-  if (!methods) return null;
-  const vals = Object.values(methods);
-  return vals.length > 0 ? Math.max(...vals) : null;
+function getTrend(row: VariantRow, years: string[]): number | null {
+  if (years.length < 2) return null;
+  const previous = row.scores[years[years.length - 2]];
+  const latest = row.scores[years[years.length - 1]];
+  if (!previous || !latest || previous.scale !== latest.scale) return null;
+  return latest.value - previous.value;
+}
+
+function renderTrend(diff: number | null) {
+  if (diff === null) {
+    return <span className="flex items-center gap-1 text-sm" style={{ color: B.muted }}><Minus size={14} /> —</span>;
+  }
+  if (diff > 0) {
+    return <span className="flex items-center gap-1 text-sm" style={{ color: "#16A34A", fontWeight: 700 }}><TrendingUp size={14} /> +{diff.toFixed(1)}</span>;
+  }
+  if (diff < 0) {
+    return <span className="flex items-center gap-1 text-sm" style={{ color: "#DC2626", fontWeight: 700 }}><TrendingDown size={14} /> {diff.toFixed(1)}</span>;
+  }
+  return <span className="flex items-center gap-1 text-sm" style={{ color: B.muted, fontWeight: 700 }}><Minus size={14} /> 0</span>;
 }

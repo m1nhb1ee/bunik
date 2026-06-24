@@ -191,7 +191,13 @@ class TestAuthEndpoints:
                 }])
 
         class ScoreTable:
-            def upsert(self, *_a, **_k):
+            def __init__(self):
+                self.upsert_payload = None
+                self.upsert_options = None
+
+            def upsert(self, payload, **options):
+                self.upsert_payload = payload
+                self.upsert_options = options
                 return self
 
             def select(self, *_a, **_k):
@@ -213,9 +219,16 @@ class TestAuthEndpoints:
             table=lambda name: users_table if name == 'users' else score_table if name == 'score' else Obj(),
         )
         self._mock_clients(monkeypatch, fake_client)
-        response = self.client.patch('/api/auth/me/', {'full_name': 'Updated Name', 'math': 8.5}, format='json', HTTP_AUTHORIZATION='Bearer a1')
+        response = self.client.patch(
+            '/api/auth/me/',
+            {'full_name': 'Updated Name', 'math': 8.5, 'base_score': 8.5},
+            format='json',
+            HTTP_AUTHORIZATION='Bearer a1',
+        )
         assert response.status_code == status.HTTP_200_OK
         assert response.data['user']['full_name'] == 'Updated Name'
+        assert score_table.upsert_payload == {'user_id': 'u1', 'math': 8.5}
+        assert score_table.upsert_options == {'on_conflict': 'user_id'}
 
     def test_profile_patch_falls_back_when_special_subject_column_missing(self, monkeypatch):
         class UsersTable:
@@ -294,6 +307,135 @@ class TestAuthEndpoints:
         )
         assert response.status_code == status.HTTP_200_OK
         assert response.data['user']['full_name'] == 'Updated Name'
+
+    def test_subject_profile_get_success(self, monkeypatch):
+        table_rows = {
+            'school_subjects': [
+                {'code': 'math', 'name': 'Toan', 'is_active': True},
+                {'code': 'physics', 'name': 'Vat li', 'is_active': True},
+            ],
+            'user_elective_subjects': [{'user_id': 'u1', 'subject_code': 'physics'}],
+            'user_subject_results': [
+                {'user_id': 'u1', 'subject_code': 'math', 'numeric_score': 8.5, 'assessment_status': None},
+            ],
+        }
+
+        class Query:
+            def __init__(self, rows):
+                self.rows = rows
+
+            def select(self, *_a, **_k):
+                return self
+
+            def eq(self, field, value):
+                self.rows = [row for row in self.rows if row.get(field) == value]
+                return self
+
+            def order(self, *_a, **_k):
+                return self
+
+            def execute(self):
+                return Obj(data=self.rows)
+
+        class Rpc:
+            def execute(self):
+                return Obj(data={'is_complete': False, 'score_80': None})
+
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda name: Query(list(table_rows[name])),
+            rpc=lambda *_a, **_k: Rpc(),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+
+        response = self.client.get('/api/auth/me/subjects/', HTTP_AUTHORIZATION='Bearer a1')
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['selected_elective_codes'] == ['physics']
+        assert response.data['results'][0]['numeric_score'] == 8.5
+        assert response.data['academic_score']['is_complete'] is False
+
+    def test_subject_profile_patch_calls_atomic_rpc(self, monkeypatch):
+        rpc_calls = []
+        table_rows = {
+            'school_subjects': [{'code': 'math', 'name': 'Toan', 'is_active': True}],
+            'user_elective_subjects': [],
+            'user_subject_results': [],
+        }
+
+        class Query:
+            def __init__(self, rows):
+                self.rows = rows
+
+            def select(self, *_a, **_k):
+                return self
+
+            def eq(self, field, value):
+                self.rows = [row for row in self.rows if row.get(field) == value]
+                return self
+
+            def order(self, *_a, **_k):
+                return self
+
+            def execute(self):
+                return Obj(data=self.rows)
+
+        class Rpc:
+            def __init__(self, name, params):
+                self.name = name
+                self.params = params
+
+            def execute(self):
+                rpc_calls.append((self.name, self.params))
+                if self.name == 'get_user_academic_score':
+                    return Obj(data={'is_complete': False, 'score_80': None})
+                return Obj(data=None)
+
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda name: Query(list(table_rows[name])),
+            rpc=lambda name, params=None: Rpc(name, params),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+        payload = {
+            'elective_codes': ['physics', 'chemistry', 'biology', 'informatics'],
+            'results': [{'subject_code': 'math', 'numeric_score': 8.5}],
+        }
+
+        response = self.client.patch(
+            '/api/auth/me/subjects/',
+            payload,
+            format='json',
+            HTTP_AUTHORIZATION='Bearer a1',
+        )
+
+        assert response.status_code == status.HTTP_200_OK
+        save_call = next(call for call in rpc_calls if call[0] == 'save_user_subject_profile')
+        assert save_call[1]['p_elective_codes'] == payload['elective_codes']
+        assert save_call[1]['p_results'][0] == {
+            'subject_code': 'math',
+            'numeric_score': 8.5,
+            'assessment_status': None,
+        }
+
+    def test_subject_profile_patch_rejects_duplicate_electives(self, monkeypatch):
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda _name: Obj(),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+
+        response = self.client.patch(
+            '/api/auth/me/subjects/',
+            {
+                'elective_codes': ['physics', 'physics', 'biology', 'informatics'],
+                'results': [],
+            },
+            format='json',
+            HTTP_AUTHORIZATION='Bearer a1',
+        )
+
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     def test_awards_catalog_success(self, monkeypatch):
         class AwardsTable:

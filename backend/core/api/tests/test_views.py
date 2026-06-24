@@ -43,16 +43,24 @@ class TableStub:
         self.rows = [row for row in self.rows if row.get(field) is not None and row.get(field) > value]
         return self
 
+    def in_(self, field, values):
+        self.rows = [row for row in self.rows if row.get(field) in values]
+        return self
+
     def execute(self):
         return Obj(data=self.rows)
 
 
 class FakeClient:
-    def __init__(self, users=None, score_rows=None, majors=None, scores=None):
+    def __init__(self, users=None, score_rows=None, majors=None, scores=None,
+                 achievements=None, awards=None, certificates=None):
         self._users = users or []
         self._score_rows = score_rows or []
         self._majors = majors or []
         self._scores = scores or []
+        self._achievements = achievements or []
+        self._awards = awards or []
+        self._certificates = certificates or []
 
     def table(self, name):
         if name == 'users':
@@ -63,6 +71,12 @@ class FakeClient:
             return TableStub(self._majors)
         if name == 'admission_scores':
             return TableStub(self._scores)
+        if name == 'achievements':
+            return TableStub(self._achievements)
+        if name == 'awards':
+            return TableStub(self._awards)
+        if name == 'certificates':
+            return TableStub(self._certificates)
         raise AssertionError(f'Unexpected table: {name}')
 
 
@@ -91,6 +105,17 @@ class TestAnalyticsEndpoints:
                 {'user_id': 'u1', 'base_score': 80, 'math': 9, 'literature': 7, 'english': 8},
                 {'user_id': 'u2', 'base_score': 70, 'math': 8, 'literature': 9, 'english': 7},
             ],
+            achievements=[
+                {'id': 1, 'user_id': 'u1', 'award_id': 1, 'prize': 'Khuyen Khich'},
+                {'id': 2, 'user_id': 'u1', 'award_id': 2, 'prize': 'Khuyen Khich'},
+            ],
+            awards=[
+                {'id': 1, 'level': 'Quoc gia'},
+                {'id': 2, 'level': 'Quoc gia'},
+            ],
+            certificates=[
+                {'user_id': 'u1', 'name': 'IELTS', 'score': 6},
+            ],
         )
         monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
 
@@ -100,6 +125,8 @@ class TestAnalyticsEndpoints:
         assert response.data['count'] == 2
         assert response.data['results'][0]['id'] == 'u1'
         assert response.data['results'][0]['rank'] == 1
+        # base 80 + special 5 + repeated Khuyen Khich awards at Quoc gia (30 + 15) + IELTS 6×2 = 142
+        assert response.data['results'][0]['score'] == 142.0
         assert response.data['results'][0]['tier'] == 'A'
         assert response.data['results'][0]['topSubject'] == 'Toan'
 

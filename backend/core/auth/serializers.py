@@ -105,7 +105,10 @@ class ProfileUpdateSerializer(serializers.Serializer):
     is_special = serializers.BooleanField(required=False)
     special_subject = serializers.ChoiceField(required=False, choices=SPECIAL_SUBJECT_CHOICES)
     special_score = serializers.FloatField(required=False, min_value=0, max_value=10)
-    base_score = serializers.FloatField(required=False, min_value=0, max_value=80)
+    # Computed by PostgreSQL from the individual subject columns.
+    # Keep this field read-only so older clients can still include it without
+    # forwarding a value to the generated database column.
+    base_score = serializers.FloatField(read_only=True)
 
     def validate_user_name(self, value):
         if not re.fullmatch(r'^\w+$', value):
@@ -120,6 +123,43 @@ class ProfileUpdateSerializer(serializers.Serializer):
     def validate_dob(self, value):
         if value >= date.today():
             raise serializers.ValidationError('dob must be in the past.')
+        return value
+
+
+class SubjectResultInputSerializer(serializers.Serializer):
+    subject_code = serializers.CharField(max_length=50)
+    numeric_score = serializers.FloatField(required=False, allow_null=True, min_value=0, max_value=10)
+    assessment_status = serializers.ChoiceField(
+        required=False,
+        allow_null=True,
+        choices=['PASSED', 'FAILED'],
+    )
+
+    def validate(self, attrs):
+        has_numeric = attrs.get('numeric_score') is not None
+        has_status = attrs.get('assessment_status') is not None
+        if has_numeric == has_status:
+            raise serializers.ValidationError('Provide exactly one result type.')
+        return attrs
+
+
+class SubjectProfileUpdateSerializer(serializers.Serializer):
+    elective_codes = serializers.ListField(
+        child=serializers.CharField(max_length=50),
+        min_length=4,
+        max_length=4,
+    )
+    results = SubjectResultInputSerializer(many=True)
+
+    def validate_elective_codes(self, value):
+        if len(set(value)) != 4:
+            raise serializers.ValidationError('Exactly four distinct elective subjects are required.')
+        return value
+
+    def validate_results(self, value):
+        codes = [item['subject_code'] for item in value]
+        if len(codes) != len(set(codes)):
+            raise serializers.ValidationError('A subject result may only appear once.')
         return value
 
 

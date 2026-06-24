@@ -1,3 +1,4 @@
+import unicodedata
 from collections import defaultdict
 from datetime import date
 from statistics import median
@@ -20,13 +21,15 @@ SUBJECT_LABELS = {
     'history': 'Su',
     'geography': 'Dia',
 }
+# Mirrors the frontend tier thresholds (mockData.getTierThreshold) so the
+# ranking tier matches what the Hồ sơ page shows.
 TIER_THRESHOLDS = (
-    (90, 'S'),
-    (80, 'A'),
-    (70, 'B'),
-    (60, 'C'),
-    (45, 'D'),
-    (30, 'E'),
+    (150, 'S'),
+    (100, 'A'),
+    (90, 'B'),
+    (75, 'C'),
+    (60, 'D'),
+    (45, 'E'),
 )
 
 
@@ -61,6 +64,75 @@ def _score_to_tier(score: float) -> str:
     return 'F'
 
 
+def _normalize_text(value) -> str:
+    text = unicodedata.normalize('NFD', value or '')
+    text = ''.join(ch for ch in text if unicodedata.category(ch) != 'Mn')
+    return text.replace('đ', 'd').replace('Đ', 'D').lower()
+
+
+# Award bonus table — mirrors getAwardBaseBonus() in HoSoPage.tsx so the ranking
+# score matches the Hồ sơ page. Keys: prize after normalization.
+_AWARD_BONUS = {
+    'quoc te': {'nhat': 100, 'nhi': 80, 'ba': 70, 'khuyen khich': 60},
+    'quoc gia': {'nhat': 50, 'nhi': 40, 'ba': 35, 'khuyen khich': 30},
+    'tinh': {'nhat': 20, 'nhi': 15, 'ba': 12, 'khuyen khich': 10},
+}
+
+
+def _award_bonus(level, prize) -> float:
+    normalized_level = _normalize_text(level)
+    prize_value = _normalize_text(prize)
+    if prize_value not in {'nhat', 'nhi', 'ba'}:
+        prize_value = 'khuyen khich'
+    for level_key, prizes in _AWARD_BONUS.items():
+        if level_key in normalized_level:
+            return prizes[prize_value]
+    return 0
+
+
+def _award_bonus_total(achievements, award_level_by_id) -> float:
+    if not achievements:
+        return 0
+
+    repeated_counts = defaultdict(int)
+    total = 0.0
+
+    for achievement in sorted(achievements, key=lambda item: item.get('id') or 0):
+        level = award_level_by_id.get(achievement.get('award_id'))
+        prize = achievement.get('prize')
+        normalized_level = _normalize_text(level)
+        prize_value = _normalize_text(prize)
+        if prize_value not in {'nhat', 'nhi', 'ba'}:
+            prize_value = 'khuyen khich'
+
+        base_bonus = _award_bonus(level, prize)
+        if base_bonus <= 0:
+            continue
+
+        if prize_value == 'khuyen khich':
+            key = (normalized_level, prize_value)
+            repeat_index = repeated_counts[key]
+            total += base_bonus / (2 ** repeat_index)
+            repeated_counts[key] += 1
+        else:
+            total += base_bonus
+
+    return round(total, 2)
+
+
+def _certificate_bonus(certificates) -> float:
+    # IELTS counts ×2, SAT ÷100 — same as HoSoPage.tsx (first match wins).
+    ielts = None
+    sat = None
+    for certificate in certificates or []:
+        name = (certificate.get('name') or '').lower()
+        if ielts is None and 'ielts' in name:
+            ielts = float(certificate.get('score') or 0)
+        if sat is None and 'sat' in name:
+            sat = float(certificate.get('score') or 0)
+    return (ielts or 0) * 2 + (sat or 0) / 100
+
+
 def _initials(name: str) -> str:
     parts = [part for part in (name or '').strip().split() if part]
     if not parts:
@@ -81,8 +153,9 @@ def _normalized_thpt_score(row):
 class RankingsListView(APIView):
     def get(self, request):
         def load():
+            client = get_client()
             users = (
-                get_client()
+                client
                 .table('users')
                 .select('id, user_name, full_name, special_score')
                 .execute()
@@ -90,7 +163,7 @@ class RankingsListView(APIView):
                 or []
             )
             scores = (
-                get_client()
+                client
                 .table('score')
                 .select(
                     'user_id, base_score, math, literature, english, physics, chemistry, biology, history, geography'
@@ -100,6 +173,25 @@ class RankingsListView(APIView):
                 or []
             )
             score_by_user = {row.get('user_id'): row for row in scores if row.get('user_id')}
+
+            # Achievements (with award level) + certificates, grouped per user, so
+            # the ranking score includes the same bonuses as the Hồ sơ page.
+            achievements = (
+                client.table('achievements').select('id, user_id, award_id, prize').execute().data or []
+            )
+            award_ids = list({a.get('award_id') for a in achievements if a.get('award_id') is not None})
+            award_level_by_id = {}
+            if award_ids:
+                award_rows = client.table('awards').select('id, level').in_('id', award_ids).execute().data or []
+                award_level_by_id = {row.get('id'): row.get('level') for row in award_rows}
+            achievements_by_user = defaultdict(list)
+            for achievement in achievements:
+                achievements_by_user[achievement.get('user_id')].append(achievement)
+
+            certificates = client.table('certificates').select('user_id, name, score').execute().data or []
+            certificates_by_user = defaultdict(list)
+            for certificate in certificates:
+                certificates_by_user[certificate.get('user_id')].append(certificate)
 
             rankings = []
             for row in users:
@@ -113,7 +205,18 @@ class RankingsListView(APIView):
                 base_score = score_row.get('base_score')
                 if base_score is None:
                     base_score = sum(subject_scores.values())
-                total_score = round(float(base_score or 0) + float(row.get('special_score') or 0), 2)
+                award_bonus = _award_bonus_total(
+                    achievements_by_user.get(row.get('id'), []),
+                    award_level_by_id,
+                )
+                certificate_bonus = _certificate_bonus(certificates_by_user.get(row.get('id'), []))
+                total_score = round(
+                    float(base_score or 0)
+                    + float(row.get('special_score') or 0)
+                    + award_bonus
+                    + certificate_bonus,
+                    2,
+                )
                 top_subject_key = max(subject_scores, key=subject_scores.get, default='math')
                 full_name = row.get('full_name') or row.get('user_name') or 'Nguoi dung'
 

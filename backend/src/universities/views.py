@@ -2,6 +2,7 @@ import re
 
 from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import status
+from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
 
@@ -44,6 +45,17 @@ class ProvinceViewSet(ViewSet):
 class UniversityViewSet(ViewSet):
     _SELECT_LIST = 'id, name, code, type, is_active, province_id, provinces(id, code, name, region)'
     _SELECT_DETAIL = '*, provinces(*)'
+    _SELECT_SCORES = (
+        'id, year, score, normalized_score, normalized_scale, note, '
+        'variant_key, source_program_code, variant_label, gender, region_code, subject_group_code, '
+        'admission_method_code, admission_methods(code, name), '
+        'university_program_id, '
+        'university_programs!inner('
+        '  id, university_short_name, major_code, '
+        '  universities!university_programs_university_short_name_fkey(id, name, code), '
+        '  major_catalog(code, name)'
+        ')'
+    )
     _ORDERABLE_FIELDS = {'name', 'code', 'type', 'created_at', 'updated_at'}
 
     @extend_schema(
@@ -98,6 +110,48 @@ class UniversityViewSet(ViewSet):
             return response.data
 
         payload = get_or_set_api_payload(request, f'universities:detail:{pk}', load, timeout=600)
+        if not payload:
+            return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+        return Response(payload)
+
+    @extend_schema(summary='Chi tiet truong va diem trung tuyen theo ma truong')
+    @action(detail=False, methods=['get'], url_path=r'by-code/(?P<code>[^/.]+)/detail')
+    def detail_by_code(self, request, code=None):
+        university_code = (code or '').strip().upper()
+
+        def load():
+            client = get_client()
+            university_response = (
+                client
+                .table('universities')
+                .select(self._SELECT_DETAIL)
+                .eq('code', university_code)
+                .maybe_single()
+                .execute()
+            )
+            if not university_response.data:
+                return None
+
+            score_response = (
+                client
+                .table('admission_scores')
+                .select(self._SELECT_SCORES)
+                .eq('university_programs.university_short_name', university_code)
+                .order('year', desc=True)
+                .order('score', desc=True)
+                .execute()
+            )
+            return {
+                'university': university_response.data,
+                'scores': score_response.data or [],
+            }
+
+        payload = get_or_set_api_payload(
+            request,
+            f'universities:detail-by-code:{university_code}',
+            load,
+            timeout=600,
+        )
         if not payload:
             return Response({'detail': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
         return Response(payload)

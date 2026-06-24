@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, Outlet, useNavigate } from "react-router";
+import { Link, useLocation, Outlet, useNavigate, useBlocker } from "react-router";
 import { Menu, X } from "lucide-react";
 import { PlayfulCursorField } from "./PlayfulCursorField";
+import { BunikCursor } from "./BunikCursor";
 
 const navLinks = [
   { href: "/", label: "Trang chủ" },
@@ -47,12 +48,35 @@ export function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [username, setUsername] = useState("");
+  const [wipeKey, setWipeKey] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Ink-sweep page transition. Pause the navigation, sweep the ink IN to cover
+  // the screen, swap the page underneath the cover, then let the ink sweep OUT —
+  // so the page change is never visible before the effect. Blocks both <Link>
+  // and navigate() calls; same-page (query-only) changes are left untouched.
+  const blocker = useBlocker(({ currentLocation, nextLocation }) => {
+    if (currentLocation.pathname === nextLocation.pathname) return false;
+    // Login ↔ register is a sub-mode of one "auth" screen, not a screen change:
+    // toggle it instantly without a wipe (matches the design).
+    const authPaths = ["/dang-nhap", "/dang-ky"];
+    if (authPaths.includes(currentLocation.pathname) && authPaths.includes(nextLocation.pathname)) {
+      return false;
+    }
+    return true;
+  });
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [location.pathname]);
+    if (blocker.state !== "blocked") return;
+    setWipeKey((key) => key + 1); // (re)mount overlay → replay inkSweep
+    // inkSweep covers the screen at ~47% of its 1.15s run. Swap at the cover.
+    const timer = window.setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      blocker.proceed();
+    }, 540);
+    return () => window.clearTimeout(timer);
+  }, [blocker]);
 
   useEffect(() => {
     const rawUser = localStorage.getItem("gr1_user");
@@ -92,7 +116,28 @@ export function Layout() {
       }}
     >
       <PlayfulCursorField />
+      <BunikCursor />
       <div className="bunik-grain" />
+
+      {/* ===== Page transition: ink sweep ===== */}
+      {wipeKey > 0 && (
+        <div
+          key={wipeKey}
+          aria-hidden="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 90,
+            pointerEvents: "none",
+            animation: "inkSweep 1.15s cubic-bezier(.7,0,.3,1) forwards",
+          }}
+        >
+          <div style={{ position: "absolute", inset: "-6% -12%", background: ink, transform: "skewX(-7deg)", filter: "url(#inkrough)" }} />
+          <div style={{ position: "absolute", top: "-6%", bottom: "-6%", right: "-12%", width: 54, background: terracotta, transform: "skewX(-7deg)", filter: "url(#inkrough)" }} />
+          <div style={{ position: "absolute", top: "18%", right: "-2%", width: 22, height: 22, borderRadius: "50%", background: terracotta, filter: "url(#inkrough)" }} />
+          <div style={{ position: "absolute", bottom: "24%", right: "6%", width: 13, height: 13, borderRadius: "50%", background: ink, filter: "url(#inkrough)" }} />
+        </div>
+      )}
 
       {/* Shared hand-drawn ink filters (referenced as url(#inkrough) across pages) */}
       <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
