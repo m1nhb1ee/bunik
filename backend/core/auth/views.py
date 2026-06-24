@@ -147,9 +147,15 @@ class RegisterView(APIView):
             profile_payload = _profile_payload(user_id, data)
             access_token = auth_resp.session.access_token if auth_resp and auth_resp.session else None
             if not access_token:
+                # Email confirmation is enabled, so sign_up returns no session.
+                # Create the profile now with the service client (bypasses RLS)
+                # so the users row exists before the user confirms their email.
+                get_service_client().table('users').insert(profile_payload).execute()
+                user_data = UserProfileSerializer(profile_payload).data
                 return Response(
                     {
-                        'message': 'Can xac minh email truoc khi tao ho so nguoi dung.',
+                        'message': 'Dang ky thanh cong. Vui long xac minh email truoc khi dang nhap.',
+                        'user': user_data,
                         'user_id': user_id,
                         'requires_email_confirmation': True,
                     },

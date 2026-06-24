@@ -125,8 +125,9 @@ export type AuthUser = {
 export type AuthResponse = {
   message: string;
   user: AuthUser;
-  access_token: string;
+  access_token?: string;
   refresh_token?: string;
+  requires_email_confirmation?: boolean;
 };
 
 export type ProfileUpdatePayload = {

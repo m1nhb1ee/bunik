@@ -71,6 +71,14 @@ export default function AuthPage() {
               password: form.password,
             });
 
+      if (response.requires_email_confirmation || !response.access_token) {
+        // Tài khoản đã tạo nhưng cần xác minh email trước khi có phiên đăng nhập.
+        setMessage(response.message);
+        setMode("login");
+        navigate("/dang-nhap", { replace: true });
+        return;
+      }
+
       localStorage.setItem("gr1_access_token", response.access_token);
       if (response.refresh_token) localStorage.setItem("gr1_refresh_token", response.refresh_token);
       localStorage.setItem("gr1_user", JSON.stringify(response.user));
