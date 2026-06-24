@@ -20,7 +20,7 @@
   UiMajor,
 } from '../types/api';
 
-const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000/api';
+const BASE = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:8000/api' : '/api');
 
 // ---------------------------------------------------------------------------
 // HTTP helpers
