@@ -137,6 +137,7 @@ class UniversityViewSet(ViewSet):
                 .table('admission_scores')
                 .select(self._SELECT_SCORES)
                 .eq('university_programs.university_short_name', university_code)
+                .eq('university_programs.is_active', True)
                 .order('year', desc=True)
                 .order('score', desc=True)
                 .execute()

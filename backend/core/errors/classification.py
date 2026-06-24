@@ -25,12 +25,22 @@ def is_duplicate_error(exc) -> bool:
 
 def is_invalid_credentials_error(exc) -> bool:
     message = _message(exc)
-    return 'invalid login' in message or 'invalid credentials' in message or 'email not confirmed' in message
+    return 'invalid login' in message or 'invalid credentials' in message
+
+
+def is_email_not_confirmed_error(exc) -> bool:
+    message = _message(exc)
+    return 'email not confirmed' in message
 
 
 def is_rate_limited_error(exc) -> bool:
     message = _message(exc)
-    return 'too many requests' in message or 'after 5 seconds' in message or '429' in message
+    return (
+        'too many requests' in message
+        or 'after 5 seconds' in message
+        or '429' in message
+        or 'rate limit' in message
+    )
 
 
 def is_rls_error(exc) -> bool:

@@ -185,6 +185,11 @@ export default function NganhDetailPage() {
     };
   }, [routeProgramId]);
 
+  const visiblePrograms = useMemo(
+    () => programs.filter((program) => (scoresByProgram[program.id]?.length ?? 0) > 0 || program.id === selectedProgramId),
+    [programs, scoresByProgram, selectedProgramId],
+  );
+
   const selectedProgram = useMemo(() => programs.find((program) => program.id === selectedProgramId) ?? null, [programs, selectedProgramId]);
 
   const selectedScores = selectedProgramId ? (scoresByProgram[selectedProgramId] ?? []) : [];
@@ -333,7 +338,7 @@ export default function NganhDetailPage() {
           </div>
           <div className="mt-4 max-h-56 overflow-y-auto hide-scrollbar pr-1">
             <div className="flex flex-wrap gap-2">
-              {programs.map((program) => {
+              {visiblePrograms.map((program) => {
                 const active = program.id === selectedProgramId;
                 return (
                   <button

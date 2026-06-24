@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from core.api.cache import get_or_set_api_payload
-from core.supabase_client import MAX_PAGE_SIZE, get_client, parse_int_param
+from core.supabase_client import MAX_PAGE_SIZE, get_client, get_service_client, parse_int_param
 
 
 TREND_COLORS = ['#5B4FCF', '#FF6B6B', '#43D9A3', '#FFB347', '#FC8181']
@@ -161,15 +161,6 @@ def _normalized_thpt_score(row):
     return round(score * 30 / 40, 2) if score > 30 else score
 
 
-def _legacy_base_score(score_row) -> float:
-    if not score_row:
-        return 0.0
-    base_score = score_row.get('base_score')
-    if base_score is not None:
-        return _cap_score(base_score, SCORE_CAPS['base_score'])
-    return _cap_score(sum(float(score_row.get(key) or 0) for key in SUBJECT_LABELS), SCORE_CAPS['base_score'])
-
-
 def _academic_score_from_subject_profile(elective_codes, result_rows):
     selected_codes = [*CORE_SUBJECT_CODES, *list(elective_codes)]
     if len(elective_codes) != 4 or len(selected_codes) != 8:
@@ -214,7 +205,11 @@ def _top_subject_key(subject_scores):
 class RankingsListView(APIView):
     def get(self, request):
         def load():
-            client = get_client()
+            # Public leaderboard aggregated server-side: use the service client so
+            # RLS on the per-user tables (users, achievements, ...) does not hide
+            # every row from this unauthenticated endpoint. Only curated,
+            # non-sensitive fields (name, tier, score, avatar) are returned.
+            client = get_service_client()
             users = (
                 client
                 .table('users')
@@ -223,17 +218,6 @@ class RankingsListView(APIView):
                 .data
                 or []
             )
-            scores = (
-                client
-                .table('score')
-                .select(
-                    'user_id, base_score, math, literature, english, physics, chemistry, biology, history, geography'
-                )
-                .execute()
-                .data
-                or []
-            )
-            score_by_user = {row.get('user_id'): row for row in scores if row.get('user_id')}
             elective_rows = (
                 client
                 .table('user_elective_subjects')
@@ -284,22 +268,15 @@ class RankingsListView(APIView):
             rankings = []
             for row in users:
                 user_id = row.get('id')
-                score_row = score_by_user.get(user_id) or {}
-                normalized_base_score, normalized_results = _academic_score_from_subject_profile(
+                base_score, normalized_results = _academic_score_from_subject_profile(
                     elective_codes_by_user.get(user_id, []),
                     results_by_user.get(user_id, []),
                 )
-                base_score = normalized_base_score if normalized_base_score > 0 else _legacy_base_score(score_row)
                 subject_scores = {key: 0.0 for key in SUBJECT_LABELS}
                 if normalized_results:
                     for subject_code, result in normalized_results.items():
                         if subject_code in subject_scores and result.get('numeric_score') is not None:
                             subject_scores[subject_code] = float(result.get('numeric_score') or 0)
-                if not any(subject_scores.values()) and score_row:
-                    subject_scores = {
-                        key: float(score_row.get(key) or 0)
-                        for key in SUBJECT_LABELS
-                    }
                 award_bonus = _award_bonus_total(
                     achievements_by_user.get(user_id, []),
                     award_level_by_id,

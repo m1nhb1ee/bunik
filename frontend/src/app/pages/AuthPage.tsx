@@ -2,7 +2,14 @@ import { type FormEvent, type ReactNode, useMemo, useState } from "react";
 import { Eye, EyeOff, LockKeyhole, Mail, UserRound } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { B, SketchHeading, cardStyle } from "../components/bunik";
+import { BunikSelect } from "../components/BunikSelect";
+import { BunikDatePicker } from "../components/BunikDatePicker";
 import { login, register } from "../services/api";
+
+const gradeOptions = Array.from({ length: 12 }, (_, index) => ({
+  value: String(index + 1),
+  label: `Lớp ${index + 1}`,
+}));
 
 type Mode = "login" | "register";
 
@@ -54,6 +61,10 @@ export default function AuthPage() {
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (mode === "register" && !form.dob) {
+      setError("Vui lòng chọn ngày sinh.");
+      return;
+    }
     setLoading(true);
     setError("");
     setMessage("");
@@ -133,13 +144,11 @@ export default function AuthPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "minmax(100px,.65fr) minmax(180px,1.35fr)", gap: 14 }}>
                   <label>
                     <span style={labelStyle}>Lớp</span>
-                    <select className="bunik-field" value={form.grade} onChange={(event) => update("grade", event.target.value)}>
-                      {Array.from({ length: 12 }, (_, index) => index + 1).map((grade) => <option key={grade} value={grade}>{grade}</option>)}
-                    </select>
+                    <BunikSelect value={form.grade} onChange={(value) => update("grade", value)} options={gradeOptions} ariaLabel="Lớp" />
                   </label>
                   <label>
                     <span style={labelStyle}>Ngày sinh</span>
-                    <input className="bunik-field" type="date" value={form.dob} onChange={(event) => update("dob", event.target.value)} required />
+                    <BunikDatePicker value={form.dob} onChange={(value) => update("dob", value)} placeholder="Chọn ngày sinh" ariaLabel="Ngày sinh" />
                   </label>
                 </div>
 

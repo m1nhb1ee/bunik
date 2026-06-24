@@ -74,18 +74,9 @@ class UserProfileSerializer(serializers.Serializer):
     dob = serializers.DateField()
     gender = serializers.CharField()
     gmail = serializers.EmailField()
-    math = serializers.FloatField(required=False)
-    literature = serializers.FloatField(required=False)
-    english = serializers.FloatField(required=False)
-    physics = serializers.FloatField(required=False)
-    chemistry = serializers.FloatField(required=False)
-    biology = serializers.FloatField(required=False)
-    history = serializers.FloatField(required=False)
-    geography = serializers.FloatField(required=False)
     is_special = serializers.BooleanField(required=False)
     special_subject = serializers.ChoiceField(required=False, choices=SPECIAL_SUBJECT_CHOICES)
     special_score = serializers.FloatField(required=False)
-    base_score = serializers.FloatField(required=False)
 
 
 class ProfileUpdateSerializer(serializers.Serializer):
@@ -94,21 +85,9 @@ class ProfileUpdateSerializer(serializers.Serializer):
     grade = serializers.IntegerField(required=False, min_value=10, max_value=12)
     dob = serializers.DateField(required=False)
     gender = serializers.ChoiceField(required=False, choices=['MALE', 'FEMALE'])
-    math = serializers.FloatField(required=False, min_value=0, max_value=10)
-    literature = serializers.FloatField(required=False, min_value=0, max_value=10)
-    english = serializers.FloatField(required=False, min_value=0, max_value=10)
-    physics = serializers.FloatField(required=False, min_value=0, max_value=10)
-    chemistry = serializers.FloatField(required=False, min_value=0, max_value=10)
-    biology = serializers.FloatField(required=False, min_value=0, max_value=10)
-    history = serializers.FloatField(required=False, min_value=0, max_value=10)
-    geography = serializers.FloatField(required=False, min_value=0, max_value=10)
     is_special = serializers.BooleanField(required=False)
     special_subject = serializers.ChoiceField(required=False, choices=SPECIAL_SUBJECT_CHOICES)
     special_score = serializers.FloatField(required=False, min_value=0, max_value=10)
-    # Computed by PostgreSQL from the individual subject columns.
-    # Keep this field read-only so older clients can still include it without
-    # forwarding a value to the generated database column.
-    base_score = serializers.FloatField(read_only=True)
 
     def validate_user_name(self, value):
         if not re.fullmatch(r'^\w+$', value):

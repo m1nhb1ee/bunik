@@ -64,7 +64,8 @@ class TestUniversityDetailByCode:
         assert response.data['scores'] == client.queries['admission_scores'].data
         assert client.queries['universities'].eq_calls == [('code', 'BKA')]
         assert client.queries['admission_scores'].eq_calls == [
-            ('university_programs.university_short_name', 'BKA')
+            ('university_programs.university_short_name', 'BKA'),
+            ('university_programs.is_active', True),
         ]
         assert 'university_programs!inner(' in client.queries['admission_scores'].select_value
 

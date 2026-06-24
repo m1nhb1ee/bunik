@@ -251,6 +251,115 @@ input[type="number"]::-webkit-inner-spin-button {
   color: var(--bunik-paper-light);
 }
 
+/* ===== themed select + date picker (Radix + react-day-picker) ===== */
+/* Trigger reuses .bunik-field but lays out a value + trailing icon. */
+.bunik-select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.bunik-select-trigger[data-state='open'] {
+  background: var(--bunik-paper-light);
+  box-shadow: 3px 3px 0 var(--bunik-honey);
+}
+.bunik-select-trigger > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Floating panel shared by the select list and the calendar popover. */
+.bunik-popover {
+  z-index: 120;
+  background: var(--bunik-paper-light);
+  border: 2px solid var(--bunik-ink);
+  border-radius: 14px 11px 15px 12px / 12px 15px 11px 14px;
+  box-shadow: 5px 6px 0 rgba(43, 39, 34, .16);
+  padding: 6px;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  animation: riseInUp .14s ease both;
+}
+
+.bunik-select-content {
+  min-width: var(--radix-select-trigger-width);
+  max-height: var(--radix-select-content-available-height);
+  overflow-y: auto;
+}
+.bunik-select-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 10px 8px 11px 9px / 9px 11px 8px 10px;
+  color: var(--bunik-ink);
+  font-weight: 650;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.bunik-select-item[data-highlighted] {
+  background: rgba(206, 155, 78, .2);
+}
+.bunik-select-item[data-state='checked'] {
+  background: var(--bunik-ink);
+  color: var(--bunik-paper-light);
+}
+
+/* react-day-picker, re-skinned to the Bunik palette. */
+.bunik-datepicker {
+  --rdp-cell-size: 38px;
+  --rdp-accent-color: var(--bunik-terracotta);
+  --rdp-background-color: rgba(206, 155, 78, .22);
+  --rdp-outline: 2px solid var(--bunik-honey);
+  --rdp-outline-selected: 2px solid var(--bunik-ink);
+  margin: 4px 6px 2px;
+  color: var(--bunik-ink);
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+.bunik-datepicker .rdp-caption_label {
+  font-weight: 800;
+  color: var(--bunik-ink);
+  text-transform: capitalize;
+  border: 0;
+}
+.bunik-datepicker .rdp-caption_dropdowns {
+  gap: 6px;
+}
+.bunik-datepicker .rdp-nav_button {
+  color: var(--bunik-ink);
+  border-radius: 9px;
+}
+.bunik-datepicker .rdp-nav_button:hover {
+  background: rgba(206, 155, 78, .22);
+}
+.bunik-datepicker .rdp-head_cell {
+  color: var(--bunik-muted);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.bunik-datepicker .rdp-day {
+  border-radius: 10px 8px 11px 9px / 9px 11px 8px 10px;
+  font-weight: 650;
+}
+.bunik-datepicker .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background: rgba(206, 155, 78, .22);
+}
+.bunik-datepicker .rdp-day_today:not(.rdp-day_selected) {
+  font-weight: 800;
+  color: var(--bunik-terracotta);
+}
+.bunik-datepicker .rdp-day_selected,
+.bunik-datepicker .rdp-day_selected:hover {
+  background: var(--bunik-terracotta);
+  color: var(--bunik-paper-light);
+  font-weight: 800;
+}
+
 .bunik-table-wrap {
   overflow-x: auto;
   overscroll-behavior-inline: contain;

@@ -108,9 +108,16 @@ class TestAnalyticsEndpoints:
                     'special_score': 0,
                 },
             ],
-            score_rows=[
-                {'user_id': 'u1', 'base_score': 80, 'math': 9, 'literature': 7, 'english': 8},
-                {'user_id': 'u2', 'base_score': 70, 'math': 8, 'literature': 9, 'english': 7},
+            elective_rows=[
+                {'user_id': uid, 'subject_code': code}
+                for uid in ('u1', 'u2')
+                for code in ('physics', 'chemistry', 'biology', 'geography')
+            ],
+            subject_result_rows=[
+                {'user_id': uid, 'subject_code': code, 'numeric_score': 10, 'assessment_status': None}
+                for uid in ('u1', 'u2')
+                for code in ('math', 'literature', 'english', 'history',
+                             'physics', 'chemistry', 'biology', 'geography')
             ],
             achievements=[
                 {'id': 1, 'user_id': 'u1', 'award_id': 1, 'prize': 'Khuyen Khich'},
@@ -124,7 +131,7 @@ class TestAnalyticsEndpoints:
                 {'user_id': 'u1', 'name': 'IELTS', 'score': 6},
             ],
         )
-        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+        monkeypatch.setattr('core.api.views.get_service_client', lambda: fake_client)
 
         response = self.client.get('/api/rankings/?page_size=1')
 
@@ -147,8 +154,14 @@ class TestAnalyticsEndpoints:
                     'special_score': 15,
                 },
             ],
-            score_rows=[
-                {'user_id': 'u1', 'base_score': 92, 'math': 9, 'literature': 7, 'english': 8},
+            elective_rows=[
+                {'user_id': 'u1', 'subject_code': code}
+                for code in ('physics', 'chemistry', 'biology', 'geography')
+            ],
+            subject_result_rows=[
+                {'user_id': 'u1', 'subject_code': code, 'numeric_score': 10, 'assessment_status': None}
+                for code in ('math', 'literature', 'english', 'history',
+                             'physics', 'chemistry', 'biology', 'geography')
             ],
             achievements=[
                 {'id': 1, 'user_id': 'u1', 'award_id': 1, 'prize': 'Nhat'},
@@ -164,7 +177,7 @@ class TestAnalyticsEndpoints:
                 {'user_id': 'u1', 'name': 'SAT', 'score': 1600},
             ],
         )
-        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+        monkeypatch.setattr('core.api.views.get_service_client', lambda: fake_client)
 
         response = self.client.get('/api/rankings/')
 
@@ -200,7 +213,7 @@ class TestAnalyticsEndpoints:
                 {'user_id': 'u1', 'subject_code': 'geography', 'numeric_score': 9, 'assessment_status': None},
             ],
         )
-        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+        monkeypatch.setattr('core.api.views.get_service_client', lambda: fake_client)
 
         response = self.client.get('/api/rankings/')
 
@@ -230,7 +243,7 @@ class TestAnalyticsEndpoints:
                 {'user_id': 'u1', 'name': 'IELTS', 'score': 7.5},
             ],
         )
-        monkeypatch.setattr('core.api.views.get_client', lambda: fake_client)
+        monkeypatch.setattr('core.api.views.get_service_client', lambda: fake_client)
 
         response = self.client.get('/api/rankings/')
 

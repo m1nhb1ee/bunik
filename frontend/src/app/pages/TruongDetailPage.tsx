@@ -369,7 +369,7 @@ export default function TruongDetailPage() {
                       <table className="w-full">
                         <thead>
                           <tr style={{ background: "rgba(206,155,78,.09)", borderBottom: `2px dashed ${B.muted}` }}>
-                            {["Tên ngành", "Mã ngành", "Biến thể", ...method.years, "Xu hướng"].map((heading) => (
+                            {["Tên ngành", "Mã ngành", "Note", ...method.years, "Xu hướng"].map((heading) => (
                               <th key={heading} className="px-4 py-3 text-left text-sm" style={{ color: B.body, fontWeight: 800 }}>
                                 {heading}
                               </th>
@@ -377,32 +377,42 @@ export default function TruongDetailPage() {
                           </tr>
                         </thead>
                         <tbody>
-                          {method.rows.map((row, index) => {
-                            const diff = getTrend(row, method.years);
-                            return (
-                              <tr
-                                key={row.key}
-                                style={{ borderBottom: index < method.rows.length - 1 ? "1px dashed rgba(43,39,34,.18)" : "none" }}
-                              >
-                                <td className="px-4 py-3.5">
-                                  <Link
-                                    to={`/nganh/${row.programId}`}
-                                    style={{ fontWeight: 700, color: B.terracotta, fontSize: 14, textDecoration: "none" }}
-                                  >
-                                    {row.majorName}
-                                  </Link>
-                                </td>
-                                <td className="px-4 py-3.5" style={{ color: B.muted, fontSize: 11 }}>{row.majorCode}</td>
-                                <td className="px-4 py-3.5" style={{ color: B.body, fontSize: 12 }}>{row.variant}</td>
-                                {method.years.map((year) => (
-                                  <td key={year} className="px-4 py-3.5" style={{ fontWeight: 700, color: B.ink, fontSize: 15 }}>
-                                    {row.scores[year]?.value ?? "—"}
-                                  </td>
-                                ))}
-                                <td className="px-4 py-3.5">{renderTrend(diff)}</td>
-                              </tr>
-                            );
-                          })}
+                          {groupRowsByMajor(method.rows).map((group, gIndex, groups) =>
+                            group.variants.map((row, vIndex) => {
+                              const diff = getTrend(row, method.years);
+                              const isLastVariant = vIndex === group.variants.length - 1;
+                              const isLastGroup = gIndex === groups.length - 1;
+                              const borderBottom = isLastGroup && isLastVariant
+                                ? "none"
+                                : isLastVariant
+                                  ? "2px dashed rgba(43,39,34,.28)"
+                                  : "1px dashed rgba(43,39,34,.12)";
+                              return (
+                                <tr key={row.key} style={{ borderBottom }}>
+                                  {vIndex === 0 && (
+                                    <>
+                                      <td className="px-4 py-3.5" rowSpan={group.variants.length} style={{ verticalAlign: "top" }}>
+                                        <Link
+                                          to={`/nganh/${group.programId}`}
+                                          style={{ fontWeight: 700, color: B.terracotta, fontSize: 14, textDecoration: "none" }}
+                                        >
+                                          {group.majorName}
+                                        </Link>
+                                      </td>
+                                      <td className="px-4 py-3.5" rowSpan={group.variants.length} style={{ color: B.muted, fontSize: 11, verticalAlign: "top" }}>{group.majorCode}</td>
+                                    </>
+                                  )}
+                                  <td className="px-4 py-3.5" style={{ color: B.body, fontSize: 12 }}>{row.variant}</td>
+                                  {method.years.map((year) => (
+                                    <td key={year} className="px-4 py-3.5" style={{ fontWeight: 700, color: B.ink, fontSize: 15 }}>
+                                      {row.scores[year]?.value ?? "—"}
+                                    </td>
+                                  ))}
+                                  <td className="px-4 py-3.5">{renderTrend(diff)}</td>
+                                </tr>
+                              );
+                            })
+                          )}
                         </tbody>
                       </table>
                     </div>
@@ -592,6 +602,26 @@ export default function TruongDetailPage() {
       </div>
     </div>
   );
+}
+
+type MajorGroup = {
+  programId: string;
+  majorCode: string;
+  majorName: string;
+  variants: VariantRow[];
+};
+
+function groupRowsByMajor(rows: VariantRow[]): MajorGroup[] {
+  const groups = new Map<string, MajorGroup>();
+  for (const row of rows) {
+    let group = groups.get(row.programId);
+    if (!group) {
+      group = { programId: row.programId, majorCode: row.majorCode, majorName: row.majorName, variants: [] };
+      groups.set(row.programId, group);
+    }
+    group.variants.push(row);
+  }
+  return Array.from(groups.values());
 }
 
 function getTrend(row: VariantRow, years: string[]): number | null {

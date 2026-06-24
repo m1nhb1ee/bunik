@@ -33,6 +33,17 @@ def get_service_client() -> Client:
     return create_client(settings.SUPABASE_URL, service_key)
 
 
+def generate_signup_link(email: str, password: str, redirect_to: str):
+    """Create the auth user and return a signup verification link WITHOUT
+    Supabase sending the email, so we can deliver it via our own SMTP."""
+    return get_service_client().auth.admin.generate_link({
+        'type': 'signup',
+        'email': email,
+        'password': password,
+        'options': {'redirect_to': redirect_to},
+    })
+
+
 def revoke_session(access_token: str) -> None:
     request = urlrequest.Request(
         f'{settings.SUPABASE_URL}/auth/v1/logout',

@@ -681,7 +681,7 @@ export default function HoSoPage() {
 
               <div style={handCard} className="p-6">
                 <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 16 }}>
-                  Hồ sơ môn học GDPT 2018
+                  Hồ sơ môn học
                 </h3>
                 <p style={{ color: B.body, fontSize: 13, lineHeight: 1.6, marginBottom: 14 }}>
                   Bốn môn cốt lõi được tính cố định. Chọn thêm đúng bốn môn lựa chọn đang học.
@@ -754,7 +754,7 @@ export default function HoSoPage() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>IELTS (×2): +{(ieltScore * 2).toFixed(1)}</label>
+                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>IELTS: +{(ieltScore * 2).toFixed(1)}</label>
                     <NumberField
                       min={0}
                       max={9}
@@ -768,7 +768,7 @@ export default function HoSoPage() {
                     />
                   </div>
                   <div>
-                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>SAT (÷100): +{(satScore / 100).toFixed(2)}</label>
+                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>SAT: +{(satScore / 100).toFixed(2)}</label>
                     <NumberField
                       min={0}
                       max={1600}
@@ -814,7 +814,7 @@ export default function HoSoPage() {
                           border: `1.5px solid ${B.ink}`,
                         }}
                       >
-                        {scorePreview.isComplete ? 'Hồ sơ môn học đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
+                        {scorePreview.isComplete ? 'Hồ sơ đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
                       </span>
                     </div>
                   </div>
