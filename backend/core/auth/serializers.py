@@ -74,18 +74,9 @@ class UserProfileSerializer(serializers.Serializer):
     dob = serializers.DateField()
     gender = serializers.CharField()
     gmail = serializers.EmailField()
-    math = serializers.FloatField(required=False)
-    literature = serializers.FloatField(required=False)
-    english = serializers.FloatField(required=False)
-    physics = serializers.FloatField(required=False)
-    chemistry = serializers.FloatField(required=False)
-    biology = serializers.FloatField(required=False)
-    history = serializers.FloatField(required=False)
-    geography = serializers.FloatField(required=False)
     is_special = serializers.BooleanField(required=False)
     special_subject = serializers.ChoiceField(required=False, choices=SPECIAL_SUBJECT_CHOICES)
     special_score = serializers.FloatField(required=False)
-    base_score = serializers.FloatField(required=False)
 
 
 class ProfileUpdateSerializer(serializers.Serializer):
@@ -94,18 +85,9 @@ class ProfileUpdateSerializer(serializers.Serializer):
     grade = serializers.IntegerField(required=False, min_value=10, max_value=12)
     dob = serializers.DateField(required=False)
     gender = serializers.ChoiceField(required=False, choices=['MALE', 'FEMALE'])
-    math = serializers.FloatField(required=False, min_value=0, max_value=10)
-    literature = serializers.FloatField(required=False, min_value=0, max_value=10)
-    english = serializers.FloatField(required=False, min_value=0, max_value=10)
-    physics = serializers.FloatField(required=False, min_value=0, max_value=10)
-    chemistry = serializers.FloatField(required=False, min_value=0, max_value=10)
-    biology = serializers.FloatField(required=False, min_value=0, max_value=10)
-    history = serializers.FloatField(required=False, min_value=0, max_value=10)
-    geography = serializers.FloatField(required=False, min_value=0, max_value=10)
     is_special = serializers.BooleanField(required=False)
     special_subject = serializers.ChoiceField(required=False, choices=SPECIAL_SUBJECT_CHOICES)
     special_score = serializers.FloatField(required=False, min_value=0, max_value=10)
-    base_score = serializers.FloatField(required=False, min_value=0, max_value=80)
 
     def validate_user_name(self, value):
         if not re.fullmatch(r'^\w+$', value):
@@ -120,6 +102,43 @@ class ProfileUpdateSerializer(serializers.Serializer):
     def validate_dob(self, value):
         if value >= date.today():
             raise serializers.ValidationError('dob must be in the past.')
+        return value
+
+
+class SubjectResultInputSerializer(serializers.Serializer):
+    subject_code = serializers.CharField(max_length=50)
+    numeric_score = serializers.FloatField(required=False, allow_null=True, min_value=0, max_value=10)
+    assessment_status = serializers.ChoiceField(
+        required=False,
+        allow_null=True,
+        choices=['PASSED', 'FAILED'],
+    )
+
+    def validate(self, attrs):
+        has_numeric = attrs.get('numeric_score') is not None
+        has_status = attrs.get('assessment_status') is not None
+        if has_numeric == has_status:
+            raise serializers.ValidationError('Provide exactly one result type.')
+        return attrs
+
+
+class SubjectProfileUpdateSerializer(serializers.Serializer):
+    elective_codes = serializers.ListField(
+        child=serializers.CharField(max_length=50),
+        min_length=4,
+        max_length=4,
+    )
+    results = SubjectResultInputSerializer(many=True)
+
+    def validate_elective_codes(self, value):
+        if len(set(value)) != 4:
+            raise serializers.ValidationError('Exactly four distinct elective subjects are required.')
+        return value
+
+    def validate_results(self, value):
+        codes = [item['subject_code'] for item in value]
+        if len(codes) != len(set(codes)):
+            raise serializers.ValidationError('A subject result may only appear once.')
         return value
 
 

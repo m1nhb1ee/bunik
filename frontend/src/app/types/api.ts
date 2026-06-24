@@ -71,7 +71,15 @@ export type ApiAdmissionScore = {
   id: string;
   year: number;
   score: number | null;
+  normalized_score: number | null;
+  normalized_scale: number | null;
   note: string | null;
+  variant_key: string | null;
+  source_program_code: string | null;
+  variant_label: string | null;
+  gender: string | null;
+  region_code: string | null;
+  subject_group_code: string | null;
   admission_method_code: string;
   admission_methods: ApiAdmissionMethod | null;
   university_program_id: string;
@@ -82,6 +90,11 @@ export type ApiAdmissionScore = {
     universities: { id: string; name: string; code: string } | null;
     major_catalog: { code: string; name: string } | null;
   };
+};
+
+export type ApiUniversityDetail = {
+  university: ApiUniversity;
+  scores: ApiAdmissionScore[];
 };
 
 export type PaginatedResponse<T> = {
@@ -128,6 +141,39 @@ export type ApiProfile = {
   special_subject?: 'toan' | 'ly' | 'hoa' | 'sinh' | 'tin' | 'ngoai_ngu' | 'van' | 'su' | 'dia';
   special_score?: number;
   base_score?: number;
+};
+
+export type ApiSchoolSubject = {
+  code: string;
+  name: string;
+  curriculum_group: 'COMPULSORY' | 'ELECTIVE';
+  assessment_type: 'NUMERIC' | 'PASS_FAIL';
+  counts_as_core: boolean;
+  is_active: boolean;
+};
+
+export type ApiSubjectResult = {
+  subject_code: string;
+  numeric_score: number | null;
+  assessment_status: 'PASSED' | 'FAILED' | null;
+  updated_at?: string;
+};
+
+export type ApiAcademicScore = {
+  is_complete: boolean;
+  score_80: number | null;
+  numeric_average: number | null;
+  numeric_count: number;
+  passed_count: number;
+  failed_count: number;
+  missing_subject_codes: string[];
+};
+
+export type ApiSubjectProfile = {
+  subjects: ApiSchoolSubject[];
+  selected_elective_codes: string[];
+  results: ApiSubjectResult[];
+  academic_score: ApiAcademicScore;
 };
 
 export type ApiAward = {

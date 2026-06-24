@@ -141,10 +141,11 @@ export default function TruongPage() {
             return (
               <div
                 key={u.id}
+                data-clk
                 onClick={() => navigate(`/truong/${u.id}`)}
                 className="bunik-lift"
                 style={{
-                  position: "relative", cursor: "pointer",
+                  position: "relative",
                   background: B.paperLight, border: `2px solid ${B.ink}`,
                   borderRadius: "19px 23px 18px 22px/22px 18px 23px 19px",
                   boxShadow: "5px 6px 0 rgba(43,39,34,0.13)", padding: 20,

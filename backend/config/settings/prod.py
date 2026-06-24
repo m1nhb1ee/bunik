@@ -3,7 +3,7 @@ from decouple import config, Csv
 from .base import *  # noqa: F403,F401
 
 DEBUG = False
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
 
 if not ALLOWED_HOSTS:
     raise ValueError('ALLOWED_HOSTS must be set in production')

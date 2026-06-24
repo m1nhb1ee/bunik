@@ -57,7 +57,8 @@ export function StarRow({
           width={size}
           height={size}
           viewBox="0 0 18 18"
-          style={{ overflow: "visible", cursor: onChange ? "pointer" : "inherit" }}
+          style={{ overflow: "visible" }}
+          data-clk={onChange ? "" : undefined}
           onClick={onChange ? () => onChange(i) : undefined}
         >
           <path

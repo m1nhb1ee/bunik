@@ -19,7 +19,6 @@ class TestAuthEndpoints:
 
     def test_register_success(self, monkeypatch):
         fake_client = Obj(
-            auth=Obj(sign_up=lambda _: Obj(user=Obj(id='u1'), session=Obj(access_token='a1'))),
             table=lambda name: Obj(
                 select=lambda *_args, **_kwargs: Obj(
                     or_=lambda *_a, **_k: Obj(limit=lambda *_l, **_lk: Obj(execute=lambda: Obj(data=[])))
@@ -28,7 +27,16 @@ class TestAuthEndpoints:
             ),
         )
         self._mock_clients(monkeypatch, fake_client)
-        monkeypatch.setattr('core.auth.views.revoke_session', lambda _token: None)
+        monkeypatch.setattr('core.auth.views.get_service_client', lambda: fake_client)
+        monkeypatch.setattr(
+            'core.auth.views.generate_signup_link',
+            lambda *_a, **_k: Obj(user=Obj(id='u1'), properties=Obj(action_link='https://verify.example/link')),
+        )
+        sent = []
+        monkeypatch.setattr(
+            'core.auth.views.send_verification_email',
+            lambda to_email, action_link, full_name='': sent.append((to_email, action_link)),
+        )
         response = self.client.post('/api/auth/register/', {
             'user_name': 'm1nhb1e',
             'full_name': 'Nguyen Trong Minh',
@@ -38,8 +46,9 @@ class TestAuthEndpoints:
             'gmail': 'minh@example.com',
             'password': 'securepassword123',
         }, format='json')
-        assert response.status_code == status.HTTP_201_CREATED
-        assert response.data['access_token'] == 'a1'
+        assert response.status_code == status.HTTP_202_ACCEPTED
+        assert response.data['requires_email_confirmation'] is True
+        assert sent == [('minh@example.com', 'https://verify.example/link')]
 
     def test_register_duplicate(self, monkeypatch):
         fake_client = Obj(
@@ -62,6 +71,32 @@ class TestAuthEndpoints:
         }, format='json')
         assert response.status_code == status.HTTP_409_CONFLICT
 
+    def test_register_rate_limit_returns_429(self, monkeypatch):
+        def rate_limited_link(*_a, **_k):
+            raise Exception('email rate limit exceeded')
+
+        fake_client = Obj(
+            table=lambda name: Obj(
+                select=lambda *_args, **_kwargs: Obj(
+                    or_=lambda *_a, **_k: Obj(limit=lambda *_l, **_lk: Obj(execute=lambda: Obj(data=[])))
+                )
+            ),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+        monkeypatch.setattr('core.auth.views.generate_signup_link', rate_limited_link)
+
+        response = self.client.post('/api/auth/register/', {
+            'user_name': 'm1nhb1e',
+            'full_name': 'Nguyen Trong Minh',
+            'grade': 11,
+            'dob': '2005-10-16',
+            'gender': 'MALE',
+            'gmail': 'minh@example.com',
+            'password': 'securepassword123',
+        }, format='json')
+
+        assert response.status_code == status.HTTP_429_TOO_MANY_REQUESTS
+
     def test_login_wrong_password(self, monkeypatch):
         def bad_login(_):
             raise Exception('invalid login credentials')
@@ -83,6 +118,34 @@ class TestAuthEndpoints:
         self._mock_clients(monkeypatch, fake_client)
         response = self.client.get('/api/auth/me/', HTTP_AUTHORIZATION='Bearer a1')
         assert response.status_code == status.HTTP_503_SERVICE_UNAVAILABLE
+
+    def test_login_does_not_query_removed_score_table(self, monkeypatch):
+        profile = {
+            'id': 'u1',
+            'user_name': 'm1nhb1e',
+            'full_name': 'Nguyen Trong Minh',
+            'grade': 11,
+            'dob': '2005-10-16',
+            'gender': 'MALE',
+            'gmail': 'minh@example.com',
+        }
+
+        def table(name):
+            assert name != 'score', 'login must not query the removed score table'
+            return Obj(select=lambda *_a, **_k: Obj(eq=lambda *_e, **_ek: Obj(
+                maybe_single=lambda: Obj(execute=lambda: Obj(data=profile)))))
+
+        fake_client = Obj(
+            auth=Obj(
+                sign_in_with_password=lambda _: Obj(user=Obj(id='u1'), session=Obj(access_token='a1', refresh_token='r1')),
+            ),
+            table=table,
+        )
+        self._mock_clients(monkeypatch, fake_client)
+
+        response = self.client.post('/api/auth/login/', {'gmail': 'minh@example.com', 'password': 'securepassword123'}, format='json')
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['user']['gmail'] == 'minh@example.com'
 
     def test_login_me_logout_success(self, monkeypatch):
         def table(_name):
@@ -190,30 +253,18 @@ class TestAuthEndpoints:
                     'gmail': 'minh@example.com',
                 }])
 
-        class ScoreTable:
-            def upsert(self, *_a, **_k):
-                return self
-
-            def select(self, *_a, **_k):
-                return self
-
-            def eq(self, *_a, **_k):
-                return self
-
-            def maybe_single(self):
-                return self
-
-            def execute(self):
-                return Obj(data={'user_id': 'u1', 'math': 8.5, 'base_score': 8.5})
-
         users_table = UsersTable()
-        score_table = ScoreTable()
         fake_client = Obj(
             auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
-            table=lambda name: users_table if name == 'users' else score_table if name == 'score' else Obj(),
+            table=lambda name: users_table if name == 'users' else Obj(),
         )
         self._mock_clients(monkeypatch, fake_client)
-        response = self.client.patch('/api/auth/me/', {'full_name': 'Updated Name', 'math': 8.5}, format='json', HTTP_AUTHORIZATION='Bearer a1')
+        response = self.client.patch(
+            '/api/auth/me/',
+            {'full_name': 'Updated Name'},
+            format='json',
+            HTTP_AUTHORIZATION='Bearer a1',
+        )
         assert response.status_code == status.HTTP_200_OK
         assert response.data['user']['full_name'] == 'Updated Name'
 
@@ -294,6 +345,135 @@ class TestAuthEndpoints:
         )
         assert response.status_code == status.HTTP_200_OK
         assert response.data['user']['full_name'] == 'Updated Name'
+
+    def test_subject_profile_get_success(self, monkeypatch):
+        table_rows = {
+            'school_subjects': [
+                {'code': 'math', 'name': 'Toan', 'is_active': True},
+                {'code': 'physics', 'name': 'Vat li', 'is_active': True},
+            ],
+            'user_elective_subjects': [{'user_id': 'u1', 'subject_code': 'physics'}],
+            'user_subject_results': [
+                {'user_id': 'u1', 'subject_code': 'math', 'numeric_score': 8.5, 'assessment_status': None},
+            ],
+        }
+
+        class Query:
+            def __init__(self, rows):
+                self.rows = rows
+
+            def select(self, *_a, **_k):
+                return self
+
+            def eq(self, field, value):
+                self.rows = [row for row in self.rows if row.get(field) == value]
+                return self
+
+            def order(self, *_a, **_k):
+                return self
+
+            def execute(self):
+                return Obj(data=self.rows)
+
+        class Rpc:
+            def execute(self):
+                return Obj(data={'is_complete': False, 'score_80': None})
+
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda name: Query(list(table_rows[name])),
+            rpc=lambda *_a, **_k: Rpc(),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+
+        response = self.client.get('/api/auth/me/subjects/', HTTP_AUTHORIZATION='Bearer a1')
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.data['selected_elective_codes'] == ['physics']
+        assert response.data['results'][0]['numeric_score'] == 8.5
+        assert response.data['academic_score']['is_complete'] is False
+
+    def test_subject_profile_patch_calls_atomic_rpc(self, monkeypatch):
+        rpc_calls = []
+        table_rows = {
+            'school_subjects': [{'code': 'math', 'name': 'Toan', 'is_active': True}],
+            'user_elective_subjects': [],
+            'user_subject_results': [],
+        }
+
+        class Query:
+            def __init__(self, rows):
+                self.rows = rows
+
+            def select(self, *_a, **_k):
+                return self
+
+            def eq(self, field, value):
+                self.rows = [row for row in self.rows if row.get(field) == value]
+                return self
+
+            def order(self, *_a, **_k):
+                return self
+
+            def execute(self):
+                return Obj(data=self.rows)
+
+        class Rpc:
+            def __init__(self, name, params):
+                self.name = name
+                self.params = params
+
+            def execute(self):
+                rpc_calls.append((self.name, self.params))
+                if self.name == 'get_user_academic_score':
+                    return Obj(data={'is_complete': False, 'score_80': None})
+                return Obj(data=None)
+
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda name: Query(list(table_rows[name])),
+            rpc=lambda name, params=None: Rpc(name, params),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+        payload = {
+            'elective_codes': ['physics', 'chemistry', 'biology', 'informatics'],
+            'results': [{'subject_code': 'math', 'numeric_score': 8.5}],
+        }
+
+        response = self.client.patch(
+            '/api/auth/me/subjects/',
+            payload,
+            format='json',
+            HTTP_AUTHORIZATION='Bearer a1',
+        )
+
+        assert response.status_code == status.HTTP_200_OK
+        save_call = next(call for call in rpc_calls if call[0] == 'save_user_subject_profile')
+        assert save_call[1]['p_elective_codes'] == payload['elective_codes']
+        assert save_call[1]['p_results'][0] == {
+            'subject_code': 'math',
+            'numeric_score': 8.5,
+            'assessment_status': None,
+        }
+
+    def test_subject_profile_patch_rejects_duplicate_electives(self, monkeypatch):
+        fake_client = Obj(
+            auth=Obj(get_user=lambda _token: Obj(user=Obj(id='u1', email='minh@example.com', user_metadata={}))),
+            table=lambda _name: Obj(),
+        )
+        self._mock_clients(monkeypatch, fake_client)
+
+        response = self.client.patch(
+            '/api/auth/me/subjects/',
+            {
+                'elective_codes': ['physics', 'physics', 'biology', 'informatics'],
+                'results': [],
+            },
+            format='json',
+            HTTP_AUTHORIZATION='Bearer a1',
+        )
+
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
 
     def test_awards_catalog_success(self, monkeypatch):
         class AwardsTable:

@@ -77,6 +77,12 @@ a {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(5px); }
 }
+/* Newly added achievement card "draws" into place with a hand-drawn pop. */
+@keyframes achievementDraw {
+  0% { opacity: 0; transform: translateY(10px) scale(.92) rotate(-1.5deg); }
+  55% { opacity: 1; transform: translateY(-3px) scale(1.03) rotate(.6deg); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+}
 
 /* Paper grain overlay */
 .bunik-grain {
@@ -206,6 +212,17 @@ a {
   color: var(--bunik-muted);
 }
 
+/* No native number spinners anywhere — numeric entry uses text + inputmode. */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .bunik-chip {
   box-sizing: border-box;
   min-height: 36px;
@@ -232,6 +249,115 @@ a {
 .bunik-chip[data-active='true'] {
   background: var(--bunik-ink);
   color: var(--bunik-paper-light);
+}
+
+/* ===== themed select + date picker (Radix + react-day-picker) ===== */
+/* Trigger reuses .bunik-field but lays out a value + trailing icon. */
+.bunik-select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.bunik-select-trigger[data-state='open'] {
+  background: var(--bunik-paper-light);
+  box-shadow: 3px 3px 0 var(--bunik-honey);
+}
+.bunik-select-trigger > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Floating panel shared by the select list and the calendar popover. */
+.bunik-popover {
+  z-index: 120;
+  background: var(--bunik-paper-light);
+  border: 2px solid var(--bunik-ink);
+  border-radius: 14px 11px 15px 12px / 12px 15px 11px 14px;
+  box-shadow: 5px 6px 0 rgba(43, 39, 34, .16);
+  padding: 6px;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  animation: riseInUp .14s ease both;
+}
+
+.bunik-select-content {
+  min-width: var(--radix-select-trigger-width);
+  max-height: var(--radix-select-content-available-height);
+  overflow-y: auto;
+}
+.bunik-select-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 10px 8px 11px 9px / 9px 11px 8px 10px;
+  color: var(--bunik-ink);
+  font-weight: 650;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+}
+.bunik-select-item[data-highlighted] {
+  background: rgba(206, 155, 78, .2);
+}
+.bunik-select-item[data-state='checked'] {
+  background: var(--bunik-ink);
+  color: var(--bunik-paper-light);
+}
+
+/* react-day-picker, re-skinned to the Bunik palette. */
+.bunik-datepicker {
+  --rdp-cell-size: 38px;
+  --rdp-accent-color: var(--bunik-terracotta);
+  --rdp-background-color: rgba(206, 155, 78, .22);
+  --rdp-outline: 2px solid var(--bunik-honey);
+  --rdp-outline-selected: 2px solid var(--bunik-ink);
+  margin: 4px 6px 2px;
+  color: var(--bunik-ink);
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+.bunik-datepicker .rdp-caption_label {
+  font-weight: 800;
+  color: var(--bunik-ink);
+  text-transform: capitalize;
+  border: 0;
+}
+.bunik-datepicker .rdp-caption_dropdowns {
+  gap: 6px;
+}
+.bunik-datepicker .rdp-nav_button {
+  color: var(--bunik-ink);
+  border-radius: 9px;
+}
+.bunik-datepicker .rdp-nav_button:hover {
+  background: rgba(206, 155, 78, .22);
+}
+.bunik-datepicker .rdp-head_cell {
+  color: var(--bunik-muted);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.bunik-datepicker .rdp-day {
+  border-radius: 10px 8px 11px 9px / 9px 11px 8px 10px;
+  font-weight: 650;
+}
+.bunik-datepicker .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background: rgba(206, 155, 78, .22);
+}
+.bunik-datepicker .rdp-day_today:not(.rdp-day_selected) {
+  font-weight: 800;
+  color: var(--bunik-terracotta);
+}
+.bunik-datepicker .rdp-day_selected,
+.bunik-datepicker .rdp-day_selected:hover {
+  background: var(--bunik-terracotta);
+  color: var(--bunik-paper-light);
+  font-weight: 800;
 }
 
 .bunik-table-wrap {
@@ -331,6 +457,29 @@ a {
   display: none;
 }
 
+/* Sketchbook-styled scrollbar (terracotta thumb on a paper track). */
+.bunik-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bunik-terracotta) rgba(43, 39, 34, .08);
+}
+.bunik-scroll::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+.bunik-scroll::-webkit-scrollbar-track {
+  background: rgba(43, 39, 34, .08);
+  border-radius: 999px;
+  margin: 0 4px;
+}
+.bunik-scroll::-webkit-scrollbar-thumb {
+  background: var(--bunik-terracotta);
+  border: 2px solid var(--bunik-paper);
+  border-radius: 999px;
+}
+.bunik-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--bunik-ink);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -359,50 +508,58 @@ a {
   }
 }
 
+/* ===== bunik hand-drawn cursor (sun → cloud) ===== */
+/* On fine-pointer devices hide every native cursor (including inline ones
+   injected by recharts/inputs) so only the custom cursor shows. */
 @media (hover: hover) and (pointer: fine) {
-  html,
-  body {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%232B2722' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 22 L7 14 L18 3 L23 8 L12 19 Z'/%3E%3Cpath d='M7 14 L12 19'/%3E%3Cpath d='M4 22 L8 19'/%3E%3C/g%3E%3Cpath d='M18 3 L23 8' stroke='%23C2603F' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") 4 21, auto;
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
   }
+}
 
-  a,
-  button,
-  [role="button"],
-  .cursor-pointer,
-  [style*="cursor: pointer"],
-  .recharts-wrapper,
-  .recharts-surface {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M12 2 L14 9 L21 11 L14 13 L12 21 L10 13 L3 11 L10 9 Z' fill='%23C2603F' stroke='%232B2722' stroke-width='1.3' stroke-linejoin='round'/%3E%3C/svg%3E") 12 12, pointer !important;
+/* Touch / coarse pointers keep the native cursor and hide the custom one. */
+@media (hover: none), (pointer: coarse) {
+  #bunik-cursor {
+    display: none !important;
   }
+}
 
-  input,
-  textarea {
-    cursor: url("../assets/cursors/Text-small.cur") 10 12, text;
-  }
-
-  select {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26'%3E%3Cg fill='none' stroke='%232B2722' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 22 L7 14 L18 3 L23 8 L12 19 Z'/%3E%3Cpath d='M7 14 L12 19'/%3E%3Cpath d='M4 22 L8 19'/%3E%3C/g%3E%3Cpath d='M18 3 L23 8' stroke='%23C2603F' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") 4 21, default;
-  }
-
-  .score-slider-zone,
-  .score-slider-zone * {
-    cursor: url("../assets/cursors/Horizontal-Resize.cur") 33 31,
-      ew-resize !important;
-  }
-
-  .score-range {
-    pointer-events: none;
-    cursor: url("../assets/cursors/Horizontal-Resize.cur") 33 31,
-      ew-resize !important;
-  }
-
-  .score-range::-webkit-slider-thumb {
-    cursor: url("../assets/cursors/Horizontal-Resize.cur") 33 31,
-      ew-resize !important;
-  }
-
-  .score-range::-moz-range-thumb {
-    cursor: url("../assets/cursors/Horizontal-Resize.cur") 33 31,
-      ew-resize !important;
-  }
+#bunik-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+  will-change: transform;
+}
+#bunik-cursor.is-on {
+  opacity: 1;
+}
+#bunik-cursor .bk-cur-cloud,
+#bunik-cursor .bk-cur-sun {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity .18s ease, scale .18s ease;
+}
+#bunik-cursor .bk-cur-cloud {
+  opacity: 0;
+  scale: .6;
+}
+#bunik-cursor .bk-cur-sun {
+  opacity: 1;
+  scale: 1;
+}
+#bunik-cursor.is-pointer .bk-cur-cloud {
+  opacity: 1;
+  scale: 1;
+}
+#bunik-cursor.is-pointer .bk-cur-sun {
+  opacity: 0;
+  scale: .6;
 }

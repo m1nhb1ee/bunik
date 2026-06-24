@@ -16,7 +16,7 @@ import {
   getAllUniversityPrograms,
   getMajorDetail,
   getProgramDetail,
-  normalizeScoreTo30,
+  normalizeAdmissionScore,
 } from "../services/api";
 import type { ApiMajorDetail, ApiAdmissionScore, ApiUniversityProgram } from "../types/api";
 import { B, CenterNote, accentFor, cardStyle } from "../components/bunik";
@@ -185,6 +185,11 @@ export default function NganhDetailPage() {
     };
   }, [routeProgramId]);
 
+  const visiblePrograms = useMemo(
+    () => programs.filter((program) => (scoresByProgram[program.id]?.length ?? 0) > 0 || program.id === selectedProgramId),
+    [programs, scoresByProgram, selectedProgramId],
+  );
+
   const selectedProgram = useMemo(() => programs.find((program) => program.id === selectedProgramId) ?? null, [programs, selectedProgramId]);
 
   const selectedScores = selectedProgramId ? (scoresByProgram[selectedProgramId] ?? []) : [];
@@ -192,7 +197,7 @@ export default function NganhDetailPage() {
     () =>
       selectedScores.map((item) => ({
         ...item,
-        score: item.score === null ? null : normalizeScoreTo30(item.score, item.note),
+        score: item.score === null ? null : normalizeAdmissionScore(item),
       })),
     [selectedScores],
   );
@@ -234,9 +239,9 @@ export default function NganhDetailPage() {
   return (
     <div style={dotBg} className="bunik-page">
       <div
-        className="py-10 px-6 relative overflow-hidden"
+        className="py-10 px-6 relative"
         style={{
-          background: `linear-gradient(135deg, ${color}15 0%, ${color}08 100%)`,
+          background: `${color}14`,
           borderBottom: `2px dashed ${B.muted}`,
         }}
       >
@@ -262,9 +267,21 @@ export default function NganhDetailPage() {
                 <span className="bunik-chip" style={{ minHeight: 28, padding: "3px 9px" }}>
                   Mã ngành: {major.code}
                 </span>
-                <span className="bunik-chip" style={{ minHeight: 28, padding: "3px 9px", background: "rgba(46,106,98,.13)", color: B.teal }}>
-                  Trường: {getProgramLabel(selectedProgram)}
-                </span>
+                {selectedProgram.universities?.code ? (
+                  <Link
+                    to={`/truong/${selectedProgram.universities.code}`}
+                    className="bunik-chip"
+                    style={{ minHeight: 28, padding: "3px 9px", background: "rgba(46,106,98,.13)", color: B.teal, textDecoration: "none" }}
+                    title={`Xem trường ${getProgramLabel(selectedProgram)}`}
+                  >
+                    Trường: {getProgramLabel(selectedProgram)}
+                    <ChevronRight size={13} />
+                  </Link>
+                ) : (
+                  <span className="bunik-chip" style={{ minHeight: 28, padding: "3px 9px", background: "rgba(46,106,98,.13)", color: B.teal }}>
+                    Trường: {getProgramLabel(selectedProgram)}
+                  </span>
+                )}
                 {subjectBlocks !== "-" && (
                   <span className="bunik-chip" style={{ minHeight: 28, padding: "3px 9px" }}>
                     Khối: {subjectBlocks}
@@ -321,7 +338,7 @@ export default function NganhDetailPage() {
           </div>
           <div className="mt-4 max-h-56 overflow-y-auto hide-scrollbar pr-1">
             <div className="flex flex-wrap gap-2">
-              {programs.map((program) => {
+              {visiblePrograms.map((program) => {
                 const active = program.id === selectedProgramId;
                 return (
                   <button
@@ -370,7 +387,7 @@ export default function NganhDetailPage() {
           ))
         ) : (
           <div style={handCard} className="p-6 text-center">
-            <p style={{ color: B.body, fontWeight: 700 }}>Chưa có dữ liệu điểm cho chương trình này</p>
+            <p style={{ color: B.body, fontWeight: 700 }}>Hiện chương trình này không còn hoạt động</p>
             <p className="bunik-note-text" style={{ fontSize: 16, marginTop: 6 }}>Hãy chọn trường khác để xem thêm dữ liệu</p>
           </div>
         )}

@@ -1,6 +1,7 @@
 import logging
 from datetime import date
 
+from django.conf import settings
 from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -17,17 +18,26 @@ from core.auth.serializers import (
     LoginSerializer,
     ProfileUpdateSerializer,
     RegisterSerializer,
+    SubjectProfileUpdateSerializer,
     UserProfileSerializer,
 )
 from core.auth.supabase_auth import SupabaseAuthentication
 from core.errors.classification import (
     is_duplicate_error,
+    is_email_not_confirmed_error,
     is_invalid_credentials_error,
     is_missing_column_error,
     is_rate_limited_error,
     is_rls_error,
 )
-from core.supabase_client import get_client, get_service_client, get_user_client, revoke_session
+from core.emailer import send_verification_email
+from core.supabase_client import (
+    generate_signup_link,
+    get_client,
+    get_service_client,
+    get_user_client,
+    revoke_session,
+)
 
 
 logger = logging.getLogger(__name__)
@@ -39,23 +49,6 @@ def _profile_by_id(client, user_id):
     except Exception:
         logger.exception('Failed to fetch profile.')
         raise
-
-
-def _score_by_user_id(client, user_id):
-    try:
-        return client.table('score').select('*').eq('user_id', user_id).maybe_single().execute()
-    except Exception:
-        logger.exception('Failed to fetch score profile.')
-        raise
-
-
-def _merge_user_profile(user_row, score_row):
-    merged = dict(user_row or {})
-    score_data = score_row or {}
-    for key in ('math', 'literature', 'english', 'physics', 'chemistry', 'biology', 'history', 'geography', 'base_score'):
-        if key in score_data:
-            merged[key] = score_data.get(key)
-    return merged
 
 
 def _enrich_achievements_with_awards(client, achievements):
@@ -123,6 +116,15 @@ def _delete_auth_user_if_possible(user_id):
         logger.warning('Could not clean up Supabase auth user %s: %s', user_id, exc)
 
 
+def _delete_profile_if_possible(user_id):
+    if not user_id:
+        return
+    try:
+        get_service_client().table('users').delete().eq('id', user_id).execute()
+    except Exception as exc:
+        logger.warning('Could not clean up profile row %s: %s', user_id, exc)
+
+
 class RegisterView(APIView):
     permission_classes = [AllowAny]
 
@@ -132,36 +134,54 @@ class RegisterView(APIView):
         data = serializer.validated_data
 
         user_id = None
+        profile_created = False
         try:
-            auth_client = get_client()
-            if _profile_conflict_exists(auth_client, user_name=data['user_name'], gmail=data['gmail']):
+            if _profile_conflict_exists(get_client(), user_name=data['user_name'], gmail=data['gmail']):
                 return Response({'message': 'gmail hoac user_name da ton tai'}, status=status.HTTP_409_CONFLICT)
 
-            auth_resp = auth_client.auth.sign_up({'email': data['gmail'], 'password': data['password']})
-            user_id = auth_resp.user.id if auth_resp and auth_resp.user else None
-            if not user_id:
-                logger.error('Supabase sign_up did not return user id.')
+            # Create the auth user and get the verification link WITHOUT Supabase
+            # sending the email, then deliver it through our own SMTP server to
+            # bypass Supabase's built-in email rate limit.
+            link_resp = generate_signup_link(data['gmail'], data['password'], settings.EMAIL_VERIFY_REDIRECT_URL)
+            user_id = link_resp.user.id if link_resp and link_resp.user else None
+            action_link = link_resp.properties.action_link if link_resp and link_resp.properties else None
+            if not user_id or not action_link:
+                logger.error('Supabase generate_link did not return user id or action link.')
                 return Response({'message': 'Dang ky that bai'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+            # Create the profile with the service client (bypasses RLS) so the
+            # users row exists before the user confirms their email.
             profile_payload = _profile_payload(user_id, data)
-            access_token = auth_resp.session.access_token if auth_resp and auth_resp.session else None
-            if not access_token:
+            get_service_client().table('users').insert(profile_payload).execute()
+            profile_created = True
+
+            # Send the email LAST: if anything above fails we never email the
+            # user, and a delivery failure rolls back the half-created account.
+            try:
+                send_verification_email(data['gmail'], action_link, data['full_name'])
+            except Exception:
+                logger.exception('Failed to send verification email.')
+                _delete_profile_if_possible(user_id)
+                _delete_auth_user_if_possible(user_id)
                 return Response(
-                    {
-                        'message': 'Can xac minh email truoc khi tao ho so nguoi dung.',
-                        'user_id': user_id,
-                        'requires_email_confirmation': True,
-                    },
-                    status=status.HTTP_202_ACCEPTED,
+                    {'message': 'Khong the gui email xac minh. Vui long thu lai sau.'},
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 )
-            get_user_client(access_token).table('users').insert(profile_payload).execute()
+
             user_data = UserProfileSerializer(profile_payload).data
             return Response(
-                {'message': 'Dang ky thanh cong', 'user': user_data, 'access_token': access_token},
-                status=status.HTTP_201_CREATED,
+                {
+                    'message': 'Dang ky thanh cong. Vui long xac minh email truoc khi dang nhap.',
+                    'user': user_data,
+                    'user_id': user_id,
+                    'requires_email_confirmation': True,
+                },
+                status=status.HTTP_202_ACCEPTED,
             )
         except Exception as exc:
             logger.exception('Register failed.')
+            if profile_created:
+                _delete_profile_if_possible(user_id)
             _delete_auth_user_if_possible(user_id)
             if is_duplicate_error(exc):
                 return Response({'message': 'gmail hoac user_name da ton tai'}, status=status.HTTP_409_CONFLICT)
@@ -236,12 +256,10 @@ class LoginView(APIView):
             if not profile_resp.data:
                 logger.error('Profile missing for gmail=%s', data['gmail'])
                 return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-            score_resp = _score_by_user_id(profile_client, user_id)
-            merged_profile = _merge_user_profile(profile_resp.data, score_resp.data if score_resp else None)
             return Response(
                 {
                     'message': 'Dang nhap thanh cong',
-                    'user': UserProfileSerializer(merged_profile).data,
+                    'user': UserProfileSerializer(profile_resp.data).data,
                     'access_token': auth_resp.session.access_token,
                     'refresh_token': auth_resp.session.refresh_token,
                 },
@@ -249,6 +267,14 @@ class LoginView(APIView):
             )
         except Exception as exc:
             logger.exception('Login failed.')
+            if is_email_not_confirmed_error(exc):
+                return Response(
+                    {
+                        'message': 'Email chua duoc xac minh. Vui long kiem tra hop thu va bam lien ket xac minh.',
+                        'requires_email_confirmation': True,
+                    },
+                    status=status.HTTP_403_FORBIDDEN,
+                )
             if is_invalid_credentials_error(exc):
                 return Response({'message': 'Sai tai khoan hoac mat khau'}, status=status.HTTP_401_UNAUTHORIZED)
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -268,9 +294,7 @@ class ProfileView(APIView):
             profile_resp = _profile_by_id(client, user_id)
             if not profile_resp.data:
                 return Response({'message': 'Khong tim thay nguoi dung'}, status=status.HTTP_401_UNAUTHORIZED)
-            score_resp = _score_by_user_id(client, user_id)
-            merged_profile = _merge_user_profile(profile_resp.data, score_resp.data if score_resp else None)
-            return Response({'user': UserProfileSerializer(merged_profile).data}, status=status.HTTP_200_OK)
+            return Response({'user': UserProfileSerializer(profile_resp.data).data}, status=status.HTTP_200_OK)
         except Exception:
             logger.exception('Profile lookup failed.')
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -302,10 +326,6 @@ class ProfileView(APIView):
                 key: value for key, value in payload.items()
                 if key in {'user_name', 'full_name', 'grade', 'dob', 'gender', 'is_special', 'special_subject', 'special_score'}
             }
-            score_fields = {
-                key: value for key, value in payload.items()
-                if key in {'math', 'literature', 'english', 'physics', 'chemistry', 'biology', 'history', 'geography', 'base_score'}
-            }
 
             if user_fields:
                 try:
@@ -334,20 +354,94 @@ class ProfileView(APIView):
                 if not updated:
                     return Response({'message': 'Khong tim thay nguoi dung'}, status=status.HTTP_404_NOT_FOUND)
 
-            if score_fields:
-                score_payload = {'user_id': user_id, **score_fields}
-                client.table('score').upsert(score_payload, on_conflict='user_id').execute()
-
             profile_resp = _profile_by_id(client, user_id)
             if not profile_resp.data:
                 return Response({'message': 'Khong tim thay nguoi dung'}, status=status.HTTP_404_NOT_FOUND)
-            score_resp = _score_by_user_id(client, user_id)
-            merged_profile = _merge_user_profile(profile_resp.data, score_resp.data if score_resp else None)
-            return Response({'message': 'Cap nhat ho so thanh cong', 'user': UserProfileSerializer(merged_profile).data}, status=status.HTTP_200_OK)
+            return Response({'message': 'Cap nhat ho so thanh cong', 'user': UserProfileSerializer(profile_resp.data).data}, status=status.HTTP_200_OK)
         except Exception:
             logger.exception('Profile update failed.')
             return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
+def _get_subject_profile(client, user_id):
+    subjects = (
+        client.table('school_subjects')
+        .select('*')
+        .eq('is_active', True)
+        .order('curriculum_group')
+        .order('code')
+        .execute()
+    )
+    selections = (
+        client.table('user_elective_subjects')
+        .select('subject_code')
+        .eq('user_id', user_id)
+        .execute()
+    )
+    results = (
+        client.table('user_subject_results')
+        .select('subject_code,numeric_score,assessment_status,updated_at')
+        .eq('user_id', user_id)
+        .execute()
+    )
+    academic_score_response = client.rpc('get_user_academic_score').execute()
+    academic_score = academic_score_response.data or {}
+    if isinstance(academic_score, list):
+        academic_score = academic_score[0] if academic_score else {}
+    return {
+        'subjects': subjects.data or [],
+        'selected_elective_codes': [item['subject_code'] for item in (selections.data or [])],
+        'results': results.data or [],
+        'academic_score': academic_score,
+    }
+
+
+class SubjectProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [SupabaseAuthentication]
+
+    def get(self, request):
+        user_id = getattr(request.user, 'id', None)
+        access_token = request.auth
+        if not user_id or not access_token:
+            return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
+        try:
+            client = get_user_client(access_token)
+            return Response(_get_subject_profile(client, user_id), status=status.HTTP_200_OK)
+        except Exception:
+            logger.exception('Subject profile lookup failed.')
+            return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def patch(self, request):
+        user_id = getattr(request.user, 'id', None)
+        access_token = request.auth
+        if not user_id or not access_token:
+            return Response({'message': 'Token khong hop le'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        serializer = SubjectProfileUpdateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        payload = serializer.validated_data
+        rpc_results = [
+            {
+                'subject_code': item['subject_code'],
+                'numeric_score': item.get('numeric_score'),
+                'assessment_status': item.get('assessment_status'),
+            }
+            for item in payload['results']
+        ]
+
+        try:
+            client = get_user_client(access_token)
+            client.rpc('save_user_subject_profile', {
+                'p_elective_codes': payload['elective_codes'],
+                'p_results': rpc_results,
+            }).execute()
+            return Response(_get_subject_profile(client, user_id), status=status.HTTP_200_OK)
+        except Exception as exc:
+            if '22023' in str(exc):
+                return Response({'message': str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+            logger.exception('Subject profile update failed.')
+            return Response({'message': 'Da xay ra loi he thong'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class AwardCatalogView(APIView):
     permission_classes = [AllowAny]

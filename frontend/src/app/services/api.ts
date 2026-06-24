@@ -1,5 +1,6 @@
 ﻿import type {
   ApiUniversity,
+  ApiUniversityDetail,
   ApiMajorCatalog,
   ApiMajorDetail,
   ApiUniversityProgram,
@@ -10,6 +11,7 @@
   ApiMajorRecommendation,
   ApiMajorOverview,
   ApiProfile,
+  ApiSubjectProfile,
   ApiAward,
   ApiAchievement,
   ApiCertificate,
@@ -18,7 +20,7 @@
   UiMajor,
 } from '../types/api';
 
-const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000/api';
+const BASE = import.meta.env.VITE_API_URL ?? (import.meta.env.DEV ? 'http://localhost:8000/api' : '/api');
 
 // ---------------------------------------------------------------------------
 // HTTP helpers
@@ -123,8 +125,9 @@ export type AuthUser = {
 export type AuthResponse = {
   message: string;
   user: AuthUser;
-  access_token: string;
+  access_token?: string;
   refresh_token?: string;
+  requires_email_confirmation?: boolean;
 };
 
 export type ProfileUpdatePayload = {
@@ -144,7 +147,6 @@ export type ProfileUpdatePayload = {
   is_special?: boolean;
   special_subject?: 'toan' | 'ly' | 'hoa' | 'sinh' | 'tin' | 'ngoai_ngu' | 'van' | 'su' | 'dia';
   special_score?: number;
-  base_score?: number;
 };
 
 export async function register(payload: RegisterPayload): Promise<AuthResponse> {
@@ -161,6 +163,24 @@ export async function getMyProfile(token: string): Promise<{ user: ApiProfile }>
 
 export async function updateMyProfile(token: string, payload: ProfileUpdatePayload): Promise<{ message: string; user: ApiProfile }> {
   return patch('/auth/me/', payload, token);
+}
+
+export async function getMySubjectProfile(token: string): Promise<ApiSubjectProfile> {
+  return get('/auth/me/subjects/', {}, token);
+}
+
+export async function updateMySubjectProfile(
+  token: string,
+  payload: {
+    elective_codes: string[];
+    results: Array<{
+      subject_code: string;
+      numeric_score?: number | null;
+      assessment_status?: 'PASSED' | 'FAILED' | null;
+    }>;
+  },
+): Promise<ApiSubjectProfile> {
+  return patch('/auth/me/subjects/', payload, token);
 }
 
 export async function getAwardsCatalog(token?: string): Promise<{ results: ApiAward[] }> {
@@ -200,6 +220,10 @@ export async function getUniversities(params: {
   page_size?: number;
 } = {}): Promise<PaginatedResponse<ApiUniversity>> {
   return get('/universities/', params);
+}
+
+export async function getUniversityDetailByCode(code: string): Promise<ApiUniversityDetail> {
+  return get(`/universities/by-code/${encodeURIComponent(code)}/detail/`);
 }
 
 export async function getMajors(params: {
@@ -362,6 +386,24 @@ export function normalizeScoreTo30(score: number, note: string | null): number {
   return isScale40 ? +((score * 30) / 40).toFixed(2) : score;
 }
 
+/**
+ * Normalize an admission score to the 30-point scale for charting.
+ * Mirrors the backend `_normalized_thpt_score`: prefer an explicit
+ * normalized_score, then the note-based scale-40 flag, then — for THPT only —
+ * fall back to treating any score above 30 as a 40-point scale (some sources,
+ * e.g. combos with a doubled subject, omit the scale note entirely). Other
+ * methods (ĐGNL, ĐGTD, …) keep their own larger scales untouched.
+ */
+export function normalizeAdmissionScore(item: ApiAdmissionScore): number {
+  if (item.normalized_score != null) return item.normalized_score;
+  const score = item.score ?? 0;
+  const scaled = normalizeScoreTo30(score, item.note);
+  if (item.admission_method_code === "THPT" && scaled > 30) {
+    return +((scaled * 30) / 40).toFixed(2);
+  }
+  return scaled;
+}
+
 export async function fetchAllPaginated<T>(
   fetchPage: (page: number, pageSize: number) => Promise<PaginatedResponse<T>>,
   pageSize = 100,
@@ -436,6 +478,3 @@ export async function getAllMajors(): Promise<UiMajor[]> {
     description: '',
   }));
 }
-
-
-

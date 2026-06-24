@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,testserver', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*', cast=Csv())
 
 INSTALLED_APPS = [
     'django.contrib.staticfiles',
@@ -57,6 +57,18 @@ DATABASES = {}
 SUPABASE_URL = config('SUPABASE_URL')
 SUPABASE_ANON_KEY = config('SUPABASE_ANON_KEY')
 SUPABASE_SERVICE_ROLE_KEY = config('SUPABASE_SERVICE_ROLE_KEY', default='')
+
+# Email — we send Supabase auth verification links ourselves through our own
+# SMTP server to bypass Supabase's built-in email rate limit.
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='Bunik <no-reply@bunik.local>')
+# Where Supabase redirects after the user clicks the verification link.
+EMAIL_VERIFY_REDIRECT_URL = config('EMAIL_VERIFY_REDIRECT_URL', default='http://localhost:5173/dang-nhap')
 
 LANGUAGE_CODE = 'vi-vn'
 TIME_ZONE = 'Asia/Ho_Chi_Minh'
