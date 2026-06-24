@@ -713,6 +713,123 @@ export default function HoSoPage() {
               </div>
 
               <div style={handCard} className="p-6">
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 16 }}>
+                  Chứng chỉ quốc tế
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>IELTS (×2): +{(ieltScore * 2).toFixed(1)}</label>
+                    <NumberField
+                      min={0}
+                      max={9}
+                      step={0.5}
+                      decimals={1}
+                      ariaLabel="Điểm IELTS"
+                      value={ieltScore}
+                      onChange={setIeltScore}
+                      className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
+                      style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>SAT (÷100): +{(satScore / 100).toFixed(2)}</label>
+                    <NumberField
+                      min={0}
+                      max={1600}
+                      step={10}
+                      decimals={0}
+                      ariaLabel="Điểm SAT"
+                      value={satScore}
+                      onChange={setSatScore}
+                      className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
+                      style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="space-y-6">
+              <div
+                className="p-8 text-center"
+                style={{ ...handCard, border: `2.5px solid ${B.terracotta}`, boxShadow: `6px 6px 0px rgba(194,96,63,.18)` }}
+              >
+                <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Điểm học lực 8 môn</p>
+                <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: B.terracotta, lineHeight: 1 }}>
+                  {scorePreview.score80?.toFixed(2) ?? '—'}
+                  <span style={{ fontSize: 20, color: B.muted }}>/80</span>
+                </div>
+                <div className="flex items-center justify-center mt-4">
+                  <span
+                    className="px-4 py-2 rounded-2xl"
+                    style={{
+                      fontWeight: 800,
+                      background: scorePreview.isComplete ? B.olive : B.honey,
+                      color: scorePreview.isComplete ? B.paperLight : B.ink,
+                      border: `1.5px solid ${B.ink}`,
+                    }}
+                  >
+                    {scorePreview.isComplete ? 'Hồ sơ môn học đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
+                  </span>
+                </div>
+                {!scorePreview.isComplete && (incompleteInfo.electivesRemaining > 0 || incompleteInfo.missingResultNames.length > 0) && (
+                  <div className="mt-4 px-4 py-3 rounded-2xl text-left" style={{ background: "rgba(206,155,78,.12)", border: `1.5px dashed ${B.honey}` }}>
+                    <p style={{ color: B.ink, fontSize: 12.5, fontWeight: 800, marginBottom: 4 }}>Để hoàn tất điểm học lực:</p>
+                    <ul style={{ margin: 0, paddingLeft: 18, color: B.body, fontSize: 12.5, lineHeight: 1.6 }}>
+                      {incompleteInfo.electivesRemaining > 0 && (
+                        <li>Chọn thêm {incompleteInfo.electivesRemaining} môn lựa chọn.</li>
+                      )}
+                      {incompleteInfo.missingResultNames.length > 0 && (
+                        <li>Nhập kết quả cho: {incompleteInfo.missingResultNames.join(", ")}.</li>
+                      )}
+                    </ul>
+                  </div>
+                )}
+                <div className="grid grid-cols-4 gap-3 mt-6">
+                  {[
+                    { label: "TB môn có điểm", value: scorePreview.numericAverage?.toFixed(2) ?? '—' },
+                    { label: "Môn Đạt", value: String(scorePreview.passedCount) },
+                    { label: "Môn Chưa đạt", value: String(scorePreview.failedCount) },
+                    { label: "Môn lựa chọn", value: `${selectedElectives.length}/4` },
+                  ].map((item) => (
+                    <div key={item.label} className="p-3 rounded-2xl text-center" style={{ background: "rgba(206,155,78,.09)", border: `1px dashed ${B.muted}` }}>
+                      <p style={{ fontSize: 10, color: B.muted, fontWeight: 700 }}>{item.label}</p>
+                      <p style={{ fontWeight: 900, color: B.terracotta, fontSize: 16 }}>{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={handCard} className="p-5">
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 10 }}>Thành phần khác của hồ sơ</h3>
+                <p style={{ color: B.body, fontSize: 13, lineHeight: 1.7 }}>
+                  Môn chuyên (+{(isChuyenClass ? specialScore : 0).toFixed(1)}), thành tích (+{awardBonus.toFixed(2)}) và chứng chỉ (+{certBonus.toFixed(1)}) được lưu riêng, không cộng vào điểm học lực thang 80.
+                </p>
+              </div>
+
+              <div style={handCard} className="p-6">
+                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 16 }}>Bản đồ học lực</h3>
+                <ResponsiveContainer width="100%" height={260}>
+                  <RadarChart data={radarData}>
+                    <PolarGrid stroke={B.muted} strokeDasharray="3 3" />
+                    <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: B.body, fontWeight: 700 }} />
+                    <PolarRadiusAxis domain={[7, 10]} tick={{ fontSize: 9 }} />
+                    <Radar
+                      name="Điểm"
+                      dataKey="score"
+                      stroke={B.terracotta}
+                      fill={B.terracotta}
+                      fillOpacity={0.2}
+                      strokeWidth={2.5}
+                      dot={{ r: 5, fill: B.terracotta, strokeWidth: 0 }}
+                    />
+                    <Tooltip contentStyle={{ borderRadius: 12, border: `2px solid ${B.ink}`, background: B.paperLight, fontSize: 13 }} formatter={(value: number) => [`${value}/10`, "Điểm"]} />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </div>
+
+              <div style={handCard} className="p-6">
                 <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 12 }}>Thành tích</h3>
                 <div style={{ position: "relative" }}>
                   <button
@@ -865,122 +982,6 @@ export default function HoSoPage() {
                     </div>
                   )}
                 </div>
-              </div>
-
-              <div style={handCard} className="p-6">
-                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 17, marginBottom: 16 }}>
-                  Chứng chỉ quốc tế
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>IELTS (×2): +{(ieltScore * 2).toFixed(1)}</label>
-                    <NumberField
-                      min={0}
-                      max={9}
-                      step={0.5}
-                      decimals={1}
-                      ariaLabel="Điểm IELTS"
-                      value={ieltScore}
-                      onChange={setIeltScore}
-                      className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
-                      style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
-                    />
-                  </div>
-                  <div>
-                    <label style={{ fontSize: 13, color: B.body, fontWeight: 700 }}>SAT (÷100): +{(satScore / 100).toFixed(2)}</label>
-                    <NumberField
-                      min={0}
-                      max={1600}
-                      step={10}
-                      decimals={0}
-                      ariaLabel="Điểm SAT"
-                      value={satScore}
-                      onChange={setSatScore}
-                      className="mt-2 w-full px-3 py-2 rounded-xl text-sm outline-none"
-                      style={{ border: `2px solid ${B.ink}`, color: B.ink, fontWeight: 700, background: B.paper }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div
-                className="p-8 text-center"
-                style={{ ...handCard, border: `2.5px solid ${B.terracotta}`, boxShadow: `6px 6px 0px rgba(194,96,63,.18)` }}
-              >
-                <p style={{ color: B.muted, fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Điểm học lực 8 môn</p>
-                <div style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, fontSize: 68, color: B.terracotta, lineHeight: 1 }}>
-                  {scorePreview.score80?.toFixed(2) ?? '—'}
-                  <span style={{ fontSize: 20, color: B.muted }}>/80</span>
-                </div>
-                <div className="flex items-center justify-center mt-4">
-                  <span
-                    className="px-4 py-2 rounded-2xl"
-                    style={{
-                      fontWeight: 800,
-                      background: scorePreview.isComplete ? B.olive : B.honey,
-                      color: scorePreview.isComplete ? B.paperLight : B.ink,
-                      border: `1.5px solid ${B.ink}`,
-                    }}
-                  >
-                    {scorePreview.isComplete ? 'Hồ sơ môn học đã hoàn tất' : 'Hồ sơ môn học chưa hoàn tất'}
-                  </span>
-                </div>
-                {!scorePreview.isComplete && (incompleteInfo.electivesRemaining > 0 || incompleteInfo.missingResultNames.length > 0) && (
-                  <div className="mt-4 px-4 py-3 rounded-2xl text-left" style={{ background: "rgba(206,155,78,.12)", border: `1.5px dashed ${B.honey}` }}>
-                    <p style={{ color: B.ink, fontSize: 12.5, fontWeight: 800, marginBottom: 4 }}>Để hoàn tất điểm học lực:</p>
-                    <ul style={{ margin: 0, paddingLeft: 18, color: B.body, fontSize: 12.5, lineHeight: 1.6 }}>
-                      {incompleteInfo.electivesRemaining > 0 && (
-                        <li>Chọn thêm {incompleteInfo.electivesRemaining} môn lựa chọn.</li>
-                      )}
-                      {incompleteInfo.missingResultNames.length > 0 && (
-                        <li>Nhập kết quả cho: {incompleteInfo.missingResultNames.join(", ")}.</li>
-                      )}
-                    </ul>
-                  </div>
-                )}
-                <div className="grid grid-cols-4 gap-3 mt-6">
-                  {[
-                    { label: "TB môn có điểm", value: scorePreview.numericAverage?.toFixed(2) ?? '—' },
-                    { label: "Môn Đạt", value: String(scorePreview.passedCount) },
-                    { label: "Môn Chưa đạt", value: String(scorePreview.failedCount) },
-                    { label: "Môn lựa chọn", value: `${selectedElectives.length}/4` },
-                  ].map((item) => (
-                    <div key={item.label} className="p-3 rounded-2xl text-center" style={{ background: "rgba(206,155,78,.09)", border: `1px dashed ${B.muted}` }}>
-                      <p style={{ fontSize: 10, color: B.muted, fontWeight: 700 }}>{item.label}</p>
-                      <p style={{ fontWeight: 900, color: B.terracotta, fontSize: 16 }}>{item.value}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div style={handCard} className="p-5">
-                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 10 }}>Thành phần khác của hồ sơ</h3>
-                <p style={{ color: B.body, fontSize: 13, lineHeight: 1.7 }}>
-                  Môn chuyên (+{(isChuyenClass ? specialScore : 0).toFixed(1)}), thành tích (+{awardBonus.toFixed(2)}) và chứng chỉ (+{certBonus.toFixed(1)}) được lưu riêng, không cộng vào điểm học lực thang 80.
-                </p>
-              </div>
-
-              <div style={handCard} className="p-6">
-                <h3 style={{ fontFamily: "'Shantell Sans', cursive", fontWeight: 700, color: B.ink, fontSize: 16, marginBottom: 16 }}>Bản đồ học lực</h3>
-                <ResponsiveContainer width="100%" height={260}>
-                  <RadarChart data={radarData}>
-                    <PolarGrid stroke={B.muted} strokeDasharray="3 3" />
-                    <PolarAngleAxis dataKey="subject" tick={{ fontSize: 11, fill: B.body, fontWeight: 700 }} />
-                    <PolarRadiusAxis domain={[7, 10]} tick={{ fontSize: 9 }} />
-                    <Radar
-                      name="Điểm"
-                      dataKey="score"
-                      stroke={B.terracotta}
-                      fill={B.terracotta}
-                      fillOpacity={0.2}
-                      strokeWidth={2.5}
-                      dot={{ r: 5, fill: B.terracotta, strokeWidth: 0 }}
-                    />
-                    <Tooltip contentStyle={{ borderRadius: 12, border: `2px solid ${B.ink}`, background: B.paperLight, fontSize: 13 }} formatter={(value: number) => [`${value}/10`, "Điểm"]} />
-                  </RadarChart>
-                </ResponsiveContainer>
               </div>
 
               {blocks.length > 0 && (
