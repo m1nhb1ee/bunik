@@ -1,11 +1,18 @@
+import base64
+import json
 import logging
 from pathlib import Path
+from urllib import request as urlrequest
+from urllib.error import HTTPError, URLError
 
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from email.mime.image import MIMEImage
 
 logger = logging.getLogger(__name__)
+
+_RESEND_ENDPOINT = 'https://api.resend.com/emails'
+_HTTP_TIMEOUT = 10
 
 _LOGO_PATH = Path(__file__).resolve().parent / 'email_assets' / 'bunik-logo.png'
 _LOGO_CID = 'bunik-logo'
@@ -115,7 +122,12 @@ def _build_html(greeting: str, action_link: str) -> str:
 
 
 def send_verification_email(to_email: str, action_link: str, full_name: str = '') -> None:
-    """Send the Supabase signup verification link through our own SMTP server."""
+    """Send the Supabase signup verification link through our own mailer.
+
+    Delivery channel is chosen by settings.EMAIL_PROVIDER:
+      - 'resend': Resend HTTP API over 443 (not blocked by Railway egress)
+      - anything else: Django SMTP backend
+    """
     greeting = f'Chào {full_name},' if full_name else 'Xin chào,'
     subject = 'Xác minh email tài khoản Bunik'
     text_body = (
@@ -126,14 +138,73 @@ def send_verification_email(to_email: str, action_link: str, full_name: str = ''
         'Nếu bạn không thực hiện đăng ký này, vui lòng bỏ qua email này.\n\n'
         'Trân trọng,\nĐội ngũ Bunik'
     )
+    html_body = _build_html(greeting, action_link)
 
+    if getattr(settings, 'EMAIL_PROVIDER', 'smtp').lower() == 'resend':
+        _send_via_resend(to_email, subject, text_body, html_body)
+    else:
+        _send_via_smtp(to_email, subject, text_body, html_body)
+
+
+def _send_via_smtp(to_email: str, subject: str, text_body: str, html_body: str) -> None:
     reply_to = [settings.EMAIL_HOST_USER] if getattr(settings, 'EMAIL_HOST_USER', '') else None
     message = EmailMultiAlternatives(
         subject, text_body, settings.DEFAULT_FROM_EMAIL, [to_email], reply_to=reply_to,
     )
-    message.attach_alternative(_build_html(greeting, action_link), 'text/html')
+    message.attach_alternative(html_body, 'text/html')
     _attach_logo(message)
     message.send(fail_silently=False)
+
+
+def _send_via_resend(to_email: str, subject: str, text_body: str, html_body: str) -> None:
+    api_key = getattr(settings, 'RESEND_API_KEY', '')
+    if not api_key:
+        raise RuntimeError('RESEND_API_KEY is not configured')
+
+    payload = {
+        'from': settings.DEFAULT_FROM_EMAIL,
+        'to': [to_email],
+        'subject': subject,
+        'text': text_body,
+        'html': html_body,
+    }
+    logo = _logo_attachment_for_resend()
+    if logo:
+        payload['attachments'] = [logo]
+
+    req = urlrequest.Request(
+        _RESEND_ENDPOINT,
+        data=json.dumps(payload).encode('utf-8'),
+        method='POST',
+        headers={
+            'Authorization': f'Bearer {api_key}',
+            'Content-Type': 'application/json',
+            # Cloudflare (in front of Resend) blocks the default urllib UA.
+            'User-Agent': 'bunik-backend/1.0',
+        },
+    )
+    try:
+        with urlrequest.urlopen(req, timeout=_HTTP_TIMEOUT):
+            return
+    except HTTPError as exc:
+        detail = exc.read().decode('utf-8', 'replace')
+        raise RuntimeError(f'Resend API error {exc.code}: {detail}') from exc
+    except URLError as exc:
+        raise RuntimeError(f'Resend request failed: {exc.reason}') from exc
+
+
+def _logo_attachment_for_resend() -> dict | None:
+    """Inline logo as a CID attachment so the cid: reference in the HTML resolves."""
+    try:
+        encoded = base64.b64encode(_LOGO_PATH.read_bytes()).decode('ascii')
+    except Exception:
+        logger.warning('Could not read Bunik logo for Resend attachment.', exc_info=True)
+        return None
+    return {
+        'filename': 'bunik-logo.png',
+        'content': encoded,
+        'content_id': _LOGO_CID,
+    }
 
 
 def _attach_logo(message: EmailMultiAlternatives) -> None:
