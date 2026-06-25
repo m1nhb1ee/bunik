@@ -66,7 +66,15 @@ EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
+# Fail fast instead of letting a blocked SMTP socket hang until the gunicorn
+# worker times out (which surfaces as a 502 at the edge).
+EMAIL_TIMEOUT = config('EMAIL_TIMEOUT', default=10, cast=int)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='Bunik <no-reply@bunik.local>')
+
+# How verification emails are delivered: 'smtp' (Django backend) or 'resend'
+# (Resend HTTP API over 443, which is not blocked by Railway's egress rules).
+EMAIL_PROVIDER = config('EMAIL_PROVIDER', default='smtp')
+RESEND_API_KEY = config('RESEND_API_KEY', default='')
 # Where Supabase redirects after the user clicks the verification link.
 EMAIL_VERIFY_REDIRECT_URL = config('EMAIL_VERIFY_REDIRECT_URL', default='http://localhost:5173/dang-nhap')
 
