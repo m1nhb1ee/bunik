@@ -81,7 +81,7 @@ RATING_PENALTY_CODES = {"QHS", "QHX"}                 # Giao duc, KHXH & Nhan va
 # Tru nhe: hoc vien quan doi diem chuan rat cao keo rating len hoi qua.
 RATING_LIGHT_PENALTY_CODES = {"BPH"}                  # HV Bien phong
 # Cong: truong chuyen nganh manh, VNUR (tieu chi rong) underrate.
-RATING_BONUS_CODES = {"YHB", "LPH", "DKH"}            # Y, Luat, Duoc HN
+RATING_BONUS_CODES = {"YHB", "LPH"}                  # Y, Luat HN
 
 
 def combine_score(c1, c2, c3, c4, c5):
