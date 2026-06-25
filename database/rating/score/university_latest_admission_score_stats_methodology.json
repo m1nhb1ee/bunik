@@ -1,0 +1,12 @@
+{
+  "updated_at_utc": "2026-06-25T11:19:40.851988+00:00",
+  "source": "Supabase REST API",
+  "admission_method_code": "THPT",
+  "university_count": 70,
+  "score_row_count_all_years": 7954,
+  "year_selection": "For each university, use 2025 when available; otherwise use the latest year with THPT score rows.",
+  "score_normalization": "Use normalized_score when present; otherwise for THPT score > 30 use score * 30 / 40; otherwise use score.",
+  "avg_thpt_score": "Average normalized THPT scores for the selected latest year of the university.",
+  "top10_variant_avg_thpt_score": "For the selected latest year, build rows using the same identity as TruongDetailPage: university_program_id + non-source variant_key + variant_label + subject_group_code + gender + region_code. Keep the highest score per identity, take the 10 highest identities, then average them.",
+  "output_csv": "database\\rating\\university_latest_admission_score_stats.csv"
+}

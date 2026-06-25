@@ -1,0 +1,9 @@
+{
+  "updated_at_utc": "2026-06-25T11:39:03.839266+00:00",
+  "input_csv": "database\\rating\\rerank\\vnur_rerank_universities.csv",
+  "output_csv": "database\\rating\\rerank\\vnur_rerank_universities_6criteria_scores.csv",
+  "evaluated_total": 193,
+  "formula": "criterion_score_100 = 100 * (193 - clamp(rank_used, 1, 193)) / 192",
+  "note": "Input rank_used columns are already processed ranks from rerank file. Outside-current-top-100 rows now use penalty rate 0.50 in rerank before conversion to score.",
+  "row_count": 131
+}

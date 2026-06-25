@@ -1,0 +1,87 @@
+﻿code,name,match_status,vnur_source_institution,data_completeness
+ANH,Học viện An ninh nhân dân,military,,
+BKA,ĐH Bách khoa Hà Nội,matched,Đại học Bách khoa Hà Nội,full:THPT
+BPH,Học viện Biên phòng,military,,
+BVH,HV Công nghệ Bưu chính Viễn thông,matched,HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG (CÔNG LẬP),full:THPT
+CMC,ĐH CMC,matched,Trường Đại học CMC,full:THPT
+CSH,Học viện Cảnh sát nhân dân,military,,
+DCH,Trường Sĩ quan Đặc Công,military,,
+DCN,ĐH Công nghiệp Hà Nội,matched,Đại học Công nghiệp Hà Nội,full:THPT
+DDA,ĐH Công nghệ Đông Á,matched,Trường Đại học Công nghệ Đông Á (Tư thục),full:THPT
+DDL,ĐH Điện lực,matched,Trường Đại học Điện lực,full:THPT
+DKH,ĐH Dược Hà Nội,matched,Trường Đại học Dược Hà Nội,full:THPT
+DKK,ĐH Kinh tế Kỹ thuật Công nghiệp,matched,Trường Đại học Kinh tế Kỹ thuật công nghiệp,full:THPT
+DKS,ĐH Kiểm sát Hà Nội,matched,Trường Đại học Kiểm sát Hà Nội,full:THPT
+DLX,ĐH Lao động Xã hội,matched,Trường Đại học Lao động - Xã hội,full:THPT
+DMT,ĐH Tài nguyên & Môi trường,matched_alias,Trường Đại học Tài nguyên và Môi trường Hà Nội,full:THPT
+DNV,ĐH Nội vụ,matched_alias,Trường Đại học Nội vụ Hà Nội (Công lập),full:THPT
+DPD,ĐH Phương Đông,matched,Trường Đại học dân lập Phương Đông (Tư thục),full:THPT
+DQK,ĐH Kinh doanh & Công nghệ,matched_alias,TRƯỜNG ĐẠI HỌC KINH DOANH VÀ CÔNG NGHỆ HÀ NỘI (TƯ THỤC),full:THPT
+DTL,ĐH Thăng Long,matched,Trường Đại học Thăng Long,full:THPT
+FBU,ĐH Tài Chính Ngân Hàng HN,matched_alias,TRƯỜNG ĐẠI HỌC TÀI CHÍNH - NGÂN HÀNG HÀ NỘI (TƯ THỤC),full:THPT
+FPT,ĐH FPT Hà Nội,matched_alias,Trường Đại học FPT,full:THPT
+GHA,ĐH Giao thông Vận tải,matched,Trường Đại học Giao thông Vận tải,full:THPT
+GTA,ĐH Công nghệ GTVT,matched_alias,TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI (CÔNG LẬP),full:THPT
+HBT,Học viện Báo chí và Tuyên truyền,matched,Học viện Báo chí và Tuyên truyền,full:THPT
+HCA,HV Chính Trị Công An Nhân Dân,military,,
+HCP,Học viện Chính sách và Phát triển,matched,Học viện Chính sách và Phát triển,full:THPT
+HEH,Học viện Hậu cần,military,,
+HGH,Trường Sĩ quan Phòng Hoá,military,,
+HNM,ĐH Thủ đô Hà Nội,matched,Trường Đại học Thủ đô Hà Nội,full:THPT
+HPN,Học viện Phụ nữ Việt Nam,matched,Học viện Phụ nữ Việt Nam,full:THPT
+HQT,Học viện Ngoại giao,matched,Học viện Ngoại giao,full:THPT
+HTA,Học viện Tòa án,matched,Học viện Toà án (Công lập),full:THPT
+HTC,Học viện Tài chính,matched,Học viện Tài chính,full:THPT
+HTN,HV Thanh thiếu niên Việt Nam,matched,Học viện Thanh thiếu niên Việt Nam (Công lập),full:THPT
+HVD,HV Dân Tộc,not_in_vnur_no_admission,,
+HVN,Học viện Nông nghiệp Việt Nam,matched,Học viện Nông nghiệp Việt Nam,full:THPT
+HVQ,Học viện Quản lý Giáo dục,matched,Học viện Quản lý Giáo dục,full:THPT
+KCN,ĐH Khoa Học và Công Nghệ Hà Nội,matched,Trường Đại học Khoa học và Công nghệ Hà Nội,full:THPT
+KHA,ĐH Kinh tế Quốc dân,matched,Đại học Kinh tế Quốc dân,full:THPT
+KMA,Học viện Kỹ thuật Mật mã,military,,
+KQH,Học viện Kỹ thuật Quân sự,military,,
+KTA,ĐH Kiến trúc Hà Nội,matched,Trường Đại học Kiến trúc Hà Nội,full:THPT
+LAH,Trường Sĩ quan Lục quân 1,military,,
+LBH,Trường Sĩ quan Lục quân 2,military,,
+LDA,ĐH Công đoàn,matched,Trường Đại học Công đoàn,full:THPT
+LNH,ĐH Lâm Nghiệp,matched,Trường Đại học Lâm nghiệp,full:THPT
+LPH,ĐH Luật Hà Nội,matched,Trường Đại học Luật Hà Nội,full:THPT
+MDA,ĐH Mỏ - Địa chất,matched,Trường Đại học Mỏ - Địa chất,full:THPT
+MHN,ĐH Mở Hà Nội,matched,Trường Đại học Mở Hà Nội,full:THPT
+MTC,ĐH Mỹ thuật Công nghiệp,not_in_vnur_no_admission,,
+MTH,ĐH Mỹ thuật Việt Nam,matched,Trường Đại học Mỹ thuật Việt Nam (Công lập),full:HBA
+NHH,Học viện Ngân hàng,matched,Học viện Ngân hàng,full:THPT
+NQH,Học viện Khoa học Quân sự,military,,
+NTH,ĐH Ngoại thương,matched,Trường Đại học Ngoại Thương,full:THPT
+NVH,HV Âm Nhạc Quốc Gia,not_in_vnur_no_admission,,
+PCH,ĐH Phòng cháy chữa cháy,military,,
+PKA,ĐH Phenikaa,matched,Đại học Phenikaa,full:THPT
+PKH,HV Phòng không - Không quân,military,,
+QHE,ĐH Kinh tế – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHF,ĐH Ngoại ngữ – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHI,ĐH Công nghệ – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHL,ĐH Luật – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHQ,Trường Quốc tế – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHS,ĐH Giáo dục – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHT,ĐH Khoa học Tự nhiên – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHX,ĐH KHXH & Nhân văn – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+QHY,ĐH Y Dược – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
+SKD,ĐH Sân khấu Điện ảnh HN,not_in_vnur_no_admission,,
+SPH,ĐH Sư phạm Hà Nội,matched,Trường Đại học Sư phạm Hà Nội,full:THPT
+TDH,ĐH Sư Phạm Thể Dục Thể Thao HN,not_in_vnur_no_admission,,
+TLA,ĐH Thủy lợi,matched,Trường Đại học Thuỷ Lợi,full:THPT
+TMU,ĐH Thương mại,matched,Trường Đại học Thương Mại,full:THPT
+VHD,ĐH Công nghiệp Việt Hung,matched,Trường Đại học Công nghiệp Việt - Hung,full:THPT
+VHH,ĐH Văn hóa Hà Nội,matched,Trường Đại học Văn hoá Hà Nội,full:THPT
+XDA,ĐH Xây dựng Hà Nội,matched,Trường Đại học Xây dựng Hà Nội,full:THPT
+YHB,ĐH Y Hà Nội,matched,Trường Đại học Y Hà Nội,full:THPT
+YQH,Học viện Quân y,military,,
+YTC,ĐH Y tế Công cộng,matched,Trường Đại học Y tế Công cộng,full:THPT
+CCM,ĐH Công nghiệp Dệt may HN,not_in_vnur_imputed,,vnur_imputed
+DCQ,ĐH Công nghệ và Quản lí hữu nghị,not_in_vnur_imputed,,vnur_imputed
+DDU,ĐH Đông Đô,not_in_vnur_imputed,,vnur_imputed
+ETU,ĐH Hoà Bình,not_in_vnur_imputed,,vnur_imputed
+GNT,ĐH Sư Phạm Nghệ Thuật Trung Ương,not_in_vnur_imputed,,vnur_imputed
+NHF,ĐH Hà Nội,not_in_vnur_imputed,,vnur_imputed
+NTU,ĐH Nguyễn Trãi,not_in_vnur_imputed,,vnur_imputed
+TDD,ĐH Thành Đô,not_in_vnur_imputed,,vnur_imputed
