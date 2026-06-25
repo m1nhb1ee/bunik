@@ -484,16 +484,18 @@ def main():
         w.writerow(["code", "name", "match_status", "vnur_source_institution", "data_completeness"])
         w.writerows(audit)
 
-    # rebuild clean admission stats (chi cac truong khong bi loai)
+    # admission stats: dung CHINH diem chuan da dung de tinh rating (gom ca THPT lan HBA),
+    # de bang nay khop 1-1 voi cac truong trong rating (vd MTH dung HBA truoc bi sot).
     with open(os.path.join(score_dir, "university_latest_admission_score_stats.csv"), "w",
               encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
         w.writerow(["university_code", "university_name", "latest_year",
                     "avg_thpt_score", "top10_variant_avg_thpt_score"])
         code2name = {u["code"]: u["name"] for u in unis}
-        for code, s in sorted(adm.items()):
-            w.writerow([code, code2name.get(code, ""), s["latest_year"],
-                        s["avg_thpt_score"], s["top10_variant_avg_thpt_score"]])
+        for r in sorted(rated, key=lambda x: x["university_code"]):
+            w.writerow([r["university_code"], code2name.get(r["university_code"], ""),
+                        r["admission_latest_year"],
+                        r["avg_thpt_score"], r["top10_variant_avg_thpt_score"]])
 
     methodology = {
         "updated_at_utc": datetime.now(timezone.utc).isoformat(),

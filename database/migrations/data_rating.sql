@@ -143,6 +143,7 @@ INSERT INTO public.university_admission_score_stats (university_code, latest_yea
 ('LPH', 2025, 25.42, 25.42),
 ('MDA', 2025, 18.7713, 23.45),
 ('MHN', 2025, 20.5029, 22.084),
+('MTH', 2025, 22.7595, 22.7595),
 ('NHF', 2025, 20.8193, 23.429),
 ('NHH', 2025, 23.3394, 25.128),
 ('NQH', 2025, 27.126, 27.126),

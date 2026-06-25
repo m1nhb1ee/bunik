@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-06-25T15:13:45.637536+00:00",
+  "updated_at_utc": "2026-06-25T15:18:03.243390+00:00",
   "scope": "Cac truong co trong bang universities cua Supabase. Quan doi/cong an: tinh bang diem chuan + bonus (khong loai). Loai cac truong khong co diem chuan nao.",
   "source_vnur": "database/rating/rerank/vnur_score_universities.csv (da rerank+penalty o phien truoc)",
   "source_admission": "Supabase admission_scores; uu tien THPT (normalized_score thang 30), fallback HBA (hoc ba+nang khieu) quy ve thang 30",
