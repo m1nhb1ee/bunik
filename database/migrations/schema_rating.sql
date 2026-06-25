@@ -39,8 +39,10 @@ CREATE TABLE public.university_ratings (
   university_code     varchar PRIMARY KEY REFERENCES public.universities(code),
   rating_rank         integer NOT NULL UNIQUE,           -- 1 = cao nhất
   final_rating_5      numeric NOT NULL CHECK (final_rating_5 BETWEEN 0 AND 5),
+  -- final = 5*(0.5*vnur_score_1 + 0.5*admission_score_1) + rating_adjustment
   vnur_score_1        numeric NOT NULL,                  -- nhóm VNUR 0..1
   admission_score_1   numeric NOT NULL,                  -- nhóm điểm chuẩn 0..1
+  rating_adjustment   numeric NOT NULL DEFAULT 0,        -- delta thủ công đã cộng vào final (admission-based)
   rating_type         varchar NOT NULL CHECK (rating_type IN ('full', 'vnur_imputed', 'military_neutral')),
   admission_source    varchar CHECK (admission_source IN ('THPT', 'HBA')),
   notes               text                               -- match_status, trường VNUR nguồn, ghi chú

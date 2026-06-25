@@ -81,12 +81,12 @@ for r in read_csv("star/rating_universities_final_5.csv"):
     notes = " | ".join(note_parts)
     rows.append("(" + ", ".join([
         q(r["university_code"]), num(r["rating_rank"]), num(r["final_rating_5"]),
-        num(r["vnur_score_1"]), num(r["admission_score_1"]),
+        num(r["vnur_score_1"]), num(r["admission_score_1"]), num(r["rating_adjustment"]),
         q(r["rating_type"]), q(r["admission_source"]), q(notes),
     ]) + ")")
 sql3 = insert("university_ratings", [
     "university_code", "rating_rank", "final_rating_5", "vnur_score_1",
-    "admission_score_1", "rating_type", "admission_source", "notes",
+    "admission_score_1", "rating_adjustment", "rating_type", "admission_source", "notes",
 ], rows)
 
 with open(OUT, "w", encoding="utf-8", newline="\n") as f:

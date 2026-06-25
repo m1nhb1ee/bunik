@@ -444,7 +444,11 @@ def main():
         new5 = round(min(max(r["final_rating_5"] + delta, 0.0), 5.0), 4)
         actual = round(new5 - r["final_rating_5"], 4)  # delta thuc te sau clamp
         r["final_rating_5"] = new5
+        r["rating_adjustment"] = actual
         r["match_status"] = f"{r['match_status']} | adj{actual:+.3f}(admission-based)"
+
+    for r in rated:
+        r.setdefault("rating_adjustment", 0.0)  # cac truong khong dieu chinh -> 0
 
     rated.sort(key=lambda r: -r["final_rating_5"])
     for i, r in enumerate(rated, 1):
@@ -457,7 +461,7 @@ def main():
 
     rating_cols = [
         "rating_rank", "institution", "university_code", "final_rating_5", "rating_type",
-        "vnur_score_1", "admission_score_1",
+        "vnur_score_1", "admission_score_1", "rating_adjustment",
         "quality_teaching_score_1", "research_innovation_score_1", "learner_facilities_score_1",
         "avg_admission_score_1", "top10_admission_score_1",
         "avg_thpt_score", "top10_variant_avg_thpt_score", "admission_latest_year", "admission_source",
