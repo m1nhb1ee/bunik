@@ -37,11 +37,12 @@ rerank_by_inst = {r["institution"]: r for r in read_csv("rerank/vnur_rerank_univ
 score_by_inst = {r["institution"]: r for r in read_csv("rerank/vnur_score_universities.csv")}
 rows = []
 for a in read_csv("star/match_audit.csv"):  # đủ 86 trường Supabase
-    inst = a.get("vnur_source_institution")
-    r = rerank_by_inst.get(inst) if inst else None
-    s = score_by_inst.get(inst, {}) if r else {}
-    if r is None:  # trường không có VNUR -> để NULL toàn bộ (12 cột sau university_code)
-        rows.append("(" + q(a["code"]) + ", " + ", ".join(["NULL"] * 12) + ")")
+    inst = a.get("vnur_source_institution") or a["name"]  # nguồn VNUR; không khớp -> tên Supabase
+    src = a.get("vnur_source_institution")
+    r = rerank_by_inst.get(src) if src else None
+    s = score_by_inst.get(src, {}) if r else {}
+    if r is None:  # không được VNUR xếp hạng -> chỉ các cột VNUR NULL, institution vẫn có
+        rows.append("(" + q(a["code"]) + ", " + q(inst) + ", " + ", ".join(["NULL"] * 11) + ")")
         continue
     rows.append("(" + ", ".join([
         q(a["code"]), q(inst), num(r["rerank_rank"]), q(r["method_group"]),

@@ -8,7 +8,7 @@
 -- institution = tên trường VNUR nguồn, KHÔNG unique: 9 mã cluster ĐHQGHN chung 1 nguồn.
 CREATE TABLE public.vnur_universities (
   university_code                   varchar PRIMARY KEY REFERENCES public.universities(code),
-  institution                       varchar,             -- tên trường VNUR nguồn (NULL nếu không khớp)
+  institution                       varchar NOT NULL,    -- khớp VNUR: tên nguồn VNUR; không khớp: tên Supabase
   rerank_rank                       integer,
   method_group                      varchar
     CHECK (method_group IN ('current_top_100', 'outside_current_top_100_latest_prior_year')),
