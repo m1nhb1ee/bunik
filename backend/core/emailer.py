@@ -19,7 +19,6 @@ _LOGO_CID = 'bunik-logo'
 
 # Bunik brand palette (mirrors frontend src/app/components/bunik.tsx)
 _INK = '#2B2722'
-_PAPER = '#F4EEE1'
 _CREAM = '#FBF7EE'
 _TERRACOTTA = '#C2603F'
 _HONEY = '#CE9B4E'
@@ -32,9 +31,9 @@ def _build_html(greeting: str, action_link: str) -> str:
     return f"""\
 <!DOCTYPE html>
 <html lang="vi">
-<body style="margin:0;padding:0;background:{_PAPER};">
+<body style="margin:0;padding:0;background:transparent;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
-         style="background:{_PAPER};padding:32px 12px;">
+         style="background:transparent;padding:32px 12px;">
     <tr>
       <td align="center">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
