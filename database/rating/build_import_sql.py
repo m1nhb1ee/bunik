@@ -40,8 +40,8 @@ for a in read_csv("star/match_audit.csv"):  # đủ 86 trường Supabase
     inst = a.get("vnur_source_institution")
     r = rerank_by_inst.get(inst) if inst else None
     s = score_by_inst.get(inst, {}) if r else {}
-    if r is None:  # trường không có VNUR -> để NULL toàn bộ
-        rows.append("(" + q(a["code"]) + ", " + ", ".join(["NULL"] * 11) + ")")
+    if r is None:  # trường không có VNUR -> để NULL toàn bộ (12 cột sau university_code)
+        rows.append("(" + q(a["code"]) + ", " + ", ".join(["NULL"] * 12) + ")")
         continue
     rows.append("(" + ", ".join([
         q(a["code"]), q(inst), num(r["rerank_rank"]), q(r["method_group"]),
