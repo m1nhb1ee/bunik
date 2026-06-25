@@ -309,14 +309,54 @@ const COLOR_PALETTE = [
   '#1A5276', '#512E5F', '#0E6655', '#922B21', '#1F618D',
 ];
 
-const DEFAULT_RADAR = [
-  { criteria: 'Co so vat chat', score: 75 },
-  { criteria: 'Nghien cuu KH', score: 75 },
-  { criteria: 'Chat luong dao tao', score: 75 },
-  { criteria: 'Chat luong SV', score: 75 },
-  { criteria: 'Diem dau ra', score: 75 },
-  { criteria: 'Diem dau vao', score: 75 },
-];
+// 6 truc radar danh gia truong (thang 100). Giu o day de SoSanhPage dung chung nhan.
+export const RADAR_CRITERIA = [
+  'Cơ sở vật chất',
+  'Nghiên cứu KH',
+  'Chất lượng đào tạo',
+  'Chất lượng SV',
+  'Nhiệm vụ & sức ảnh hưởng',
+  'Điểm đầu vào',
+] as const;
+
+function avg(values: Array<number | null | undefined>): number {
+  const nums = values.filter((value): value is number => typeof value === 'number');
+  if (nums.length === 0) return 0;
+  return nums.reduce((sum, value) => sum + value, 0) / nums.length;
+}
+
+const round1 = (value: number): number => +value.toFixed(1);
+
+// Map du lieu rating Supabase -> 6 truc radar. Xem PIPELINE.md cho y nghia tung tieu chi.
+function buildUniversityRadar(
+  vnur: ApiUniversity['vnur_universities'],
+  stats: ApiUniversity['university_admission_score_stats'],
+): { criteria: string; score: number }[] {
+  return [
+    { criteria: RADAR_CRITERIA[0], score: round1(vnur?.facilities_score_100 ?? 0) },
+    { criteria: RADAR_CRITERIA[1], score: round1(vnur?.publications_score_100 ?? 0) },
+    { criteria: RADAR_CRITERIA[2], score: round1(avg([vnur?.teaching_score_100, vnur?.recognized_quality_score_100])) },
+    { criteria: RADAR_CRITERIA[3], score: round1(vnur?.learner_quality_score_100 ?? 0) },
+    { criteria: RADAR_CRITERIA[4], score: round1(vnur?.science_tech_innovation_score_100 ?? 0) },
+    { criteria: RADAR_CRITERIA[5], score: round1(avg([stats?.avg_admission_score_1, stats?.top10_admission_score_1]) * 100) },
+  ];
+}
+
+function buildUniversityCriteriaScores(
+  vnur: ApiUniversity['vnur_universities'],
+  stats: ApiUniversity['university_admission_score_stats'],
+): { criteria: string; score: number }[] {
+  return [
+    { criteria: 'Chất lượng được công nhận', score: round1(vnur?.recognized_quality_score_100 ?? 0) },
+    { criteria: 'Dạy học', score: round1(vnur?.teaching_score_100 ?? 0) },
+    { criteria: 'Công bố khoa học', score: round1(vnur?.publications_score_100 ?? 0) },
+    { criteria: 'Nhiệm vụ KHCN & sáng chế', score: round1(vnur?.science_tech_innovation_score_100 ?? 0) },
+    { criteria: 'Chất lượng người học', score: round1(vnur?.learner_quality_score_100 ?? 0) },
+    { criteria: 'Cơ sở vật chất', score: round1(vnur?.facilities_score_100 ?? 0) },
+    { criteria: 'Điểm chuẩn TB', score: round1(stats?.avg_thpt_score ?? 0) },
+    { criteria: 'Điểm chuẩn top 10', score: round1(stats?.top10_variant_avg_thpt_score ?? 0) },
+  ];
+}
 
 export function codeToColor(code: string): string {
   let h = 0;
@@ -324,7 +364,10 @@ export function codeToColor(code: string): string {
   return COLOR_PALETTE[h % COLOR_PALETTE.length];
 }
 
-export function toUiUniversity(api: ApiUniversity, index: number): UiUniversity {
+export function toUiUniversity(api: ApiUniversity): UiUniversity {
+  const rating = api.university_ratings ?? null;
+  const stats = api.university_admission_score_stats ?? null;
+  const finalRating = rating?.final_rating_5 != null ? +rating.final_rating_5.toFixed(2) : 0;
   return {
     id: api.code,
     name: api.name,
@@ -334,14 +377,14 @@ export function toUiUniversity(api: ApiUniversity, index: number): UiUniversity 
     region: api.provinces?.region ?? '',
     address: api.address ?? '',
     website: api.website ?? '',
-    ranking: index + 1,
-    avgAdmScore: 0,
-    socialScore: 0,
-    userRating: 0,
+    ranking: rating?.rating_rank ?? 999,
+    avgAdmScore: round1(avg([stats?.avg_thpt_score, stats?.top10_variant_avg_thpt_score])),
+    userRating: finalRating,
     ratingCount: 0,
-    overallScore: 0,
+    overallScore: finalRating,
     established: 0,
-    radarScores: DEFAULT_RADAR,
+    radarScores: buildUniversityRadar(api.vnur_universities, stats),
+    criteriaScores: buildUniversityCriteriaScores(api.vnur_universities, stats),
   };
 }
 

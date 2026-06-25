@@ -151,7 +151,7 @@ export default function TruongDetailPage() {
     setLoading(true);
     getUniversityDetailByCode(code)
       .then((response) => {
-        setUniversity(toUiUniversity(response.university, 0));
+        setUniversity(toUiUniversity(response.university));
         setMethodTables(buildMethodTables(response.scores));
       })
       .catch((error) => {

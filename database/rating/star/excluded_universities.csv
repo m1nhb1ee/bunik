@@ -1,0 +1,11 @@
+﻿code,name,reason,has_admission,avg_thpt_score,top10_variant_avg_thpt_score,latest_year
+DCH,Trường Sĩ quan Đặc Công,military_no_admission,False,,,
+HCA,HV Chính Trị Công An Nhân Dân,military_no_admission,False,,,
+HGH,Trường Sĩ quan Phòng Hoá,military_no_admission,False,,,
+HVD,HV Dân Tộc,not_in_vnur_no_admission,False,,,
+LBH,Trường Sĩ quan Lục quân 2,military_no_admission,False,,,
+MTC,ĐH Mỹ thuật Công nghiệp,not_in_vnur_no_admission,False,,,
+NVH,HV Âm Nhạc Quốc Gia,not_in_vnur_no_admission,False,,,
+PCH,ĐH Phòng cháy chữa cháy,military_no_admission,False,,,
+SKD,ĐH Sân khấu Điện ảnh HN,not_in_vnur_no_admission,False,,,
+TDH,ĐH Sư Phạm Thể Dục Thể Thao HN,not_in_vnur_no_admission,False,,,

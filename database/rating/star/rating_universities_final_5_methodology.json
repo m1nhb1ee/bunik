@@ -1,0 +1,86 @@
+{
+  "updated_at_utc": "2026-06-25T15:18:03.243390+00:00",
+  "scope": "Cac truong co trong bang universities cua Supabase. Quan doi/cong an: tinh bang diem chuan + bonus (khong loai). Loai cac truong khong co diem chuan nao.",
+  "source_vnur": "database/rating/rerank/vnur_score_universities.csv (da rerank+penalty o phien truoc)",
+  "source_admission": "Supabase admission_scores; uu tien THPT (normalized_score thang 30), fallback HBA (hoc ba+nang khieu) quy ve thang 30",
+  "vnur_imputation": {
+    "quality_teaching_score_1": 0.5735,
+    "research_innovation_score_1": 0.3552,
+    "learner_facilities_score_1": 0.3477
+  },
+  "vnur_imputation_note": "Truong khong co trong VNUR: 3 tieu chi VNUR suy dien = mean - sigma cua tung tieu chi tren cac truong full (penalty tu du lieu, khong hardcode).",
+  "military_vnur_neutral": {
+    "quality_teaching_score_1": 0.7435,
+    "research_innovation_score_1": 0.6508,
+    "learner_facilities_score_1": 0.591
+  },
+  "military_note": "Khoi quan doi/cong an (VNUR khong xep hang): 3 tieu chi VNUR = mean cua truong full (TRUNG TINH, khong thuong khong phat), diem chuan that. Khong cong bonus.",
+  "manual_adjustment": {
+    "formula": "delta = sign * scale * admission_score_1; cong thang vao final_rating_5 (clamp [0,5]).",
+    "scale": 0.5,
+    "light_scale": 0.2,
+    "bonus_codes": [
+      "LPH",
+      "YHB"
+    ],
+    "penalty_codes": [
+      "QHS",
+      "QHX"
+    ],
+    "light_penalty_codes": [
+      "BPH"
+    ],
+    "note": "Tru QHS/QHX (an theo diem VNUR truong me DHQGHN -> overrate); tru nhe BPH (HV Bien phong); cong Y/Luat/Duoc HN (chuyen nganh manh, VNUR underrate). Dieu chinh ty le voi diem chuan tung truong."
+  },
+  "counts": {
+    "supabase_universities": 86,
+    "rated": 76,
+    "rated_full": 58,
+    "rated_vnur_imputed": 8,
+    "rated_military_neutral": 10,
+    "excluded_military_no_admission": 5,
+    "excluded_not_in_vnur_no_admission": 5,
+    "excluded_matched_vnur_no_admission": 0
+  },
+  "formula": {
+    "quality_teaching_score_1": "mean(recognized_quality, teaching) / 100",
+    "research_innovation_score_1": "mean(publications, science_tech_innovation) / 100",
+    "learner_facilities_score_1": "mean(learner_quality, facilities) / 100",
+    "avg_admission_score_1": "avg_thpt_score / 30, clamp [0,1]",
+    "top10_admission_score_1": "top10_variant_avg_thpt_score / 30, clamp [0,1]",
+    "weights": {
+      "vnur": 0.5,
+      "admission": 0.5
+    },
+    "final_rating_5": "5 * (W_VNUR * mean(C1,C2,C3) + W_ADMISSION * mean(C4,C5)). Hien VNUR/diem chuan = 50/50.",
+    "vnur_imputed": "Giong cong thuc tren nhung C1,C2,C3 la gia tri suy dien mean-sigma."
+  },
+  "hba_fallback": "Truong co VNUR nhung khong co THPT: dung HBA (hoc ba+nang khieu), quy ve thang 30 (raw>30 -> coi thang 40, *30/40). Vd DH My thuat VN.",
+  "admission_key": "program_id | subject_group_code | gender | region_code; lay MAX normalized_score moi key theo nam; chon 2025 neu co. (Bo variant_label & source-variant_key de tranh dem doi cung mot diem chuan.)",
+  "vnu_hn_cluster_rule": "Thanh vien DHQGHN dung diem chuan rieng nhung lay 6 tieu chi VNUR tu truong me 'Dai hoc Quoc gia Ha Noi'.",
+  "verified_aliases": {
+    "FPT": "Trường Đại học FPT",
+    "DNV": "Trường Đại học Nội vụ Hà Nội (Công lập)",
+    "DMT": "Trường Đại học Tài nguyên và Môi trường Hà Nội",
+    "DQK": "TRƯỜNG ĐẠI HỌC KINH DOANH VÀ CÔNG NGHỆ HÀ NỘI (TƯ THỤC)",
+    "FBU": "TRƯỜNG ĐẠI HỌC TÀI CHÍNH - NGÂN HÀNG HÀ NỘI (TƯ THỤC)",
+    "GTA": "TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI"
+  },
+  "military_codes": [
+    "ANH",
+    "BPH",
+    "CSH",
+    "DCH",
+    "HCA",
+    "HEH",
+    "HGH",
+    "KMA",
+    "KQH",
+    "LAH",
+    "LBH",
+    "NQH",
+    "PCH",
+    "PKH",
+    "YQH"
+  ]
+}

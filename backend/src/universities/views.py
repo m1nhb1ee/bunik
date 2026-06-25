@@ -43,8 +43,22 @@ class ProvinceViewSet(ViewSet):
 
 
 class UniversityViewSet(ViewSet):
-    _SELECT_LIST = 'id, name, code, type, is_active, province_id, provinces(id, code, name, region)'
-    _SELECT_DETAIL = '*, provinces(*)'
+    # Embed du lieu rating (cung 1 query): university_ratings, vnur_universities,
+    # university_admission_score_stats deu PK = FK -> universities(code), nen PostgREST
+    # tra ve object 1-1. Xem database/rating/PIPELINE.md.
+    _SELECT_RATING = (
+        'university_ratings(rating_rank, final_rating_5, vnur_score_1, admission_score_1, '
+        'rating_type, admission_source), '
+        'vnur_universities(recognized_quality_score_100, teaching_score_100, publications_score_100, '
+        'science_tech_innovation_score_100, learner_quality_score_100, facilities_score_100), '
+        'university_admission_score_stats(avg_thpt_score, top10_variant_avg_thpt_score, '
+        'avg_admission_score_1, top10_admission_score_1)'
+    )
+    _SELECT_LIST = (
+        'id, name, code, type, is_active, province_id, provinces(id, code, name, region), '
+        + _SELECT_RATING
+    )
+    _SELECT_DETAIL = '*, provinces(*), ' + _SELECT_RATING
     _SELECT_SCORES = (
         'id, year, score, normalized_score, normalized_scale, note, '
         'variant_key, source_program_code, variant_label, gender, region_code, subject_group_code, '

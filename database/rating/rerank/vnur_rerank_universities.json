@@ -1,0 +1,190 @@
+{
+  "updated_at_utc": "2026-06-25T11:38:40.528360+00:00",
+  "input_files": [
+    "database\\rating\\vnur_overall_rankings_from_home.csv",
+    "database\\rating\\vnur_rankings_by_criteria_from_2025_url.csv"
+  ],
+  "current_year": 2026,
+  "evaluated_total_assumed": 193,
+  "penalty_rate": 0.5,
+  "university_count": 131,
+  "current_top_100_count": 100,
+  "outside_current_top_100_count": 31,
+  "formula": {
+    "current_top_100": "avg_rank = mean(mean(overall_2026_criterion_rank, criteria_2026_criterion_rank) for recognized_quality/teaching/publications/science_tech_innovation/learner_quality/facilities); score = 100 * (193 - clamp(avg_rank, 1, 193)) / 192",
+    "outside_current_top_100": "source_year = latest year the school appears in overall top 100 before 2026; base_avg_rank = mean(source_year 6 criterion ranks); penalty_multiplier = 1 + (2026 - source_year) * 0.50 * (source_year_national_rank / 193); adjusted_avg_rank = clamp(base_avg_rank * penalty_multiplier, 1, 193); score = 100 * (193 - adjusted_avg_rank) / 192",
+    "higher_score_is_better": true,
+    "criteria_used": [
+      "Ch?t l??ng ???c c?ng nh?n",
+      "D?y h?c",
+      "C?ng b? b?i b?o khoa h?c",
+      "Nhi?m v? khoa h?c c?ng ngh? v? s?ng ch?",
+      "Ch?t l??ng ng??i h?c",
+      "C? s? v?t ch?t"
+    ]
+  },
+  "dedupe_note": "Semantic dedupe applied: remove parenthetical qualifiers, case/accent insensitive, ?/? -> D/d, normalize TP. H? Ch? Minh, and treat leading \"Tr??ng ??i h?c\" as equivalent to \"??i h?c\". Prefer current 2026 row inside duplicate groups.",
+  "duplicate_groups_merged": [],
+  "top_20": [
+    {
+      "rerank_rank": 1,
+      "institution": "Đại học Bách khoa Hà Nội",
+      "rerank_score_100": 97.04861111111113,
+      "adjusted_avg_6criteria_rank": 6.666666666666667,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 2,
+      "institution": "Đại học Quốc gia TP. Hồ Chí Minh",
+      "rerank_score_100": 95.83333333333333,
+      "adjusted_avg_6criteria_rank": 9.0,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 3,
+      "institution": "Trường Đại học Thương Mại",
+      "rerank_score_100": 93.05555555555554,
+      "adjusted_avg_6criteria_rank": 14.333333333333334,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 4,
+      "institution": "Đại học Quốc gia Hà Nội",
+      "rerank_score_100": 92.88194444444446,
+      "adjusted_avg_6criteria_rank": 14.666666666666666,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 5,
+      "institution": "Đại học Kinh tế TP. Hồ Chí Minh",
+      "rerank_score_100": 90.97222222222221,
+      "adjusted_avg_6criteria_rank": 18.333333333333332,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 6,
+      "institution": "Trường Đại học Sư phạm Hà Nội",
+      "rerank_score_100": 90.71180555555554,
+      "adjusted_avg_6criteria_rank": 18.833333333333332,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 7,
+      "institution": "Đại học Kinh tế Quốc dân",
+      "rerank_score_100": 87.93402777777779,
+      "adjusted_avg_6criteria_rank": 24.166666666666668,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 8,
+      "institution": "Đại học Công nghiệp Hà Nội",
+      "rerank_score_100": 83.07291666666667,
+      "adjusted_avg_6criteria_rank": 33.5,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 9,
+      "institution": "Đại học Thái Nguyên",
+      "rerank_score_100": 82.98611111111111,
+      "adjusted_avg_6criteria_rank": 33.666666666666664,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 10,
+      "institution": "Đại học Huế",
+      "rerank_score_100": 80.81597222222221,
+      "adjusted_avg_6criteria_rank": 37.833333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 11,
+      "institution": "Đại học Đà Nẵng",
+      "rerank_score_100": 79.25347222222221,
+      "adjusted_avg_6criteria_rank": 40.833333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 12,
+      "institution": "Đại học Cần Thơ",
+      "rerank_score_100": 78.99305555555556,
+      "adjusted_avg_6criteria_rank": 41.333333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 13,
+      "institution": "Trường Đại học Công nghiệp TP. Hồ Chí Minh",
+      "rerank_score_100": 78.47222222222221,
+      "adjusted_avg_6criteria_rank": 42.333333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 14,
+      "institution": "Học viện Nông nghiệp Việt Nam",
+      "rerank_score_100": 77.69097222222221,
+      "adjusted_avg_6criteria_rank": 43.833333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 15,
+      "institution": "Trường Đại học Hồng Đức",
+      "rerank_score_100": 76.38888888888889,
+      "adjusted_avg_6criteria_rank": 46.333333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 16,
+      "institution": "Trường Đại học Khoa học và Công nghệ Hà Nội",
+      "rerank_score_100": 76.38888888888889,
+      "adjusted_avg_6criteria_rank": 46.333333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 17,
+      "institution": "Trường Đại học Tôn Đức Thắng",
+      "rerank_score_100": 75.60763888888889,
+      "adjusted_avg_6criteria_rank": 47.833333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 18,
+      "institution": "Trường Đại học Vinh",
+      "rerank_score_100": 75.52083333333333,
+      "adjusted_avg_6criteria_rank": 48.0,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 19,
+      "institution": "Học viện Ngân hàng",
+      "rerank_score_100": 75.34722222222221,
+      "adjusted_avg_6criteria_rank": 48.333333333333336,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    },
+    {
+      "rerank_rank": 20,
+      "institution": "Trường Đại học Ngoại Thương",
+      "rerank_score_100": 74.91319444444444,
+      "adjusted_avg_6criteria_rank": 49.166666666666664,
+      "method_group": "current_top_100",
+      "source_year": 2026
+    }
+  ]
+}
