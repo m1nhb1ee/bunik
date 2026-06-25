@@ -279,7 +279,8 @@ export type UiUniversity = {
   ratingCount: number;
   overallScore: number;
   established: number;
-  radarScores: { criteria: string; score: number }[];
+  radarScores: { criteria: string; score: number }[];   // 6 truc gop (trang chi tiet)
+  criteriaScores: { criteria: string; score: number }[]; // 8 truc goc (trang so sanh)
 };
 
 export type UiMajor = {

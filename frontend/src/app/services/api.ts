@@ -342,6 +342,22 @@ function buildUniversityRadar(
   ];
 }
 
+function buildUniversityCriteriaScores(
+  vnur: ApiUniversity['vnur_universities'],
+  stats: ApiUniversity['university_admission_score_stats'],
+): { criteria: string; score: number }[] {
+  return [
+    { criteria: 'Chất lượng được công nhận', score: round1(vnur?.recognized_quality_score_100 ?? 0) },
+    { criteria: 'Dạy học', score: round1(vnur?.teaching_score_100 ?? 0) },
+    { criteria: 'Công bố khoa học', score: round1(vnur?.publications_score_100 ?? 0) },
+    { criteria: 'Nhiệm vụ KHCN & sáng chế', score: round1(vnur?.science_tech_innovation_score_100 ?? 0) },
+    { criteria: 'Chất lượng người học', score: round1(vnur?.learner_quality_score_100 ?? 0) },
+    { criteria: 'Cơ sở vật chất', score: round1(vnur?.facilities_score_100 ?? 0) },
+    { criteria: 'Điểm chuẩn TB', score: round1(stats?.avg_thpt_score ?? 0) },
+    { criteria: 'Điểm chuẩn top 10', score: round1(stats?.top10_variant_avg_thpt_score ?? 0) },
+  ];
+}
+
 export function codeToColor(code: string): string {
   let h = 0;
   for (const c of code) h = (h * 31 + c.charCodeAt(0)) & 0x7fffffff;
@@ -368,6 +384,7 @@ export function toUiUniversity(api: ApiUniversity): UiUniversity {
     overallScore: finalRating,
     established: 0,
     radarScores: buildUniversityRadar(api.vnur_universities, stats),
+    criteriaScores: buildUniversityCriteriaScores(api.vnur_universities, stats),
   };
 }
 

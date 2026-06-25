@@ -18,11 +18,14 @@ type Item = UiUniversity | UiMajor;
 type Row = { label: string; key: string; best?: "max" | "min" };
 
 const universityRows: Row[] = [
-  { label: "Xếp hạng", key: "ranking", best: "min" },
-  { label: "Điểm chuẩn TB", key: "avgAdmScore", best: "max" },
-  { label: "Đánh giá", key: "userRating", best: "max" },
-  { label: "Điểm tổng hợp", key: "overallScore", best: "max" },
-  { label: "Thành phố", key: "city" },
+  { label: "Chất lượng được công nhận", key: "Chất lượng được công nhận", best: "max" },
+  { label: "Dạy học", key: "Dạy học", best: "max" },
+  { label: "Công bố khoa học", key: "Công bố khoa học", best: "max" },
+  { label: "Nhiệm vụ KHCN & sáng chế", key: "Nhiệm vụ KHCN & sáng chế", best: "max" },
+  { label: "Chất lượng người học", key: "Chất lượng người học", best: "max" },
+  { label: "Cơ sở vật chất", key: "Cơ sở vật chất", best: "max" },
+  { label: "Điểm chuẩn TB", key: "Điểm chuẩn TB", best: "max" },
+  { label: "Điểm chuẩn top 10", key: "Điểm chuẩn top 10", best: "max" },
 ];
 
 const majorRows: Row[] = [
@@ -43,6 +46,7 @@ function getValue(item: Item, key: string): string | number {
   if (key === "score2023") return (item as UiMajor).scores?.["2023"] ?? "—";
   if (key === "score2024") return (item as UiMajor).scores?.["2024"] ?? "—";
   if (key === "score2025") return (item as UiMajor).scores?.["2025"] ?? "—";
+  if (isUniversity(item)) return item.criteriaScores.find((score) => score.criteria === key)?.score ?? "—";
   const value = (item as unknown as Record<string, unknown>)[key];
   return typeof value === "number" || typeof value === "string" ? value : "—";
 }
