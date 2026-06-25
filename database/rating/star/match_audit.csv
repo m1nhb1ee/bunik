@@ -1,11 +1,8 @@
 ﻿code,name,match_status,vnur_source_institution,data_completeness
-ANH,Học viện An ninh nhân dân,military,,
 BKA,ĐH Bách khoa Hà Nội,matched,Đại học Bách khoa Hà Nội,full:THPT
-BPH,Học viện Biên phòng,military,,
 BVH,HV Công nghệ Bưu chính Viễn thông,matched,HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG (CÔNG LẬP),full:THPT
 CMC,ĐH CMC,matched,Trường Đại học CMC,full:THPT
-CSH,Học viện Cảnh sát nhân dân,military,,
-DCH,Trường Sĩ quan Đặc Công,military,,
+DCH,Trường Sĩ quan Đặc Công,military_no_admission,,
 DCN,ĐH Công nghiệp Hà Nội,matched,Đại học Công nghiệp Hà Nội,full:THPT
 DDA,ĐH Công nghệ Đông Á,matched,Trường Đại học Công nghệ Đông Á (Tư thục),full:THPT
 DDL,ĐH Điện lực,matched,Trường Đại học Điện lực,full:THPT
@@ -23,10 +20,9 @@ FPT,ĐH FPT Hà Nội,matched_alias,Trường Đại học FPT,full:THPT
 GHA,ĐH Giao thông Vận tải,matched,Trường Đại học Giao thông Vận tải,full:THPT
 GTA,ĐH Công nghệ GTVT,matched_alias,TRƯỜNG ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI (CÔNG LẬP),full:THPT
 HBT,Học viện Báo chí và Tuyên truyền,matched,Học viện Báo chí và Tuyên truyền,full:THPT
-HCA,HV Chính Trị Công An Nhân Dân,military,,
+HCA,HV Chính Trị Công An Nhân Dân,military_no_admission,,
 HCP,Học viện Chính sách và Phát triển,matched,Học viện Chính sách và Phát triển,full:THPT
-HEH,Học viện Hậu cần,military,,
-HGH,Trường Sĩ quan Phòng Hoá,military,,
+HGH,Trường Sĩ quan Phòng Hoá,military_no_admission,,
 HNM,ĐH Thủ đô Hà Nội,matched,Trường Đại học Thủ đô Hà Nội,full:THPT
 HPN,Học viện Phụ nữ Việt Nam,matched,Học viện Phụ nữ Việt Nam,full:THPT
 HQT,Học viện Ngoại giao,matched,Học viện Ngoại giao,full:THPT
@@ -38,11 +34,8 @@ HVN,Học viện Nông nghiệp Việt Nam,matched,Học viện Nông nghiệp V
 HVQ,Học viện Quản lý Giáo dục,matched,Học viện Quản lý Giáo dục,full:THPT
 KCN,ĐH Khoa Học và Công Nghệ Hà Nội,matched,Trường Đại học Khoa học và Công nghệ Hà Nội,full:THPT
 KHA,ĐH Kinh tế Quốc dân,matched,Đại học Kinh tế Quốc dân,full:THPT
-KMA,Học viện Kỹ thuật Mật mã,military,,
-KQH,Học viện Kỹ thuật Quân sự,military,,
 KTA,ĐH Kiến trúc Hà Nội,matched,Trường Đại học Kiến trúc Hà Nội,full:THPT
-LAH,Trường Sĩ quan Lục quân 1,military,,
-LBH,Trường Sĩ quan Lục quân 2,military,,
+LBH,Trường Sĩ quan Lục quân 2,military_no_admission,,
 LDA,ĐH Công đoàn,matched,Trường Đại học Công đoàn,full:THPT
 LNH,ĐH Lâm Nghiệp,matched,Trường Đại học Lâm nghiệp,full:THPT
 LPH,ĐH Luật Hà Nội,matched,Trường Đại học Luật Hà Nội,full:THPT
@@ -51,12 +44,10 @@ MHN,ĐH Mở Hà Nội,matched,Trường Đại học Mở Hà Nội,full:THPT
 MTC,ĐH Mỹ thuật Công nghiệp,not_in_vnur_no_admission,,
 MTH,ĐH Mỹ thuật Việt Nam,matched,Trường Đại học Mỹ thuật Việt Nam (Công lập),full:HBA
 NHH,Học viện Ngân hàng,matched,Học viện Ngân hàng,full:THPT
-NQH,Học viện Khoa học Quân sự,military,,
 NTH,ĐH Ngoại thương,matched,Trường Đại học Ngoại Thương,full:THPT
 NVH,HV Âm Nhạc Quốc Gia,not_in_vnur_no_admission,,
-PCH,ĐH Phòng cháy chữa cháy,military,,
+PCH,ĐH Phòng cháy chữa cháy,military_no_admission,,
 PKA,ĐH Phenikaa,matched,Đại học Phenikaa,full:THPT
-PKH,HV Phòng không - Không quân,military,,
 QHE,ĐH Kinh tế – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
 QHF,ĐH Ngoại ngữ – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
 QHI,ĐH Công nghệ – ĐHQGHN,matched_vnu_hn_cluster,Đại học Quốc gia Hà Nội,full:THPT
@@ -75,7 +66,6 @@ VHD,ĐH Công nghiệp Việt Hung,matched,Trường Đại học Công nghiệp
 VHH,ĐH Văn hóa Hà Nội,matched,Trường Đại học Văn hoá Hà Nội,full:THPT
 XDA,ĐH Xây dựng Hà Nội,matched,Trường Đại học Xây dựng Hà Nội,full:THPT
 YHB,ĐH Y Hà Nội,matched,Trường Đại học Y Hà Nội,full:THPT
-YQH,Học viện Quân y,military,,
 YTC,ĐH Y tế Công cộng,matched,Trường Đại học Y tế Công cộng,full:THPT
 CCM,ĐH Công nghiệp Dệt may HN,not_in_vnur_imputed,,vnur_imputed
 DCQ,ĐH Công nghệ và Quản lí hữu nghị,not_in_vnur_imputed,,vnur_imputed
@@ -85,3 +75,13 @@ GNT,ĐH Sư Phạm Nghệ Thuật Trung Ương,not_in_vnur_imputed,,vnur_imputed
 NHF,ĐH Hà Nội,not_in_vnur_imputed,,vnur_imputed
 NTU,ĐH Nguyễn Trãi,not_in_vnur_imputed,,vnur_imputed
 TDD,ĐH Thành Đô,not_in_vnur_imputed,,vnur_imputed
+ANH,Học viện An ninh nhân dân,military_neutral,,military_neutral:THPT
+BPH,Học viện Biên phòng,military_neutral,,military_neutral:THPT
+CSH,Học viện Cảnh sát nhân dân,military_neutral,,military_neutral:THPT
+HEH,Học viện Hậu cần,military_neutral,,military_neutral:THPT
+KMA,Học viện Kỹ thuật Mật mã,military_neutral,,military_neutral:THPT
+KQH,Học viện Kỹ thuật Quân sự,military_neutral,,military_neutral:THPT
+LAH,Trường Sĩ quan Lục quân 1,military_neutral,,military_neutral:THPT
+NQH,Học viện Khoa học Quân sự,military_neutral,,military_neutral:THPT
+PKH,HV Phòng không - Không quân,military_neutral,,military_neutral:THPT
+YQH,Học viện Quân y,military_neutral,,military_neutral:THPT

@@ -1,6 +1,6 @@
 {
-  "updated_at_utc": "2026-06-25T13:19:39.333441+00:00",
-  "scope": "Cac truong co trong bang universities cua Supabase. Loai quan doi/cong an va truong khong co trong VNUR.",
+  "updated_at_utc": "2026-06-25T14:44:50.362411+00:00",
+  "scope": "Cac truong co trong bang universities cua Supabase. Quan doi/cong an: tinh bang diem chuan + bonus (khong loai). Loai cac truong khong co diem chuan nao.",
   "source_vnur": "database/rating/rerank/vnur_score_universities.csv (da rerank+penalty o phien truoc)",
   "source_admission": "Supabase admission_scores; uu tien THPT (normalized_score thang 30), fallback HBA (hoc ba+nang khieu) quy ve thang 30",
   "vnur_imputation": {
@@ -9,12 +9,19 @@
     "learner_facilities_score_1": 0.3477
   },
   "vnur_imputation_note": "Truong khong co trong VNUR: 3 tieu chi VNUR suy dien = mean - sigma cua tung tieu chi tren cac truong full (penalty tu du lieu, khong hardcode).",
+  "military_vnur_neutral": {
+    "quality_teaching_score_1": 0.7435,
+    "research_innovation_score_1": 0.6508,
+    "learner_facilities_score_1": 0.591
+  },
+  "military_note": "Khoi quan doi/cong an (VNUR khong xep hang): 3 tieu chi VNUR = mean cua truong full (TRUNG TINH, khong thuong khong phat), diem chuan that. Khong cong bonus.",
   "counts": {
     "supabase_universities": 86,
-    "rated": 66,
+    "rated": 76,
     "rated_full": 58,
     "rated_vnur_imputed": 8,
-    "excluded_military": 15,
+    "rated_military_neutral": 10,
+    "excluded_military_no_admission": 5,
     "excluded_not_in_vnur_no_admission": 5,
     "excluded_matched_vnur_no_admission": 0
   },

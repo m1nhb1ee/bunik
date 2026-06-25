@@ -40,10 +40,14 @@ import csv
 import json
 import os
 import re
+import sys
 import unicodedata
 from datetime import datetime, timezone
 
 import requests
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")  # tranh UnicodeEncodeError tren console Windows (cp1252)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RATING_DIR = os.path.join(ROOT, "database", "rating")
@@ -63,6 +67,9 @@ VNU_HN_PARENT = "Đại học Quốc gia Hà Nội"
 # --- trong so 2 nhom: VNUR (6 tieu chi) vs diem chuan. Hien 50-50 ---
 W_VNUR = 0.5
 W_ADMISSION = 0.5
+
+# --- khoi quan doi/cong an: VNUR khong xep hang -> 3 tieu chi VNUR = mean truong full
+#     (TRUNG TINH, khong thuong khong phat), diem chuan that. Khong cong bonus.
 
 
 def combine_score(c1, c2, c3, c4, c5):
@@ -265,6 +272,7 @@ def main():
     excluded = []
     audit = []
     pending_not_in_vnur = []  # (uni, admission_stats) xu ly o luot 2 (can stats truong full)
+    pending_military = []     # (uni, admission_stats, source) xu ly o luot 2 (VNUR trung tinh + bonus)
 
     for uni in unis:
         code = uni["code"]
@@ -272,14 +280,20 @@ def main():
         a = adm.get(code)
 
         if code in MILITARY_CODES:
-            excluded.append({
-                "code": code, "name": name, "reason": "military_police",
-                "has_admission": bool(a),
-                "avg_thpt_score": a["avg_thpt_score"] if a else "",
-                "top10_variant_avg_thpt_score": a["top10_variant_avg_thpt_score"] if a else "",
-                "latest_year": a["latest_year"] if a else "",
-            })
-            audit.append((code, name, "military", "", ""))
+            # VNUR khong xep hang -> tinh bang diem chuan (uu tien THPT, fallback HBA) + bonus
+            mil_source = "THPT"
+            if not a:
+                a = hba.get(code)
+                mil_source = "HBA"
+            if not a:  # khong co diem chuan nao -> khong tinh duoc
+                excluded.append({
+                    "code": code, "name": name, "reason": "military_no_admission",
+                    "has_admission": False,
+                    "avg_thpt_score": "", "top10_variant_avg_thpt_score": "", "latest_year": "",
+                })
+                audit.append((code, name, "military_no_admission", "", ""))
+                continue
+            pending_military.append((uni, a, mil_source))  # xu ly o luot 2 (can stats truong full)
             continue
 
         vrow, vsrc, status = match_vnur(uni, vnur_by_name, vnur_by_norm)
@@ -353,10 +367,12 @@ def main():
     import statistics as _st
     full_rows = [r for r in rated if r["rating_type"] == "full"]
     vnur_cols = ["quality_teaching_score_1", "research_innovation_score_1", "learner_facilities_score_1"]
-    imputed = {}
+    imputed, military_vnur = {}, {}
     for col in vnur_cols:
         vals = [float(r[col]) for r in full_rows]
-        imputed[col] = round(max(0.0, _st.mean(vals) - _st.pstdev(vals)), 4)
+        m, sd = _st.mean(vals), _st.pstdev(vals)
+        imputed[col] = round(max(0.0, m - sd), 4)   # truong yeu: phat -1σ
+        military_vnur[col] = round(m, 4)             # quan doi/cong an: VNUR trung tinh (mean, khong thuong khong phat)
 
     for uni, a in pending_not_in_vnur:
         code, name = uni["code"], uni["name"]
@@ -378,6 +394,28 @@ def main():
             "vnur_source_institution": "", "match_status": "not_in_vnur_imputed",
         })
         audit.append((code, name, "not_in_vnur_imputed", "", "vnur_imputed"))
+
+    # === LUOT 2b: khoi quan doi/cong an = VNUR trung tinh (mean truong full) + diem chuan that ===
+    for uni, a, mil_source in pending_military:
+        code, name = uni["code"], uni["name"]
+        c1, c2, c3 = military_vnur["quality_teaching_score_1"], military_vnur["research_innovation_score_1"], military_vnur["learner_facilities_score_1"]
+        c4 = min(a["avg_thpt_score"] / 30, 1.0)
+        c5 = min(a["top10_variant_avg_thpt_score"] / 30, 1.0)
+        vnur_s, adm_s, final5 = combine_score(c1, c2, c3, c4, c5)
+        rated.append({
+            "institution": name, "university_code": code,
+            "final_rating_5": final5,
+            "rating_type": "military_neutral",
+            "vnur_score_1": vnur_s, "admission_score_1": adm_s,
+            "quality_teaching_score_1": c1, "research_innovation_score_1": c2,
+            "learner_facilities_score_1": c3,
+            "avg_admission_score_1": round(c4, 4), "top10_admission_score_1": round(c5, 4),
+            "avg_thpt_score": a["avg_thpt_score"],
+            "top10_variant_avg_thpt_score": a["top10_variant_avg_thpt_score"],
+            "admission_latest_year": a["latest_year"], "admission_source": mil_source,
+            "vnur_source_institution": "", "match_status": "military_neutral",
+        })
+        audit.append((code, name, "military_neutral", "", f"military_neutral:{mil_source}"))
 
     rated.sort(key=lambda r: -r["final_rating_5"])
     for i, r in enumerate(rated, 1):
@@ -426,17 +464,20 @@ def main():
 
     methodology = {
         "updated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "scope": "Cac truong co trong bang universities cua Supabase. Loai quan doi/cong an va truong khong co trong VNUR.",
+        "scope": "Cac truong co trong bang universities cua Supabase. Quan doi/cong an: tinh bang diem chuan + bonus (khong loai). Loai cac truong khong co diem chuan nao.",
         "source_vnur": "database/rating/rerank/vnur_score_universities.csv (da rerank+penalty o phien truoc)",
         "source_admission": "Supabase admission_scores; uu tien THPT (normalized_score thang 30), fallback HBA (hoc ba+nang khieu) quy ve thang 30",
         "vnur_imputation": {col: imputed[col] for col in vnur_cols},
         "vnur_imputation_note": "Truong khong co trong VNUR: 3 tieu chi VNUR suy dien = mean - sigma cua tung tieu chi tren cac truong full (penalty tu du lieu, khong hardcode).",
+        "military_vnur_neutral": military_vnur,
+        "military_note": "Khoi quan doi/cong an (VNUR khong xep hang): 3 tieu chi VNUR = mean cua truong full (TRUNG TINH, khong thuong khong phat), diem chuan that. Khong cong bonus.",
         "counts": {
             "supabase_universities": len(unis),
             "rated": len(rated),
             "rated_full": sum(1 for r in rated if r["rating_type"] == "full"),
             "rated_vnur_imputed": sum(1 for r in rated if r["rating_type"] == "vnur_imputed"),
-            "excluded_military": sum(1 for e in excluded if e["reason"] == "military_police"),
+            "rated_military_neutral": sum(1 for r in rated if r["rating_type"] == "military_neutral"),
+            "excluded_military_no_admission": sum(1 for e in excluded if e["reason"] == "military_no_admission"),
             "excluded_not_in_vnur_no_admission": sum(1 for e in excluded if e["reason"] == "not_in_vnur_no_admission"),
             "excluded_matched_vnur_no_admission": sum(1 for e in excluded if e["reason"] == "matched_vnur_no_admission"),
         },
@@ -461,8 +502,9 @@ def main():
 
     c = methodology["counts"]
     print(f"\nDONE. rated={len(rated)} (full={c['rated_full']}, "
-          f"vnur_imputed={c['rated_vnur_imputed']}), excluded={len(excluded)} "
-          f"(military={c['excluded_military']}, "
+          f"vnur_imputed={c['rated_vnur_imputed']}, military_neutral={c['rated_military_neutral']}), "
+          f"excluded={len(excluded)} "
+          f"(military_no_adm={c['excluded_military_no_admission']}, "
           f"not_in_vnur_no_adm={c['excluded_not_in_vnur_no_admission']})")
     print(f"VNUR imputed (mean-sigma): {imputed}")
     print("\nBottom 14 (xem nhom vnur_imputed):")

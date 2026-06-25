@@ -1,21 +1,11 @@
 ﻿code,name,reason,has_admission,avg_thpt_score,top10_variant_avg_thpt_score,latest_year
-ANH,Học viện An ninh nhân dân,military_police,True,23.3069,24.395,2025
-BPH,Học viện Biên phòng,military_police,True,29.2662,29.2662,2025
-CSH,Học viện Cảnh sát nhân dân,military_police,True,23.0325,23.0325,2025
-DCH,Trường Sĩ quan Đặc Công,military_police,False,,,
-HCA,HV Chính Trị Công An Nhân Dân,military_police,False,,,
-HEH,Học viện Hậu cần,military_police,True,26.4575,27.664,2025
-HGH,Trường Sĩ quan Phòng Hoá,military_police,False,,,
+DCH,Trường Sĩ quan Đặc Công,military_no_admission,False,,,
+HCA,HV Chính Trị Công An Nhân Dân,military_no_admission,False,,,
+HGH,Trường Sĩ quan Phòng Hoá,military_no_admission,False,,,
 HVD,HV Dân Tộc,not_in_vnur_no_admission,False,,,
-KMA,Học viện Kỹ thuật Mật mã,military_police,True,24.0233,24.0233,2025
-KQH,Học viện Kỹ thuật Quân sự,military_police,True,28.0575,28.0575,2025
-LAH,Trường Sĩ quan Lục quân 1,military_police,True,18.86,18.86,2025
-LBH,Trường Sĩ quan Lục quân 2,military_police,False,,,
+LBH,Trường Sĩ quan Lục quân 2,military_no_admission,False,,,
 MTC,ĐH Mỹ thuật Công nghiệp,not_in_vnur_no_admission,False,,,
-NQH,Học viện Khoa học Quân sự,military_police,True,27.126,27.126,2025
 NVH,HV Âm Nhạc Quốc Gia,not_in_vnur_no_admission,False,,,
-PCH,ĐH Phòng cháy chữa cháy,military_police,False,,,
-PKH,HV Phòng không - Không quân,military_police,True,24.9125,24.9125,2025
+PCH,ĐH Phòng cháy chữa cháy,military_no_admission,False,,,
 SKD,ĐH Sân khấu Điện ảnh HN,not_in_vnur_no_admission,False,,,
 TDH,ĐH Sư Phạm Thể Dục Thể Thao HN,not_in_vnur_no_admission,False,,,
-YQH,Học viện Quân y,military_police,True,27.6663,27.6663,2025
