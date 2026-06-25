@@ -5,6 +5,31 @@ export type Province = {
   region: string;
 };
 
+export type ApiUniversityRating = {
+  rating_rank: number | null;
+  final_rating_5: number | null;
+  vnur_score_1: number | null;
+  admission_score_1: number | null;
+  rating_type: string | null;
+  admission_source: string | null;
+};
+
+export type ApiVnurScores = {
+  recognized_quality_score_100: number | null;
+  teaching_score_100: number | null;
+  publications_score_100: number | null;
+  science_tech_innovation_score_100: number | null;
+  learner_quality_score_100: number | null;
+  facilities_score_100: number | null;
+};
+
+export type ApiAdmissionStats = {
+  avg_thpt_score: number | null;
+  top10_variant_avg_thpt_score: number | null;
+  avg_admission_score_1: number | null;
+  top10_admission_score_1: number | null;
+};
+
 export type ApiUniversity = {
   id: string;
   name: string;
@@ -17,6 +42,10 @@ export type ApiUniversity = {
   website: string | null;
   description: string | null;
   provinces: Province | null;
+  // Embed rating (xem PIPELINE.md). null khi truong khong co du lieu tuong ung.
+  university_ratings?: ApiUniversityRating | null;
+  vnur_universities?: ApiVnurScores | null;
+  university_admission_score_stats?: ApiAdmissionStats | null;
 };
 
 export type ApiField = {
@@ -244,9 +273,8 @@ export type UiUniversity = {
   region: string;
   address: string;
   website: string;
-  ranking: number;    // position in list
+  ranking: number;    // rating_rank tu Supabase (999 neu chua xep hang)
   avgAdmScore: number;
-  socialScore: number;
   userRating: number;
   ratingCount: number;
   overallScore: number;

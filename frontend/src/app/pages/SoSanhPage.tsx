@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
   Tooltip,
 } from "recharts";
-import { getAllMajors, getAllUniversities } from "../services/api";
+import { RADAR_CRITERIA, getAllMajors, getAllUniversities } from "../services/api";
 import type { UiMajor, UiUniversity } from "../types/api";
 import { B, CenterNote, SketchHeading, accentFor, cardStyle } from "../components/bunik";
 
@@ -20,7 +20,6 @@ type Row = { label: string; key: string; best?: "max" | "min" };
 const universityRows: Row[] = [
   { label: "Xếp hạng", key: "ranking", best: "min" },
   { label: "Điểm chuẩn TB", key: "avgAdmScore", best: "max" },
-  { label: "Mạng xã hội", key: "socialScore", best: "max" },
   { label: "Đánh giá", key: "userRating", best: "max" },
   { label: "Điểm tổng hợp", key: "overallScore", best: "max" },
   { label: "Thành phố", key: "city" },
@@ -34,14 +33,7 @@ const majorRows: Row[] = [
   { label: "Điểm 2025", key: "score2025", best: "max" },
 ];
 
-const radarCriteria = [
-  "Cơ sở vật chất",
-  "Nghiên cứu KH",
-  "Chất lượng đào tạo",
-  "Chất lượng SV",
-  "Điểm đầu ra",
-  "Điểm đầu vào",
-];
+const radarCriteria = [...RADAR_CRITERIA];
 
 function isUniversity(item: Item): item is UiUniversity {
   return "abbr" in item;

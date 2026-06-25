@@ -58,7 +58,7 @@ export default function XepHangPage() {
           Xếp hạng trường đại học
         </SketchHeading>
         <p className="bunik-note-text" style={{ fontSize: 19, margin: "23px auto 0", maxWidth: 660 }}>
-          Điểm chuẩn × 0,6 · Mạng xã hội × 0,3 · Đánh giá người dùng × 0,1
+          Tiêu chí VNUR × 0,5 · Điểm chuẩn × 0,5 — thang điểm 5.0
         </p>
       </header>
 
@@ -109,7 +109,6 @@ export default function XepHangPage() {
                     <th>Hạng</th>
                     <th>Trường</th>
                     <th>Điểm chuẩn</th>
-                    <th>Mạng xã hội</th>
                     <th>Đánh giá</th>
                     <th>Tổng hợp</th>
                   </tr>
@@ -133,7 +132,6 @@ export default function XepHangPage() {
                           </Link>
                         </td>
                         <td><MetricBar value={university.avgAdmScore} max={30} color={B.terracotta} suffix="/30" /></td>
-                        <td><MetricBar value={university.socialScore} max={100} color={B.teal} /></td>
                         <td>
                           <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color: B.body, fontWeight: 700 }}>
                             <Star size={15} fill={B.honey} color={B.ink} /> {university.userRating || "—"}

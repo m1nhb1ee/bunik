@@ -47,3 +47,24 @@ CREATE TABLE public.university_ratings (
   admission_source    varchar CHECK (admission_source IN ('THPT', 'HBA')),
   notes               text                               -- match_status, trường VNUR nguồn, ghi chú
 );
+
+-- ============================================================================
+-- RLS — dữ liệu rating là tham chiếu công khai (như universities/provinces).
+-- API đọc bằng SUPABASE_ANON_KEY (core/supabase_client.get_client), nên anon
+-- PHẢI có quyền SELECT, nếu không embed PostgREST trả null (rows bị RLS ẩn).
+-- Idempotent: chạy lại an toàn kể cả khi bảng đã tồn tại trên prod.
+-- ============================================================================
+ALTER TABLE public.vnur_universities                ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.university_admission_score_stats ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.university_ratings               ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Public read vnur_universities"   ON public.vnur_universities;
+DROP POLICY IF EXISTS "Public read admission_score_stats" ON public.university_admission_score_stats;
+DROP POLICY IF EXISTS "Public read university_ratings"  ON public.university_ratings;
+
+CREATE POLICY "Public read vnur_universities"
+  ON public.vnur_universities                FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY "Public read admission_score_stats"
+  ON public.university_admission_score_stats FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY "Public read university_ratings"
+  ON public.university_ratings               FOR SELECT TO anon, authenticated USING (true);
