@@ -75,10 +75,13 @@ W_ADMISSION = 0.5
 #   delta = ADJUST_SCALE * admission_score_1; cong/tru thang vao final_rating_5 (clamp [0,5]).
 #   Diem chuan cang cao -> dieu chinh cang manh.
 ADJUST_SCALE = 0.5
+LIGHT_ADJUST_SCALE = 0.2                              # tru nhe ("mot chut")
 # Tru: cac truong thanh vien DHQGHN an theo diem VNUR cao cua truong me -> overrate.
 RATING_PENALTY_CODES = {"QHS", "QHX"}                 # Giao duc, KHXH & Nhan van
+# Tru nhe: hoc vien quan doi diem chuan rat cao keo rating len hoi qua.
+RATING_LIGHT_PENALTY_CODES = {"BPH"}                  # HV Bien phong
 # Cong: truong chuyen nganh manh, VNUR (tieu chi rong) underrate.
-RATING_BONUS_CODES = {"YHB", "LPH", "DKH", "KMA"}     # Y, Luat, Duoc HN, KT Mat ma
+RATING_BONUS_CODES = {"YHB", "LPH", "DKH"}            # Y, Luat, Duoc HN
 
 
 def combine_score(c1, c2, c3, c4, c5):
@@ -430,12 +433,14 @@ def main():
     for r in rated:
         code = r["university_code"]
         if code in RATING_BONUS_CODES:
-            sign = 1
+            sign, scale = 1, ADJUST_SCALE
         elif code in RATING_PENALTY_CODES:
-            sign = -1
+            sign, scale = -1, ADJUST_SCALE
+        elif code in RATING_LIGHT_PENALTY_CODES:
+            sign, scale = -1, LIGHT_ADJUST_SCALE
         else:
             continue
-        delta = round(sign * ADJUST_SCALE * r["admission_score_1"], 4)
+        delta = round(sign * scale * r["admission_score_1"], 4)
         new5 = round(min(max(r["final_rating_5"] + delta, 0.0), 5.0), 4)
         actual = round(new5 - r["final_rating_5"], 4)  # delta thuc te sau clamp
         r["final_rating_5"] = new5
@@ -496,11 +501,13 @@ def main():
         "military_vnur_neutral": military_vnur,
         "military_note": "Khoi quan doi/cong an (VNUR khong xep hang): 3 tieu chi VNUR = mean cua truong full (TRUNG TINH, khong thuong khong phat), diem chuan that. Khong cong bonus.",
         "manual_adjustment": {
-            "formula": "delta = sign * ADJUST_SCALE * admission_score_1; cong thang vao final_rating_5 (clamp [0,5]).",
+            "formula": "delta = sign * scale * admission_score_1; cong thang vao final_rating_5 (clamp [0,5]).",
             "scale": ADJUST_SCALE,
+            "light_scale": LIGHT_ADJUST_SCALE,
             "bonus_codes": sorted(RATING_BONUS_CODES),
             "penalty_codes": sorted(RATING_PENALTY_CODES),
-            "note": "Tru QHS/QHX (an theo diem VNUR truong me DHQGHN -> overrate); cong Y/Luat/Duoc HN/KT Mat ma (chuyen nganh manh, VNUR underrate). Dieu chinh ty le voi diem chuan tung truong.",
+            "light_penalty_codes": sorted(RATING_LIGHT_PENALTY_CODES),
+            "note": "Tru QHS/QHX (an theo diem VNUR truong me DHQGHN -> overrate); tru nhe BPH (HV Bien phong); cong Y/Luat/Duoc HN (chuyen nganh manh, VNUR underrate). Dieu chinh ty le voi diem chuan tung truong.",
         },
         "counts": {
             "supabase_universities": len(unis),
