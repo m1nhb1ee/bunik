@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
-import { getUniversities, toUiUniversity } from "../services/api";
+import { getAllUniversities } from "../services/api";
 import type { UiUniversity } from "../types/api";
 
 const ink = "#2B2722";
@@ -117,8 +117,15 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getUniversities({ page_size: 10, ordering: "name" })
-      .then((res) => setUniversities(res.results.map(toUiUniversity)))
+    getAllUniversities()
+      .then((items) =>
+        setUniversities(
+          items
+            .filter((item) => item.ranking < 999)
+            .sort((a, b) => a.ranking - b.ranking)
+            .slice(0, 10),
+        ),
+      )
       .catch(() => setUniversitiesError(true))
       .finally(() => setUniversitiesLoading(false));
   }, []);
@@ -365,7 +372,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="hide-scrollbar" style={{ display: "flex", gap: 20, overflowX: "auto", padding: "10px 4px 22px", scrollSnapType: "x mandatory" }}>
+        <div className="hide-scrollbar bunik-gold-track" style={{ display: "flex", gap: 20, overflowX: "auto", padding: "24px 40px 32px", margin: "-14px -40px -10px", scrollSnapType: "x mandatory" }}>
           {universitiesLoading ? (
             <div style={{ flex: "1 0 100%", minHeight: 174, display: "grid", placeItems: "center", border: `2px dashed ${muted}`, borderRadius: "18px 14px 20px 16px/16px 20px 14px 18px", background: "rgba(251,247,238,.55)" }}>
               <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 19, color: muted, margin: 0 }}>đang mở bảng vàng…</p>
@@ -380,7 +387,7 @@ export default function HomePage() {
             <Link
               key={u.id}
               to={`/truong/${u.id}`}
-              className="bunik-lift"
+              className="bunik-lift bunik-gold-card"
               style={{
                 scrollSnapAlign: "start",
                 flex: "none",

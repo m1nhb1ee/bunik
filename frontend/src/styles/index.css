@@ -122,6 +122,36 @@ a {
   transform: translateY(-6px);
 }
 
+.bunik-gold-track {
+  overflow-y: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%);
+}
+
+.bunik-gold-card {
+  transform-origin: 50% 70%;
+  transition:
+    opacity .22s ease,
+    transform .22s ease,
+    box-shadow .22s ease,
+    filter .22s ease;
+}
+
+.bunik-gold-track:hover .bunik-gold-card,
+.bunik-gold-track:focus-within .bunik-gold-card {
+  opacity: .42;
+  transform: translateY(13px) scale(.975);
+  filter: saturate(.82);
+}
+
+.bunik-gold-track:hover .bunik-gold-card:hover,
+.bunik-gold-track:focus-within .bunik-gold-card:focus-visible {
+  opacity: 1;
+  transform: translateY(-7px) scale(1.015);
+  filter: none;
+  box-shadow: 8px 10px 0 rgba(43,39,34,.12);
+}
+
 /* Shared production surfaces. Keep page-specific composition in page files. */
 .bunik-page {
   min-height: 72vh;

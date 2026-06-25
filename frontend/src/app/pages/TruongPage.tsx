@@ -190,7 +190,7 @@ export default function TruongPage() {
                   <div style={{ textAlign: "right" }}>
                     <div style={{ display: "flex", justifyContent: "flex-end" }}><StarRow value={u.userRating} size={13} /></div>
                     <p style={{ fontFamily: "'Patrick Hand', cursive", fontSize: 15, color: B.muted, margin: "4px 0 0" }}>
-                      {u.ratingCount > 0 ? `${u.ratingCount.toLocaleString()} đánh giá` : "chưa có đánh giá"}
+                      Rating {u.userRating > 0 ? u.userRating : "—"}
                     </p>
                   </div>
                 </div>
