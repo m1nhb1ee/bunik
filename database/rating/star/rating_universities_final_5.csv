@@ -1,42 +1,42 @@
 ﻿rating_rank,institution,university_code,final_rating_5,rating_type,vnur_score_1,admission_score_1,quality_teaching_score_1,research_innovation_score_1,learner_facilities_score_1,avg_admission_score_1,top10_admission_score_1,avg_thpt_score,top10_variant_avg_thpt_score,admission_latest_year,admission_source,vnur_source_institution,match_status
 1,ĐH Bách khoa Hà Nội,BKA,4.6825,full,0.9705,0.9025,0.987,0.987,0.9375,0.8528,0.9522,25.5852,28.565,2025,THPT,Đại học Bách khoa Hà Nội,matched
-2,ĐH Giáo dục – ĐHQGHN,QHS,4.6054,full,0.9288,0.9133,0.9323,0.9896,0.8646,0.9133,0.9133,27.4,27.4,2024,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-3,ĐH KHXH & Nhân văn – ĐHQGHN,QHX,4.5991,full,0.9288,0.9108,0.9323,0.9896,0.8646,0.8897,0.9319,26.6921,27.957,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-4,ĐH Công nghệ – ĐHQGHN,QHI,4.5304,full,0.9288,0.8833,0.9323,0.9896,0.8646,0.8582,0.9085,25.7455,27.255,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-5,ĐH Thương mại,TMU,4.5257,full,0.9306,0.8797,0.9297,0.8984,0.9635,0.8535,0.906,25.6045,27.18,2025,THPT,Trường Đại học Thương Mại,matched
-6,ĐH Sư phạm Hà Nội,SPH,4.5064,full,0.9071,0.8954,0.8828,0.8958,0.9427,0.8435,0.9474,25.304,28.422,2025,THPT,Trường Đại học Sư phạm Hà Nội,matched
-7,ĐH Ngoại ngữ – ĐHQGHN,QHF,4.4733,full,0.9288,0.8605,0.9323,0.9896,0.8646,0.8292,0.8918,24.8747,26.755,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-8,ĐH Kinh tế Quốc dân,KHA,4.4635,full,0.8793,0.9061,0.8203,0.8984,0.9193,0.872,0.9401,26.1606,28.204,2025,THPT,Đại học Kinh tế Quốc dân,matched
-9,ĐH Kinh tế – ĐHQGHN,QHE,4.372,full,0.9288,0.82,0.9323,0.9896,0.8646,0.82,0.82,24.6,24.6,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-10,ĐH Khoa học Tự nhiên – ĐHQGHN,QHT,4.3255,full,0.9288,0.8014,0.9323,0.9896,0.8646,0.7709,0.8319,23.1264,24.957,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-11,ĐH Luật – ĐHQGHN,QHL,4.3198,full,0.9288,0.7991,0.9323,0.9896,0.8646,0.7991,0.7991,23.9733,23.9733,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-12,ĐH Y Dược – ĐHQGHN,QHY,4.2472,full,0.9288,0.7701,0.9323,0.9896,0.8646,0.7701,0.7701,23.1017,23.1017,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-13,ĐH Ngoại thương,NTH,4.1087,full,0.7491,0.8944,0.7943,0.8099,0.6432,0.8679,0.9208,26.0372,27.624,2025,THPT,Trường Đại học Ngoại Thương,matched
-14,Học viện Biên phòng,BPH,4.0933,military_neutral,0.6618,0.9755,0.7435,0.6508,0.591,0.9755,0.9755,29.2662,29.2662,2025,THPT,,military_neutral
-15,Trường Quốc tế – ĐHQGHN,QHQ,4.0098,full,0.9288,0.6751,0.9323,0.9896,0.8646,0.6702,0.68,20.1071,20.4,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
-16,Học viện Kỹ thuật Quân sự,KQH,3.9925,military_neutral,0.6618,0.9353,0.7435,0.6508,0.591,0.9353,0.9353,28.0575,28.0575,2025,THPT,,military_neutral
-17,ĐH Công nghiệp Hà Nội,DCN,3.9681,full,0.8307,0.7565,0.8828,0.8516,0.7578,0.7112,0.8019,21.335,24.056,2025,THPT,Đại học Công nghiệp Hà Nội,matched
-18,Học viện Quân y,YQH,3.9599,military_neutral,0.6618,0.9222,0.7435,0.6508,0.591,0.9222,0.9222,27.6663,27.6663,2025,THPT,,military_neutral
-19,Học viện Khoa học Quân sự,NQH,3.9149,military_neutral,0.6618,0.9042,0.7435,0.6508,0.591,0.9042,0.9042,27.126,27.126,2025,THPT,,military_neutral
-20,Học viện Hậu cần,HEH,3.9095,military_neutral,0.6618,0.902,0.7435,0.6508,0.591,0.8819,0.9221,26.4575,27.664,2025,THPT,,military_neutral
-21,Học viện Ngân hàng,NHH,3.9032,full,0.7535,0.8078,0.8099,0.8151,0.6354,0.778,0.8376,23.3394,25.128,2025,THPT,Học viện Ngân hàng,matched
-22,HV Công nghệ Bưu chính Viễn thông,BVH,3.9004,full,0.7333,0.8268,0.7818,0.8628,0.5555,0.8048,0.8488,24.1444,25.464,2025,THPT,HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG (CÔNG LẬP),matched
-23,ĐH Giao thông Vận tải,GHA,3.8771,full,0.7231,0.8277,0.862,0.8646,0.4427,0.8013,0.8542,24.0388,25.625,2025,THPT,Trường Đại học Giao thông Vận tải,matched
-24,Học viện Báo chí và Tuyên truyền,HBT,3.859,full,0.6536,0.8899,0.8125,0.6016,0.5469,0.8614,0.9185,25.8409,27.556,2025,THPT,Học viện Báo chí và Tuyên truyền,matched
-25,Học viện Tài chính,HTC,3.8453,full,0.7179,0.8202,0.8203,0.7135,0.6198,0.7848,0.8557,23.5427,25.671,2025,THPT,Học viện Tài chính,matched
-26,ĐH Xây dựng Hà Nội,XDA,3.8441,full,0.7144,0.8232,0.8177,0.8672,0.4583,0.7895,0.857,23.6837,25.71,2025,THPT,Trường Đại học Xây dựng Hà Nội,matched
-27,ĐH Thủ đô Hà Nội,HNM,3.7858,full,0.6536,0.8607,0.6953,0.4766,0.7891,0.8272,0.8941,24.8174,26.824,2025,THPT,Trường Đại học Thủ đô Hà Nội,matched
-28,ĐH Luật Hà Nội,LPH,3.7763,full,0.6632,0.8473,0.8177,0.5443,0.6276,0.8473,0.8473,25.42,25.42,2025,THPT,Trường Đại học Luật Hà Nội,matched
-29,ĐH Y Hà Nội,YHB,3.7641,full,0.7248,0.7808,0.6458,0.8672,0.6615,0.7325,0.8291,21.9758,24.874,2025,THPT,Trường Đại học Y Hà Nội,matched
-30,ĐH Văn hóa Hà Nội,VHH,3.7381,full,0.6059,0.8893,0.8021,0.4036,0.612,0.8753,0.9034,26.259,27.101,2025,THPT,Trường Đại học Văn hoá Hà Nội,matched
-31,HV Phòng không - Không quân,PKH,3.7305,military_neutral,0.6618,0.8304,0.7435,0.6508,0.591,0.8304,0.8304,24.9125,24.9125,2025,THPT,,military_neutral
-32,ĐH Thủy lợi,TLA,3.7207,full,0.7405,0.7478,0.9167,0.8906,0.4141,0.7025,0.7932,21.0747,23.795,2025,THPT,Trường Đại học Thuỷ Lợi,matched
-33,Học viện Nông nghiệp Việt Nam,HVN,3.7121,full,0.7769,0.7079,0.8516,0.9167,0.5625,0.6812,0.7347,20.4368,22.04,2025,THPT,Học viện Nông nghiệp Việt Nam,matched
-34,ĐH Khoa Học và Công Nghệ Hà Nội,KCN,3.6913,full,0.7639,0.7126,0.9792,0.6328,0.6797,0.685,0.7402,20.551,22.207,2025,THPT,Trường Đại học Khoa học và Công nghệ Hà Nội,matched
-35,ĐH Kinh tế Kỹ thuật Công nghiệp,DKK,3.6743,full,0.6884,0.7814,0.7318,0.6901,0.6432,0.7467,0.816,22.4022,24.48,2025,THPT,Trường Đại học Kinh tế Kỹ thuật công nghiệp,matched
-36,ĐH Công đoàn,LDA,3.6635,full,0.697,0.7683,0.7448,0.5781,0.7682,0.7369,0.7997,22.1082,23.992,2025,THPT,Trường Đại học Công đoàn,matched
-37,ĐH Dược Hà Nội,DKH,3.6622,full,0.724,0.7409,0.8229,0.8281,0.5208,0.7409,0.7409,22.2275,22.2275,2025,THPT,Trường Đại học Dược Hà Nội,matched
-38,Học viện Kỹ thuật Mật mã,KMA,3.6564,military_neutral,0.6618,0.8008,0.7435,0.6508,0.591,0.8008,0.8008,24.0233,24.0233,2025,THPT,,military_neutral
+2,ĐH Công nghệ – ĐHQGHN,QHI,4.5304,full,0.9288,0.8833,0.9323,0.9896,0.8646,0.8582,0.9085,25.7455,27.255,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+3,ĐH Thương mại,TMU,4.5257,full,0.9306,0.8797,0.9297,0.8984,0.9635,0.8535,0.906,25.6045,27.18,2025,THPT,Trường Đại học Thương Mại,matched
+4,ĐH Sư phạm Hà Nội,SPH,4.5064,full,0.9071,0.8954,0.8828,0.8958,0.9427,0.8435,0.9474,25.304,28.422,2025,THPT,Trường Đại học Sư phạm Hà Nội,matched
+5,ĐH Ngoại ngữ – ĐHQGHN,QHF,4.4733,full,0.9288,0.8605,0.9323,0.9896,0.8646,0.8292,0.8918,24.8747,26.755,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+6,ĐH Kinh tế Quốc dân,KHA,4.4635,full,0.8793,0.9061,0.8203,0.8984,0.9193,0.872,0.9401,26.1606,28.204,2025,THPT,Đại học Kinh tế Quốc dân,matched
+7,ĐH Kinh tế – ĐHQGHN,QHE,4.372,full,0.9288,0.82,0.9323,0.9896,0.8646,0.82,0.82,24.6,24.6,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+8,ĐH Khoa học Tự nhiên – ĐHQGHN,QHT,4.3255,full,0.9288,0.8014,0.9323,0.9896,0.8646,0.7709,0.8319,23.1264,24.957,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+9,ĐH Luật – ĐHQGHN,QHL,4.3198,full,0.9288,0.7991,0.9323,0.9896,0.8646,0.7991,0.7991,23.9733,23.9733,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+10,ĐH Y Dược – ĐHQGHN,QHY,4.2472,full,0.9288,0.7701,0.9323,0.9896,0.8646,0.7701,0.7701,23.1017,23.1017,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+11,ĐH Luật Hà Nội,LPH,4.2,full,0.6632,0.8473,0.8177,0.5443,0.6276,0.8473,0.8473,25.42,25.42,2025,THPT,Trường Đại học Luật Hà Nội,matched | adj+0.424(admission-based)
+12,ĐH Y Hà Nội,YHB,4.1545,full,0.7248,0.7808,0.6458,0.8672,0.6615,0.7325,0.8291,21.9758,24.874,2025,THPT,Trường Đại học Y Hà Nội,matched | adj+0.390(admission-based)
+13,ĐH Giáo dục – ĐHQGHN,QHS,4.1487,full,0.9288,0.9133,0.9323,0.9896,0.8646,0.9133,0.9133,27.4,27.4,2024,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster | adj-0.457(admission-based)
+14,ĐH KHXH & Nhân văn – ĐHQGHN,QHX,4.1437,full,0.9288,0.9108,0.9323,0.9896,0.8646,0.8897,0.9319,26.6921,27.957,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster | adj-0.455(admission-based)
+15,ĐH Ngoại thương,NTH,4.1087,full,0.7491,0.8944,0.7943,0.8099,0.6432,0.8679,0.9208,26.0372,27.624,2025,THPT,Trường Đại học Ngoại Thương,matched
+16,Học viện Biên phòng,BPH,4.0933,military_neutral,0.6618,0.9755,0.7435,0.6508,0.591,0.9755,0.9755,29.2662,29.2662,2025,THPT,,military_neutral
+17,Học viện Kỹ thuật Mật mã,KMA,4.0568,military_neutral,0.6618,0.8008,0.7435,0.6508,0.591,0.8008,0.8008,24.0233,24.0233,2025,THPT,,military_neutral | adj+0.400(admission-based)
+18,ĐH Dược Hà Nội,DKH,4.0327,full,0.724,0.7409,0.8229,0.8281,0.5208,0.7409,0.7409,22.2275,22.2275,2025,THPT,Trường Đại học Dược Hà Nội,matched | adj+0.370(admission-based)
+19,Trường Quốc tế – ĐHQGHN,QHQ,4.0098,full,0.9288,0.6751,0.9323,0.9896,0.8646,0.6702,0.68,20.1071,20.4,2025,THPT,Đại học Quốc gia Hà Nội,matched_vnu_hn_cluster
+20,Học viện Kỹ thuật Quân sự,KQH,3.9925,military_neutral,0.6618,0.9353,0.7435,0.6508,0.591,0.9353,0.9353,28.0575,28.0575,2025,THPT,,military_neutral
+21,ĐH Công nghiệp Hà Nội,DCN,3.9681,full,0.8307,0.7565,0.8828,0.8516,0.7578,0.7112,0.8019,21.335,24.056,2025,THPT,Đại học Công nghiệp Hà Nội,matched
+22,Học viện Quân y,YQH,3.9599,military_neutral,0.6618,0.9222,0.7435,0.6508,0.591,0.9222,0.9222,27.6663,27.6663,2025,THPT,,military_neutral
+23,Học viện Khoa học Quân sự,NQH,3.9149,military_neutral,0.6618,0.9042,0.7435,0.6508,0.591,0.9042,0.9042,27.126,27.126,2025,THPT,,military_neutral
+24,Học viện Hậu cần,HEH,3.9095,military_neutral,0.6618,0.902,0.7435,0.6508,0.591,0.8819,0.9221,26.4575,27.664,2025,THPT,,military_neutral
+25,Học viện Ngân hàng,NHH,3.9032,full,0.7535,0.8078,0.8099,0.8151,0.6354,0.778,0.8376,23.3394,25.128,2025,THPT,Học viện Ngân hàng,matched
+26,HV Công nghệ Bưu chính Viễn thông,BVH,3.9004,full,0.7333,0.8268,0.7818,0.8628,0.5555,0.8048,0.8488,24.1444,25.464,2025,THPT,HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG (CÔNG LẬP),matched
+27,ĐH Giao thông Vận tải,GHA,3.8771,full,0.7231,0.8277,0.862,0.8646,0.4427,0.8013,0.8542,24.0388,25.625,2025,THPT,Trường Đại học Giao thông Vận tải,matched
+28,Học viện Báo chí và Tuyên truyền,HBT,3.859,full,0.6536,0.8899,0.8125,0.6016,0.5469,0.8614,0.9185,25.8409,27.556,2025,THPT,Học viện Báo chí và Tuyên truyền,matched
+29,Học viện Tài chính,HTC,3.8453,full,0.7179,0.8202,0.8203,0.7135,0.6198,0.7848,0.8557,23.5427,25.671,2025,THPT,Học viện Tài chính,matched
+30,ĐH Xây dựng Hà Nội,XDA,3.8441,full,0.7144,0.8232,0.8177,0.8672,0.4583,0.7895,0.857,23.6837,25.71,2025,THPT,Trường Đại học Xây dựng Hà Nội,matched
+31,ĐH Thủ đô Hà Nội,HNM,3.7858,full,0.6536,0.8607,0.6953,0.4766,0.7891,0.8272,0.8941,24.8174,26.824,2025,THPT,Trường Đại học Thủ đô Hà Nội,matched
+32,ĐH Văn hóa Hà Nội,VHH,3.7381,full,0.6059,0.8893,0.8021,0.4036,0.612,0.8753,0.9034,26.259,27.101,2025,THPT,Trường Đại học Văn hoá Hà Nội,matched
+33,HV Phòng không - Không quân,PKH,3.7305,military_neutral,0.6618,0.8304,0.7435,0.6508,0.591,0.8304,0.8304,24.9125,24.9125,2025,THPT,,military_neutral
+34,ĐH Thủy lợi,TLA,3.7207,full,0.7405,0.7478,0.9167,0.8906,0.4141,0.7025,0.7932,21.0747,23.795,2025,THPT,Trường Đại học Thuỷ Lợi,matched
+35,Học viện Nông nghiệp Việt Nam,HVN,3.7121,full,0.7769,0.7079,0.8516,0.9167,0.5625,0.6812,0.7347,20.4368,22.04,2025,THPT,Học viện Nông nghiệp Việt Nam,matched
+36,ĐH Khoa Học và Công Nghệ Hà Nội,KCN,3.6913,full,0.7639,0.7126,0.9792,0.6328,0.6797,0.685,0.7402,20.551,22.207,2025,THPT,Trường Đại học Khoa học và Công nghệ Hà Nội,matched
+37,ĐH Kinh tế Kỹ thuật Công nghiệp,DKK,3.6743,full,0.6884,0.7814,0.7318,0.6901,0.6432,0.7467,0.816,22.4022,24.48,2025,THPT,Trường Đại học Kinh tế Kỹ thuật công nghiệp,matched
+38,ĐH Công đoàn,LDA,3.6635,full,0.697,0.7683,0.7448,0.5781,0.7682,0.7369,0.7997,22.1082,23.992,2025,THPT,Trường Đại học Công đoàn,matched
 39,Học viện An ninh nhân dân,ANH,3.642,military_neutral,0.6618,0.795,0.7435,0.6508,0.591,0.7769,0.8132,23.3069,24.395,2025,THPT,,military_neutral
 40,ĐH Kiểm sát Hà Nội,DKS,3.612,full,0.6163,0.8285,0.6797,0.3854,0.7839,0.8285,0.8285,24.855,24.855,2025,THPT,Trường Đại học Kiểm sát Hà Nội,matched
 41,ĐH Phenikaa,PKA,3.59,full,0.7405,0.6955,0.5625,0.9505,0.7083,0.6461,0.745,19.3828,22.35,2025,THPT,Đại học Phenikaa,matched
