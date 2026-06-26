@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown, ChevronRight, Save, ToggleLeft, ToggleRight, X } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useBlocker } from "react-router";
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -12,7 +12,9 @@ import {
 } from "recharts";
 import {
   addMyAchievement,
+  addMyCertificate,
   deleteMyAchievement,
+  deleteMyCertificate,
   getAwardsCatalog,
   getMyAchievements,
   getMyCertificates,
@@ -22,7 +24,7 @@ import {
   updateMySubjectProfile,
   type ProfileUpdatePayload,
 } from "../services/api";
-import type { ApiAchievement, ApiAward, ApiSchoolSubject, ApiSubjectResult } from "../types/api";
+import type { ApiAchievement, ApiAward, ApiCertificate, ApiSchoolSubject, ApiSubjectResult } from "../types/api";
 import { B, CenterNote, SketchHeading, cardStyle } from "../components/bunik";
 import { NumberField } from "../components/NumberField";
 
@@ -170,6 +172,7 @@ export default function HoSoPage() {
   const [specialScore, setSpecialScore] = useState(0);
   const [ieltScore, setIeltScore] = useState(0);
   const [satScore, setSatScore] = useState(0);
+  const [savedCertificates, setSavedCertificates] = useState<ApiCertificate[]>([]);
   const [awardsCatalog, setAwardsCatalog] = useState<ApiAward[]>([]);
   const [savedAchievements, setSavedAchievements] = useState<ApiAchievement[]>([]);
   const [selectedAchievements, setSelectedAchievements] = useState<SelectedAchievement[]>([]);
@@ -181,6 +184,8 @@ export default function HoSoPage() {
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [userName, setUserName] = useState("Học sinh của tôi");
+  // Baseline snapshot of the saved form, used to detect unsaved edits.
+  const [savedSnapshot, setSavedSnapshot] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -222,6 +227,7 @@ export default function HoSoPage() {
           })),
         );
         const certs = certificateResponse.results || [];
+        setSavedCertificates(certs);
         const ielts = certs.find((item) => item.name.toLowerCase().includes("ielts"))?.score || 0;
         const sat = certs.find((item) => item.name.toLowerCase().includes("sat"))?.score || 0;
         setIeltScore(ielts);
@@ -244,6 +250,50 @@ export default function HoSoPage() {
 
     fetchUserProfile();
   }, []);
+
+  // Stable, order-independent representation of every editable field. Compared
+  // against the last-saved baseline to know whether there are unsaved edits.
+  const formSnapshot = useMemo(() => JSON.stringify({
+    userName: userName.trim(),
+    isChuyenClass,
+    specialSubject,
+    specialScore: isChuyenClass ? specialScore : 0,
+    electives: [...selectedElectives].sort(),
+    results: Object.keys(subjectResults).sort().map((code) => [
+      code, subjectResults[code].numeric_score, subjectResults[code].assessment_status,
+    ]),
+    achievements: selectedAchievements
+      .map((item) => ({ award_id: item.award_id, prize: item.prize }))
+      .sort((a, b) => a.award_id - b.award_id || a.prize.localeCompare(b.prize)),
+    ieltScore,
+    satScore,
+  }), [userName, isChuyenClass, specialSubject, specialScore, selectedElectives, subjectResults, selectedAchievements, ieltScore, satScore]);
+
+  // Capture the baseline once the profile has loaded, and re-capture after a
+  // save resets it to null (so it picks up the freshly persisted values).
+  useEffect(() => {
+    if (!loading && !error && savedSnapshot === null) {
+      setSavedSnapshot(formSnapshot);
+    }
+  }, [loading, error, savedSnapshot, formSnapshot]);
+
+  const isDirty = savedSnapshot !== null && savedSnapshot !== formSnapshot;
+
+  // Block in-app navigation (React Router) while there are unsaved edits.
+  const blocker = useBlocker(
+    ({ currentLocation, nextLocation }) => isDirty && currentLocation.pathname !== nextLocation.pathname,
+  );
+
+  // Warn on tab close / refresh too.
+  useEffect(() => {
+    if (!isDirty) return;
+    const handler = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [isDirty]);
 
   const selectedAwards = useMemo(() => (
     selectedAchievements
@@ -469,13 +519,27 @@ export default function HoSoPage() {
           prize: normalizePrize(item.prize),
         })),
       );
+
+      // Re-sync certificates: drop the saved set, recreate IELTS/SAT from the
+      // current scores. Only persist a certificate when its score is > 0.
+      await Promise.all(savedCertificates.map((certificate) => deleteMyCertificate(token, certificate.id)));
+      const certsToCreate: Array<{ name: string; score: number }> = [];
+      if (ieltScore > 0) certsToCreate.push({ name: "IELTS", score: ieltScore });
+      if (satScore > 0) certsToCreate.push({ name: "SAT", score: satScore });
+      await Promise.all(certsToCreate.map((certificate) => addMyCertificate(token, certificate)));
+      const refreshedCerts = await getMyCertificates(token);
+      setSavedCertificates(refreshedCerts.results || []);
+      // Reset the baseline so the just-saved state is no longer flagged dirty.
+      setSavedSnapshot(null);
       setSaveMessage(
         canSaveSubjects
           ? "Đã lưu hồ sơ"
           : "Đã lưu hồ sơ — chọn đủ 4 môn lựa chọn để lưu điểm học lực.",
       );
+      return true;
     } catch (err) {
       setError(err instanceof Error ? err.message : "Không thể lưu hồ sơ");
+      return false;
     } finally {
       setSaving(false);
     }
@@ -1086,6 +1150,52 @@ export default function HoSoPage() {
           </div>
         </div>
       )}
+
+      {blocker.state === "blocked" ? (
+        <div className="bunik-modal-backdrop" role="presentation">
+          <section
+            className="bunik-modal"
+            style={{ ...cardStyle({ shadow: `6px 7px 0 ${B.terracotta}` }), padding: 24, maxWidth: 440 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="unsaved-title"
+          >
+            <h2 id="unsaved-title" style={{ fontFamily: "'Shantell Sans', cursive", fontSize: 22, color: B.ink, margin: "0 0 6px" }}>
+              Hồ sơ chưa được lưu
+            </h2>
+            <p style={{ color: B.body, lineHeight: 1.6, margin: "0 0 20px", fontSize: 14 }}>
+              Bạn có thay đổi chưa được lưu. Bạn muốn lưu hồ sơ trước khi rời trang không?
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "flex-end" }}>
+              <button
+                type="button"
+                onClick={() => blocker.reset?.()}
+                style={{ padding: "10px 16px", border: `2px solid ${B.ink}`, borderRadius: 12, background: B.paper, color: B.ink, fontWeight: 700, fontSize: 13 }}
+              >
+                Ở lại
+              </button>
+              <button
+                type="button"
+                onClick={() => blocker.proceed?.()}
+                style={{ padding: "10px 16px", border: `2px solid ${B.ink}`, borderRadius: 12, background: B.paper, color: B.terracotta, fontWeight: 700, fontSize: 13 }}
+              >
+                Rời đi, không lưu
+              </button>
+              <button
+                type="button"
+                disabled={saving}
+                onClick={async () => {
+                  const ok = await handleSave();
+                  if (ok) blocker.proceed?.();
+                }}
+                style={{ padding: "10px 16px", border: `2px solid ${B.ink}`, borderRadius: 12, background: B.olive, color: B.paperLight, fontWeight: 800, fontSize: 13, opacity: saving ? 0.7 : 1 }}
+              >
+                {saving ? "Đang lưu…" : "Lưu rồi rời"}
+              </button>
+            </div>
+          </section>
+        </div>
+      ) : null}
     </div>
   );
 }

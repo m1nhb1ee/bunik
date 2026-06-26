@@ -33,6 +33,7 @@ from core.errors.classification import (
 from core.emailer import send_verification_email
 from core.supabase_client import (
     generate_signup_link,
+    get_auth_client,
     get_client,
     get_service_client,
     get_user_client,
@@ -242,7 +243,7 @@ class LoginView(APIView):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
-        auth_client = get_client()
+        auth_client = get_auth_client()
         try:
             auth_resp = auth_client.auth.sign_in_with_password({'email': data['gmail'], 'password': data['password']})
             if not auth_resp or not auth_resp.session:

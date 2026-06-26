@@ -62,6 +62,7 @@ SCORE_COLUMNS = [
     "year",
     "score",
     "note",
+    "subject_group_codes",
     "quota",
 ]
 
@@ -595,6 +596,10 @@ def build_score_row(
 
     admission_name = clean_text(source_row.get("admission_name")) or method.name
     note           = clean_text(source_row.get("introtext"))
+    # All khối this cutoff applies to. Stored as a comma-joined list so the
+    # cleaner can build the admission_score <-> subject_group junction (a single
+    # cutoff may cover several combos, e.g. "A00,A01,D01,D07").
+    subject_group_codes = ",".join(split_subject_groups(source_row.get("block")))
 
     return {
         "id":                    str(uuid.uuid4()),
@@ -611,6 +616,7 @@ def build_score_row(
         "year":                  source_row.get("year"),
         "score":                 score,
         "note":                  note,
+        "subject_group_codes":   subject_group_codes,
     }
 
 # ── CSV I/O ───────────────────────────────────────────────────────────────────

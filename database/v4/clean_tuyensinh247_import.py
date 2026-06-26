@@ -414,6 +414,7 @@ def build_subject_groups(
     raw_subject_rows: list[dict[str, str]],
     input_dir: Path,
     catalog: dict[str, dict[str, dict[str, Any]]],
+    extra_codes: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     legacy_subjects: dict[str, tuple[str, str, str]] = {}
     legacy_path = input_dir / "subject_groups.csv"
@@ -431,6 +432,7 @@ def build_subject_groups(
                 catalog_verified_groups.update(entry.get("subject_groups", []))
 
     codes = {clean_text(row.get("subject_group_code", "")).upper() for row in raw_subject_rows}
+    codes |= {c.upper() for c in (extra_codes or set())}
     output = []
     for code in sorted(c for c in codes if c):
         subjects = legacy_subjects.get(code) or SUBJECTS.get(code)
@@ -643,13 +645,32 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
             # Chỉ những ngành không có tên ngành mới phải vứt vào Missing
             program_rows_missing.append(row_data)
 
-    # ── Admission scores (import) ─────────────────────────────────────────────
+    # ── Admission scores (import) + score<->subject junction ──────────────────
     score_import_rows: list[dict[str, Any]] = []
+    score_subject_rows: list[dict[str, Any]] = []
+    score_subject_seen: set[tuple[str, str]] = set()
+    score_block_codes: set[str] = set()
     for row in clean_scores:
         program_id = program_map[(row["university_short_name"], row["program_source_code"])]
         source_id = source_int(row["source_id"])
+        score_id = stable_uuid(SOURCE, row["source_id"])
+
+        # All khối this cutoff covers (may be several); keep the legacy single
+        # column only when unambiguous, and emit one junction row per code.
+        codes = [c for c in clean_text(row.get("subject_group_codes", "")).upper().split(",") if c]
+        legacy_code = codes[0] if len(codes) == 1 else ""
+        for code in codes:
+            score_block_codes.add(code)
+            pair = (score_id, code)
+            if pair not in score_subject_seen:
+                score_subject_seen.add(pair)
+                score_subject_rows.append({
+                    "admission_score_id": score_id,
+                    "subject_group_code": code,
+                })
+
         score_import_rows.append({
-            "id":                   stable_uuid(SOURCE, row["source_id"]),
+            "id":                   score_id,
             "university_program_id": program_id,
             "admission_method_code": row["admission_method_code"],
             "year":                 row["year"],
@@ -664,7 +685,7 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
             "variant_label":        row["note"],
             "gender":               "",
             "region_code":          "",
-            "subject_group_code":   "",
+            "subject_group_code":   legacy_code,
             "normalized_score":     "",
             "normalized_scale":     "",
         })
@@ -749,7 +770,7 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
     # ── Ghi output ────────────────────────────────────────────────────────────
     all_uni_codes = {r["university_short_name"] for r in clean_scores} | set(catalog.keys())
     university_rows    = [universities[c] for c in sorted(all_uni_codes) if c in universities]
-    subject_group_rows = build_subject_groups(raw_subjects, input_dir, catalog)
+    subject_group_rows = build_subject_groups(raw_subjects, input_dir, catalog, score_block_codes)
     unresolved_majors  = [r for r in major_catalog_rows if r["field_code"] == "khac"]
 
     unmatched_programs: list[dict[str, Any]] = []
@@ -872,6 +893,10 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
                "subject_group_code", "normalized_score", "normalized_scale"],
               score_import_rows)
 
+    write_csv(output_dir / "admission_score_subject_groups.csv",
+              ["admission_score_id", "subject_group_code"],
+              score_subject_rows)
+
     write_csv(output_dir / "review_unresolved_major_fields.csv",
               ["code", "name", "field_code", "description"],
               unresolved_majors)
@@ -882,6 +907,7 @@ def clean(input_dir: Path, output_dir: Path, universities_file: Path) -> None:
 
     # ── Summary ───────────────────────────────────────────────────────────────
     print(f"Clean scores       : {len(score_import_rows)}")
+    print(f"Score-subject pairs: {len(score_subject_rows)} → admission_score_subject_groups.csv")
     print(f"Programs (Complete): {len(program_rows_complete)} → university_programs_complete.csv")
     print(f"Programs (Missing) : {len(program_rows_missing)} → university_programs_missing.csv")
     print(f"Program-subject    : {len(program_subject_rows)}")

@@ -57,22 +57,35 @@ type MethodTable = {
   rows: VariantRow[];
 };
 
+function getSubjectGroupCodes(score: ApiAdmissionScore): string[] {
+  const fromJunction = (score.admission_score_subject_groups ?? [])
+    .map((item) => item.subject_group_code)
+    .filter(Boolean);
+  const codes = fromJunction.length
+    ? fromJunction
+    : score.subject_group_code
+      ? [score.subject_group_code]
+      : [];
+  return Array.from(new Set(codes)).sort();
+}
+
 function getVariantIdentity(score: ApiAdmissionScore): string {
   const sourceIndependentKey = score.variant_key?.startsWith("source:") ? "" : score.variant_key ?? "";
   return [
     score.university_program_id,
     sourceIndependentKey,
     score.variant_label ?? "",
-    score.subject_group_code ?? "",
+    getSubjectGroupCodes(score).join(","),
     score.gender ?? "",
     score.region_code ?? "",
   ].join("|");
 }
 
 function getVariantLabel(score: ApiAdmissionScore): string {
+  const codes = getSubjectGroupCodes(score);
   const details = [
     score.variant_label,
-    score.subject_group_code ? `Tổ hợp ${score.subject_group_code}` : null,
+    codes.length ? `Tổ hợp ${codes.join(", ")}` : null,
     score.gender ? `Giới tính ${score.gender}` : null,
     score.region_code ? `Khu vực ${score.region_code}` : null,
   ].filter(Boolean);
