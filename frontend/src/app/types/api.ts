@@ -109,6 +109,7 @@ export type ApiAdmissionScore = {
   gender: string | null;
   region_code: string | null;
   subject_group_code: string | null;
+  admission_score_subject_groups?: { subject_group_code: string }[];
   admission_method_code: string;
   admission_methods: ApiAdmissionMethod | null;
   university_program_id: string;

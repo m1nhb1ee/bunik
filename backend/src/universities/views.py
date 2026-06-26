@@ -62,6 +62,7 @@ class UniversityViewSet(ViewSet):
     _SELECT_SCORES = (
         'id, year, score, normalized_score, normalized_scale, note, '
         'variant_key, source_program_code, variant_label, gender, region_code, subject_group_code, '
+        'admission_score_subject_groups(subject_group_code), '
         'admission_method_code, admission_methods(code, name), '
         'university_program_id, '
         'university_programs!inner('

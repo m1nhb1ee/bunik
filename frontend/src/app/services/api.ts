@@ -206,6 +206,17 @@ export async function getMyCertificates(token: string): Promise<{ results: ApiCe
   return get('/auth/me/certificates/', {}, token);
 }
 
+export async function addMyCertificate(
+  token: string,
+  payload: { name: string; score?: number | null; date?: string },
+): Promise<{ message: string; certificate: ApiCertificate }> {
+  return post('/auth/me/certificates/', payload, token);
+}
+
+export async function deleteMyCertificate(token: string, certificateId: number): Promise<{ message: string }> {
+  return del(`/auth/me/certificates/${certificateId}/`, token);
+}
+
 // ---------------------------------------------------------------------------
 // API fetch functions
 // ---------------------------------------------------------------------------
