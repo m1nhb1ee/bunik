@@ -1,5 +1,5 @@
 from django.conf import settings
-from supabase import create_client, Client
+from supabase import create_client, Client, ClientOptions
 import logging
 import time
 from urllib import request as urlrequest
@@ -24,6 +24,22 @@ def get_user_client(access_token: str) -> Client:
     client = create_client(settings.SUPABASE_URL, settings.SUPABASE_ANON_KEY)
     client.postgrest.auth(access_token)
     return client
+
+
+def get_auth_client() -> Client:
+    """Fresh, throwaway client for auth flows (sign-in).
+
+    Signing in mutates the client's stored session and, via supabase-py's auth
+    listener, rewrites its PostgREST token to the user's JWT. Using the shared
+    anon client for that would poison every later public read once the user
+    token expires (PGRST303). This client is never reused for reads, and
+    disables session persistence / background refresh so it leaves nothing
+    behind."""
+    return create_client(
+        settings.SUPABASE_URL,
+        settings.SUPABASE_ANON_KEY,
+        options=ClientOptions(auto_refresh_token=False, persist_session=False),
+    )
 
 
 def get_service_client() -> Client:
