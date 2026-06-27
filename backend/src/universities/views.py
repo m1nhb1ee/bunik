@@ -66,7 +66,7 @@ class UniversityViewSet(ViewSet):
         'admission_method_code, admission_methods(code, name), '
         'university_program_id, '
         'university_programs!inner('
-        '  id, university_short_name, major_code, '
+        '  id, university_short_name, major_code, program_name, '
         '  universities!university_programs_university_short_name_fkey(id, name, code), '
         '  major_catalog(code, name)'
         ')'

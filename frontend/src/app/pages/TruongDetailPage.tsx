@@ -114,7 +114,7 @@ export function buildMethodTables(scores: ApiAdmissionScore[]): MethodTable[] {
         key: rowKey,
         programId: prog.id,
         majorCode: prog.major_code,
-        majorName: prog.major_catalog?.name ?? prog.major_code,
+        majorName: prog.program_name ?? prog.major_catalog?.name ?? prog.major_code,
         variant: getVariantLabel(s),
         scores: {},
       });
@@ -133,12 +133,16 @@ export function buildMethodTables(scores: ApiAdmissionScore[]): MethodTable[] {
   }
 
   return Array.from(methods, ([code, method]) => {
-    const rows = Array.from(method.rows.values()).sort((a, b) =>
+    const allRows = Array.from(method.rows.values()).sort((a, b) =>
       a.majorName.localeCompare(b.majorName, "vi") || a.variant.localeCompare(b.variant, "vi")
     );
-    const years = Array.from(new Set(rows.flatMap((row) => Object.keys(row.scores))))
+    const years = Array.from(new Set(allRows.flatMap((row) => Object.keys(row.scores))))
       .sort((a, b) => Number(a) - Number(b))
       .slice(-3);
+    const yearSet = new Set(years);
+    // Drop variants without any score in the 3 displayed years — they render as
+    // all-dash rows and only dilute the table.
+    const rows = allRows.filter((row) => Object.keys(row.scores).some((yr) => yearSet.has(yr)));
     return { code, name: method.name, years, rows };
   }).sort((a, b) => a.name.localeCompare(b.name, "vi"));
 }

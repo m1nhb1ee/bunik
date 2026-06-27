@@ -117,6 +117,7 @@ export type ApiAdmissionScore = {
     id: string;
     university_short_name: string;
     major_code: string;
+    program_name: string | null;
     universities: { id: string; name: string; code: string } | null;
     major_catalog: { code: string; name: string } | null;
   };
